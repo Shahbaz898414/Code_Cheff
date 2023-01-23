@@ -1,0 +1,13 @@
+{
+  "files.associations": {
+    "cstdlib": "cpp",
+    "ostream": "cpp",
+    "thread": "cpp",
+    "deque": "cpp",
+    "string": "cpp",
+    "vector": "cpp",
+    "random": "cpp",
+    "iostream": "cpp",
+    "array": "cpp"
+  }
+}

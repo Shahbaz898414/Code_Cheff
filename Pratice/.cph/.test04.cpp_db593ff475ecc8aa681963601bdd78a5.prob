@@ -1,0 +1,1 @@
+{"name":"Local: test04","url":"c:\\Users\\91771\\Desktop\\cpp\\code cheff\\Pratice\\1000-1200\\test04.cpp","tests":[{"id":1650693025168,"input":"3\n5\n1 1 1 -1 -1\n3\n1 1 1\n6\n1 -1 -1 -1 -1 1\n","output":""}],"interactive":false,"memoryLimit":1024,"timeLimit":3000,"srcPath":"c:\\Users\\91771\\Desktop\\cpp\\code cheff\\Pratice\\1000-1200\\test04.cpp","group":"local","local":true}
