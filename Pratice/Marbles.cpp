@@ -6,30 +6,29 @@ int main(){
   int t;cin>>t;
 
   while(t--){
-    ll n;
-    cin>>n;
-    string s,p;
-    cin>>s>>p;
-    ll a[n],min=100000,sum=0;
+    ll n,m;
+    cin>>n>>m;
+    // string s,p;
+    // cin>>s>>p;
+    ll a[n],min=100000,sum=1;
 
-    for (int i = 0; i <n; i++) {
-      cin>>s[i];
-      cin>>p[i];
+    if(n==m){
+      cout<<1<<endl;
+    }else {
+      for (int i =1; i <m; i++) {
+        
+        sum=sum*(n-m+i)/i;
+      }
       
+
+      cout<<sum<<endl;
+
     }
 
-    
+
     
 
-    // for (int i = 0; i <n; i++) {
-      
-      
-    //     sum+=a[i];
-      
-    // }
-    
    
-    // cout<<sum-min<<endl;
   }
   return 0;
 }

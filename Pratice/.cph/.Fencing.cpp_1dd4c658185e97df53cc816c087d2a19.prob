@@ -1,0 +1,1 @@
+{"name":"Local: Fencing","url":"c:\\Users\\91771\\Desktop\\cpp\\code_cheff\\Pratice\\Fencing.cpp","tests":[{"id":1674558180117,"input":"2\n4 4 9\n1 4\n2 1 \n2 2\n2 3\n3 1\n3 3\n4 1\n4 2\n4 3\n4 4 1\n1 1","output":""}],"interactive":false,"memoryLimit":1024,"timeLimit":3000,"srcPath":"c:\\Users\\91771\\Desktop\\cpp\\code_cheff\\Pratice\\Fencing.cpp","group":"local","local":true}
