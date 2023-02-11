@@ -154,28 +154,37 @@ void seive()
   }
 }
 
+int powr(int p)
+{
+    if(p==0){
+        return 1;
+        
+    }
+    if(p==1){
+        return 2;
+    }
+    if(p%2==1){
+        return powr(p-1)*2LL%mod;
+        
+    }
+    int q=powr(p/2);
+    return q*1LL*q % mod;
+}
+
 
 
 int32_t main() {
-
-  ll t; cin >> t;
+ 
   // seive();
+  int t;cin>>t;
   while (t--) {
-
-        long long x,k;
-        cin>>x>>k;
-        long long a=log2(k);
-        // cout<<a<<endl;
-        long long b=k-pow(2,a);
-        // cout<<b<<endl;
-        double c=x/pow(2,a+1)*(2*b+1);
-
-        // cout<<c<<endl;
-        cout<<fixed<<setprecision(10)<<c<<endl;
-    
-
+   int n;cin>>n;
+   vector<int> odd,even;
+    if(n==2||n==1) cout<<0<<endl;
+    else{
+      cout<<powr(n-1)-2<<endl;
+    }
   }
   return 0;
 }
 
-// 1b 4d
