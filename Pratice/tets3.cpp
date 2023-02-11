@@ -37,27 +37,12 @@ void precompute()
 } 
 void solve() 
 { 
-    int n; 
-    cin >> n; 
- 
-    string A, B; 
-    cin >> A >> B; 
- 
-    int cnt = 0; 
-    for (int i = 0; i < n; i++) 
-    { 
-        if (A[i] == B[i]) 
-            cnt++; 
-    } 
-    if ((n - cnt) % 2) 
-    { 
-        cout << 0 << endl; 
-        return; 
-    } 
-    n -= cnt; 
-    int ans = binpow(2, cnt); 
-    ans = mul(ans, mul(fact[n], mul(invfact[n / 2], invfact[n / 2]))); 
-    cout << ans << endl; 
+    for (int i = 1; i < 1000000; i++)
+    {
+        /* code */
+        if(i%13==0) cout<<i<<endl;
+    }
+     
 } 
  
 int32_t main() 
@@ -65,9 +50,9 @@ int32_t main()
     precompute(); 
     ios_base::sync_with_stdio(false); 
     cin.tie(0); 
-    int T = 1; 
-    cin >> T; 
+    // int T = 1; 
+    // cin >> T; 
  
-    while (T--) 
+    // while (T--) 
         solve(); 
 }// min hamming
