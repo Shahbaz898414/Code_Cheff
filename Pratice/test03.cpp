@@ -36,9 +36,26 @@ signed main()
 
   ll t = 1;
   cin >> t;
-  while (t--)
-  {
-    qwe();
+  while (t--) {
+    ll n,m;cin>>n>>m;
+
+    int cp1=0,cp2=0;
+   for (int i = 0; i < n; i++)
+   {
+    /* code */
+    ll x,y;cin>>x>>y;
+    if(x==m) cp1++;
+
+    if(y==m) cp2++;
+   }
+
+   if(cp1>0 and cp2>0)  {
+    cout<<"YES"<<endl;
+    continue;
+   }
+
+   cout<<"NO"<<endl;
+   
   }
   return 0;
 }

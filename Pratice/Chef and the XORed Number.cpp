@@ -146,12 +146,17 @@ int32_t main() {
     ll t;cin >> t;
     while(t--) {
        
-        for(int i = 1;i<=1000;i+=2) {
-            cout << i*i << endl;
-            int ans;
-            cin >> ans;
-            if (ans==1) break;
-        }
+       ll n;cin>>n;
+       cout<<log2(n+1)<<endl;
+       if(n==1) cout<<2<<endl;
+
+       else if(log2(n+1)==(int)log2(n+1)){
+          int x=(int) log2(n+1);
+          ll ans=pow(2,x-1);
+          cout<<ans-1<<endl;
+          
+       }else cout<<-1<<endl;
+
     }
   return 0;
 }
