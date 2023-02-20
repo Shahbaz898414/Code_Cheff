@@ -98,6 +98,22 @@ void _print(set<T> v)
   cerr << "]";
 }
 
+bool prime(long long int n)
+{
+    for(int i=2; i<=sqrt(n); )
+    {
+        if(n % i == 0)
+            return false;
+        if(i==2)
+            i++; 
+        else
+            i+=2;
+    }
+    if(n == 1 or n==0)
+        return false;
+    return true;
+}
+
 int add(ll a, ll b) {
   return ((a % mod) + (b % mod)) % mod;
 }
@@ -116,50 +132,43 @@ bool isValid(string s) {
 }
 
 
-/*
-ll solve(ll n , ll k) {
-	if(n == 1 and k != 0) return 1;
-	if(n == 0) return 0;
-	if(dp[n][k] != -1) return dp[n][k];
-
-	ll ans = 0;
-	for(ll i = 0 ; i <= K ; i++) {
-		if(i != k) ans = (ans + solve(n - 1 , i)) % MOD;
-	}
-
-	return dp[n][k] = ans;
-}
-
-inline void getMeTheSolution() {
-  
-	cin >> N >> K;
-	ll n = N , k = K;
-
-	dp = vvll (N + 1 , vll (K + 1 , -1));
-	cout << solve(n , 0) nl;
-}*/
-
-
-
 int32_t main() {
     fast
-    ll t;cin >> t;
-    while(t--) {
-       
-       ll n;cin>>n;
+   	// your code goes here
+	ios_base::sync_with_stdio(false);
+	cin.tie(NULL);
+	cout.tie(NULL);
+	vector<ll>v(100001,0);
+	v[1]=0;
+	v[2]=1;
+	for(ll i=3;i<100001;i++){
+	   v[i]=(v[i-1] + v[i-2]);
+	}
+	ll t;
+	cin>>t;
+	while(t--)
+	{
+      string s;
+      cin>>s;
+      ll val=0;
+      for(ll i=0;i<s.size();i++)
+         val=val*10 +(s[i]-'0');
+      // cout<<val<<endl;
       
-       if(n==1) cout<<2<<endl;
-
-       else if(log2(n+1)==(int)log2(n+1)){
-          int x=(int) log2(n+1);
-          
-          ll ans=pow(2,x-1);
-         
-          cout<<ans-1<<endl;
-          
-       }else cout<<-1<<endl;
-
-    }
+      bool flag=0;
+      for(ll i=1;i<100001;i++)
+      {
+          if(v[i]==val)
+          {
+              flag=1;
+              break;
+          }
+      }
+      if(flag)
+      cout<<"YES\n";
+      else
+      cout<<"NO\n";
+	}
   return 0;
 }
 
