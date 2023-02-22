@@ -100,21 +100,22 @@ void _print(set<T> v)
 
 bool prime(long long int n)
 {
-    for(int i=2; i<=sqrt(n); )
-    {
-        if(n % i == 0)
-            return false;
-        if(i==2)
-            i++; 
-        else
-            i+=2;
-    }
-    if(n == 1 or n==0)
-        return false;
-    return true;
+  for (int i = 2; i <= sqrt(n);)
+  {
+    if (n % i == 0)
+      return false;
+    if (i == 2)
+      i++;
+    else
+      i += 2;
+  }
+  if (n == 1 or n == 0)
+    return false;
+  return true;
 }
 
-int add(ll a, ll b) {
+int add(ll a, ll b)
+{
   return ((a % mod) + (b % mod)) % mod;
 }
 
@@ -122,43 +123,43 @@ const long long inf = 1e18;
 const int MOD = 998244353;
 const int MAX = 1e6;
 
-bool isValid(string s) {
+bool isValid(string s)
+{
   int len = s.size();
-  for (int i = 0; i < len / 2; i++) {
+  for (int i = 0; i < len / 2; i++)
+  {
     if (s[i] != s[len - 1 - i])
       return false;
   }
   return true;
 }
 
+int32_t main()
+{
+  fast
+      // your code goes here
 
-int32_t main() {
-    fast
-   	// your code goes here
-	
-	ll t;cin>>t;
-	while(t--) {
-        ll n;cin>>n;
-        set<ll> st;
-        for (ll i = n+1;i<n+n/2+1;i++) {
-            st.insert(i);
-            st.insert(2*n-i);
-        }
+  ll t; cin >> t;
+  while (t-- ) { 
+     ll N; cin>>N;
+	        
+	    int cnt=0;
+	    for(int i=1;i*i<=N;i++) {
+	        if((N)%i==0) {
+	            set<pair<int,int>> s;
+	            int x=i,y=N/i;
+	            int xx=N-i,yy=N-N/i;
+	            
+	            s.insert({x,xx});
+	            s.insert({xx,x});
+	            s.insert({y,yy});
+	            s.insert({yy,y});
+	            
+	            cnt+=s.size();
+	        }
+	    }
+	    cout<<cnt-2<<endl;
+  }
 
-        if (n%2==1) {
-            st.insert(n);
-        }
-
-        for (auto it : st) {
-            cout << it << " ";
-        }
-        cout << endl;
-	}
   return 0;
 }
-
-
-
-
-
-
