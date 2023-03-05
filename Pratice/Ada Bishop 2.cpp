@@ -154,26 +154,54 @@ void seive()
   }
 }
 
+void printPath()
+{
+  cout << "8 8\n";
+  cout << "7 7\n";
+  cout << "8 6\n";
+  cout << "3 1\n";
+  cout << "4 2\n";
+  cout << "5 1\n";
+  cout << "8 4\n";
+  cout << "7 3\n";
+  cout << "8 2\n";
+  cout << "7 1\n";
+  cout << "1 7\n";
+  cout << "2 8\n";
+  cout << "3 7\n";
+  cout << "1 5\n";
+  cout << "2 4\n";
+  cout << "1 3\n";
+  cout << "6 8\n";
+  cout << "5 7\n";
+  cout << "4 8\n";
+}
 
+int32_t main()
+{
 
-int32_t main() {
-
-  ll t; cin >> t;
+  ll t;
+  cin >> t;
   // seive();
-  while (t--) {
+  while (t--)
+  {
 
-        long long x,k;
-        cin>>x>>k;
-        long long a=log2(k);
-        // cout<<a<<endl;
-        long long b=k-pow(2,a);
-        // cout<<b<<endl;
-        double c=x/pow(2,a+1)*(2*b+1);
+    ll x, k;
+    cin >> x >> k;
 
-        // cout<<c<<endl;
-        cout<<fixed<<setprecision(10)<<c<<endl;
-    
-
+    if (x == 1 and k == 1)
+    {
+      cout << "19" << endl;
+       printPath();
+    }
+    else
+    {
+      cout << 21 << endl;
+      int f = (x + k) / 2;
+      cout << f << " " << f << endl;
+      cout << "1 1" << endl;
+      printPath();
+    }
   }
   return 0;
 }

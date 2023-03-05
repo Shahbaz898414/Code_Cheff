@@ -1,4 +1,3 @@
-
 #include <bits/stdc++.h>
 using namespace std;
 #define ll long long
@@ -42,7 +41,6 @@ void _print(T t)
 {
   cerr << t;
 }
-
 template <class T, class V>
 void _print(pair<T, V> p)
 {
@@ -52,7 +50,6 @@ void _print(pair<T, V> p)
   _print(p.ss);
   cerr << "}";
 }
-
 template <class T>
 void _print(vector<T> v)
 {
@@ -64,7 +61,6 @@ void _print(vector<T> v)
   }
   cerr << "]";
 }
-
 template <class T>
 void _print(vector<vector<T>> v)
 {
@@ -79,7 +75,6 @@ void _print(vector<vector<T>> v)
   }
   cerr << "]";
 }
-
 template <class T, class V>
 void _print(map<T, V> v)
 {
@@ -91,7 +86,6 @@ void _print(map<T, V> v)
   }
   cerr << "]";
 }
-
 template <class T>
 void _print(set<T> v)
 {
@@ -104,78 +98,97 @@ void _print(set<T> v)
   cerr << "]";
 }
 
+int add(ll a, ll b) {
+  return ((a % mod) + (b % mod)) % mod;
+}
+
 const long long inf = 1e18;
-const int MOD = 1e9 + 7;
+const int MOD = 998244353;
 const int MAX = 1e6;
 
-bool isValid(string s)
-{
+bool isValid(string s) {
   int len = s.size();
-  for (int i = 0; i < len / 2; i++)
-  {
+  for (int i = 0; i < len / 2; i++) {
     if (s[i] != s[len - 1 - i])
       return false;
   }
   return true;
 }
 
-void rotateMatrix(vector<vector<int>> &v, int n)
-{
-  for (int i = 0; i < n / 2; i++)
-  {
-    for (int j = i; j < n - i - 1; j++)
-    {
-      int ptr = v[i][j];
-      v[i][j] = v[n - 1 - j][i];
-      v[n - 1 - j][i] = v[n - 1 - i][n - 1 - j];
-      v[n - 1 - i][n - 1 - j] = v[j][n - 1 - i];
-      v[j][n - 1 - i] = ptr;
-    }
-  }
-}
-
-vector<bool> is_prime(10001, 1);
-vector<int> primes;
-
-void seive()
-{
-  is_prime[0] = 0;
-  is_prime[1] = 0;
-  for (int i = 2; i < 10001; i++)
-  {
-    if (is_prime[i])
-    {
-      primes.push_back(i);
-      for (int j = i + i; j < 10001; j += i)
-      {
-        is_prime[j] = 0;
-      }
-    }
-  }
-}
-
-
 
 int32_t main() {
+    fast
+    ll t;cin >> t;
+    while(t--) {       
+      ll n;cin>>n;
+      
+       vector<ll>  a(n+1),b(n+1);
+        vector<ll> dp(n+1,0);
+       for(int i=1; i<=n; i++) {
+         cin>>a[i];
+       }
+       for(int i=1; i<=n; i++) {
+         cin>>b[i];
+       }
 
-  ll t; cin >> t;
-  // seive();
-  while (t--) {
+       for (int i = 0; i <=n; i++) {
+            ll l=max(1LL,i-a[i]);
+            ll r=i+1+a[i];
+            dp[l]++;
+            if(r<=n) dp[r]--;
+       }
 
-        long long x,k;
-        cin>>x>>k;
-        long long a=log2(k);
-        // cout<<a<<endl;
-        long long b=k-pow(2,a);
-        // cout<<b<<endl;
-        double c=x/pow(2,a+1)*(2*b+1);
+      //  for(auto it:dp){
+      //   cout<<it<<" ";
+      //  }
 
-        // cout<<c<<endl;
-        cout<<fixed<<setprecision(10)<<c<<endl;
-    
+      //  cout<<endl;
 
-  }
+       for(int i=1; i<=n;i++) {
+         dp[i]+=dp[i-1];
+       }
+
+      //  for(auto it:dp){
+      //   cout<<it<<" ";
+      //  }
+
+      //  cout<<endl;
+
+       sort(dp.begin()+1,dp.begin()+1+n);
+       sort(b.begin()+1,b.begin()+n+1);
+       bool fl=0;
+
+      //  for(auto it:dp) {
+      //   cout<<it<<" ";
+      //  }
+
+      //  cout<<endl;
+
+      //  for(auto it:b) {
+      //   cout<<it<<" ";
+      //  }
+
+      //  cout<<endl;
+
+       for (int i =1; i <=n; i++)
+       {
+          /* code */
+          if(dp[i]!=b[i]){
+            cout<<"NO"<<endl;
+            fl=1;
+            break;
+          }
+       }
+
+       if(!fl)  cout<<"YES"<<endl;
+       
+       
+    }
   return 0;
 }
 
-// 1b 4d
+
+
+
+
+

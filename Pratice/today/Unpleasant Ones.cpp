@@ -1,4 +1,3 @@
-
 #include <bits/stdc++.h>
 using namespace std;
 #define ll long long
@@ -42,7 +41,6 @@ void _print(T t)
 {
   cerr << t;
 }
-
 template <class T, class V>
 void _print(pair<T, V> p)
 {
@@ -52,7 +50,6 @@ void _print(pair<T, V> p)
   _print(p.ss);
   cerr << "}";
 }
-
 template <class T>
 void _print(vector<T> v)
 {
@@ -64,7 +61,6 @@ void _print(vector<T> v)
   }
   cerr << "]";
 }
-
 template <class T>
 void _print(vector<vector<T>> v)
 {
@@ -79,7 +75,6 @@ void _print(vector<vector<T>> v)
   }
   cerr << "]";
 }
-
 template <class T, class V>
 void _print(map<T, V> v)
 {
@@ -91,7 +86,6 @@ void _print(map<T, V> v)
   }
   cerr << "]";
 }
-
 template <class T>
 void _print(set<T> v)
 {
@@ -104,78 +98,87 @@ void _print(set<T> v)
   cerr << "]";
 }
 
+int add(ll a, ll b) {
+  return ((a % mod) + (b % mod)) % mod;
+}
+
 const long long inf = 1e18;
-const int MOD = 1e9 + 7;
+const int MOD = 998244353;
 const int MAX = 1e6;
 
-bool isValid(string s)
-{
+bool isValid(string s) {
   int len = s.size();
-  for (int i = 0; i < len / 2; i++)
-  {
+  for (int i = 0; i < len / 2; i++) {
     if (s[i] != s[len - 1 - i])
       return false;
   }
   return true;
 }
 
-void rotateMatrix(vector<vector<int>> &v, int n)
-{
-  for (int i = 0; i < n / 2; i++)
-  {
-    for (int j = i; j < n - i - 1; j++)
-    {
-      int ptr = v[i][j];
-      v[i][j] = v[n - 1 - j][i];
-      v[n - 1 - j][i] = v[n - 1 - i][n - 1 - j];
-      v[n - 1 - i][n - 1 - j] = v[j][n - 1 - i];
-      v[j][n - 1 - i] = ptr;
-    }
-  }
+
+/*
+ll solve(ll n , ll k) {
+	if(n == 1 and k != 0) return 1;
+	if(n == 0) return 0;
+	if(dp[n][k] != -1) return dp[n][k];
+
+	ll ans = 0;
+	for(ll i = 0 ; i <= K ; i++) {
+		if(i != k) ans = (ans + solve(n - 1 , i)) % MOD;
+	}
+
+	return dp[n][k] = ans;
 }
 
-vector<bool> is_prime(10001, 1);
-vector<int> primes;
+inline void getMeTheSolution() {
+  
+	cin >> N >> K;
+	ll n = N , k = K;
 
-void seive()
-{
-  is_prime[0] = 0;
-  is_prime[1] = 0;
-  for (int i = 2; i < 10001; i++)
-  {
-    if (is_prime[i])
-    {
-      primes.push_back(i);
-      for (int j = i + i; j < 10001; j += i)
-      {
-        is_prime[j] = 0;
-      }
-    }
-  }
-}
+	dp = vvll (N + 1 , vll (K + 1 , -1));
+	cout << solve(n , 0) nl;
+}*/
 
 
 
 int32_t main() {
+    fast
+    int t;cin >> t;
+    while(t-->0) {
+      ll n,m;cin>>n;
 
-  ll t; cin >> t;
-  // seive();
-  while (t--) {
+      ll a[n];
 
-        long long x,k;
-        cin>>x>>k;
-        long long a=log2(k);
-        // cout<<a<<endl;
-        long long b=k-pow(2,a);
-        // cout<<b<<endl;
-        double c=x/pow(2,a+1)*(2*b+1);
+      vector<int> od;
+      for (int i = 0; i < n; i++) {
+        cin>>a[i];
+      }
 
-        // cout<<c<<endl;
-        cout<<fixed<<setprecision(10)<<c<<endl;
-    
+      for (int i = 0; i <n; i++)
+      {
+        /* code */
+        if(a[i]%2==0) cout<<a[i]<<" ";
+        else {
+          od.push_back(a[i]);
+        }
+      }
 
-  }
+      for (int i = 0; i < od.size(); i++)
+      {
+        /* code */
+
+        cout<<od[i]<<" ";
+      }
+      
+      cout<<endl;
+      
+      
+     
+      
+    }
   return 0;
 }
 
-// 1b 4d
+
+
+

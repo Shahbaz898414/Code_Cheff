@@ -155,23 +155,97 @@ void seive()
 }
 
 
+// struct Node
+// {
+//     int data;
+//     Node* left, * right;
+// };
+
+// Node* newNode(int data)
+// {
+//     Node* node = (Node*)malloc(sizeof(Node));
+//     node->data = data;
+//     node->left = node->right = NULL;
+//     return (node);
+// }
+
+// Node* insertLevelOrder(vector<double>& arr,
+//                        int i, int n)
+// {
+//       Node *root = nullptr;
+//     // Base case for recursion
+//     if (i < n)
+//     {
+//         root = newNode(arr[i]);
+          
+//         // insert left child
+//         root->left = insertLevelOrder(arr,
+//                    2 * i + 1, n);
+  
+//         // insert right child
+//         root->right = insertLevelOrder(arr,
+//                   2 * i + 2, n);
+//     }
+//     return root;
+// }
+
+// void inOrder(Node* root)
+// {
+//     if (root != NULL)
+//     {
+//         inOrder(root->left);
+//         cout << root->data <<" ";
+//         inOrder(root->right);
+//     }
+// }
+
+
 
 int32_t main() {
 
-  ll t; cin >> t;
+ 
   // seive();
-  while (t--) {
+  while (1) {
+  
 
-        long long x,k;
-        cin>>x>>k;
-        long long a=log2(k);
-        // cout<<a<<endl;
-        long long b=k-pow(2,a);
-        // cout<<b<<endl;
-        double c=x/pow(2,a+1)*(2*b+1);
+   int h;cin>>h;
 
-        // cout<<c<<endl;
-        cout<<fixed<<setprecision(10)<<c<<endl;
+   if(h==0) break;
+
+   int n=pow(2,h)-1;
+
+  //  cout<<n<<endl;
+    vector<double> arr(n+1,0);
+    vector<ll> res(n+1,0);
+
+    for (int i = 1; i <=n; i++){
+      
+      cin>>arr[i];
+      res[i]=arr[i];
+    }
+
+    // Node* root = insertLevelOrder(arr, 0, n);
+    // inOrder(root);
+    
+
+    ll main=n/2;
+
+    for (int i = main; i >=1; i--)
+    {
+      
+      if(arr[2*i]>arr[(2*i)+1]){
+        arr[i]*=arr[2*i];
+        res[i]*=res[(2*i)];
+      }else {
+        res[i]*=res[(2*i)+1];
+        arr[i]*=arr[(2*i)+1];
+      }
+
+      res[i]%=mod;
+    }
+
+
+    cout<<res[1]<<endl;
     
 
   }

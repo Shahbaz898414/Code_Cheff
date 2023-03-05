@@ -156,23 +156,33 @@ void seive()
 
 
 
+
+
 int32_t main() {
 
-  ll t; cin >> t;
+ 
   // seive();
+
+  int t;cin>>t;
+
   while (t--) {
-
-        long long x,k;
-        cin>>x>>k;
-        long long a=log2(k);
-        // cout<<a<<endl;
-        long long b=k-pow(2,a);
-        // cout<<b<<endl;
-        double c=x/pow(2,a+1)*(2*b+1);
-
-        // cout<<c<<endl;
-        cout<<fixed<<setprecision(10)<<c<<endl;
+   string s;cin>>s;
     
+    int n=s.size();
+
+    if(n%2)  cout<<-1<<endl;
+    else{
+      int c1=0,c2=0;
+
+      for (int i = 0; i < n; i++) {
+        if(s[i]=='0') c1++;
+        else c2++;
+      }
+
+      if(c1==0 || c2==0) cout<<-1<<endl;
+      else cout<<(abs(c1-c2))/2<<endl;
+      
+    }
 
   }
   return 0;

@@ -11,17 +11,19 @@ int main(){
 
       int a[n];
 
+     
+      int cnt=n;
       int x=0;
-	   for (int i = 0; i < n; i++)
-     {
+	   for (int i = 0; i < n; i++) {
       cin>>a[i];
+      a[i]=a[i]*2;
+
+      x=x^a[i];
      }
 
-    
-    
+     cout<<x<<endl;
 
-
-      
+    
   }
 
     
