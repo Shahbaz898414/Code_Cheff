@@ -200,38 +200,7 @@ double bfs (vector<vector<ll>> adj_list){
 
 int32_t  main() {
 
-  int t,n,pt;
-	cin>>t;
-	
-	cout<<fixed<<setprecision(6);
-	while(t--){
-	    cin>>n;
-	    vector<vector<ll>> adj(n+1);
-        for(ll i = 1; i <= n; i++){
-            while(true){
-                ll x;
-                cin>>x;
-                
-                adj[i].push_back(x);
-                
-                if(cin.peek() == '\n' || cin.peek() == EOF){
-                    //cin>>pt;
-                    break;
-                }
-            }
-        }
-        
-        double ans;
-        ans=bfs(adj);
-        //cout<<"the ans is "<<ans<<"\n";
-        //cout<<"the ans is "<<ans<<"\n";
-        //cout<<"the ans is "<<ans<<"\n";
-        //cout<<"the ans is "<<ans<<"\n";
-        
-        
-	    
-	    
-	}
+ 
    
    
   
