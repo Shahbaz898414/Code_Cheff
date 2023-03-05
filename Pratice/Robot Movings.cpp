@@ -134,20 +134,38 @@ bool isValid(string s)
   return true;
 }
 
+ll power(ll a, ll b) {
+    ll ans = 1;
+    a%=mod;
+    while (b>0) {
+        if (b%2==1) ans=ans*a%mod;
+        a=a*a%mod;
+        b/=2;
+    }
+    return ans;
+}
+
+ll fact[5001];
+
 int32_t main()
 {
   fast
       // your code goes here
 
-  ll t; cin >> t;
-  while (t-- ) { 
-     ll n,m; cin>>n>>m;     
-	   vector<ll>  a(n);
-     if((n%2 and m%2)){
-      cout<<"Vanka"<<endl;
-     }else {
-      cout<<"Tuzik"<<endl;
-     }     
+      fact[0]=1;
+    for (int i = 1;i<=5000;i++) {
+        fact[i]=fact[i-1]*i%mod;
+    }
+
+  // ll t; cin >> t;
+  while (1) { 
+    int n,k;
+        cin >> n >> k;
+        if (n==0 and k==0) break;
+        ll ans = 2*fact[n-2]%mod*fact[n-2]%mod;
+        ans = ans*power(fact[k/2],mod-2)%mod*power(fact[(k-1)/2],mod-2)%mod*power(fact[n-2-k/2],mod-2)%mod*power(fact[n-2-(k-1)/2],mod-2)%mod;
+        cout << ans << endl;
+      
   }
 
   return 0;
