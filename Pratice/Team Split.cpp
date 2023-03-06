@@ -147,6 +147,8 @@ ll power(ll a, ll b) {
 
 // ll fact[5001];
 
+
+
 int32_t main()
 {
   fast
@@ -161,7 +163,42 @@ int32_t main()
   while (t--) { 
     ll n,a,b,c,d;cin>>n>>a>>b>>c>>d;
 
-    ll sum=(a+b+c+d)/n;
+    // ll sum=(a+b+c+d)/n;
+    vector<int>  v(1000000);
+
+    ll prev=d;
+    v[prev]++;
+    ll cur=0;
+    for (ll i = 0; i <n-1; i++){
+      cur=(prev*prev*a+prev*b+c)%1000000;
+      v[cur]++;
+      prev=cur;
+    }
+
+    ll diff=0;
+    int cnt=0;
+
+    for (int i =999999; i >=0; i--)
+    {
+      /* code */
+      if(v[i]>0){
+        if(v[i]%2==1){
+          if(cnt%2==1){
+            diff+=i;
+          }else{
+            diff-=i;
+          }
+
+          cnt++;
+        }
+      }
+    }
+
+    diff=abs(diff);
+
+    cout<<diff<<endl;
+    
+    
 
 
       
