@@ -145,7 +145,7 @@ ll power(ll a, ll b) {
     return ans;
 }
 
-ll fact[5001];
+// ll fact[5001];
 
 int32_t main()
 {
@@ -161,7 +161,9 @@ int32_t main()
   while (t--) { 
     ll n,a,b,c,d;cin>>n>>a>>b>>c>>d;
 
-    
+    ll sum=(a+b+c+d)/n;
+
+
       
   }
 
