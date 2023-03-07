@@ -136,6 +136,8 @@ void rotateMatrix(vector<vector<int>> &v, int n)
 vector<bool> is_prime(10001, 1);
 vector<int> primes;
 
+
+
 void seive()
 {
   is_prime[0] = 0;
@@ -153,19 +155,53 @@ void seive()
   }
 }
 
-int32_t main()
-{
+int cnt = 0;
+vector <int> vis(100001);
 
-  ll t;
-  cin >> t;
-  
-  while (t--)
-  {
 
-    ll x, k;
-    cin >> x >> k;
+void dfs(vector <vector <int>>& adj,int i) {
+    vis[i]=1;
+    cnt++;
+    for (auto nbr : adj[i]) {
+        if (vis[nbr]==0) {
+            dfs(adj, nbr);
+        }
+    }
+}
 
+
+int32_t main() {
+
+  ll t; cin >> t;
+  while (t--) {
+    ll x, k; cin >> x >> k;
+    vector<vector<int>>  adj(x);
+
+    for (int i = 0; i <k; i++){
+      int u, v;cin >> u >> v;
+      u--; v--;
+      adj[u].push_back(v);
+      adj[v].push_back(u);
+    }
+
+    for(int i=0; i<x; i++) {
+      vis[i]=0;
+    }
+
+    ll ans1=0;
+    ll ans2=1;
+
+    for (int i = 0;i<x;i++) {
+      if (vis[i]) continue;
+      ans1++;
+      cnt = 0;
+      dfs(adj, i);
+      ans2=ans2*cnt%mod;
+    }
+    cout << ans1 << " " << ans2 << endl;
     
+
+
 
   }
   return 0;
