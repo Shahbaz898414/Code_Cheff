@@ -165,6 +165,8 @@ int32_t main()
     ll x, k;
     cin >> x >> k;
 
+    
+
   }
   return 0;
 }
