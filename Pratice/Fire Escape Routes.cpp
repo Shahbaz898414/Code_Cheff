@@ -184,6 +184,13 @@ int32_t main() {
       adj[v].push_back(u);
     }
 
+    for(auto it:adj){
+      for(auto i:it){
+        cout<<i<<" ";
+      }
+      cout<<endl;
+    }
+
     for(int i=0; i<x; i++) {
       vis[i]=0;
     }
