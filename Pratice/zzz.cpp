@@ -200,7 +200,11 @@ double bfs (vector<vector<ll>> adj_list){
 
 int32_t  main() {
 
- 
+ ll t;cin>>t;
+
+ while(t--){
+  
+ }
    
    
   
