@@ -157,13 +157,17 @@ int32_t main()
         fact[i]=fact[i-1]*i%mod;
     }
 
-  // ll t; cin >> t;
+  ll t; 
   while (1) { 
+
+
     int n,k;cin >> n >> k;
         if (n==0 and k==0) break;
+
         ll ans = 2*fact[n-2]%mod*fact[n-2]%mod;
+
         //  ans*power(fact[k/2],mod-2)%mod*power(fact[(k-1)/2],mod-2)%mod*power(fact[n-2-k/2],mod-2)%mod*power(fact[n-2-(k-1)/2],mod-2)%mod;
-        
+
         ans = ans*power(fact[k/2],mod-2)%mod*power(fact[(k-1)/2],mod-2)%mod*power(fact[n-2-k/2],mod-2)%mod*power(fact[n-2-(k-1)/2],mod-2)%mod;
 
 
