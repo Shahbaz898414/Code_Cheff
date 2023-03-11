@@ -172,13 +172,27 @@ void dfs(vector <vector <int>>& adj,int i) {
 
 int32_t main() {
 
-  ll n,m,h;cin>>n>>m>>h;
-
-  
-
-  for (int i = 0; i <h; i++) {
-    
-  }
+   ll n,m; cin >> n >> m;
+    ll h; cin >> h;
+    map <ll, ll> mp;
+    for (int i = 0;i<h;i++) {
+        ll ti;
+        ll ci;
+        cin >> ti >> ci;
+        mp[ci]+=ti;
+    }
+    ll ans = 0;
+    ll cost = 0;
+    for (auto it : mp) {
+        cost+=min(m*n-ans, it.second)*it.first;
+        ans+=min(m*n-ans, it.second);
+    }
+    if (ans<n*m) {
+        cout << "Impossible" << endl;
+    }
+    else {
+        cout << cost << endl;
+    }
   
 
 
