@@ -181,13 +181,13 @@ int32_t main() {
         cin >> ti >> ci;
         mp[ci]+=ti;
     }
-    ll ans = 0;
-    ll cost = 0;
+   
+    ll sum=0;
     for (auto it : mp) {
-        cost+=min(m*n-ans, it.second)*it.first;
-        ans+=min(m*n-ans, it.second);
+       
+        sum+=it.second;
     }
-    if (ans<n*m) {
+    if (sum<n*m) {
         cout << "Impossible" << endl;
     }
     else {
