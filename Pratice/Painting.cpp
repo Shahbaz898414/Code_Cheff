@@ -178,7 +178,7 @@ int32_t main() {
 
   for (int i = 0; i <h; i++)
   {
-    /* code */
+    
   }
   
 
