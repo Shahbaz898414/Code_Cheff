@@ -163,6 +163,7 @@ void seive()
   is_prime[1] = 0;
   for (int i = 2; i < 10001; i++)
   {
+    
     if (is_prime[i])
     {
       primes.push_back(i);
