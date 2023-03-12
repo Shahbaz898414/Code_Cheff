@@ -194,7 +194,7 @@ int32_t main() {
     }
     else {
         cout << cost << endl;
-        
+
     }
   
 
