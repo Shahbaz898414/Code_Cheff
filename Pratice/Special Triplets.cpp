@@ -199,9 +199,8 @@ int32_t main() {
       ll n;cin>>n;
 
 
-      
-    }
 
+    }
 
   return 0;
 }
