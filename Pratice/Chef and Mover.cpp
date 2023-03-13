@@ -205,14 +205,43 @@ int32_t main()
   cin >> t;
   while (t--)
   {
-    ll n,m;cin>>n>>m;
-
-    ll arr[n];
-
-    for (int i = 0; i < n; i++) {
-      cin>>arr[i];
+    int n, d;
+    cin >> n >> d;
+    vector<ll> v(n);
+    ll sum = 0;
+    for (int i = 0; i < n; i++)
+    {
+      cin >> v[i];
+      sum += v[i];
     }
-    
+    int vis[n + 1];
+    if (sum % n != 0)
+    {
+      cout << -1 << endl;
+      continue;
+    }
+    ll k = sum / n;
+    ll ans = 0;
+    for (int i = 0; i < d; i++)
+    {
+      ll sum1 = 0;
+      ll c = 0;
+      int cnt = 0;
+      for (int j = i; j < n; j += d)
+      {
+        sum1 += v[j];
+        vis[j] = 1;
+        c += v[j] - k;
+        ans += abs(c);
+        cnt++;
+      }
+      if (sum1 % cnt != 0 or sum1 / cnt != k)
+      {
+        ans = -1;
+        break;
+      }
+    }
+    cout << ans << endl;
   }
   return 0;
 }
