@@ -196,7 +196,7 @@ int32_t main() {
     fact[0]=1;
     for (int i = 1;i<=1000000;i++) {
         fact[i]=fact[i-1]*i%mod;
-        
+
     }
     ll ans = 0;
     int n;
@@ -212,6 +212,7 @@ int32_t main() {
             ans=(ans%mod+nck(5+(n-i)/2, (n-i)/2))%mod;
         }
     }
+
     cout << ans << endl;
   
 
