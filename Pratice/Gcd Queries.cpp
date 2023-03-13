@@ -194,17 +194,32 @@ void dfs(vector <vector <int>>& adj,int i) {
 int32_t main() {
 
     ll t;cin>>t;
+    while(t--) {
+       ll n,m;   cin >> n>>m;
+       ll arr[n];
 
-    while(t--){
-       ll n;   cin >> n;
-        ll cnt = 0;
-        for(int c=1; c <= n; c++)
-            for(int b = c; b <= n; b+=c)
-                for(int a = c; a <= n; a+=b)
-                    if(a % b == c)
-                        cnt++;
-        cout << cnt << '\n';
+       ll prr[n+1];
+
+       for(int i = 0; i < n; i++) {
+         cin>>arr[i];
+       }
+
+       for (int i = 1; i <n; i++){
+        prr[i]=__gcd(arr[i],arr[i-1]);
+       }
+
+       for (int i = 1; i <=n; i++)
+       {
+        /* code */
+        cout<<prr[i]<<" ";
+       }
+
+       cout<<endl;
+       
+       
+
+       
     }
-
   return 0;
 }
+
