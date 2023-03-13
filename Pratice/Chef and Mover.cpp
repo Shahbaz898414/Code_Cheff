@@ -238,7 +238,8 @@ int32_t main()
       }
       if (sum1 % cnt != 0 or sum1 / cnt != k)
       {
-        ans = -1;
+        ans = 1;
+        ans*=-1;
         break;
 
       }
