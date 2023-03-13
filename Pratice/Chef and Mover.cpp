@@ -240,9 +240,10 @@ int32_t main()
       {
         ans = -1;
         break;
+
       }
     }
-    
+
     cout << ans << endl;
   }
   return 0;
