@@ -230,6 +230,7 @@ int32_t main()
       cin >> l >> r;
 
       cout << __gcd(arr1[l - 1], arr2[r + 1]) << endl;
+      
     }
   }
   return 0;
