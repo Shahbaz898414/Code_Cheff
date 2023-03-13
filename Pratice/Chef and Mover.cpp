@@ -236,7 +236,7 @@ int32_t main()
         ans += abs(c);
         cnt++;
       }
-      if (sum1 % cnt != 0 or sum1 / cnt != k)
+      if (sum1%cnt != 0 or sum1/cnt != k)
       {
         ans = 1;
         ans*=-1;
@@ -245,7 +245,7 @@ int32_t main()
       }
     }
 
-    cout << ans << endl;
+    cout << ans+0 << endl;
   }
   return 0;
 }
