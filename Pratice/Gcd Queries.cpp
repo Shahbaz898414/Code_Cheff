@@ -138,24 +138,26 @@ vector<int> primes;
 
 ll fact[1000001];
 
-ll power(ll a, ll b) {
-    ll ans = 1;
-    a%=mod;
-    while (b>0) {
-        if (b%2) ans=ans*a%mod;
-        a=a*a%mod;
-        b/=2;
-    }
-    return ans;
+ll power(ll a, ll b)
+{
+  ll ans = 1;
+  a %= mod;
+  while (b > 0)
+  {
+    if (b % 2)
+      ans = ans * a % mod;
+    a = a * a % mod;
+    b /= 2;
+  }
+  return ans;
 }
 
-ll nck(int n, int k) {
-    ll u = fact[n];
-    ll d = fact[n-k]*fact[k]%mod;
-    return u*power(d,mod-2)%mod;
+ll nck(int n, int k)
+{
+  ll u = fact[n];
+  ll d = fact[n - k] * fact[k] % mod;
+  return u * power(d, mod - 2) % mod;
 }
-
-
 
 void seive()
 {
@@ -163,7 +165,7 @@ void seive()
   is_prime[1] = 0;
   for (int i = 2; i < 10001; i++)
   {
-    
+
     if (is_prime[i])
     {
       primes.push_back(i);
@@ -176,58 +178,59 @@ void seive()
 }
 
 int cnt = 0;
-vector <int> vis(100001);
+vector<int> vis(100001);
 
-
-void dfs(vector <vector <int>>& adj,int i) {
-    vis[i]=1;
-    cnt++;
-    for (auto nbr : adj[i]) {
-        if (vis[nbr]==0) {
-            dfs(adj, nbr);
-
-        }
+void dfs(vector<vector<int>> &adj, int i)
+{
+  vis[i] = 1;
+  cnt++;
+  for (auto nbr : adj[i])
+  {
+    if (vis[nbr] == 0)
+    {
+      dfs(adj, nbr);
     }
+  }
 }
 
-const int N=1e5+10;
+const int N = 1e5 + 10;
 int arr[N];
 int arr1[N];
 int arr2[N];
 
+int32_t main()
+{
 
-int32_t main() {
+  ll t;
+  cin >> t;
+  while (t--)
+  {
+    int n, q;
+    cin >> n >> q;
+    arr[0] = arr1[0] = arr2[n + 1] = 0;
 
-    ll t;cin>>t;
-    while(t--) {
-        int n,q;
-	    cin>>n>>q;
-	    arr[0]=arr1[0]=arr2[n+1]=0;
-
-	    for(int i=1;i<=n;i++){
-	        cin>>arr[i];
-	    }
-
-         for(int i=1;i<=n;i++){
-	        arr1[i]=__gcd(arr1[i-1],arr[i]);
-	    }
-
-        for(int i=n;i>1;--i){
-	    arr2[i]=__gcd(arr2[i+1],arr[i]);
-
-	    }
-
-	    
-	    while(q--){
-	        int l,r;
-	        cin>>l>>r;
-	        
-        cout<<__gcd(arr1[l-1],arr2[r+1])<<endl;
-	    
-    	}
-
-       
+    for (int i = 1; i <= n; i++)
+    {
+      cin >> arr[i];
     }
+
+    for (int i = 1; i <= n; i++)
+    {
+      arr1[i] = __gcd(arr1[i - 1], arr[i]);
+    }
+
+    for (int i = n; i > 1; --i)
+    {
+      arr2[i] = __gcd(arr2[i + 1], arr[i]);
+    }
+
+    while (q--)
+    {
+      int l, r;
+      cin >> l >> r;
+
+      cout << __gcd(arr1[l - 1], arr2[r + 1]) << endl;
+    }
+  }
   return 0;
 }
-
