@@ -190,33 +190,41 @@ void dfs(vector <vector <int>>& adj,int i) {
     }
 }
 
+const int N=1e5+10;
+int arr[N];
+int arr1[N];
+int arr2[N];
+
 
 int32_t main() {
 
     ll t;cin>>t;
     while(t--) {
-       ll n,m;   cin >> n>>m;
-       ll arr[n];
+        int n,q;
+	    cin>>n>>q;
+	    arr[0]=arr1[0]=arr2[n+1]=0;
 
-       ll prr[n+1];
+	    for(int i=1;i<=n;i++){
+	        cin>>arr[i];
+	    }
 
-       for(int i = 0; i < n; i++) {
-         cin>>arr[i];
-       }
+         for(int i=1;i<=n;i++){
+	        arr1[i]=__gcd(arr1[i-1],arr[i]);
+	    }
 
-       for (int i = 1; i <n; i++){
-        prr[i]=__gcd(arr[i],arr[i-1]);
-       }
+        for(int i=n;i>1;--i){
+	    arr2[i]=__gcd(arr2[i+1],arr[i]);
 
-       for (int i = 1; i <=n; i++)
-       {
-        /* code */
-        cout<<prr[i]<<" ";
-       }
+	    }
 
-       cout<<endl;
-       
-       
+	    
+	    while(q--){
+	        int l,r;
+	        cin>>l>>r;
+	        
+        cout<<__gcd(arr1[l-1],arr2[r+1])<<endl;
+	    
+    	}
 
        
     }
