@@ -185,6 +185,7 @@ void dfs(vector <vector <int>>& adj,int i) {
     for (auto nbr : adj[i]) {
         if (vis[nbr]==0) {
             dfs(adj, nbr);
+
         }
     }
 }
@@ -195,6 +196,7 @@ int32_t main() {
     fact[0]=1;
     for (int i = 1;i<=1000000;i++) {
         fact[i]=fact[i-1]*i%mod;
+        
     }
     ll ans = 0;
     int n;
