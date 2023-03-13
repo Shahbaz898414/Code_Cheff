@@ -222,6 +222,7 @@ int32_t main()
     }
     ll k = sum / n;
     ll ans = 0;
+
     for (int i = 0; i < d; i++)
     {
       ll sum1 = 0;
@@ -241,6 +242,7 @@ int32_t main()
         break;
       }
     }
+    
     cout << ans << endl;
   }
   return 0;
