@@ -198,11 +198,14 @@ int32_t main() {
     while(t--){
        ll n;   cin >> n;
         ll cnt = 0;
-        for(int c=1; c <= n; c++)
-            for(int b = c; b <= n; b+=c)
-                for(int a = c; a <= n; a+=b)
-                    if(a % b == c)
-                        cnt++;
+        for(int c=1; c <= n; c++){
+          for(int b = c; b <= n; b+=c){
+            for(int a = c; a <= n; a+=b)
+              if(a % b == c)
+                cnt++;
+          }        
+        }
+            
         cout << cnt << '\n';
     }
 
