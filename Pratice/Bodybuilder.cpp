@@ -201,60 +201,34 @@ int32_t main()
   while (t--)
   {
 
-    ll n, m;
-    cin >> n >> m;
-    ll cnt = 0;
-    char arr[n][m];
-
-    for (int i = 0; i < n; i++)
-    {
-      for (int j = 0; j < m; j++)
-      {
-        cin >> arr[i][j];
-      }
-    }
-
-    for (int i = 0; i < n; i++)
-    {
-      for (int j = 0; j < m; j++)
-      {
-        if (arr[i][j] == '.')
-        {
-          arr[i][j] = '1';
-        }
-        else
-          arr[i][j] = '0';
-        
-      }
-   
-    }
-
-    for (int i = 0; i < n-1; i++)
-    {
-      for (int j = 0; j < m-1; j++)
-      {
-        if (
-            (arr[i][j] == '1' || arr[i][j] == '2') && (arr[i][j + 1] == '1' || arr[i][j + 1] == '2') && (arr[i + 1][j] == '1' || arr[i + 1][j] == '2') && (arr[i + 1][j + 1] == '1' || arr[i + 1][j + 1] == '2'))
-        {
-          arr[i][j] = '2';
-          arr[i][j + 1] = '2';
-          arr[i + 1][j] = '2';
-          arr[i + 1][j + 1] = '2';
-        }
-      }
-    }
-
-    for (int i = 0; i < n; i++) {
-      for (int j = 0; j < m; j++) {
-        if(arr[i][j]=='1'){
-          cnt=-1;
-          break;
-        }
-      }
-      if(cnt==-1) break;
-    }
-
-    cout<<(cnt==0?"YES":"NO")<<endl;
+   ll int  n,r;
+	    cin>>n>>r;
+	    ll int  arr[n],brr[n];
+	    for(ll int  j=0;j<n;j++){
+	        cin>>arr[j];
+	    }
+	    for(ll int  j=0;j<n;j++){
+	        cin>>brr[j];
+	    }
+	    
+	    ll int  c=0,res=0;
+	    for(ll int  j=0;j<n;j++){
+	        if(j == 0){
+	            c=c+brr[j];
+	            res=res+brr[j];
+	        }
+	        else{
+	            c=c+brr[j];
+	            c=c-((arr[j]-arr[j-1])*r);
+	            c=max(brr[j],c);
+	            res=max(res,c);
+	        }
+	    }
+	    
+	    cout<<res<<endl;
+      
+    
+    
   }
   return 0;
 }
