@@ -224,9 +224,9 @@ int32_t main()
         }
         else
           arr[i][j] = '0';
-        // cout<<arr[i][j]<<" ";
+        
       }
-      // cout<<endl;
+   
     }
 
     for (int i = 0; i < n-1; i++)
@@ -244,8 +244,6 @@ int32_t main()
       }
     }
 
-    // ll cnt=0;
-
     for (int i = 0; i < n; i++) {
       for (int j = 0; j < m; j++) {
         if(arr[i][j]=='1'){
@@ -256,7 +254,7 @@ int32_t main()
       if(cnt==-1) break;
     }
 
-     cout<<(cnt==0?"YES":"NO")<<endl;
+    cout<<(cnt==0?"YES":"NO")<<endl;
   }
   return 0;
 }
