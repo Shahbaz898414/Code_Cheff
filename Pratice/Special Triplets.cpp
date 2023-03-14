@@ -194,22 +194,20 @@ void dfs(vector <vector <int>>& adj,int i) {
 int32_t main() {
 
     ll t;cin>>t;
+    while(t--) {
 
-    while(t--){
-       ll n;   cin >> n;
+       ll n;cin >> n;
         ll cnt = 0;
-        for(int c=1; c <= n; c++){
-          for(int b = c; b <= n; b+=c){
-            for(int a = c; a <= n; a+=b){
+        for (int c=1; c <= n; c++){
+          for (int b = c; b <= n; b+=c){
+            for (int a = c; a <= n; a+=b){
               if(a % b == c)
                 cnt++;
-            }
-              
+            } 
           }        
         }
             
         cout << cnt << '\n';
     }
-
   return 0;
 }
