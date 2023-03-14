@@ -220,7 +220,9 @@ int32_t main()
 	        else{
 	            c=c+brr[j];
 	            c=c-((arr[j]-arr[j-1])*r);
+              
 	            c=max(brr[j],c);
+
 	            res=max(res,c);
 	        }
 	    }
