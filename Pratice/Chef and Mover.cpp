@@ -245,7 +245,7 @@ int32_t main()
       }
     }
 
-    cout << ans+0 << endl;
+    cout << ans<< endl;
   }
   return 0;
 }
