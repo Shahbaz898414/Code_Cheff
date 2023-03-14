@@ -138,24 +138,26 @@ vector<int> primes;
 
 ll fact[1000001];
 
-ll power(ll a, ll b) {
-    ll ans = 1;
-    a%=mod;
-    while (b>0) {
-        if (b%2) ans=ans*a%mod;
-        a=a*a%mod;
-        b/=2;
-    }
-    return ans;
+ll power(ll a, ll b)
+{
+  ll ans = 1;
+  a %= mod;
+  while (b > 0)
+  {
+    if (b % 2)
+      ans = ans * a % mod;
+    a = a * a % mod;
+    b /= 2;
+  }
+  return ans;
 }
 
-ll nck(int n, int k) {
-    ll u = fact[n];
-    ll d = fact[n-k]*fact[k]%mod;
-    return u*power(d,mod-2)%mod;
+ll nck(int n, int k)
+{
+  ll u = fact[n];
+  ll d = fact[n - k] * fact[k] % mod;
+  return u * power(d, mod - 2) % mod;
 }
-
-
 
 void seive()
 {
@@ -163,7 +165,7 @@ void seive()
   is_prime[1] = 0;
   for (int i = 2; i < 10001; i++)
   {
-    
+
     if (is_prime[i])
     {
       primes.push_back(i);
@@ -176,45 +178,89 @@ void seive()
 }
 
 int cnt = 0;
-vector <int> vis(100001);
+vector<int> vis(100001);
 
-
-void dfs(vector <vector <int>>& adj,int i) {
-    vis[i]=1;
-    cnt++;
-    for (auto nbr : adj[i]) {
-        if (vis[nbr]==0) {
-            dfs(adj, nbr);
-
-        }
+void dfs(vector<vector<int>> &adj, int i)
+{
+  vis[i] = 1;
+  cnt++;
+  for (auto nbr : adj[i])
+  {
+    if (vis[nbr] == 0)
+    {
+      dfs(adj, nbr);
     }
+  }
 }
 
+int32_t main()
+{
 
-int32_t main() {
+  ll t;
+  cin >> t;
+  while (t--)
+  {
 
-    ll t;cin>>t;
-    while(t--) {
+    ll n, m;
+    cin >> n >> m;
+    ll cnt = 0;
+    char arr[n][m];
 
-       ll n,m;cin >> n>>m;
-        ll cnt = 0;
-       char arr[n][m];
-
-       for (int i = 0; i < n; i++) {
-        for (int j = 0; j < n; j++) {
-           cin>>arr[i][j];
-        }
-       }
-
-       for (int i = 0; i < n; i++) {
-        for (int j = 0; j < n; j++) {
-          cout<<arr[i][j]<<" ";
-        }
-        cout<<endl;
-       }
-
-       cout<<endl;
-       
+    for (int i = 0; i < n; i++)
+    {
+      for (int j = 0; j < n; j++)
+      {
+        cin >> arr[i][j];
+      }
     }
+
+    for (int i = 0; i < n; i++)
+    {
+      for (int j = 0; j < n; j++)
+      {
+        if (arr[i][j] == '.')
+        {
+          arr[i][j] = '1';
+        }
+        else
+          arr[i][j] = '0';
+        // cout<<arr[i][j]<<" ";
+      }
+      // cout<<endl;
+    }
+
+    for (int i = 0; i < n; i++)
+    {
+      for (int j = 0; j < n; j++)
+      {
+        if (i != n - 1 && j != m - 1 &&
+            (arr[i][j] == '1' || arr[i][j] == '2') && (arr[i][j + 1] == '1' || arr[i][j + 1] == '2') && (arr[i + 1][j] == '1' || arr[i + 1][j] == '2') && (arr[i + 1][j + 1] == '1' || arr[i + 1][j + 1] == '2'))
+        {
+          arr[i][j] = '2';
+          arr[i][j + 1] = '2';
+          arr[i + 1][j] = '2';
+          arr[i + 1][j + 1] = '2';
+        }
+      }
+    }
+
+    // ll cnt=0;
+
+    for (int i = 0; i < n; i++)
+    {
+      for (int j = 0; j < n; j++)
+      {
+       
+        if(arr[i][j]=='1'){
+          cnt=-1;
+          break;
+        }
+      }
+      // cout<<endl;
+      if(cnt==-1) break;
+    }
+
+     cout<<(cnt==0?"YES":"NO")<<endl;
+  }
   return 0;
 }
