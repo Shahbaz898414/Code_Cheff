@@ -200,9 +200,11 @@ int32_t main() {
         ll cnt = 0;
         for(int c=1; c <= n; c++){
           for(int b = c; b <= n; b+=c){
-            for(int a = c; a <= n; a+=b)
+            for(int a = c; a <= n; a+=b){
               if(a % b == c)
                 cnt++;
+            }
+              
           }        
         }
             
