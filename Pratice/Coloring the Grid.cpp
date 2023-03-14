@@ -208,7 +208,7 @@ int32_t main()
 
     for (int i = 0; i < n; i++)
     {
-      for (int j = 0; j < n; j++)
+      for (int j = 0; j < m; j++)
       {
         cin >> arr[i][j];
       }
@@ -216,7 +216,7 @@ int32_t main()
 
     for (int i = 0; i < n; i++)
     {
-      for (int j = 0; j < n; j++)
+      for (int j = 0; j < m; j++)
       {
         if (arr[i][j] == '.')
         {
@@ -231,9 +231,9 @@ int32_t main()
 
     for (int i = 0; i < n; i++)
     {
-      for (int j = 0; j < n; j++)
+      for (int j = 0; j < m; j++)
       {
-        if (i != n - 1 && j != m - 1 &&
+        if (
             (arr[i][j] == '1' || arr[i][j] == '2') && (arr[i][j + 1] == '1' || arr[i][j + 1] == '2') && (arr[i + 1][j] == '1' || arr[i + 1][j] == '2') && (arr[i + 1][j + 1] == '1' || arr[i + 1][j + 1] == '2'))
         {
           arr[i][j] = '2';
@@ -248,7 +248,7 @@ int32_t main()
 
     for (int i = 0; i < n; i++)
     {
-      for (int j = 0; j < n; j++)
+      for (int j = 0; j < m; j++)
       {
        
         if(arr[i][j]=='1'){
