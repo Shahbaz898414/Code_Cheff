@@ -216,9 +216,9 @@ int32_t main()
 	        if(j == 0){
 	            c=c+brr[j];
 	            res=res+brr[j];
-	        }
-	        else{
+	        } else{
 	            c=c+brr[j];
+
 	            c=c-((arr[j]-arr[j-1])*r);
               
 	            c=max(brr[j],c);

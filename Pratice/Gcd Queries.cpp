@@ -224,6 +224,7 @@ int32_t main()
       arr2[i] = __gcd(arr2[i + 1], arr[i]);
     }
 
+
     while (q--)
     {
       int l, r;
