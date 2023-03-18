@@ -218,8 +218,7 @@ int32_t main()
       sum = 0;
       cd = 0, ct = 0;
 
-      for (int j = 0; j < 8; ++j)
-      {
+      for (int j = 0; j < 8; ++j){
 
         if (s[i + j] == 'd')
         {
