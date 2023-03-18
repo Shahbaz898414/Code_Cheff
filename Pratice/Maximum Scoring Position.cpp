@@ -213,8 +213,7 @@ int32_t main()
     ll max = 0;
 
     ll sum, cd, ct;
-    for (int i = 0; i < n - 7 && n >= 8; ++i)
-    {
+    for (int i = 0; i < n - 7 && n >= 8; ++i) {
       sum = 0;
       cd = 0, ct = 0;
 
