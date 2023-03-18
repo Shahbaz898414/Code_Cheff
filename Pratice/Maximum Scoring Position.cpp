@@ -242,16 +242,13 @@ int32_t main()
           sum += arr[j];
         }
       }
-      if (cd > 0)
-      {
+      if (cd > 0) {
         sum *= pow(2, cd);
       }
-      if (ct > 0)
-      {
+      if (ct > 0) {
         sum *= pow(3, ct);
       }
-      if (max < sum)
-      {
+      if (max < sum) {
         max = sum;
       }
     }
