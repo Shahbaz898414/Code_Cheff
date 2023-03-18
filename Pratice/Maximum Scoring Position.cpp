@@ -198,12 +198,66 @@ int32_t main()
 
   ll t;
   cin >> t;
-  while (t--) {
+  while (t--)
+  {
+      int n;
+    cin >> n;
+    string s;
+    cin >> s;
+    ll arr[8];
+    for (ll i = 0; i < 8; ++i)
+    {
+      cin >> arr[i];
+    }
 
+    ll max = 0;
 
-  
-    
-    
+    ll sum, cd, ct;
+    for (int i = 0; i < n - 7 && n >= 8; ++i)
+    {
+      sum = 0;
+      cd = 0, ct = 0;
+
+      for (int j = 0; j < 8; ++j)
+      {
+
+        if (s[i + j] == 'd')
+        {
+          sum += arr[j] * 2;
+        }
+        else if (s[i + j] == 't')
+        {
+          sum += arr[j] * 3;
+        }
+        else if (s[i + j] == '.')
+        {
+          sum += arr[j];
+        }
+        else if (s[i + j] == 'D')
+        {
+          cd++;
+          sum += arr[j];
+        }
+        else if (s[i + j] == 'T')
+        {
+          ct++;
+          sum += arr[j];
+        }
+      }
+      if (cd > 0)
+      {
+        sum *= pow(2, cd);
+      }
+      if (ct > 0)
+      {
+        sum *= pow(3, ct);
+      }
+      if (max < sum)
+      {
+        max = sum;
+      }
+    }
+    cout << max << endl;
   }
   return 0;
 }
