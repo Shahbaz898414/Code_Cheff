@@ -198,8 +198,7 @@ int32_t main()
 
   ll t;
   cin >> t;
-  while (t--)
-  {
+  while (t--) {
 
   
     
