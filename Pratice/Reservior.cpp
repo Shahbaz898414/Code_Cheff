@@ -195,19 +195,55 @@ void dfs(vector<vector<int>> &adj, int i)
 
 int32_t main()
 {
+    ios_base::sync_with_stdio(false); cin.tie(NULL);
 
   ll t;
   cin >> t;
   while (t--) {
-    int n, m;
-    cin >> n >> m;
-    char arr[n][m];
+    string s;
+        cin >> s;
+        int n = s.length();
+        ll u = 0; ll d = 0; ll l = 0; ll r = 0;
+        for (int i = 0;i<n;i++) {
+            if (s[i]=='R') r++;
+            else if (s[i]=='D') d++;
+            else if (s[i]=='U') u++;
+            else l++;
+        }
+        ll x, y;
+        cin >> x >> y;
+        ll q;
+        cin >> q;
+        while (q--) {
+            ll xi, yi;
+            cin >> xi >> yi;
+            xi-=x; yi-=y;
+            int flag = 0;
+            if (xi<0) {
+                if (abs(xi)>l) flag = 1;
+            }
+            else {
+                if (abs(xi)>r) flag = 1;
+            }
+            if (yi<0) {
+                if (abs(yi)>d) flag = 1;
+            }
+            else {
+                if (abs(yi)>u) flag = 1;
+            }
+            if (flag==1) {
+                cout << "NO" << "\n";
+            }
+            else {
+                cout << "YES" << " " << abs(xi)+abs(yi) << "\n";
+            }
+        }
 
-    for (int i = 0; i < n; i++) {
-      for (int j = 0; j < m; j++) {
-        cin >> arr[i][j];
-      }
-    }
+  
+
+
   }
   return 0;
 }
+
+
