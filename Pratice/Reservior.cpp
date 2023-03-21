@@ -200,47 +200,38 @@ int32_t main()
   ll t;
   cin >> t;
   while (t--) {
-    string s;
-        cin >> s;
-        int n = s.length();
-        ll u = 0; ll d = 0; ll l = 0; ll r = 0;
+     int n,m;
+        cin >> n >> m;
+        vector <vector <char>> v(n , vector <char> (m));
         for (int i = 0;i<n;i++) {
-            if (s[i]=='R') r++;
-            else if (s[i]=='D') d++;
-            else if (s[i]=='U') u++;
-            else l++;
-        }
-        ll x, y;
-        cin >> x >> y;
-        ll q;
-        cin >> q;
-        while (q--) {
-            ll xi, yi;
-            cin >> xi >> yi;
-            xi-=x; yi-=y;
-            int flag = 0;
-            if (xi<0) {
-                if (abs(xi)>l) flag = 1;
-            }
-            else {
-                if (abs(xi)>r) flag = 1;
-            }
-            if (yi<0) {
-                if (abs(yi)>d) flag = 1;
-            }
-            else {
-                if (abs(yi)>u) flag = 1;
-            }
-            if (flag==1) {
-                cout << "NO" << "\n";
-            }
-            else {
-                cout << "YES" << " " << abs(xi)+abs(yi) << "\n";
+            for (int j = 0;j<m;j++) {
+                cin >> v[i][j];
             }
         }
-
-  
-
+        int flag = 0;
+        for (int i = 0;i<n;i++) {
+            for (int j = 0;j<m;j++) {
+                if (v[i][j]=='W') {
+                    if (j-1<0 or v[i][j-1]=='A' or j+1>=m or v[i][j+1]=='A' or i+1>=n or v[i+1][j]=='A') {
+                        flag = 1;
+                        break;
+                    }
+                }
+                else if (v[i][j]=='B') {
+                    if (i+1<n and v[i+1][j]!='B') {
+                        flag = 1;
+                        break;
+                    }
+                }
+            }
+            if (flag == 1) break;
+        }
+        if (flag == 0) {
+            cout << "yes" << endl;
+        }
+        else {
+            cout << "no" << endl;
+        }
 
   }
   return 0;
