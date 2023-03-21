@@ -199,6 +199,7 @@ int32_t main()
   ll t;
   cin >> t;
   while (t--) {
+    string s;cin>>s;
     
   }
   return 0;
