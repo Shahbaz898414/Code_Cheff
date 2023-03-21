@@ -193,6 +193,7 @@ void dfs(vector<vector<int>> &adj, int i)
   }
 }
 
+
 int32_t main()
 {
     ios_base::sync_with_stdio(false); cin.tie(NULL);
@@ -201,7 +202,7 @@ int32_t main()
   cin >> t;
   while (t--) {
      int n,m; cin >> n >> m;
-     
+
         
   }
   return 0;
