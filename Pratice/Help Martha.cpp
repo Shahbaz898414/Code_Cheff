@@ -237,7 +237,7 @@ int32_t main()
       }
 
       if(fl)  cout<<"NO"<<endl;
-      else cout<<"YES"<<abs(a)+abs(b)<<endl;
+      else cout<<"YES "<<abs(a)+abs(b)<<endl;
     }
     
 
