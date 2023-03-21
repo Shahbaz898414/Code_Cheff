@@ -195,54 +195,51 @@ void dfs(vector<vector<int>> &adj, int i)
 
 int32_t main()
 {
+    ios_base::sync_with_stdio(false); cin.tie(NULL);
 
   ll t;
   cin >> t;
   while (t--) {
-    string s;cin>>s;
+    string s;
+        cin >> s;
+        int n = s.length();
+        ll u = 0; ll d = 0; ll l = 0; ll r = 0;
+        for (int i = 0;i<n;i++) {
+            if (s[i]=='R') r++;
+            else if (s[i]=='D') d++;
+            else if (s[i]=='U') u++;
+            else l++;
+        }
+        ll x, y;
+        cin >> x >> y;
+        ll q;
+        cin >> q;
+        while (q--) {
+            ll xi, yi;
+            cin >> xi >> yi;
+            xi-=x; yi-=y;
+            int flag = 0;
+            if (xi<0) {
+                if (abs(xi)>l) flag = 1;
+            }
+            else {
+                if (abs(xi)>r) flag = 1;
+            }
+            if (yi<0) {
+                if (abs(yi)>d) flag = 1;
+            }
+            else {
+                if (abs(yi)>u) flag = 1;
+            }
+            if (flag==1) {
+                cout << "NO" << "\n";
+            }
+            else {
+                cout << "YES" << " " << abs(xi)+abs(yi) << "\n";
+            }
+        }
 
-    int n=s.size();
-
-    ll x,y;cin>>x>>y;
-
-    ll q;cin>>q;
-
-    ll l=0,r=0,u=0,d=0;
-
-    for (int i = 0; i <n; i++) {
-    
-      if(s[i]=='L') l++;
-      else if(s[i]=='R') r++;
-      else if(s[i]=='U') u++;
-      else d++;
-    }
-    
-
-    while (q--) {
-      int a,b;cin>>a>>b;
-
-      a-=x;
-      b-=y;
-      bool fl=0;
-      if(a<0){
-        if(abs(a)>l) fl=true;
-      }else {
-        if(abs(a)>r) fl=true;
-      }
-
-      if(b<0){
-        if(abs(y)>u) fl=true;
-      }else {
-        if(abs(y)>d)  fl=true;
-      }
-
-      if(fl)  cout<<"NO"<<endl;
-      else cout<<"YES "<<abs(a)+abs(b)<<endl;
-    }
-    
-
-
-
+  
 
 
   }
