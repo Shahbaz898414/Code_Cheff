@@ -201,12 +201,52 @@ int32_t main()
   while (t--) {
     string s;cin>>s;
 
+    int n=s.size();
+
     ll x,y;cin>>x>>y;
 
     ll q;cin>>q;
 
+    ll l=0,r=0,u=0,d=0;
+
+    for (int i = 0; i <n; i++) {
     
+      if(s[i]=='L') l++;
+      else if(s[i]=='R') r++;
+      else if(s[i]=='U') u++;
+      else d++;
+    }
+    
+
+    while (q--) {
+      int a,b;cin>>a>>b;
+
+      a-=x;
+      b-=y;
+      bool fl=0;
+      if(a<0){
+        if(abs(a)>l) fl=true;
+      }else {
+        if(abs(a)>r) fl=true;
+      }
+
+      if(b<0){
+        if(abs(y)>u) fl=true;
+      }else {
+        if(abs(y)>d)  fl=true;
+      }
+
+      if(fl)  cout<<"NO"<<endl;
+      else cout<<"YES"<<abs(a)+abs(b)<<endl;
+    }
+    
+
+
+
+
 
   }
   return 0;
 }
+
+
