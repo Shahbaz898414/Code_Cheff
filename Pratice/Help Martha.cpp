@@ -200,7 +200,13 @@ int32_t main()
   cin >> t;
   while (t--) {
     string s;cin>>s;
+
+    ll x,y;cin>>x>>y;
+
+    ll q;cin>>q;
+
     
+
   }
   return 0;
 }
