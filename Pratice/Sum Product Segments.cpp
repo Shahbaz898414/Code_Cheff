@@ -215,12 +215,11 @@ int32_t main()
 	                poss=true;
 	                cout<<x-a+1<<" "<<a-1<<endl;
 	                cout<<a<<" "<<b<<endl;
-                  
+
 	                break;
                   
 	            }
-	            else if(x>=2*b+2)
-	            {
+	            else if(x>=2*b+2) {
 	                poss=true;
 	                cout<<a<<" "<<b<<endl;
 	                cout<<b+1<<" "<<x-b-1<<endl;
