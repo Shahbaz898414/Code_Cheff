@@ -218,23 +218,32 @@ int32_t main()
       cout<<x<<" "<<y<<endl;
      }
 
+     vector<string>  str(n);
 
-
-     int matrix[n][m];
-
-     for (int i = 0; i < n; i++){
-     
-      for (int j = 0; j < m; j++) {
-       
-        cin>>matrix[i][j];
-        cout<<matrix[i][j]<<" ";
-
-        
-      }
-
-      cout<<endl;
-      
+     for (int i = 0; i < n; i++)
+     {
+      /* code */
+      cin>>str[i];
      }
+     
+
+     for(auto it: str){
+      cout<<it<<endl;
+     }
+
+
+
+     char matrix[n][m];
+
+    //  for (int i = 0; i < n; i++){
+     
+    //   for (int j = 0; j < m; j++) {
+       
+    //     cin>>matrix[i][j];
+    //     cout<<matrix[i][j]<<" ";
+    //   }
+    //   cout<<endl;
+    //  }
      
      
 
