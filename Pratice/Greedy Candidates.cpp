@@ -240,7 +240,7 @@ int32_t main()
 			}
 		}
 
-    // cout<<companies.size()<<endl;
+    
 		cout << hired << " " << total_value << " " << m - companies.size() << "\n";
 
 	}
