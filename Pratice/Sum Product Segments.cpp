@@ -216,6 +216,7 @@ int32_t main()
 	                cout<<x-a+1<<" "<<a-1<<endl;
 	                cout<<a<<" "<<b<<endl;
 	                break;
+                  
 	            }
 	            else if(x>=2*b+2)
 	            {
