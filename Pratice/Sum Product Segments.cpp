@@ -229,12 +229,9 @@ int32_t main()
 	        
 	    }
 	    
-	    if(poss)
-	        {
+	    if(!poss) {
 	            cout<<-1<<endl;
-	        }
-	    
-
+	    }
         
   }
   return 0;
