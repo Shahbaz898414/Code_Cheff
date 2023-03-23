@@ -215,6 +215,7 @@ int32_t main()
 	                poss=true;
 	                cout<<x-a+1<<" "<<a-1<<endl;
 	                cout<<a<<" "<<b<<endl;
+                  
 	                break;
                   
 	            }
