@@ -231,7 +231,7 @@ int32_t main()
 	    }
 	    
 	    if(!poss) {
-	            cout<<-1<<endl;
+	      cout<<-1<<endl;
 	    }
         
   }
