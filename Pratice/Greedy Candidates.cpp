@@ -196,50 +196,54 @@ void dfs(vector<vector<int>> &adj, int i)
 
 int32_t main()
 {
-    ios_base::sync_with_stdio(false); cin.tie(NULL);
+   ios_base::sync_with_stdio(0);
+	cin.tie(0);
+	cout.tie(0);
+	ll t, n, i, j, k, l, a, b, c,   x,  y, d, q, m,  p, r;
+	cin >> t;
+	while (t--)
+	{
+		cin >> n >> m;
+		ll minSalary[n];
+		pair<ll, ll>offered[m];
+		for (i = 0; i < n; i++)
+			cin >> minSalary[i];
+		for (i = 0; i < m; i++)
+		{
+			cin >> offered[i].first >> offered[i].second;
+		}
+		string s;
+		ll total_value = 0ll;
+		ll hired = 0ll;
+		unordered_set<ll>companies;
+		for (i = 0; i < n; i++)
+		{
+			cin >> s;
+			ll maxi = INT_MIN; ll idx = -1;
+			for (j = 0; j < m; j++)
+			{
+				if (s[j] == '1' && offered[j].first >= minSalary[i] && offered[j].second > 0)
+				{
+					if (offered[j].first > maxi)
+					{
+						maxi = offered[j].first;
+						idx = j;
+					}
+				}
+			}
+			if (idx != -1)
+			{
+				offered[idx].second--;
+				companies.insert(idx);
+				total_value += offered[idx].first;
+				hired++;
+			}
+		}
 
-  ll t;
-  cin >> t;
-  while (t--) {
-     int n,m; cin >> n >> m;
+    // cout<<companies.size()<<endl;
+		cout << hired << " " << total_value << " " << m - companies.size() << "\n";
 
-     int arr[n];
-
-     for (int i = 0; i < n; i++) {
-       cin>>arr[i];
-       cout<<arr[i]<<" ";
-     }
-
-     cout<<endl;
-
-
-     while(m--){
-      int x,y;cin>>x>>y;
-      cout<<x<<" "<<y<<endl;
-     }
-
-     vector<string>  str(n);
-
-     for (int i = 0; i < n; i++)
-     {
-      /* code */
-      cin>>str[i];
-     }
-     
-
-     for(auto it: str){
-      cout<<it<<endl;
-     }
-
-
-
-    
-     
-     
-
-        
-  }
-  return 0;
+	}
 }
 
 
