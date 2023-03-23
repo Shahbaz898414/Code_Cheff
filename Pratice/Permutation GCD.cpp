@@ -203,15 +203,17 @@ int32_t main()
     ll n,x;cin>>n>>x;
     
 
-    if(n>x)  cout<<-1<<endl;
+    if(n>x)  cout<<-1;
     else {
         cout<<x-(n)<<" ";
       for(int i=1; i<=n; i++){
           if(i==(x-(n-1))) continue;
           cout<<i<<" ";
       }
-      cout<<endl;
+      
     }
+
+    cout<<endl;
 	   
         
   }
