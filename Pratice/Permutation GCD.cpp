@@ -198,9 +198,8 @@ int32_t main()
 {
     ios_base::sync_with_stdio(false); cin.tie(NULL);
 
-  ll t;
-  cin >> t;
-  while (t--) {
+  ll t; cin >> t;
+  while(t--) {
      
 	   
         
