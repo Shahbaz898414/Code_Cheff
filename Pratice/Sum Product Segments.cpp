@@ -201,12 +201,14 @@ int32_t main()
   ll t;
   cin >> t;
   while (t--) {
-     int n,m; cin >> n>> m;
+     int n,m; cin>> n>> m;
 
         
   }
   return 0;
 }
+
+// ganesh7400
 
 
 
