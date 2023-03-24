@@ -199,6 +199,13 @@ int32_t main() {
   ll t; cin >> t;
   while(t--) {
     ll n,x,y;cin>>n>>x>>y;
+
+    vector<ll> v(n);
+
+    for (int i = 0; i <n; i++){
+      cin>>v[i];
+    }
+    
     
 
     
