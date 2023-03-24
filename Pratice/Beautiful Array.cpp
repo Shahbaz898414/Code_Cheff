@@ -200,9 +200,14 @@ int32_t main()
 
   ll t;
   cin >> t;
-  while (t--)
-  {
-   
+  while (t--) {
+    int n;
+    vector<int>  v(n);
+
+    for (int i = 0; i < n; i++) {
+      cin>>v[i];
+    }
+    
   }
   return 0;
 }
