@@ -208,6 +208,19 @@ int32_t main() {
       cin>>v[i];
       mx=max(mx,v[i]);
     }
+
+    ll m1=0;
+
+    ll m2=y/mx;
+    if(y%mx!=0) m2++;
+
+     for(int i=n-1;i>=0;i--) {
+            ll rem = v[i] - m1*y;
+            if(rem > 0)
+                m1 += (rem/x + (rem%x != 0));
+        }
+        ll ans = min(m2,m1);
+        cout<<ans<<"\n"; 
     
     
 
