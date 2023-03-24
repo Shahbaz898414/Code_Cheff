@@ -194,30 +194,31 @@ void dfs(vector<vector<int>> &adj, int i)
 }
 
 
-int32_t main()
-{
+int32_t main() {
     ios_base::sync_with_stdio(false); cin.tie(NULL);
 
-  ll t;
-  cin >> t;
-  while (t--) {
+  ll t;cin >> t;
+  while(t--) {
       long long x,y; cin>>x>>y;
 	    bool poss=false;
-	    for(long long i=1; i*i<=y ;i++) {
+	    for (long long i=1; i*i<=y ;i++) {
 	        if(y%i==0) {
 	            long long a=i,b=y/i;
-	            if( x<=2*a-2 ) {
+	            if ( x<=2*a-2 ) {
 
 	                poss=true;
 
 	                cout<<x-a+1<<" "<<a-1<<endl;
 	                cout<<a<<" "<<b<<endl;
 	                break; 
+
 	            }else if(x>=2*b+2) {
-	                poss=true;
-	                cout<<a<<" "<<b<<endl;
-	                cout<<b+1<<" "<<x-b-1<<endl;
-	                break;
+
+	              poss=true;
+	              cout<<a<<" "<<b<<endl;
+	              cout<<b+1<<" "<<x-b-1<<endl;
+	              break;
+
 	            }
 	        }
 	        

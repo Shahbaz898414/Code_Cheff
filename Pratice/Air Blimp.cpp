@@ -202,8 +202,11 @@ int32_t main() {
 
     vector<ll> v(n);
 
+    ll mx=INT_MIN;
+
     for (int i = 0; i <n; i++) {
       cin>>v[i];
+      mx=max(mx,v[i]);
     }
     
     
