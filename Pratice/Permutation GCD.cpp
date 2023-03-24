@@ -194,27 +194,23 @@ void dfs(vector<vector<int>> &adj, int i)
 }
 
 
-int32_t main()
-{
-    ios_base::sync_with_stdio(false); cin.tie(NULL);
+int32_t main() {
+  ios_base::sync_with_stdio(false);
+  cin.tie(NULL);
 
   ll t; cin >> t;
   while(t--) {
     ll n,x;cin>>n>>x;
-    
 
     if(n>x)  cout<<-1;
     else {
       cout<<x-(n-1)<<" ";
-      for(int i=1; i<=n; i++){
+      for(int i=1; i<=n; i++) { 
           if(i==(x-(n-1))) continue;
           cout<<i<<" ";
       }
-      
     }
-
-    cout<<endl;
-        
+    cout<<endl;   
   }
   return 0;
 }

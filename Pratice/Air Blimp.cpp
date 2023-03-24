@@ -180,8 +180,7 @@ void seive()
 int cnt = 0;
 vector<int> vis(100001);
 
-void dfs(vector<vector<int>> &adj, int i)
-{
+void dfs(vector<vector<int>> &adj, int i) {
   vis[i] = 1;
   cnt++;
   for (auto nbr : adj[i])
@@ -194,8 +193,7 @@ void dfs(vector<vector<int>> &adj, int i)
 }
 
 
-int32_t main()
-{
+int32_t main() {
     ios_base::sync_with_stdio(false); cin.tie(NULL);
 
   ll t; cin >> t;
