@@ -180,7 +180,8 @@ void seive()
 int cnt = 0;
 vector<int> vis(100001);
 
-void dfs(vector<vector<int>> &adj, int i) {
+void dfs(vector<vector<int>> &adj, int i)
+{
   vis[i] = 1;
   cnt++;
   for (auto nbr : adj[i])
@@ -192,45 +193,38 @@ void dfs(vector<vector<int>> &adj, int i) {
   }
 }
 
+int32_t main()
+{
+  ios_base::sync_with_stdio(false);
+  cin.tie(NULL);
 
-int32_t main() {
-  ios_base::sync_with_stdio(false);cin.tie(NULL);
-
-  ll t; cin >> t;
-  while(t--) {
-    ll n,x,y;cin>>n>>x>>y;
+  ll t;
+  cin >> t;
+  while (t--)
+  {
+    ll n, x, y;
+    cin >> n >> x >> y;
 
     vector<ll> v(n);
 
-    ll mx=INT_MIN;
+    ll mx = INT_MIN;
 
-    for (int i = 0; i <n; i++) {
-      cin>>v[i];
-      mx=max(mx,v[i]);
+    for (int i = 0; i < n; i++)
+    {
+      cin >> v[i];
+      mx = max(mx, v[i]);
     }
 
-    ll m1=0;
-
-    ll m2=y/mx;
-    if(y%mx!=0) m2++;
-
-     for(int i=n-1;i>=0;i--) {
-            ll rem = v[i] - m1*y;
-            if(rem > 0)
-                m1 += (rem/x + (rem%x != 0));
-        }
-        ll ans = min(m2,m1);
-        cout<<ans<<"\n"; 
-    
-    
-
-    
+    ll m1 = 0;
+    ll m2 = (mx / y + (mx % y != 0));
+    for (int i = n - 1; i >= 0; i--)
+    {
+      ll rem = v[i] - m1 * y;
+      if (rem > 0)
+        m1 += (rem / x + (rem % x != 0));
+    }
+    ll ans = min(m2, m1);
+    cout << ans << "\n";
   }
   return 0;
 }
-
-
-
-
-
-
