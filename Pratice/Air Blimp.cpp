@@ -194,7 +194,7 @@ void dfs(vector<vector<int>> &adj, int i) {
 
 
 int32_t main() {
-    ios_base::sync_with_stdio(false); cin.tie(NULL);
+  ios_base::sync_with_stdio(false);cin.tie(NULL);
 
   ll t; cin >> t;
   while(t--) {
@@ -202,7 +202,7 @@ int32_t main() {
 
     vector<ll> v(n);
 
-    for (int i = 0; i <n; i++){
+    for (int i = 0; i <n; i++) {
       cin>>v[i];
     }
     
