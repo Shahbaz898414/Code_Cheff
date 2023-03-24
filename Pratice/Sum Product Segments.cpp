@@ -206,10 +206,10 @@ int32_t main()
 	    for(long long i=1; i*i<=y ;i++) {
 	        if(y%i==0) {
 	            long long a=i,b=y/i;
-	            if(x<=2*a-2) {
+	            if( x<=2*a-2 ) {
 
 	                poss=true;
-                  
+
 	                cout<<x-a+1<<" "<<a-1<<endl;
 	                cout<<a<<" "<<b<<endl;
 	                break; 
