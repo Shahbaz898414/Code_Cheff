@@ -193,6 +193,10 @@ void dfs(vector<vector<int>> &adj, int i)
   }
 }
 
+
+
+
+
 int32_t main()
 {
   ios_base::sync_with_stdio(false);
@@ -200,31 +204,33 @@ int32_t main()
 
   ll t;
   cin >> t;
-  while (t--)
-  {
-    ll n, x, y;
-    cin >> n >> x >> y;
-
+  while (t--) {
+    ll n, x, y;cin >> n >> x >> y;
     vector<ll> v(n);
 
     ll mx = INT_MIN;
 
-    for (int i = 0; i < n; i++)
-    {
+    for (int i = 0; i < n; i++) {
       cin >> v[i];
       mx = max(mx, v[i]);
     }
 
     ll m1 = 0;
-    ll m2 = (mx / y + (mx % y != 0));
-    for (int i = n - 1; i >= 0; i--)
-    {
+    ll m2 = (mx/y + (mx%y!=0));
+    for (int i = n - 1; i >= 0; i--) {
       ll rem = v[i] - m1 * y;
       if (rem > 0)
         m1 += (rem / x + (rem % x != 0));
     }
     ll ans = min(m2, m1);
     cout << ans << "\n";
+
   }
+
+
+
+
+
+  
   return 0;
 }
