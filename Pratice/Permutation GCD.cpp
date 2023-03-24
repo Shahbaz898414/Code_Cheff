@@ -214,7 +214,6 @@ int32_t main()
     }
 
     cout<<endl;
-	   
         
   }
   return 0;
