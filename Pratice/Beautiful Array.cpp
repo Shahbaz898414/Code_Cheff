@@ -217,6 +217,15 @@ int32_t main()
           val=(1<<val);
          dp[0][i]=val;
      }
+
+      for(int i=0;i<=40;i++)
+     {
+        
+         cout<<dp[0][i]<<" ";
+         if(i%5==0 and i!=0) cout<<endl;
+     }
+
+     cout<<endl;
      for(int i=1;i<n;i++)
      {
          for(int j=-20;j<=20;j++)
@@ -236,6 +245,8 @@ int32_t main()
          }
          
      }
+
+     cout<<endl<<endl;
     cout<<*min_element(dp[n-1].begin(),dp[n-1].end())<<endl;
 		// cout << ans << '\n';
 	}
