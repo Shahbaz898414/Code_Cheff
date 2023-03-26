@@ -236,7 +236,7 @@ int32_t main()
          }
          
      }
-    cout<<*max_element(dp[n-1].begin(),dp[n-1].end())<<endl;
+    cout<<*min_element(dp[n-1].begin(),dp[n-1].end())<<endl;
 		// cout << ans << '\n';
 	}
   return 0;
