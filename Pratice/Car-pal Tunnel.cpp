@@ -213,6 +213,7 @@ int32_t main()
 	        cin >> a[i];
 	        mx = max(mx, a[i]);
 	    }
+      
 	    ll c, d, s;
 	    cin >> c >> d >> s;
 	    cout << mx * (c-1) << endl;
