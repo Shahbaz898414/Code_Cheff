@@ -1,4 +1,4 @@
-#include <bits/stdc++.h>
+#include<bits/stdc++.h>
 using namespace std;
 #define ll long long
 #define mod 1000000007
@@ -37,8 +37,7 @@ using namespace std;
 #define debug(x)
 #endif
 template <class T>
-void _print(T t)
-{
+void _print(T t) {
   cerr << t;
 }
 
@@ -133,6 +132,12 @@ void rotateMatrix(vector<vector<int>> &v, int n)
   }
 }
 
+
+int gcd(int a,int b){
+    if(b==0)return a;
+    return gcd(b,a%b);
+}
+
 vector<bool> is_prime(10001, 1);
 vector<int> primes;
 
@@ -198,16 +203,41 @@ int32_t main()
   ios_base::sync_with_stdio(false);
   cin.tie(NULL);
 
-  ll t;
-  cin >> t;
-  while (t--) {
-    int n;
-    vector<int>  v(n);
-
-    for (int i = 0; i < n; i++) {
-      cin>>v[i];
-    }
-    
-  }
+ int t; cin >> t;
+	while (t--) {
+		 int n;
+     cin>>n;
+     vector<int> a(n);
+     for(int i=0;i<n;i++)cin>>a[i];
+     vector<vector<int>> dp(n+1,vector<int>(100,1e9));
+     for(int i=0;i<=40;i++)
+     {
+         int val=abs((i-20));
+         if(a[0]+(i-20)<=0)continue;
+          val=(1<<val);
+         dp[0][i]=val;
+     }
+     for(int i=1;i<n;i++)
+     {
+         for(int j=-20;j<=20;j++)
+         {
+             if(a[i]+j<=0)continue;
+             for(int k=-20;k<=20;k++)
+             {
+                 if(a[i-1]+k<=0)continue;
+                 if(gcd(a[i-1]+k,a[i]+j)==1)
+                 {
+                     int val=abs(j);
+                     val=(1<<val);
+                     dp[i][j+20]=min(dp[i][j+20],val+dp[i-1][k+20]);
+                 }
+             }
+             
+         }
+         
+     }
+    cout<<*max_element(dp[n-1].begin(),dp[n-1].end())<<endl;
+		// cout << ans << '\n';
+	}
   return 0;
 }
