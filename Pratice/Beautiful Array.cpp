@@ -213,10 +213,10 @@ int32_t main()
      for(int i=0;i<=40;i++)
      {
          int val=abs((i-20));
-          cout<<val<< " val  ";
+          // cout<<val<< " val  ";
          if(a[0]+(i-20)<=0)continue;
           val=(1<<val);
-          cout<<val<< " ( )"<<endl;
+          // cout<<val<< " ( )"<<endl;
          dp[0][i]=val;
      }
 
