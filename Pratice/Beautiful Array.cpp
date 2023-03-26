@@ -221,24 +221,19 @@ int32_t main()
      }
 
     
-     for(int i=1;i<n;i++)
-     {
-         for(int j=-20;j<=20;j++)
-         {
+     for(int i=1;i<n;i++){
+         for(int j=-20;j<=20;j++) {
              if(a[i]+j<=0)continue;
-             for(int k=-20;k<=20;k++)
-             {
+             for(int k=-20;k<=20;k++) {
                  if(a[i-1]+k<=0)continue;
-                 if(gcd(a[i-1]+k,a[i]+j)==1)
-                 {
+                 
+                 if(gcd(a[i-1]+k,a[i]+j)==1) {
                      int val=abs(j);
                      val=(1<<val);
                      dp[i][j+20]=min(dp[i][j+20],val+dp[i-1][k+20]);
                  }
              }
-             
          }
-         
      }
 
     //  cout<<endl<<endl;
