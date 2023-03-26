@@ -208,14 +208,18 @@ int32_t main()
 		 ll n;
 	    cin >> n;
 	    ll mx = 0;
+      
 	    vector<ll> a(n);
 	    for(ll i=0; i<n; i++) {
 	        cin >> a[i];
+
 	        mx = max(mx, a[i]);
 	    }
-      
+
 	    ll c, d, s;
+
 	    cin >> c >> d >> s;
+
 	    cout << mx * (c-1) << endl;
 
     		
