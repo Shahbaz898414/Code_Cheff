@@ -3,8 +3,7 @@
 using namespace std;
 
 int main() {
-  // int t;cin>>t;
-  // while(t--) {
+  
    int n,x=0,y;cin>>n>>y;
  
    int a[n];
@@ -16,6 +15,6 @@ int main() {
    
    
 
-  // }
+ 
 }
 
