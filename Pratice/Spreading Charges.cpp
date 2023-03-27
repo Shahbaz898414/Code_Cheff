@@ -223,7 +223,7 @@ int32_t main()
      for (int i = 0; i < j-1; i++)
      {
       
-      if(p[i].ss!=p[i+1].ss and (p[i+1].ff-p[i])%2==0){
+      if(p[i].ss!=p[i+1].ss and (p[i+1].ff-p[i].ff)%2==0){
         mx++;
       }
      }
