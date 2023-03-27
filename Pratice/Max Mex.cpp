@@ -234,6 +234,7 @@ int32_t main()
     {
       cout << -1 << endl;
     }
+    
     else
     {
       cout << n - mp[m] << endl;
