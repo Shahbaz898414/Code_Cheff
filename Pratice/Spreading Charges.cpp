@@ -203,7 +203,7 @@ int32_t main()
   ios_base::sync_with_stdio(false);
   cin.tie(NULL);
 
- int t; cin >> t;
+  int t; cin >> t;
 	while (t--) {
 		 ll n; cin >> n;
 	  ll mx = 0,j=0,z;
@@ -220,16 +220,16 @@ int32_t main()
         }else z++;
      }
 
-     for (int i = 0; i < j-1; i++)
-     {
-      
-      if(p[i].ss!=p[i+1].ss and (p[i+1].ff-p[i].ff)%2==0){
+     for (int i = 0; i < j-1; i++) {
+      if(p[i].ss!=p[i+1].ss and (p[i+1].ff-p[i].ff)%2==0) {
         mx++;
       }
      }
 
-     if(z!=n) cout<<mx<<endl;
-     else cout<<z<<endl;
+     if(z!=n) 
+     cout<<mx<<endl;
+     else
+      cout<<z<<endl;
      
      
 
