@@ -1,4 +1,4 @@
-#include<bits/stdc++.h>
+#include <bits/stdc++.h>
 using namespace std;
 #define ll long long
 #define mod 1000000007
@@ -37,7 +37,8 @@ using namespace std;
 #define debug(x)
 #endif
 template <class T>
-void _print(T t) {
+void _print(T t)
+{
   cerr << t;
 }
 
@@ -132,10 +133,11 @@ void rotateMatrix(vector<vector<int>> &v, int n)
   }
 }
 
-
-int gcd(int a,int b){
-    if(b==0)return a;
-    return gcd(b,a%b);
+int gcd(int a, int b)
+{
+  if (b == 0)
+    return a;
+  return gcd(b, a % b);
 }
 
 vector<bool> is_prime(10001, 1);
@@ -198,22 +200,44 @@ void dfs(vector<vector<int>> &adj, int i)
   }
 }
 
-int32_t main() {
+int32_t main()
+{
   ios_base::sync_with_stdio(false);
   cin.tie(NULL);
-  int t; cin >> t;
-	while (t--) {
-		 ll n,m; cin >> n>>m;
-	  ll mx = 0,i,j=0,z=0;
-	  //  string s;cin>>s;
-     ll p[n];
-
-     for (int i = 0;i<n; i++) {
-       cin>>p[i];
-     }
-
-     
-    		
-	}
+  int t;
+  cin >> t;
+  while (t--)
+  {
+    ll int n, m;
+    cin >> n >> m;
+    map<ll int, ll int> mp;
+    for (int i = 0; i < n; i++)
+    {
+      ll int a;
+      cin >> a;
+      mp[a]++;
+    }
+    // check;
+    ll int cnt = 0;
+    for (auto i : mp)
+    {
+      if (i.first < m)
+      {
+        cnt++;
+      }
+      else
+      {
+        break;
+      }
+    }
+    if (cnt != (m - 1))
+    {
+      cout << -1 << endl;
+    }
+    else
+    {
+      cout << n - mp[m] << endl;
+    }
+  }
   return 0;
 }
