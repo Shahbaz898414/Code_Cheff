@@ -199,22 +199,22 @@ void dfs(vector<vector<int>> &adj, int i)
 }
 
 int32_t main() {
-  // ios_base::sync_with_stdio(false);
-  // cin.tie(NULL);
+  ios_base::sync_with_stdio(false);
+  cin.tie(NULL);
   int t; cin >> t;
 	while (t--) {
 		 ll n; cin >> n;
-	  ll mx = 0,j=0,z;
+	  ll mx = 0,i,j=0,z;
 	   string s;cin>>s;
      pair<int ,char> p[n];
 
-     for (int i = 0;s[i]!='\0'; i++) {
+     for ( i = 0;s[i]!='\0'; i++) {
         if(s[i]!='0') {
           p[j++]={i,s[i]};
         }else z++;
      }
 
-     for (int i = 0; i < j-1; i++) {
+     for ( i = 0; i < j-1; i++) {
       if(p[i].ss!=p[i+1].ss and (p[i+1].ff-p[i].ff)%2==0) {
         mx++;
       }
