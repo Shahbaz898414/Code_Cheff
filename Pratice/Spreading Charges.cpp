@@ -198,21 +198,15 @@ void dfs(vector<vector<int>> &adj, int i)
   }
 }
 
-int32_t main()
-{
-  ios_base::sync_with_stdio(false);
-  cin.tie(NULL);
-
+int32_t main() {
+  // ios_base::sync_with_stdio(false);
+  // cin.tie(NULL);
   int t; cin >> t;
 	while (t--) {
 		 ll n; cin >> n;
 	  ll mx = 0,j=0,z;
-      
 	   string s;cin>>s;
-
-
      pair<int ,char> p[n];
-
 
      for (int i = 0;s[i]!='\0'; i++) {
         if(s[i]!='0') {
@@ -227,14 +221,9 @@ int32_t main()
      }
 
      if(z==n) 
-     cout<<z<<endl;
+       cout<<z<<endl;
      else
-      cout<<mx<<endl;
-     
-     
-
-
-
+       cout<<mx<<endl;
     		
 	}
   return 0;
