@@ -203,27 +203,16 @@ int32_t main() {
   cin.tie(NULL);
   int t; cin >> t;
 	while (t--) {
-		 ll n,m; cin >> n;
+		 ll n,m; cin >> n>>m;
 	  ll mx = 0,i,j=0,z=0;
-	   string s;cin>>s;
-     pair<int ,char> p[n];
+	  //  string s;cin>>s;
+     ll p[n];
 
-     for (int i = 0;s[i]!='\0'; i++) {
-        if(s[i]!='0') {
-          p[j++]={i,s[i]};
-        }else z++;
+     for (int i = 0;i<n; i++) {
+       cin>>p[i];
      }
 
-     for (int i = 0; i < j-1; i++) {
-      if(p[i].ss!=p[i+1].ss and (p[i+1].ff-p[i].ff)%2==0) {
-        mx++;
-      }
-     }
-
-     if(z==n) 
-       cout<<z<<endl;
-     else
-       cout<<mx<<endl;
+     
     		
 	}
   return 0;
