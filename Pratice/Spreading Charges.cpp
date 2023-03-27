@@ -226,10 +226,10 @@ int32_t main()
       }
      }
 
-     if(z!=n) 
-     cout<<mx<<endl;
+     if(z==n) 
+     cout<<z<<endl;
      else
-      cout<<z<<endl;
+      cout<<mx<<endl;
      
      
 
