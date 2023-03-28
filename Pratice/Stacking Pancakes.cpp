@@ -222,6 +222,7 @@ int32_t main()
             ans = (ans + dp[n][i])%mod;
         }
         cout<<ans<<endl;
+        
   }
   return 0;
 }
