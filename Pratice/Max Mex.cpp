@@ -230,13 +230,10 @@ int32_t main()
         break;
       }
     }
-    if (cnt != (m - 1))
-    {
+    if (cnt != (m - 1)) {
       cout << -1 << endl;
     }
-    
-    else
-    {
+    else {
       cout << n - mp[m] << endl;
     }
   }
