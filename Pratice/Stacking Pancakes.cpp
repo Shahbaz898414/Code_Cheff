@@ -200,6 +200,8 @@ void dfs(vector<vector<int>> &adj, int i)
   }
 }
 
+unsigned long long int mx[1001], ans[1001];
+
 int32_t main()
 {
   ios_base::sync_with_stdio(false);
@@ -208,33 +210,24 @@ int32_t main()
   cin >> t;
   while (t--)
   {
-    ll int n, m;
-    cin >> n >> m;
-    map<ll int, ll int> mp;
-    for (int i = 0; i < n; i++)
+    int n;
+        cin >> n;
+        
+    mx[1] = 1;
+    ans[1] = 1;
+    for (int i = 2; i <= 1000; i++)
     {
-      ll int a; cin >> a;
-      mp[a]++;
+        mx[i] = 1;
+        int temp = mx[i] + mx[1];
+        for (int j = i - 1; j > 1; j--)
+        {
+            mx[j] = (mx[j - 1] + (mx[j] * j)) % 1000000007;
+            temp = (temp + mx[j]) % 1000000007;
+        }
+        ans[i] = temp;
     }
-    
-    ll int cnt = 0;
-    for (auto i : mp)
-    {
-      if (i.first < m)
-      {
-        cnt++;
-      }
-      else
-      {
-        break;
-      }
-    }
-    if (cnt != (m - 1)) {
-      cout << -1 << endl;
-    }
-    else {
-      cout << n - mp[m] << endl;
-    }
+
+    cout << ans[n] << endl;
   }
   return 0;
 }
