@@ -206,28 +206,22 @@ int32_t main()
 {
   ios_base::sync_with_stdio(false);
   cin.tie(NULL);
+
+  long long dp[1005][1005];
+    dp[1][1]=1;
+    for(int i=2; i<1005; i++){
+        for(int j=1; j<=i; j++){
+            dp[i][j] = (dp[i-1][j-1] + dp[i-1][j]*j)%mod;
+        }
+    }
   int t;
   cin >> t;
-  while (t--)
-  {
-    int n;
-        cin >> n;
-        
-    mx[1] = 1;
-    ans[1] = 1;
-    for (int i = 2; i <= 1000; i++)
-    {
-        mx[i] = 1;
-        int temp = mx[i] + mx[1];
-        for (int j = i - 1; j > 1; j--)
-        {
-            mx[j] = (mx[j - 1] + (mx[j] * j)) % 1000000007;
-            temp = (temp + mx[j]) % 1000000007;
+  while (t--) {
+     int n; cin>>n; long long ans=0;
+        for(int i=1; i<=n; i++){
+            ans = (ans + dp[n][i])%mod;
         }
-        ans[i] = temp;
-    }
-
-    cout << ans[n] << endl;
+        cout<<ans<<endl;
   }
   return 0;
 }
