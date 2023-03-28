@@ -213,8 +213,7 @@ int32_t main()
     map<ll int, ll int> mp;
     for (int i = 0; i < n; i++)
     {
-      ll int a;
-      cin >> a;
+      ll int a; cin >> a;
       mp[a]++;
     }
     
