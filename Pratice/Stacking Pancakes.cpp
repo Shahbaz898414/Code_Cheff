@@ -221,6 +221,7 @@ int32_t main()
         for(int i=1; i<=n; i++){
             ans = (ans + dp[n][i])%mod;
         }
+        
         cout<<ans<<endl;
         
   }
