@@ -208,6 +208,7 @@ int32_t main()
   cin.tie(NULL);
 
   long long dp[1005][1005];
+  ll g=0;
     dp[1][1]=1;
     for(int i=2; i<1005; i++){
         for(int j=1; j<=i; j++){
@@ -217,11 +218,12 @@ int32_t main()
   int t;
   cin >> t;
   while (t--) {
-     int n; cin>>n; long long ans=0;
+     int n; cin>>n; 
+     long long ans=0;
         for(int i=1; i<=n; i++){
             ans = (ans + dp[n][i])%mod;
         }
-        
+
         cout<<ans<<endl;
         
   }
