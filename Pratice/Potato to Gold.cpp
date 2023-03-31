@@ -210,36 +210,7 @@ int32_t main()
     while (t--)
     {
         int n, b, c;
-        cin >> n >> b >> c;
-        string s1;
-        cin >> s1;
-        string str = "";
-        for (int i = 0; i < n; i++)
-        {
-            int ans = (int(s1[i]) - 97);
-            if (ans == 0)
-                str += 'a';
-            
-            else if ((26 - ans) <= b)
-            {
-                str += 'a';
-                b -= (26 - ans);
-            }
-            else
-            {
-                if (c > ans)
-                {
-                    str += 'a';
-                    c -= ans;
-                }
-                else
-                {
-                    str += char(97 + ans - c);
-                    c = 0;
-                }
-            }
-            cout << str[i];
-        }
-        cout << endl;
+        cin >> n >> b ;
+       
     }
 }
