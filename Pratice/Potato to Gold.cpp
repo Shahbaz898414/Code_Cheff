@@ -235,7 +235,7 @@ signed main(){
         else{
             sz = (k/2)-1;
             ans*=f[k/2]+1;
-        };
+        }
         for(ll i = 1;i<=sz;i++){
             ll x = ans;
             ans =((x*(mod_pow(2,f[i])+mod_pow(2,f[k-i]))%mod))-x;
