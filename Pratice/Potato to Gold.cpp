@@ -210,7 +210,7 @@ int32_t main()
     while (t--)
     {
         int n, b, c;
-        cin >> n >> b ;
+        cin >> n >> b;
        
     }
 }
