@@ -216,7 +216,7 @@ void dfs(vector<vector<int>> &adj, int i)
     }
 }
 
-signed main(){
+int32_t main(){
     ll T = 1,n,k;
     cin>>T;
     while(T--){
