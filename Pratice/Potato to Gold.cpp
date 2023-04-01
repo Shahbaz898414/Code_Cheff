@@ -169,7 +169,17 @@ int mod_pow(int a,int b){
     return x;
 }
 
+/*
 
+
+        *         *  *  *  *  *         *  *  *
+      *   *             *             *
+    *       *           *            *      *  *  *
+  *  *  *  *  *         *             *          *
+*              *        *                *  *  *
+
+
+*/
 
 
 void seive()
