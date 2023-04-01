@@ -233,6 +233,11 @@ int32_t main(){
             f[nums[i]]++;
         }
         ll ans = f[0]+1;
+
+        for(auto it:f){
+            cout<<it<< " ";
+        }
+        cout<<endl;
         ll sz = 0;
         if(k&1){
             sz = k/2;
