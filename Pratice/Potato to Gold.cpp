@@ -159,12 +159,18 @@ ll power(ll a, ll b)
     return ans;
 }
 
-ll nck(ll main)
-{
-    ll ans = log2(main);
-
-    return pow(2, ans + 1);
+int mod_pow(int a,int b){
+    int x = 1;
+    while(b){
+        if(b&1)(x*=a)%=mod;
+        (a*=a)%=mod;
+        b>>=1;
+    }
+    return x;
 }
+
+
+
 
 void seive()
 {
