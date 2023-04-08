@@ -231,8 +231,8 @@ int32_t main(){
     while(T--){
         cin>>n>>k;
         vector<ll> nums(n);
-        for(auto &c:nums)cin>>c,c%=k;
-      
+        for(auto &c:nums)cin>>c;
+              
     }
-    return 0;
+    
 }
