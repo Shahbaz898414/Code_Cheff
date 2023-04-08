@@ -232,30 +232,7 @@ int32_t main(){
         cin>>n>>k;
         vector<ll> nums(n);
         for(auto &c:nums)cin>>c,c%=k;
-        vector<ll> f(k);
-        for(ll i = 0;i<n;i++){
-            f[nums[i]]++;
-        }
-        ll ans = f[0]+1;
-
-        // for(auto it:f){
-        //     cout<<it<< " ";
-        // }
-        // cout<<endl;
-        ll sz = 0;
-        if(k&1){
-            sz = k/2;
-        }
-        else{
-            sz = (k/2)-1;
-            ans*=f[k/2]+1;
-        }
-        for(ll i = 1;i<=sz;i++){
-            ll x = ans;
-            ans =((x*(mod_pow(2,f[i])+mod_pow(2,f[k-i]))%mod))-x;
-            if(ans<0)ans+=mod;
-        }
-        cout<<ans<<endl;
+      
     }
     return 0;
 }

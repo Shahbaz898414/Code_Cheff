@@ -187,6 +187,10 @@ void seive()
 int cnt = 0;
 vector<int> vis(100001);
 
+const int MAXN = 1005;
+
+int dp[MAXN][MAXN];
+
 void dfs(vector<vector<int>> &adj, int i)
 {
     vis[i] = 1;
@@ -205,41 +209,39 @@ int32_t main()
     ios_base::sync_with_stdio(false);
     cin.tie(NULL);
 
-    int t;
-    cin >> t;
-    while (t--)
-    {
-        int n, b, c;
-        cin >> n >> b >> c;
-        string s1;
-        cin >> s1;
-        string str = "";
-        for (int i = 0; i < n; i++)
-        {
-            int ans = (int(s1[i]) - 97);
-            if (ans == 0)
-                str += 'a';
-            
-            else if ((26 - ans) <= b)
-            {
-                str += 'a';
-                b -= (26 - ans);
-            }
-            else
-            {
-                if (c > ans)
-                {
-                    str += 'a';
-                    c -= ans;
-                }
-                else
-                {
-                    str += char(97 + ans - c);
-                    c = 0;
+    int t;cin >> t;
+    while(t--) {
+        int N;
+    cin >> N;
+
+    // initialize dp table
+    dp[0][0] = 1;
+
+    // fill dp table
+    for (int i = 1; i < N; i++) {
+        for (int j = 0; j < N; j++) {
+            for (int k = 0; k < N; k++) {
+                if (i - k >= 0) {
+                    dp[i][j] += dp[i-k-1][j^k];
+                    dp[i][j] %= MOD;
                 }
             }
-            cout << str[i];
         }
-        cout << endl;
     }
+
+    // compute answer
+    int ans = 0;
+    for (int i = 1; i < N; i++) {
+        ans += dp[N-i-1][i];
+        ans %= MOD;
+    }
+
+    // print answer
+    cout << ans << endl;
+
+ 
+        
+    }
+
+
 }
