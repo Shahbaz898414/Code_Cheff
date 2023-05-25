@@ -229,11 +229,12 @@ int32_t main(){
     ll T = 1,n,k;
     cin>>T;
     while(T--){
-        cin>>n;
-        vector<ll> nums(n);
-        for(int i=0;i<n;i++) {
-            cin>>nums[i];
+        ll n,a,b;cin>>n>>a>>b;
+        ll arr1[2000],arr2[2000];
+        for (ll i = 0; i < n; i++) {
+          cin>>arr1[i]>>arr2[i];
         }
+        
               
     }
     

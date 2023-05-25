@@ -229,11 +229,89 @@ int32_t main(){
     ll T = 1,n,k;
     cin>>T;
     while(T--){
-        cin>>n;
-        vector<ll> nums(n);
-        for(int i=0;i<n;i++) {
-            cin>>nums[i];
-        }
+        ll n, m;
+
+    cin >> n >> m;
+
+    ll fb[n];
+
+  
+    for(int i=0;i<n;i++) cin >> fb[i];
+   
+std::vector<pair<ll, ll>> nhg;
+
+     std::vector<pair<ll, ll>> bvgf;
+    sort(fb, fb + n);
+
+    
+   
+            
+    ll fbg[n + 1];
+               
+  
+    for(int i=0;i<n + 1;i++) fbg[i] = 0;
+    
+   
+            
+    while (m--)
+    {
+       ll a,b;
+                  
+    
+      cin >> a >> b;
+  
+            
+      fbg[a - 1] += 1;
+      fbg[b] -= 1;
+    }
+
+    for(int i=0;i<n + 1;i++) {
+
+      if (i>0)
+ 
+
+        fbg[i] += fbg[i - 1];
+   
+            
+    }
+           
+  
+    
+    for(int i=0;i<n;i++)
+    {
+
+
+      bvgf.push_back({fbg[i], i});
+    }
+               
+    
+    sort(bvgf.rbegin(), bvgf.rend());
+
+    ll p = n - 1, ans = 0;
+               
+    
+    for (auto it : bvgf)
+    {
+      ans += (it.first * fb[p]);
+                 
+
+      nhg.push_back({it.second, fb[p--]});
+    }
+
+    cout << ans << "\n";
+    
+    
+    
+
+    sort(nhg.begin(), nhg.end());
+
+    for (auto it : nhg)
+     
+      cout << it.second << " ";
+ 
+    
+    cout << endl;
+        
               
     }
     
