@@ -1,7 +1,7 @@
 
-#include<bits/stdc++.h>
+#include <bits/stdc++.h>
 using namespace std;
-#define ll long long 
+#define ll long long int
 #define mod 1000000007
 #define Time cerr << "time taken : " << (float)clock() / CLOCKS_PER_SEC << " secs" << endl;
 #define pb push_back
@@ -38,12 +38,14 @@ using namespace std;
 #define debug(x)
 #endif
 template <class T>
-void _print(T t) {
+void _print(T t)
+{
   cerr << t;
 }
 
 template <class T, class V>
-void _print(pair<T, V> p) {
+void _print(pair<T, V> p)
+{
   cerr << "{";
   _print(p.ff);
   cerr << ",";
@@ -52,9 +54,11 @@ void _print(pair<T, V> p) {
 }
 
 template <class T>
-void _print(vector<T> v) {
+void _print(vector<T> v)
+{
   cerr << "[ ";
-  for (T i : v){
+  for (T i : v)
+  {
     _print(i);
     cerr << " ";
   }
@@ -62,9 +66,11 @@ void _print(vector<T> v) {
 }
 
 template <class T>
-void _print(vector<vector<T>> v) {
+void _print(vector<vector<T>> v)
+{
   cerr << "[\n";
-  for (int l = 0; l < v.size(); l++) { 
+  for (int l = 0; l < v.size(); l++)
+  {
     {
       for (int k = 0; k < v[l].size(); k++)
         cerr << v[l][k] << " ";
@@ -75,9 +81,11 @@ void _print(vector<vector<T>> v) {
 }
 
 template <class T, class V>
-void _print(map<T, V> v) {
+void _print(map<T, V> v)
+{
   cerr << "[ ";
-  for (auto i : v) {
+  for (auto i : v)
+  {
     _print(i);
     cerr << " ";
   }
@@ -85,31 +93,38 @@ void _print(map<T, V> v) {
 }
 
 template <class T>
-void _print(set<T> v) {
+void _print(set<T> v)
+{
   cerr << "[ ";
-  for (T i : v) {
+  for (T i : v)
+  {
     _print(i);
     cerr << " ";
   }
   cerr << "]";
 }
 
-const long long inf = 1e18;
-const int MOD = 1e9+7;
+const int inf = 1e6;
+const int MOD = 1e9 + 7;
 const int MAX = 1e6;
 
-bool isValid(string s) {
+bool isValid(string s)
+{
   int len = s.size();
-  for (int i = 0; i < len / 2; i++) {
+  for (int i = 0; i < len / 2; i++)
+  {
     if (s[i] != s[len - 1 - i])
       return false;
   }
   return true;
 }
 
-void rotateMatrix(vector<vector<int>> &v, int n) {
-  for(int i = 0; i < n / 2; i++){
-    for(int j = i; j < n - i - 1; j++) {
+void rotateMatrix(vector<vector<int>> &v, int n)
+{
+  for (int i = 0; i < n / 2; i++)
+  {
+    for (int j = i; j < n - i - 1; j++)
+    {
       int ptr = v[i][j];
       v[i][j] = v[n - 1 - j][i];
       v[n - 1 - j][i] = v[n - 1 - i][n - 1 - j];
@@ -119,95 +134,67 @@ void rotateMatrix(vector<vector<int>> &v, int n) {
   }
 }
 
-
 vector<bool> is_prime(10001, 1);
-vector<int> primes;
+int primes[inf];
 
-void seive() {
-    is_prime[0] = 0;
-    is_prime[1] = 0;
-    for (int i = 2; i < 10001; i++) {
-        if (is_prime[i]) {
-            primes.push_back(i);
-            for (int j = i + i; j < 10001; j += i) {
-                is_prime[j] = 0;
-            }
-        }
+// void faction(){
+//     fac[1] = inv[1] = 1;
+//     for (int i=2; i<maxn; i++){
+//       fac[i] = (fac[i-1] * i)%mod;
+//       inv[i] = po(fac[i], mod - 2);
+//     }
+
+// }
+
+// void seive()
+// {
+//   is_prime[0] = 0;
+//   is_prime[1] = 0;
+//   for (int i = 2; i < 10001; i++)
+//   {
+//     if (is_prime[i])
+//     {
+//       primes.push_back(i);
+//       for (int j = i + i; j < 10001; j += i)
+//       {
+//         is_prime[j] = 0;
+//       }
+//     }
+//   }
+// }
+
+int main()
+{
+
+  ll t;
+  cin >> t;
+
+  while (t--)
+  {
+
+    int v1, v2;
+    cin >> v1 >> v2;
+    long long m1 = 1;
+
+    if(v1==v2) cout<<v1<<endl;
+    else if(v2<v1) cout<< v2<<endl;
+
+    else{
+         for (int i = 0; i < v1; i++)
+    {
+      if (i < v2)
+      {
+        m1 = (m1 * (v2 - i)) % mod;
+      }
+      else
+      {
+        break;
+      }
     }
-}
-
-
-double bfs (vector<vector<ll>> adj_list){
-    double arr[adj_list.size()]={0};
-   // cout<<"size of list is : "<<adj_list.size()<<"\n";
-    
-    for(int i=1;i<adj_list.size();i++){
-       // cout<<"\n"<<"starting new bfs with node : "<<i<<"\n";
-        ll visited[adj_list.size()]={0};
-        queue<ll> q ;
-        int current_node=i;
-        visited[i]=1;
-        q.push(i);
-        while(!q.empty()){
-            current_node=q.front();
-            q.pop();
-           // cout<<"current node  : "<<current_node<<"\n";
-            for(int j=0;j<adj_list[current_node].size();j++){
-                if(visited[adj_list[current_node][j]]==0){
-                    
-                    q.push(adj_list[current_node][j]);
-                    visited[adj_list[current_node][j]]=visited[current_node]+1;
-                //    cout<<adj_list[current_node][j]<<"  "<<"its value is "<<visited[adj_list[current_node][j]]<<"   ";
-                
-                }
-                
-                
-            }
-           // cout<<"\n";
-        }
-        double sum=0;
-        for(int k=0;k<adj_list.size();k++){
-            if(i==4){
-            //cout<<"the dist of node "<<k<<" from 4 is "<<visited[k]<<"\n";
-        }
-            sum=sum+visited[k]-1;
-            
-        }
-        if(i==4){
-           // cout<<"the sum for 4 is "<<sum<<"\n";
-        }
-        sum=(sum+1)/double(adj_list.size()-1);
-        arr[i]=sum;
-       // cout<<"the avd dist for this node is : "<<sum<<"\n";
-        
-        
-        
+    cout << m1 << endl;
     }
-    double min=100000000;
-    int min_idx=0;
-    for(int i=1;i<adj_list.size();i++){
-        if(arr[i]<min){
-            min=arr[i];
-           // cout<<"arr[i] "<<arr[i]<<" ";
-            min_idx=i;
-        }
-    }
-    cout<<min_idx<<" "<<min<<"\n";
-    return min;
-    
-    
-}
-
-int32_t  main() {
-
- ll t;cin>>t;
-
- while(t--){
-  
- }
    
-   
-  
-   return 0;
-}
+  }
 
+  return 0;
+}

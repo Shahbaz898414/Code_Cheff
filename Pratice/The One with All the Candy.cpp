@@ -226,11 +226,17 @@ void dfs(vector<vector<int>> &adj, int i)
 }
 
 int32_t main(){
-    ll T = 1,n,k;
-    cin>>T;
-    while(T--){
+    ll t = 1,n,k;
+    cin>>t;
+    while(t--) {
        ll n;cin>>n;       
               
+        ll arr[n];
+
+        for (ll i = 0; i < n; i++) {
+            cin>>arr[i];
+        }
+        
     }
     
 }
