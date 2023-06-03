@@ -1,60 +1,78 @@
 #include <bits/stdc++.h>
 
-#define ll long long
 using namespace std;
 
-bool binay_search(vector<ll> &arr, ll vgf, ll k)
+using ll = long long;
+const int mod = 1e9 + 7;
+
+bool binary_search(ll mian, vector<ll> &fjng, ll g)
 {
-  ll main = vgf * k;
-  for (ll i = 0; i < arr.size(); i++)
+  ll ans = 0;
+  for (int i = 0; i < fjng.size(); i++)
   {
-    ll fvg = min(min(arr[i], vgf), main);
-    main -= fvg;
-    if (main == 0)
-    {
-      return true;
-    }
+    if (fjng[i] < mian)
+      ans += mian - fjng[i];
+    else
+      break;
   }
-  return false;
+  return ans <= g;
 }
-
-
 
 int main()
 {
   int t = 1;
   cin >> t;
-  while (t-- > 0)
+  while (t--)
   {
-    int n, k;
+    ll n, k;
+    ll mi = 0;
     cin >> n >> k;
-    vector<ll> arr(n);
+    vector<ll> fjng(n);
+    for (auto &it : fjng)
+      cin >> it;
+
+    sort(fjng.begin(), fjng.end());
+
+    ll left = 0, right = 1e10, fhng;
+    while (right - left > 1)
+    {
+      fhng = (right + left) / 2;
+      if (binary_search(fhng, fjng, k))
+        left = fhng;
+      else
+        right = fhng - 1;
+    }
+
+    if (binary_search(right, fjng, k))
+      mi = right;
+    else
+      mi = left;
+
     for (int i = 0; i < n; i++)
     {
-      cin >> arr[i];
-    }
-ll left = 0;ll right = 0;
-    ll ans = 0;
-    
-    for (ll i : arr)
-    {
-      right += i;
-    }
-    while (left <= right)
-    {
-      ll mid = left + (right - left) / 2;
-      if (binay_search(arr, mid, k))
+      if (fjng[i] < mi)
       {
-        left = mid + 1;
-        ans = max(ans, mid);
-      }
-      else
-      {
-        right = mid - 1;
+        k -= (mi - fjng[i]);
+        fjng[i] = mi;
       }
     }
-    cout << ans << endl;
-    
+
+    for (int i = 0; i < k; i++)
+      fjng[i]++;
+
+    ll vain = 0;
+    for (int i = 0; i < n; i++)
+      vain = (vain + fjng[i]) % mod;
+
+    ll cnt = 0;
+    for (int i = 0; i < n; i++)
+    {
+      vain = (vain - fjng[i] + mod) % mod;
+      cnt = (cnt + fjng[i] * vain) % mod;
+    }
+
+    cout << cnt << '\n';
   }
+
   return 0;
 }
