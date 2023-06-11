@@ -247,7 +247,7 @@ long long fact[N], Invfact[N];
 
 int main()
 {
-  precal();
+  // precal();
   int len;
   cin >> len;
   while (len--)
@@ -257,24 +257,41 @@ int main()
     int a[n + 1];
     vector<pair<int,int>>  v(n);
 
-    vector<int>  vec;
+    vector<int>  vec,vec1,sim;
+    int s=0;
     for (int i = 1; i <= n; i++)
     {
 
       cin >> a[i];
       if(a[i]==0) vec.insert(vec.begin(),  i);
+      else {
+          // vec1.find()
+          auto it=find(vec.begin(),vec.end(),a[i]);
+          int index=it-vec.begin();
+
+          // cout<<index<<" ";
+
+          // sim.push_back(index);
+          s+=min((index+1),(i-index-1));
+
+          v.insert(v.begin()+index+1,i);
+      }
     }
 
-    for(auto it:vec) {
-      cout<<it<<" ";
-    }
+    cout<<s<<endl;
+
+    // for(auto it:sim) {
+    //   cout<<it<<" ";
+    // }
 
 
 
     // [2, 4, 0, 3, 1].
 
     /*
-    05124    min=2
+       05124    min=2
     */
+
+
   }
 }
