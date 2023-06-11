@@ -250,12 +250,21 @@ int main()
   precal();
   int len;
   cin >> len;
-  while (len--)
-  {
-    int n;
-    cin >> n;
-    int a[n];
-    for (int i = 0; i < n; i++)
-      cin >> a[i];
+  while (len--) {
+    int n; cin >> n;
+    int a[n+1];
+    for (int i = 1; i <=n; i++){
+
+    cin >> a[i]; }
+
+    
+
+
+    // [2, 4, 0, 3, 1].
+
+    /*
+    05124    min=2
+    */
+
   }
 }
