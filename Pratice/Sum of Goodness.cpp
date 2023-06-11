@@ -107,6 +107,10 @@ const long long inf = 1e18;
 const int MOD = 1e9 + 7;
 const int MAX = 1e6;
 
+const int N = 1000005;
+
+long long fact[N], Invfact[N];
+
 bool isValid(string s)
 {
   int len = s.size();
@@ -116,6 +120,19 @@ bool isValid(string s)
       return false;
   }
   return true;
+}
+
+long long bipow(long long x, long long y, long long mod)
+{
+  long long ans = 1;
+  while (y > 0)
+  {
+    if (y % 2 == 1)
+      ans = (ans * x) % mod;
+    y = y / 2;
+    x = (x * x) % mod;
+  }
+  return ans;
 }
 
 void rotateMatrix(vector<vector<int>> &v, int n)
@@ -143,7 +160,7 @@ int gcd(int a, int b)
 vector<bool> is_prime(10001, 1);
 vector<int> primes;
 
-ll fact[1000001];
+// ll fact[1000001];
 
 ll power(ll a, ll b)
 {
@@ -172,7 +189,22 @@ int mod_pow(int a, int b)
   return x;
 }
 
+void precal()
+{
+  fact[0] = 1;
+  for (int i = 1; i < N; i++)
+    fact[i] = (i * fact[i - 1]) % MOD;
+  Invfact[N - 1] = bipow(fact[N - 1], MOD - 2, MOD);
+  for (int i = N - 2; i >= 0; i--)
+    Invfact[i] = ((i + 1) * Invfact[i + 1]) % MOD;
+}
 
+long long ncr(int n, int r)
+{
+  if (r > n || n < 0 || r < 0)
+    return 0;
+  return (fact[n] * Invfact[r] % MOD) * Invfact[n - r] % MOD;
+}
 
 void seive()
 {
@@ -192,57 +224,54 @@ void seive()
   }
 }
 
-int cnt = 0;
-vector<int> vis(100001);
-
-void dfs(vector<vector<int>> &adj, int i)
+void sortArray(int a[], int n)
 {
-  vis[i] = 1;
-  cnt++;
-  for (auto nbr : adj[i])
+  vector<int> arr(a, a + n);
+  sort(arr.begin(), arr.end());
+  for (int i = 0; i < n; i++)
+    a[i] = arr[i];
+}
+
+// void dfs(vector<vector<int>> &adj, int i)
+// {
+//   vis[i] = 1;
+//   // cnt++;
+//   for (auto nbr : adj[i])
+//   {
+//     if (vis[nbr] == 0)
+//     {
+//       dfs(adj, nbr);
+//     }
+//   }
+// }
+
+int main()
+{
+  precal();
+  int len;
+  cin >> len;
+  while (len--)
   {
-    if (vis[nbr] == 0)
+    int n;
+    cin >> n;
+    int a[n];
+    for (int i = 0; i < n; i++)
+      cin >> a[i];
+    sortArray(a, n);
+    long long ans = 0;
+    for (int i = 0; i < n; i++)
     {
-      dfs(adj, nbr);
+      if (a[i] - 1 <= i)
+      {
+        long long left = ncr(i, a[i] - 1);
+        long long right = bipow(2, n - i - 1, mod);
+        long long g = (left % MOD * right % MOD) % MOD;
+        ans = (ans % MOD + g % MOD) % MOD;
+        if (ans < 0)
+          ans += MOD;
+      }
     }
+
+    cout << ans << endl;
   }
 }
-
-int32_t main()
-{
-  ll t = 1;
-  cin >> t;
-  while (t--) {
-     ll n,m;
-    cin>>m>>n;
-    if(m==n)
-    {
-        yes;
-        return;
-    }
-    else if(n>m)
-    {
-        no;
-        return;
-    }
-    else
-    {
-        while(m%2==0)
-        {
-            m/=2;
-        }
-        if(n%m==0)
-       
-            yes;
-        
-        else
-        
-            no;
-        
-    }
-
-
-  }
-}
-
-
