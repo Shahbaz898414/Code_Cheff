@@ -111,126 +111,126 @@ const int N = 1000005;
 
 long long fact[N], Invfact[N];
 
-bool isValid(string s)
-{
-  int len = s.size();
-  for (int i = 0; i < len / 2; i++)
-  {
-    if (s[i] != s[len - 1 - i])
-      return false;
-  }
-  return true;
-}
+// bool isValid(string s)
+// {
+//   int len = s.size();
+//   for (int i = 0; i < len / 2; i++)
+//   {
+//     if (s[i] != s[len - 1 - i])
+//       return false;
+//   }
+//   return true;
+// }
 
-long long bipow(long long x, long long y, long long mod)
-{
-  long long ans = 1;
-  while (y > 0)
-  {
-    if (y % 2 == 1)
-      ans = (ans * x) % mod;
-    y = y / 2;
-    x = (x * x) % mod;
-  }
-  return ans;
-}
+// long long bipow(long long x, long long y, long long mod)
+// {
+//   long long ans = 1;
+//   while (y > 0)
+//   {
+//     if (y % 2 == 1)
+//       ans = (ans * x) % mod;
+//     y = y / 2;
+//     x = (x * x) % mod;
+//   }
+//   return ans;
+// }
 
-void rotateMatrix(vector<vector<int>> &v, int n)
-{
-  for (int i = 0; i < n / 2; i++)
-  {
-    for (int j = i; j < n - i - 1; j++)
-    {
-      int ptr = v[i][j];
-      v[i][j] = v[n - 1 - j][i];
-      v[n - 1 - j][i] = v[n - 1 - i][n - 1 - j];
-      v[n - 1 - i][n - 1 - j] = v[j][n - 1 - i];
-      v[j][n - 1 - i] = ptr;
-    }
-  }
-}
+// void rotateMatrix(vector<vector<int>> &v, int n)
+// {
+//   for (int i = 0; i < n / 2; i++)
+//   {
+//     for (int j = i; j < n - i - 1; j++)
+//     {
+//       int ptr = v[i][j];
+//       v[i][j] = v[n - 1 - j][i];
+//       v[n - 1 - j][i] = v[n - 1 - i][n - 1 - j];
+//       v[n - 1 - i][n - 1 - j] = v[j][n - 1 - i];
+//       v[j][n - 1 - i] = ptr;
+//     }
+//   }
+// }
 
-int gcd(int a, int b)
-{
-  if (b == 0)
-    return a;
-  return gcd(b, a % b);
-}
+// int gcd(int a, int b)
+// {
+//   if (b == 0)
+//     return a;
+//   return gcd(b, a % b);
+// }
 
-vector<bool> is_prime(10001, 1);
-vector<int> primes;
+// vector<bool> is_prime(10001, 1);
+// vector<int> primes;
 
-// ll fact[1000001];
+// // ll fact[1000001];
 
-ll power(ll a, ll b)
-{
-  ll ans = 1;
-  a %= mod;
-  while (b > 0)
-  {
-    if (b % 2)
-      ans = ans * a % mod;
-    a = a * a % mod;
-    b /= 2;
-  }
-  return ans;
-}
+// ll power(ll a, ll b)
+// {
+//   ll ans = 1;
+//   a %= mod;
+//   while (b > 0)
+//   {
+//     if (b % 2)
+//       ans = ans * a % mod;
+//     a = a * a % mod;
+//     b /= 2;
+//   }
+//   return ans;
+// }
 
-int mod_pow(int a, int b)
-{
-  int x = 1;
-  while (b)
-  {
-    if (b & 1)
-      (x *= a) %= mod;
-    (a *= a) %= mod;
-    b >>= 1;
-  }
-  return x;
-}
+// int mod_pow(int a, int b)
+// {
+//   int x = 1;
+//   while (b)
+//   {
+//     if (b & 1)
+//       (x *= a) %= mod;
+//     (a *= a) %= mod;
+//     b >>= 1;
+//   }
+//   return x;
+// }
 
-void precal()
-{
-  fact[0] = 1;
-  for (int i = 1; i < N; i++)
-    fact[i] = (i * fact[i - 1]) % MOD;
-  Invfact[N - 1] = bipow(fact[N - 1], MOD - 2, MOD);
-  for (int i = N - 2; i >= 0; i--)
-    Invfact[i] = ((i + 1) * Invfact[i + 1]) % MOD;
-}
+// void precal()
+// {
+//   fact[0] = 1;
+//   for (int i = 1; i < N; i++)
+//     fact[i] = (i * fact[i - 1]) % MOD;
+//   Invfact[N - 1] = bipow(fact[N - 1], MOD - 2, MOD);
+//   for (int i = N - 2; i >= 0; i--)
+//     Invfact[i] = ((i + 1) * Invfact[i + 1]) % MOD;
+// }
 
-long long ncr(int n, int r)
-{
-  if (r > n || n < 0 || r < 0)
-    return 0;
-  return (fact[n] * Invfact[r] % MOD) * Invfact[n - r] % MOD;
-}
+// long long ncr(int n, int r)
+// {
+//   if (r > n || n < 0 || r < 0)
+//     return 0;
+//   return (fact[n] * Invfact[r] % MOD) * Invfact[n - r] % MOD;
+// }
 
-void seive()
-{
-  is_prime[0] = 0;
-  is_prime[1] = 0;
-  for (int i = 2; i < 10001; i++)
-  {
+// void seive()
+// {
+//   is_prime[0] = 0;
+//   is_prime[1] = 0;
+//   for (int i = 2; i < 10001; i++)
+//   {
 
-    if (is_prime[i])
-    {
-      primes.push_back(i);
-      for (int j = i + i; j < 10001; j += i)
-      {
-        is_prime[j] = 0;
-      }
-    }
-  }
-}
+//     if (is_prime[i])
+//     {
+//       primes.push_back(i);
+//       for (int j = i + i; j < 10001; j += i)
+//       {
+//         is_prime[j] = 0;
+//       }
+//     }
+//   }
+// }
 
-void sortArray(int a[], int n)
-{
-  vector<int> arr(a, a + n);
-  sort(arr.begin(), arr.end());
-  for (int i = 0; i < n; i++)
-    a[i] = arr[i];
-}
+// void sortArray(int a[], int n)
+// {
+//   vector<int> arr(a, a + n);
+//   sort(arr.begin(), arr.end());
+//   for (int i = 0; i < n; i++)
+//     a[i] = arr[i];
+// }
 
 // void dfs(vector<vector<int>> &adj, int i)
 // {
@@ -250,14 +250,25 @@ int main()
   precal();
   int len;
   cin >> len;
-  while (len--) {
-    int n; cin >> n;
-    int a[n+1];
-    for (int i = 1; i <=n; i++){
+  while (len--)
+  {
+    int n;
+    cin >> n;
+    int a[n + 1];
+    vector<pair<int,int>>  v(n);
 
-    cin >> a[i]; }
+    vector<int>  vec;
+    for (int i = 1; i <= n; i++)
+    {
 
-    
+      cin >> a[i];
+      if(a[i]==0) vec.insert(vec.begin(),  i);
+    }
+
+    for(auto it:vec) {
+      cout<<it<<" ";
+    }
+
 
 
     // [2, 4, 0, 3, 1].
@@ -265,6 +276,5 @@ int main()
     /*
     05124    min=2
     */
-
   }
 }
