@@ -176,6 +176,23 @@ signed main()
     ll n, k;
     cin >> n;
     ll cnt, ans;
+
+    if(n%2){
+      	for(int i=1;i<n;i+=2) cout<<i+1<<" "<<i<<" ";
+		cout<<n+1<<"\n";
+    }else{
+       for (ll i = 1; i <=n; i+=2)
+    {
+      /* code */
+      cout<<i+1<<" "<<i<<" ";
+
+    }
+
+    cout<<endl;
+    }
+
+   
+    
   }
   return 0;
 }
