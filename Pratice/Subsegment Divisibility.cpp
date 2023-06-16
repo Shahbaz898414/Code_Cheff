@@ -164,8 +164,6 @@ bool isValid(string s)
 //   }
 // }
 
-
-
 signed main()
 {
 
@@ -176,54 +174,8 @@ signed main()
   while (t--)
   {
     ll n, k;
-    cin >> n ;
-  ll cnt,ans;
-    ll arr[n];
-
-    for (ll i = 0; i < n; i++) {
-    
-      cin>>arr[i];
-    }
-
-     cnt = arr[0] + arr[1] + arr[2]; 
-
-
-     ll m1 = arr[0], m2 = arr[1], m3 = arr[2]; 
-
-  
-     ans = cnt;
-
-    for (int i = 3; i < n; i++) { 
-    
-            cnt += arr[i]; 
-
-    
-            if (arr[i] >= m1) { 
-                m3 = m2; 
-                m2 = m1; 
-                m1 = arr[i]; 
-            } else if (arr[i] >= m2) { 
-     
-                m3 = m2; 
-                m2 = arr[i]; 
-            } else if (arr[i] >= m3) { 
-       
-                m3 = arr[i]; 
-            } 
-
-            ll cur_ans = cnt - (i - 2) * m1 - (i - 3) * m2 - (i - 4) * m3; 
-           
-
-            ans = max(ans, cur_ans); 
-        } 
-
-
-
-
-        cout << ans << endl;  
-    
-
-   
+    cin >> n;
+    ll cnt, ans;
   }
   return 0;
 }
