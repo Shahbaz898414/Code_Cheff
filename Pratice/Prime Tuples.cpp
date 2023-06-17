@@ -171,6 +171,32 @@ signed main()
 
   ios::sync_with_stdio(false);
   cin.tie(nullptr);
+
+  const int mxn=1000000;
+  bool isprime[mxn];
+
+  for (ll i = 0; i <=mxn; i++) {
+    isprime[i]=true;
+  }
+
+  isprime[0]=false;
+  isprime[1]=false;
+
+  for (ll i = 2; i*i <=mxn; i++)
+  {
+    
+    if(isprime[i]==true){
+      for (int j = i*i; j <=mxn; j+=i) 
+      
+        isprime[j]=false;
+    
+      
+    }
+  }
+  
+  
+
+
   ll t;
   cin >> t;
   while (t--)
@@ -179,22 +205,9 @@ signed main()
     cin >> n;
     ll cnt, ans;
 
-    if (n % 2)
-    {
-      for (int i = 1; i < n; i += 2)
-        cout << i + 1 << " " << i << " ";
-      cout << n + 1 << "\n";
-    }
-    else
-    {
-      for (ll i = 1; i <= n; i += 2)
-      {
-        /* code */
-        cout << i + 1 << " " << i << " ";
-      }
+   
 
-      cout << endl;
-    }
+
   }
   return 0;
 }
