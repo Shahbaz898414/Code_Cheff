@@ -174,22 +174,22 @@ signed main()
   cin >> t;
   while (t--)
   {
-    ll n, k;
+    ll n;
     cin >> n;
     ll cnt, ans;
 
-    double arr1[n], arr2[n];
+    vector<double>  k(n),c(n);
 
     for (ll i = 0; i < n; i++)
     {
 
-      cin >> arr1[i];
+      cin >> k[i];
     }
 
     for (ll i = 0; i < n; i++)
     {
 
-      cin >> arr2[i];
+      cin >> c[i];
     }
   }
   return 0;
