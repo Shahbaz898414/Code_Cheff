@@ -170,57 +170,37 @@ signed main()
   ios::sync_with_stdio(false);
   cin.tie(nullptr);
 
-  const int mxn = 1000000;
-  bool isprime[mxn];
-
-  for (ll i = 0; i <= mxn; i++)
-  {
-    isprime[i] = true;
-  }
-
-  isprime[0] = false;
-  isprime[1] = false;
-
-  for (ll i = 2; i * i <= mxn; i++)
-  {
-    if (isprime[i] == true)
-    {
-      for (int j = i * i; j <= mxn; j += i)
-        isprime[j] = false;
-    }
-  }
-
-  vector<int >  tuples(mxn+1);
-
-  tuples[0]=tuples[1]=tuples[2]=tuples[3]=0;
-
-  for (ll i = 4; i <=mxn; i++)
-  {
-    /* code */
-    int b=i-2;
-    tuples[i]=tuples[i-1];
-    if(isprime[i]==true and isprime[b]==true){
-      tuples[i]++;
-    }
-  }
-
   ll t;
   cin >> t;
-  while (t--) {
+  while (t--)
+  {
     ll n, k;
     cin >> n;
     ll cnt, ans;
 
-    // for (int i = 0; i <19; i++)
-    // {
-    //   /* code */
-    //   cout<<tuples[i]<<" ";
-    // }
-    
-    // cout<<endl;
+    double arr1[n], arr2[n];
 
-    cout<<tuples[n+1]<<endl;
+    for (ll i = 0; i < n; i++)
+    {
 
+      cin >> arr1[i];
+    }
+
+    for (ll i = 0; i < n; i++)
+    {
+
+      cin >> arr2[i];
+    }
   }
   return 0;
 }
+
+/*
+12.0761472885 28.6000000000 2.4000000000 -3.2666666667 -5.9000000000
+-1
+3.6578682316 0.2566666667 -7.4133333333 7.1566666667
+3.5802375027 15.5642936942 -2.1510203645
+-1
+
+
+*/
