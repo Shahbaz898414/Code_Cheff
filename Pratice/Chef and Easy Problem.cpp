@@ -186,7 +186,7 @@ signed main()
 
     vector<vector<ll>> pref(n + 1, vector<ll>(31, 0));
 
-    for (ll i = 0; i < 31; i++)
+    for (ll j = 0; j < 31; j++)
     {
       for (ll i = 1; i <= n; i++)
       {
