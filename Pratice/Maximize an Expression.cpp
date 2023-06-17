@@ -181,16 +181,52 @@ signed main()
     vector<double>  k(n),c(n);
 
     for (ll i = 0; i < n; i++)
-    {
-
       cin >> k[i];
-    }
 
     for (ll i = 0; i < n; i++)
-    {
-
       cin >> c[i];
+
+    double A=0;
+
+    for (int i = 0; i <n; i++)
+    {
+      /* code */
+      A+=(k[i]*c[i]);
     }
+
+    if(A<0){
+      cout<<-1<<endl;
+      continue;
+    }
+
+    double B=0;
+
+
+    
+  for (int i = 0; i < n; i++)
+  {
+    /* code */
+    B+=((double)1.0/k[i]);
+
+  }
+
+  double lambda=sqrt(B)/(((double)2.0)*sqrt(A));
+  double ans=0;
+
+  for (int i = 0; i < n; i++)
+  {
+    /* code */
+    k[i]=(double)1.0/(((double)2.0)*k[i]*lambda);
+    ans+=k[i];
+    k[i]=(k[i]*k[i])-c[i];
+  }
+
+  cout<<
+  
+  
+
+
+
   }
   return 0;
 }
