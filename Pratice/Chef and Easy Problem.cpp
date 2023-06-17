@@ -178,70 +178,9 @@ signed main()
     cin >> n;
     ll cnt;
 
-    vector<double>  k(n),c(n);
-
-    for (ll i = 0; i < n; i++)
-      cin >> k[i];
-
-    for (ll i = 0; i < n; i++)
-      cin >> c[i];
-
-    double A=0;
-
-    for (int i = 0; i <n; i++)
-    {
-      /* code */
-      A+=(k[i]*c[i]);
-    }
-
-    if(A<0){
-      cout<<-1<<endl;
-      continue;
-    }
-
-    double B=0;
-
-
     
-  for (int i = 0; i < n; i++)
-  {
-    /* code */
-    B+=((double)1.0/k[i]);
-
-  }
-
-  double lambda=sqrt(B)/(((double)2.0)*sqrt(A));
-  double ans=0;
-
-  for (int i = 0; i < n; i++)
-  {
-    /* code */
-    k[i]=(double)1.0/(((double)2.0)*k[i]*lambda);
-    ans+=k[i];
-    k[i]=(k[i]*k[i])-c[i];
-  }
-
-  cout<<setprecision(12)<<fixed<<ans<<" ";
-  
-
-  for (int i = 0; i < n; i++)
-  {
-    /* code */
-    cout<<k[i]<<" ";
-  }
-  
-  cout<<endl;
 
   }
   return 0;
 }
 
-/*
-12.0761472885 28.6000000000 2.4000000000 -3.2666666667 -5.9000000000
--1
-3.6578682316 0.2566666667 -7.4133333333 7.1566666667
-3.5802375027 15.5642936942 -2.1510203645
--1
-
-
-*/
