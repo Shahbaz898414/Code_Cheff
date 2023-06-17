@@ -179,10 +179,63 @@ signed main()
     cin >> n >> q;
     ll cnt;
     vector<ll> arr(n + 1, 0);
-    for (ll i = 0; i < n; i++)
+    for (ll i = 1; i <= n; i++)
     {
       cin >> arr[i];
     }
+
+    vector<vector<ll>> pref(n + 1, vector<ll>(31, 0));
+
+    for (ll i = 0; i < 31; i++)
+    {
+      for (ll i = 1; i <= n; i++)
+      {
+        if ((1ll << j) & arr[i])
+        {
+          pref[i][j] = pref[i - 1][j] + 1;
+        }
+        else
+        {
+          pref[i][j] = pref[i - 1][j];
+        }
+      
+      }
+    }
+
+
+    while(q--) {
+      ll l,r;cin>>l>>r;
+      ll x=0;
+
+      for (ll i = 0; i <31; i++)
+      {
+        /* code */
+        ll setb=pref[r][i]-pref[l-1][i];
+
+        if(setb<(r-l+1)-setb){
+          x+=(1ll<<i);
+        }
+      }
+
+      cout<<x<<endl;
+      
+    }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
   }
 
   return 0;
