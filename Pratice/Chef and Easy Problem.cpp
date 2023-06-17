@@ -178,11 +178,10 @@ signed main()
     ll n, q;
     cin >> n >> q;
     ll cnt;
-    vector<ll> a(n);
-
+    vector<ll> arr(n + 1, 0);
     for (ll i = 0; i < n; i++)
     {
-      cin >> a[i];
+      cin >> arr[i];
     }
   }
 
