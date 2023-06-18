@@ -182,9 +182,7 @@ signed main()
     ll ans=1;
 
 
-    for (ll i = 0; i <n; i++)
-    {
-      /* code */
+    for (ll i = 0; i <n; i++) {
       if(s[i]=='a' || s[i]=='i' || s[i]=='o' || s[i]=='u' || s[i]=='e'){
         cnt++;
 
@@ -201,12 +199,6 @@ signed main()
 
     cout<<ans<<endl;
    
-
-
-
-
-
-
 
 
 
