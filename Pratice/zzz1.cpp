@@ -22,23 +22,31 @@ int main()
 {
   int t = 1;
   cin >> t;
-  while (t--)
-  {
-    ll n, k;
-    cin >> n;
+  while (t--) {
+   int n,c1=0,c2=0,sum=0;
+		cin>>n;
+		for(int i=0;i<n;i++){
+			int a;
+			cin>>a;
+			if(a==-1){
+				c1++;
+			}
+			else 
+			if(a==1)
+			c2++;
+		}
+		if(c1>c2)
+		{
+			sum+=(c1-c2+1)/2;
+			c1-=(c1-c2+1)/2;
+			c2=n-c1;
+		}
+		if(c1%2!=0)
+		sum++;
+		cout<<sum<<endl; 
 
-    ll arr[n];
-    ll o = 0, n = 0;
-    for (ll i = 0; i < n; i++)
-    {
-      /* code */
-      cin >> arr[i];
-      if (arr[i] == 1)
-        o++;
-      else
-        n++;
-    }
+
+
   }
-
   return 0;
 }
