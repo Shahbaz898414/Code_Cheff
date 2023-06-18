@@ -24,9 +24,20 @@ int main()
   cin >> t;
   while (t--)
   {
-    ll n,k;cin>>n>>k;
+    ll n, k;
+    cin >> n;
 
-    
+    ll arr[n];
+    ll o = 0, n = 0;
+    for (ll i = 0; i < n; i++)
+    {
+      /* code */
+      cin >> arr[i];
+      if (arr[i] == 1)
+        o++;
+      else
+        n++;
+    }
   }
 
   return 0;
