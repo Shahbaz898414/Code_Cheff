@@ -183,10 +183,140 @@ signed main() {
 
   ll t; cin >> t;
   while (t--) {
-    int n; cin>>n;
-    string s;cin>>s;
+    ll l, r, center, vbg;
+    
+    ll n, m, makin;
+
+    string s;
+     
+    cin >> n >> s;
+
+    makin = 0;
+
+    l = 0, r = 0, center = 0, vbg = 0;
+    
+    for (int i = 0; i < n; i++)
+      makin += (s[i] == '*');
+     
+    for (int i = 0; i < s.size(); i++)
+    {
+      if (s[i] == '4')
+        vbg += l, r++, vbg %= mod;
+      else if (s[i] == '0')
+        l += r;
+    }
+    center += bit(2, makin) * vbg;
+   
+    center %= mod;
+
+    l = 0, r = 0, vbg = 0;
+    for (int i = 0; i < s.size(); i++)
+    {
+      if (s[i] == '4')
+      
+        r++;
+      if (s[i] == '0')
+        l += r;
+      if (s[i] == '*')
+        vbg += l, vbg %= mod;
+    }
+    
+    center += bit(2, makin - 1) * vbg;
+     
+    center %= mod;
+
+    l = 0, r = 0, vbg = 0;
+    for (int i = 0; i < s.size(); i++)
+    {
+      if (s[i] == '4')
+        vbg += l, r++, vbg %= mod;
+
+      else if (s[i] == '*')
+     
+        l += r;
+    }
+    center += bit(2, makin - 1) * vbg;
+    
+    center %= mod;
+
+    l = 0, r = 0, vbg = 0;
+    for (int i = 0; i < s.size(); i++)
+    {      
+      if (s[i] == '*')
+        r++;
+        
+      if (s[i] == '0')
+        l += r;
+      if (s[i] == '4')
+       
+        vbg += l, vbg %= mod;
+    }
+    center += bit(2, makin - 1) * vbg;
+
+    
+    center %= mod;
+
+    l = 0;
+    for (int i = 0; i < s.size(); i++)
+      l += (s[i] == '*');
+
+    l = (l * (l - 1) * (l - 2) / 6) % mod;
+    center += bit(2, makin - 3) * l;
+    center %= mod;
+
+    l = 0, r = 0, vbg = 0;
+    for (int i = 0; i < s.size(); i++)
+    {
+      if (s[i] == '*')
+        vbg += l, vbg %= mod, r++;
 
        
+      if (s[i] == '0')
+        l += r;
+    }
+    center += bit(2, makin - 2) * vbg;
+    center %= mod;
+
+     
+    l = 0, r = 0, vbg = 0;
+    for (int i = 0; i < s.size(); i++)
+    {
+      if (s[i] == '4')
+        r++;
+      else if (s[i] == '*')
+      {
+        vbg += l, vbg %= mod;
+
+       
+        l += r;
+      }
+    }
+    center += bit(2, makin - 2) * vbg;
+    center %= mod;
+
+    
+    l = 0, r = 0, vbg = 0;
+    for (int i = 0; i < s.size(); i++)
+    {
+
+      
+      if (s[i] == '4')
+        vbg += l, vbg %= mod;
+
+        
+      else if (s[i] == '*')
+      {
+        l += r;
+        
+        r++;
+      }
+    }
+    center += bit(2, makin - 2) * vbg;
+
+    
+    center %= mod;
+    
+    cout << center << endl;
 
   }
 
