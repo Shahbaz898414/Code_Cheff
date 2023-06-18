@@ -170,37 +170,42 @@ signed main()
   ios::sync_with_stdio(false);
   cin.tie(nullptr);
 
-  ll t; cin >> t;
-  while (t--) {
-    ll n, k;
-    cin >> n >> k;
-    string s;cin>>s;
-    ll cnt;
-
-    int x=0;
-
-    ll ans=1;
-
-
-    for (ll i = 0; i <n; i++) {
-      if(s[i]=='a' || s[i]=='i' || s[i]=='o' || s[i]=='u' || s[i]=='e'){
-        cnt++;
-
-        if(cnt==k+1){
-          cnt=1;
-          (ans*=(x+1))%=mod;
+  ll t;
+  cin >> t;
+  while (t--)
+  {
+    int n, k;
+        cin>>n>>k;
+ 
+        string s;
+        cin>>s;
+ 
+        int MOD = 1e9 + 7;
+ 
+        int cnt=0;
+        int x = 0;
+ 
+        ll int ans = 1;
+ 
+        for(auto e: s)
+        {
+            if(e=='a' || e=='e' || e=='i' || e=='o' || e=='u')
+            {
+                cnt++;
+ 
+                if(cnt == k+1)
+                {
+                    cnt = 1;
+                    (ans *= (x+1)) %= MOD;
+                }
+ 
+                x = 0;
+            }
+            else
+                x++;
         }
-
-        x=0;
-      }else x++;
-    }
-
-
-
-    cout<<ans<<endl;
-   
-
-
+ 
+        cout<<ans<<"\n";
 
   }
 
