@@ -391,10 +391,7 @@ int main()
         l += r;
       if (s[i] == '*')
         vbg += l, vbg %= mod;
-    }
-
-
-    
+    }    
     center += bit(2, makin - 1) * vbg;
      
     center %= mod;
