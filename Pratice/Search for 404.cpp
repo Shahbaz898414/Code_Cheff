@@ -433,28 +433,23 @@ int main()
     l = 0;
     for (int i = 0; i < s.size(); i++)
       l += (s[i] == '*');
-
-      
+   
     l = (l * (l - 1) * (l - 2) / 6) % mod;
     center += bit(2, makin - 3) * l;
-
-     
+ 
     center %= mod;
 
     l = 0, r = 0, vbg = 0;
     for (int i = 0; i < s.size(); i++)
     {
       if (s[i] == '*')
-        vbg += l, vbg %= mod, r++;
-
-       
+        vbg += l, vbg %= mod, r++;  
       if (s[i] == '0')
         l += r;
     }
-    center += bit(2, makin - 2) * vbg;
-    center %= mod;
 
-     
+    center += bit(2, makin - 2) * vbg;
+    center %= mod;  
     l = 0, r = 0, vbg = 0;
     for (int i = 0; i < s.size(); i++)
     {
@@ -463,24 +458,15 @@ int main()
       else if (s[i] == '*')
       {
         vbg += l, vbg %= mod;
-
-       
         l += r;
       }
     }
     center += bit(2, makin - 2) * vbg;
     center %= mod;
-
-    
     l = 0, r = 0, vbg = 0;
-    for (int i = 0; i < s.size(); i++)
-    {
-
-      
+    for (int i = 0; i < s.size(); i++) {
       if (s[i] == '4')
         vbg += l, vbg %= mod;
-
-        
       else if (s[i] == '*')
       {
         l += r;
