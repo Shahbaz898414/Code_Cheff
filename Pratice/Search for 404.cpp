@@ -475,12 +475,7 @@ int main()
       }
     }
     center += bit(2, makin - 2) * vbg;
-
-    
     center %= mod;
-
-
-    
     cout << center << endl;
   }
 }
