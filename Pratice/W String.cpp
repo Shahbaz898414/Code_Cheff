@@ -183,140 +183,95 @@ signed main() {
 
   ll t; cin >> t;
   while (t--) {
-    ll l, r, center, vbg;
-    
-    ll n, m, makin;
-
     string s;
-     
-    cin >> n >> s;
+	    cin>>s;
+        int n = s.length();
+	    vector<int>spaces;
+	    vector<int>freq(26,0);
+	    int maxfreq=0;
+	    for(int i = 0 ; i < n ; i++){
+	        if(s[i]=='#'){
+   	            for(int j = 0 ; j < 26 ; j++){
+                    maxfreq = max(freq[j] , maxfreq);
+                    freq[j] = 0;
+                }
+                spaces.push_back(maxfreq);
+                maxfreq = 0;
+	            
+	        }
+	        else{
+	            freq[s[i]-'a']++;
+	        }
+	        
+	    }
+	    for(int i = 0 ; i < 26 ; i++){
+	        maxfreq = max(freq[i] , maxfreq);
+	    }
+	    spaces.push_back(maxfreq);
 
-    makin = 0;
 
-    l = 0, r = 0, center = 0, vbg = 0;
-    
-    for (int i = 0; i < n; i++)
-      makin += (s[i] == '*');
-     
-    for (int i = 0; i < s.size(); i++)
-    {
-      if (s[i] == '4')
-        vbg += l, r++, vbg %= mod;
-      else if (s[i] == '0')
-        l += r;
-    }
-    center += bit(2, makin) * vbg;
-   
-    center %= mod;
+        for(int i = 0 ; i < 26 ; i++){
+            freq[i] = 0;
+        }
+        vector<int>pre_spaces;
+        maxfreq = 0;
+	    for(int i = 0 ; i < n ; i++){
+	        if(s[i]=='#'){
+   	            for(int j = 0 ; j < 26 ; j++){
+                    maxfreq = max(freq[j] , maxfreq);
+                }
+                pre_spaces.push_back(maxfreq);
+	            
+	        }
+	        else{
+	            freq[s[i]-'a']++;
+	        }
+	        
+	    }
+	    for(int i = 0 ; i < 26 ; i++){
+	        maxfreq = max(freq[i] , maxfreq);
+	    }
+	    pre_spaces.push_back(maxfreq);
 
-    l = 0, r = 0, vbg = 0;
-    for (int i = 0; i < s.size(); i++)
-    {
-      if (s[i] == '4')
-      
-        r++;
-      if (s[i] == '0')
-        l += r;
-      if (s[i] == '*')
-        vbg += l, vbg %= mod;
-    }
-    
-    center += bit(2, makin - 1) * vbg;
-     
-    center %= mod;
 
-    l = 0, r = 0, vbg = 0;
-    for (int i = 0; i < s.size(); i++)
-    {
-      if (s[i] == '4')
-        vbg += l, r++, vbg %= mod;
+        vector<int>post_spaces;
+        for(int i = 0 ; i < 26 ; i++){
+            freq[i] = 0;
+        }
 
-      else if (s[i] == '*')
-     
-        l += r;
-    }
-    center += bit(2, makin - 1) * vbg;
-    
-    center %= mod;
+        maxfreq = 0;
+	    for(int i = n-1; i >=0 ; i--){
+	        if(s[i]=='#'){
+   	            for(int j = 0 ; j < 26 ; j++){
+                    maxfreq = max(freq[j] , maxfreq);
+                }
+                post_spaces.push_back(maxfreq);
+	            
+	        }
+	        else{
+	            freq[s[i]-'a']++;
+	        }
+	        
+	    }
+	    for(int i = 0 ; i < 26 ; i++){
+	        maxfreq = max(freq[i] , maxfreq);
+	    }
+	    post_spaces.push_back(maxfreq);        
 
-    l = 0, r = 0, vbg = 0;
-    for (int i = 0; i < s.size(); i++)
-    {      
-      if (s[i] == '*')
-        r++;
-        
-      if (s[i] == '0')
-        l += r;
-      if (s[i] == '4')
-       
-        vbg += l, vbg %= mod;
-    }
-    center += bit(2, makin - 1) * vbg;
-
-    
-    center %= mod;
-
-    l = 0;
-    for (int i = 0; i < s.size(); i++)
-      l += (s[i] == '*');
-
-    l = (l * (l - 1) * (l - 2) / 6) % mod;
-    center += bit(2, makin - 3) * l;
-    center %= mod;
-
-    l = 0, r = 0, vbg = 0;
-    for (int i = 0; i < s.size(); i++)
-    {
-      if (s[i] == '*')
-        vbg += l, vbg %= mod, r++;
-
-       
-      if (s[i] == '0')
-        l += r;
-    }
-    center += bit(2, makin - 2) * vbg;
-    center %= mod;
-
-     
-    l = 0, r = 0, vbg = 0;
-    for (int i = 0; i < s.size(); i++)
-    {
-      if (s[i] == '4')
-        r++;
-      else if (s[i] == '*')
-      {
-        vbg += l, vbg %= mod;
-
-       
-        l += r;
-      }
-    }
-    center += bit(2, makin - 2) * vbg;
-    center %= mod;
-
-    
-    l = 0, r = 0, vbg = 0;
-    for (int i = 0; i < s.size(); i++)
-    {
-
-      
-      if (s[i] == '4')
-        vbg += l, vbg %= mod;
-
-        
-      else if (s[i] == '*')
-      {
-        l += r;
-        
-        r++;
-      }
-    }
-    center += bit(2, makin - 2) * vbg;
-
-    
-    center %= mod;
-    
-    cout << center << endl;
+		int res = 0;
+		int l = spaces.size()-4;
+		int i = 0;
+		while(i<=l){
+			int a = pre_spaces[i];
+			int b = spaces[i+1];
+			int c = spaces[i+2];
+			int d = post_spaces[spaces.size()-4-i];
+			if(a!=0 && b!=0 && c!=0 && d!=0){
+				res = max(res , a+b+c+d+3);
+			}
+			i++;
+		}
+		cout<<res<<endl;
 
   }
 
