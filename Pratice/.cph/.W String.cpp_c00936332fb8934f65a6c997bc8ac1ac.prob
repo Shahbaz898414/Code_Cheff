@@ -1,0 +1,1 @@
+{"name":"Local: W String","url":"c:\\Users\\91771\\Desktop\\cpp\\code_cheff\\Pratice\\W String.cpp","tests":[{"id":1687337653787,"input":"3\naaaaa#bb#cc#dddd\nacb#aab#bab#accba\nabc#dda#bb#bb#aca","output":""}],"interactive":false,"memoryLimit":1024,"timeLimit":3000,"srcPath":"c:\\Users\\91771\\Desktop\\cpp\\code_cheff\\Pratice\\W String.cpp","group":"local","local":true}

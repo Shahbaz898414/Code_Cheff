@@ -149,43 +149,47 @@ bool isValid(string s)
   return true;
 }
 
-// void rotateMatrix(vector<vector<int>> &v, int n)
-// {
-//   for (int i = 0; i < n / 2; i++)
-//   {
-//     for (int j = i; j < n - i - 1; j++)
-//     {
-//       int ptr = v[i][j];
-//       v[i][j] = v[n - 1 - j][i];
-//       v[n - 1 - j][i] = v[n - 1 - i][n - 1 - j];
-//       v[n - 1 - i][n - 1 - j] = v[j][n - 1 - i];
-//       v[j][n - 1 - i] = ptr;
-//     }
-//   }
-// }
 
+ll bit(ll x, ll y) {
+  ll vnt = 1, vbg = x;
+  while (y > 0)
+  {
+    if (y % 2)  
+      vnt *= vbg, vnt %= mod;
+    vbg *= vbg, y /= 2, vbg %= mod;
+  }
+  return vnt;
+}
 
-
-signed main()
+void rotateMatrix(vector<vector<int>> &v, int n)
 {
+  for (int i = 0; i < n / 2; i++)
+  {
+    for (int j = i; j < n - i - 1; j++)
+    {
+      int ptr = v[i][j];
+      v[i][j] = v[n - 1 - j][i];
+      v[n - 1 - j][i] = v[n - 1 - i][n - 1 - j];
+      v[n - 1 - i][n - 1 - j] = v[j][n - 1 - i];
+      v[j][n - 1 - i] = ptr;
+    }
+  }
+}
+
+signed main() {
 
   ios::sync_with_stdio(false);
   cin.tie(nullptr);
-  ll t;
-  cin >> t;
-  while (t--)
-  {
-    ll n, k;
-    cin >> n ;
-  ll cnt,ans;
-    ll arr[n];
 
-    for (ll i = 0; i < n; i++) {
+  ll t; cin >> t;
+  while (t--) {
+    ll n;cin>>n;
+
     
-      cin>>arr[i];
-    }
 
-      
   }
+
   return 0;
 }
+
+
