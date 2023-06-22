@@ -164,8 +164,6 @@ bool isValid(string s)
 //   }
 // }
 
-
-
 signed main()
 {
 
@@ -176,16 +174,14 @@ signed main()
   while (t--)
   {
     ll n, k;
-    cin >> n ;
-  ll cnt,ans;
-    ll arr[n];
-
-    for (ll i = 0; i < n; i++) {
-    
-      cin>>arr[i];
+    cin >> n;
+    ll cnt, ans;
+    char arr[n];
+    map<ll, char> mp;
+    for (ll i = 0; i < n; i++)
+    {
+      cin >> arr[i];
     }
-
-      
   }
   return 0;
 }
