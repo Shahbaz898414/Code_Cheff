@@ -178,15 +178,16 @@ signed main()
     ll cnt, ans;
     char arr[n];
     map<ll, char> mp;
-
     unordered_set<int> s;
-    while (n)
-    {
-      s.insert(n % 10);
-      n /= 10;
+    while (n) {
+      s.insert(n % 10);n /= 10;
     }
+
     ans = s.size();
     cout << (ll)pow(ans, 3) << "\n";
+
+
+
   }
   return 0;
 }
