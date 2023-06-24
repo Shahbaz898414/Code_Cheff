@@ -207,14 +207,19 @@ signed main() {
 
 	    int m = abs(d);
 
-      
-	    for (int i = 0; i < N; i++)
+      cout<<m<<"   m"<<endl;
 
+      for(auto it:v){
+        cout<<it<<" ";
+      }
+
+      cout<<endl;
+
+
+	    for (int i = 0; i < N; i++)
 	        m = min(m, abs(d - v[i] * 2));
       
 	    cout << m << endl;
-    
-    
 
   }
 
