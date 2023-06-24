@@ -203,9 +203,15 @@ signed main() {
     	        }
     	    }
 	    }
+
+
 	    int m = abs(d);
+
+      
 	    for (int i = 0; i < N; i++)
+
 	        m = min(m, abs(d - v[i] * 2));
+      
 	    cout << m << endl;
     
     
