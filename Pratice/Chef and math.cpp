@@ -212,12 +212,12 @@ signed main()
     i++;
   }
   ll start = i - 1;
+  
   ll t; cin >> t;
-  while (t--)
-  {
+  while (t--) {
     cin >> x >> k;
+    // cout<<i<<" i"<<endl;
     cout << solve(x, k, start) << endl;
   }
-
   return 0;
 }
