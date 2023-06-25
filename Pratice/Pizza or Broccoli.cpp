@@ -183,59 +183,53 @@ signed main() {
 
   ll t; cin >> t;
   while (t--) {
-    int N;
-	    cin >> N;
-	    int d = 0;
-	    vector<int> v(N, 0);
-	    for (int i = 0; i < N; i++) {
-	        string s;
-    	    cin >> s;
-    	    for (int j = 0; j < N / 2; j++) {
-    	        if (s[j] == '1') {
-    	            d++;
-    	            v[i]++;
-    	        }
-    	    }
-    	    for (int j = N / 2; j < N; j++) {
-    	        if (s[j] == '1') {
-    	            d--;
-    	            v[i]--;
-    	        }
-    	    }
-	    }
-
-
-	    int m = abs(d);
-
-      // cout<<m<<"   m"<<endl;
-
-      // for(auto it:v){
-      //   cout<<it<<" ";
-      // }
-
-      // cout<<endl;
-
-
-	    for (int i = 0; i < N; i++)
-	        m = min(m, abs(d - v[i] * 2));
+    
+    ll n, k;
+		cin>>n>>k;
+		string s;
+		cin>>s;
+		vector <int> left(n,0);
+		vector <int> right(n,0);
+		
+		int curr =0;
+		for(int i =0; i<n; i++)
+		{
+		    left[i] = curr;
+		    if(s[i]=='1')
+		        curr++;
+		    
+		    else
+		    
+		        curr=0;
+		    
+		}
+		curr=0;
+		for(int i =n-1; i>=0; i--)
+		{
+		    right[i] = curr;
+		    if(s[i]=='1')
+		    {
+		        curr++;
+		    }
+		    else
+		    {
+		        curr=0;
+		    }
+		}
+		int ans = 0;
+		for(int start=0; start<n-k+1; start++)
+		{
+		    int end = start+k-1;
+		    ans = max(ans, left[start]+right[end]);
+		}
+		cout<<ans+k<<endl;
       
-	    cout << m << endl;
-
   }
 
   return 0;
 }
 
 
-/*
 
-
-Before doing that, if Chef wants to, he may choose one row of the grid and reverse it, i.e. swap the contents of the cells in the ith and N+1−ith column in this row for each i (1≤i≤N/2).
-
-
-After the pizza is cut, let's denote the number of cells containing pepperonis in one half by p1 and their number in the other half by p2.Chef wants to minimise their absolute difference. What is the minimum value of 
-∣p1−p2∣ ?
-
-*/
 
 

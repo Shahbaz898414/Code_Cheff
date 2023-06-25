@@ -18,6 +18,28 @@ bool binary_search(ll mian, vector<ll> &fjng, ll g)
   return ans <= g;
 }
 
+ int maximumNumberOfStringPairs(vector<string>& v) {
+        int len=v.size();
+        
+        map<string ,int>  mp;
+        
+        for(int i=0;i<len;i++) {
+            string s=v[i];
+            sort(s.begin(),s.end());
+            
+            mp[s]++;
+        }
+        
+        int cnt=0;
+        
+        for(auto it:mp) {
+            if(it.second>1) cnt++;
+        }
+        
+        
+        return cnt;
+    }
+
 int main()
 {
   int t = 1;
