@@ -185,6 +185,8 @@ signed main()
   ll t;
   cin >> t;
   while (t--) {
+
+    
     ll n,k;cin >> n >> k;
    
 
