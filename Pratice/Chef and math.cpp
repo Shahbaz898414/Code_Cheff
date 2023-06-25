@@ -161,8 +161,7 @@ ll bit(ll x, ll y)
   return vnt;
 }
 
-void rotateMatrix(vector<vector<int>> &v, int n)
-{
+void rotateMatrix(vector<vector<int>> &v, int n) {
   for (int i = 0; i < n / 2; i++)
   {
     for (int j = i; j < n - i - 1; j++)
@@ -178,8 +177,7 @@ void rotateMatrix(vector<vector<int>> &v, int n)
 
 ll f[55];
 ll x, k, q;
-ll solve(ll x, ll k, ll start)
-{
+ll solve(ll x, ll k, ll start) {
   if (x == 0 && k == 0)
     return 1;
   if (x == 0 || k == 0)
@@ -192,7 +190,7 @@ ll solve(ll x, ll k, ll start)
   return (solve(x - f[start], k - 1, start) + solve(x, k, start - 1)) % mod;
 
 
-  
+
 }
 
 
