@@ -187,10 +187,9 @@ signed main()
   while (t--)
   {
 
-    ll n, k;
-    cin >> n >> k;
-    string s;
-    cin >> s;
+    ll n, k;cin >> n >> k;
+    string s;cin >> s;
+    
     vector<int> left(n, 0);
     vector<int> right(n, 0);
 
