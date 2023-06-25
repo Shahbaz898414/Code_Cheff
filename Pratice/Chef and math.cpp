@@ -182,15 +182,32 @@ signed main()
   ios::sync_with_stdio(false);
   cin.tie(nullptr);
 
-  ll t;
-  cin >> t;
-  while (t--) {
+ 
+    vector<int> f;
 
-    
-    ll n,k;cin >> n >> k;
+    f.push_back(1);
+    f.push_back(2);
+
+    int x=1,y=2;
+
+    while(y<mod){
+      int main=y;
+      x=x+y;
+      x=main;
+      f.push_back(y);
+    }
+
+    ll t;cin>>t;
+
+    while(t--){
+       ll n,k;cin >> n >> k;
+       
+    }
+
    
 
-  }
+
+  
 
   return 0;
 }
