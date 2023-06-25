@@ -181,50 +181,39 @@ ll x, k, q;
 ll solve(ll x, ll k, ll start)
 {
   if (x == 0 && k == 0)
-  {
     return 1;
-  }
   if (x == 0 || k == 0)
-  {
     return 0;
-  }
   if (x < 0)
-  {
     return 0;
-  }
   if (x > f[start] * k)
-  {
     return 0;
-  }
+
   return (solve(x - f[start], k - 1, start) + solve(x, k, start - 1)) % mod;
 }
 
 signed main()
 {
-
   ios::sync_with_stdio(false);
   cin.tie(nullptr);
 
   f[0] = 1;
   f[1] = 2;
+
   ll i = 2;
+
   while (f[i - 1] + f[i - 2] <= 1e9)
   {
     f[i] = f[i - 1] + f[i - 2];
     i++;
   }
-
   ll start = i - 1;
-
   ll t;
   cin >> t;
-
   while (t--)
   {
     cin >> x >> k;
     cout << solve(x, k, start) << endl;
   }
-
   return 0;
 }
-
