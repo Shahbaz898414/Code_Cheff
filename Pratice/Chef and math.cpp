@@ -184,56 +184,9 @@ signed main()
 
   ll t;
   cin >> t;
-  while (t--)
-  {
-
+  while (t--) {
     ll n, k;cin >> n >> k;
-    string s;cin >> s;
-
-    vector<int> left(n, 0);
-    vector<int> right(n, 0);
-
-    int curr = 0;
-    for (int i = 0; i < n; i++) {
-      left[i] = curr;
-      if (s[i] == '1')
-        curr++;
-      else curr = 0;
-    }
-    curr = 0;
-    for (int i = n - 1; i >= 0; i--)
-    {
-      right[i] = curr;
-      if (s[i] == '1')
-        curr++;
-      else
-        curr = 0;
-    }
-
-    for(auto it:left){
-      cout<<it<<" ";
-    }
-
-    line
-
-    for(auto it:right){
-      cout<<it<<" ";      
-    }
-    line
-
-
-    int ans = 0;
-    for (int start = 0; start < n - k + 1; start++) {
-      int end = start + k - 1;
-      // cout<<end<<" ";
-
-      cout<<left[start] + right[end]<<" ";
-      ans = max(ans, left[start] + right[end]);
-    }
-
-    line
-    cout << ans + k << endl;
-
+   
 
   }
 
