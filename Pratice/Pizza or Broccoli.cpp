@@ -195,13 +195,11 @@ signed main()
     vector<int> right(n, 0);
 
     int curr = 0;
-    for (int i = 0; i < n; i++)
-    {
+    for (int i = 0; i < n; i++) {
       left[i] = curr;
       if (s[i] == '1')
         curr++;
-      else
-        curr = 0;
+      else curr = 0;
     }
     curr = 0;
     for (int i = n - 1; i >= 0; i--)
@@ -212,12 +210,26 @@ signed main()
       else
         curr = 0;
     }
+
+    for(auto it:left){
+      cout<<it<<" ";
+    }
+
+    line
+
+    for(auto it:right){
+      cout<<it<<" ";      
+    }
+    line
+
+
     int ans = 0;
     for (int start = 0; start < n - k + 1; start++)
     {
       int end = start + k - 1;
       ans = max(ans, left[start] + right[end]);
     }
+
     cout << ans + k << endl;
   }
 
