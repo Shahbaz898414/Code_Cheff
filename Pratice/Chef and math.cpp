@@ -190,7 +190,17 @@ ll solve(ll x, ll k, ll start)
     return 0;
 
   return (solve(x - f[start], k - 1, start) + solve(x, k, start - 1)) % mod;
+
+
+
+
+
+
+
 }
+
+
+
 
 signed main()
 {
@@ -199,7 +209,6 @@ signed main()
 
   f[0] = 1;
   f[1] = 2;
-
   ll i = 2;
 
   while (f[i - 1] + f[i - 2] <= 1e9)
