@@ -149,12 +149,12 @@ bool isValid(string s)
   return true;
 }
 
-
-ll bit(ll x, ll y) {
+ll bit(ll x, ll y)
+{
   ll vnt = 1, vbg = x;
   while (y > 0)
   {
-    if (y % 2)  
+    if (y % 2)
       vnt *= vbg, vnt %= mod;
     vbg *= vbg, y /= 2, vbg %= mod;
   }
@@ -176,60 +176,50 @@ void rotateMatrix(vector<vector<int>> &v, int n)
   }
 }
 
-signed main() {
+signed main()
+{
 
   ios::sync_with_stdio(false);
   cin.tie(nullptr);
 
-  ll t; cin >> t;
-  while (t--) {
-    
+  ll t;
+  cin >> t;
+  while (t--)
+  {
+
     ll n, k;
-		cin>>n>>k;
-		string s;
-		cin>>s;
-		vector <int> left(n,0);
-		vector <int> right(n,0);
-		
-		int curr =0;
-		for(int i =0; i<n; i++)
-		{
-		    left[i] = curr;
-		    if(s[i]=='1')
-		        curr++;
-		    
-		    else
-		    
-		        curr=0;
-		    
-		}
-		curr=0;
-		for(int i =n-1; i>=0; i--)
-		{
-		    right[i] = curr;
-		    if(s[i]=='1')
-		    {
-		        curr++;
-		    }
-		    else
-		    {
-		        curr=0;
-		    }
-		}
-		int ans = 0;
-		for(int start=0; start<n-k+1; start++)
-		{
-		    int end = start+k-1;
-		    ans = max(ans, left[start]+right[end]);
-		}
-		cout<<ans+k<<endl;
-      
+    cin >> n >> k;
+    string s;
+    cin >> s;
+    vector<int> left(n, 0);
+    vector<int> right(n, 0);
+
+    int curr = 0;
+    for (int i = 0; i < n; i++)
+    {
+      left[i] = curr;
+      if (s[i] == '1')
+        curr++;
+      else
+        curr = 0;
+    }
+    curr = 0;
+    for (int i = n - 1; i >= 0; i--)
+    {
+      right[i] = curr;
+      if (s[i] == '1')
+        curr++;
+      else
+        curr = 0;
+    }
+    int ans = 0;
+    for (int start = 0; start < n - k + 1; start++)
+    {
+      int end = start + k - 1;
+      ans = max(ans, left[start] + right[end]);
+    }
+    cout << ans + k << endl;
   }
 
   return 0;
 }
-
-
-
-
-
