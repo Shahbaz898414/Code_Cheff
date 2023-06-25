@@ -192,11 +192,6 @@ ll solve(ll x, ll k, ll start)
   return (solve(x - f[start], k - 1, start) + solve(x, k, start - 1)) % mod;
 
 
-
-
-
-
-
 }
 
 
@@ -217,12 +212,12 @@ signed main()
     i++;
   }
   ll start = i - 1;
-  ll t;
-  cin >> t;
+  ll t; cin >> t;
   while (t--)
   {
     cin >> x >> k;
     cout << solve(x, k, start) << endl;
   }
+
   return 0;
 }
