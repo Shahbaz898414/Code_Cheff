@@ -182,34 +182,75 @@ signed main()
   ios::sync_with_stdio(false);
   cin.tie(nullptr);
 
- 
-    vector<int> f;
+  vector<int> f;
 
-    f.push_back(1);
-    f.push_back(2);
+  f.push_back(1);
+  f.push_back(2);
 
-    int x=1,y=2;
+  int x = 1, y = 2;
 
-    while(y<mod){
-      int main=y;
-      x=x+y;
-      x=main;
-      f.push_back(y);
-    }
+  while (y < mod)
+  {
+    int main = y;
+    x = x + y;
+    x = main;
+    f.push_back(y);
+  }
 
-    ll t;cin>>t;
+  ll t;
+  cin >> t;
 
-    while(t--){
-       ll n,k;cin >> n >> k;
-       
-    }
-
-   
-
-
-  
+  while (t--)
+  {
+    ll n, k;
+    cin >> n >> k;
+  }
 
   return 0;
 }
 
+/*
+#include <bits/stdc++.h>
+#define ll long long
+#define fi first
+#define se second
+#define MAX 200010
+using namespace std;
+const int mod=1e9+7;
+ll f[55];
+ll x,k,q;
+long long solve(ll x,ll k, ll start) {
+  if(x==0 && k==0) {
+    return 1;
+  }
+  if(x==0 || k==0) {
+    return 0;
+  }
+  if(x<0) {
+    return 0;
+  }
+  if(x>f[start]*k) {
+    return 0;
+  }
+  return (solve(x-f[start],k-1,start)+solve(x,k,start-1))%mod;
+}
+int main() {
+ios_base::sync_with_stdio(false);
+cin.tie(NULL);
+cout.tie(NULL);
+f[0]=1;
+f[1]=2;
+ll i=2;
+while(f[i-1]+f[i-2]<=1e9) {
+  f[i]=f[i-1]+f[i-2];
+  i++;
+}
+ll start=i-1;
+cin>>q;
+while(q--) {
+  cin>>x>>k;
+  cout<<solve(x,k,start)<<endl;
+}
+}
 
+*/
