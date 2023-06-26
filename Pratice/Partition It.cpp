@@ -177,14 +177,14 @@ void rotateMatrix(vector<vector<int>> &v, int n)
   }
 }
 
-ll prime[n];
 
+ll prime[n];
 void prime_sieve()
 {
   prime[0] = 0;
   prime[1] = 0;
 
-  for (int i = 2; i < n; i++)
+  for (int i = 2; i <=n; i++)
   {
     prime[i] = 1;
   }
@@ -214,11 +214,15 @@ signed main()
     ll n, k;
     cin >> n >> k;
     ll c1 = 0, c2 = 1;
-
     vector<ll> v1;
     vector<ll> v2{1};
 
-    for (int i = 2; i <= n; i++)
+    for(int i=2;i<=13;i++) {
+      cout<<prime[i]<<" ";
+    }
+    line
+
+    for (int i = 2; i <=n; i++)
     {
       if (!prime[i])
       {
@@ -234,6 +238,19 @@ signed main()
         }
       }
     }
+
+    for(auto it:v1){
+      cout<<it<<" ";
+    }
+
+    cout<<endl;
+
+
+    for(auto it:v2){
+      cout<<it<<" ";
+    }
+
+    cout<<endl;
 
     if (k <= c2 or k >= c1)
     {
