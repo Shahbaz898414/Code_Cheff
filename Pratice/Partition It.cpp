@@ -139,7 +139,6 @@ const int MOD = 998244353;
 const int MAX = 1e6;
 const ll n = 1e5 + 2;
 
-
 bool isValid(string s)
 {
   int len = s.size();
@@ -163,7 +162,8 @@ ll bit(ll x, ll y)
   return vnt;
 }
 
-void rotateMatrix(vector<vector<int>> &v, int n) {
+void rotateMatrix(vector<vector<int>> &v, int n)
+{
   for (int i = 0; i < n / 2; i++)
   {
     for (int j = i; j < n - i - 1; j++)
@@ -179,71 +179,89 @@ void rotateMatrix(vector<vector<int>> &v, int n) {
 
 ll prime[n];
 
-void prime_sieve(){
-    prime[0] = 0;
-    prime[1] = 0; 
-    
-    for(int i=2;i<n;i++){
-        prime[i] = 1; 
+void prime_sieve()
+{
+  prime[0] = 0;
+  prime[1] = 0;
+
+  for (int i = 2; i < n; i++)
+  {
+    prime[i] = 1;
+  }
+
+  for (ll i = 2; i * i < n; i++)
+  {
+    if (prime[i] == 1)
+    {
+      for (int j = i * i; j < n; j += i)
+      {
+        prime[j] = 0;
+      }
     }
-    
-    for(ll i=2;i*i<n;i++){
-        if(prime[i]==1){
-            for(int j=i*i;j<n;j+=i){
-                prime[j] = 0; 
-            }
-        }
-    }
-    
+  }
 }
 
-
-signed main() {
+signed main()
+{
 
   ios::sync_with_stdio(false);
   cin.tie(nullptr);
-  
-  ll t; cin >> t;
-  while (t--) {
-    ll n,k;cin>>n>>k;
-    ll c1=0,c2=1;
 
-    vector<ll> v1; vector<ll> v2{1};
+  ll t;
+  cin >> t;
+  while (t--)
+  {
+    ll n, k;
+    cin >> n >> k;
+    ll c1 = 0, c2 = 1;
 
-    for (int i = 2; i <=n; i++)
+    vector<ll> v1;
+    vector<ll> v2{1};
+
+    for (int i = 2; i <= n; i++)
     {
-      if(!prime[i]){
+      if (!prime[i])
+      {
         v1.push_back(i);
         c1++;
-      }else {
-        if(i*2<=n){
+      }
+      else
+      {
+        if (i * 2 <= n)
+        {
           v1.push_back(i);
           c2++;
         }
       }
     }
-    
-    if(k<=c2 or k>=c1){
-      cout<<"YES"<<endl;
-      if(k<=c2){
+
+    if (k <= c2 or k >= c1)
+    {
+      cout << "YES" << endl;
+      if (k <= c2)
+      {
         for (ll i = 0; i < k; i++)
-          cout<<v2[i]<<" ";
-        
-        cout<<endl;
-      }else {
-        for(auto &it:v1){
-          cout<<it<<" ";
-        }
+          cout << v2[i] << " ";
 
-        for (ll i = 0; i < k-c1; i++) {
-          cout<<v2[i]<<" ";
-        }
-        cout<<endl;
+        cout << endl;
       }
-    }else{
-      cout<<"NO"<<endl;
-    }
-        
-  }
+      else
+      {
+        for (auto &it : v1)
+        {
+          cout << it << " ";
+        }
 
+        for (ll i = 0; i < k - c1; i++)
+        {
+          cout << v2[i] << " ";
+        }
+        cout << endl;
+      }
+    }
+    else
+    {
+      cout << "NO" << endl;
+    }
+  }
 }
