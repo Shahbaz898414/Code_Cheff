@@ -137,6 +137,8 @@ void fact()
 const long long inf = 1e18;
 const int MOD = 998244353;
 const int MAX = 1e6;
+const ll n = 1e5 + 2;
+
 
 bool isValid(string s)
 {
@@ -175,6 +177,26 @@ void rotateMatrix(vector<vector<int>> &v, int n) {
   }
 }
 
+ll prime[n];
+
+void prime_sieve(){
+    prime[0] = 0;
+    prime[1] = 0; 
+    
+    for(int i=2;i<n;i++){
+        prime[i] = 1; 
+    }
+    
+    for(ll i=2;i*i<n;i++){
+        if(prime[i]==1){
+            for(int j=i*i;j<n;j+=i){
+                prime[j] = 0; 
+            }
+        }
+    }
+    
+}
+
 
 signed main() {
 
@@ -185,7 +207,7 @@ signed main() {
   while (t--) {
     ll n,m;cin>>n>>m;
         
-
+    
         
   }
 
