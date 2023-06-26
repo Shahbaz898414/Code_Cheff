@@ -208,8 +208,7 @@ signed main() {
     ll n,k;cin>>n>>k;
     ll c1=0,c2=1;
 
-    vector<ll> v1;
-    vector<ll> v2{1};
+    vector<ll> v1; vector<ll> v2{1};
 
     for (int i = 2; i <=n; i++)
     {
@@ -228,9 +227,8 @@ signed main() {
       cout<<"YES"<<endl;
       if(k<=c2){
         for (ll i = 0; i < k; i++)
-        {
           cout<<v2[i]<<" ";
-        }
+        
         cout<<endl;
       }else {
         for(auto &it:v1){
