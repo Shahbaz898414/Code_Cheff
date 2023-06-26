@@ -205,12 +205,47 @@ signed main() {
   
   ll t; cin >> t;
   while (t--) {
-    ll n,m;cin>>n>>m;
-        
+    ll n,k;cin>>n>>k;
+    ll c1=0,c2=1;
+
+    vector<ll> v1;
+    vector<ll> v2{1};
+
+    for (int i = 2; i <=n; i++)
+    {
+      if(!prime[i]){
+        v1.push_back(i);
+        c1++;
+      }else {
+        if(i*2<=n){
+          v1.push_back(i);
+          c2++;
+        }
+      }
+    }
     
+    if(k<=c2 or k>=c1){
+      cout<<"YES"<<endl;
+      if(k<=c2){
+        for (ll i = 0; i < k; i++)
+        {
+          cout<<v2[i]<<" ";
+        }
+        cout<<endl;
+      }else {
+        for(auto &it:v1){
+          cout<<it<<" ";
+        }
+
+        for (ll i = 0; i < k-c1; i++) {
+          cout<<v2[i]<<" ";
+        }
+        cout<<endl;
+      }
+    }else{
+      cout<<"NO"<<endl;
+    }
         
   }
 
-
-  return 0;
 }
