@@ -1,3 +1,5 @@
+/*
+
 #include <bits/stdc++.h>
 using namespace std;
 #define ll long long
@@ -271,7 +273,7 @@ void solve(){
 }
 
 
-signed main()
+int32_t main()
 {
 
   ios::sync_with_stdio(false);
@@ -280,8 +282,10 @@ signed main()
   solve();
 }
 
+*/
 
-/*
+
+
 
 
 #include<bits/stdc++.h> 
@@ -388,4 +392,4 @@ int main() {
 
 
 
-*/
+
