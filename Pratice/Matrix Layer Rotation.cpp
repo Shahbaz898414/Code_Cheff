@@ -59,6 +59,7 @@ int main() {
         }
     }
 
+
     for (const auto& row : result) {
         for (long long num : row) {
             cout << num << " ";
