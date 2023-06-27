@@ -229,13 +229,20 @@ int32_t main(){
     ll t = 1,n,k;
     cin>>t;
     while(t--) {
-       ll n;cin>>n;       
-              
-        ll arr[n];
-
-        for (ll i = 0; i < n; i++) {
-            cin>>arr[i];
+       int n; cin>>n;
+        int a[n];
+        for(int i=0; i<n; i++){
+            cin>>a[i];
         }
+        sort(a,a+n);
+        int mn = a[0];
+        int ans = mn*n;
+        for(int i=0; i<n; i++){
+            if(a[i]>mn){
+                ans++;
+            }
+        }
+        cout<<ans<<endl;
         
     }
     
