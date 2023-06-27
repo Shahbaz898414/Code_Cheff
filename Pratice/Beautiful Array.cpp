@@ -1,244 +1,86 @@
-#include<bits/stdc++.h>
+#include <bits/stdc++.h>
+
 using namespace std;
-#define ll long long
-#define mod 1000000007
-#define Time cerr << "time taken : " << (float)clock() / CLOCKS_PER_SEC << " secs" << endl;
-#define pb push_back
-#define mp make_pair
-#define line cout << endl;
-#define ff first
-#define ss second
-#define vi vector<int>
-#define no cout << "NO" << endl;
-#define yes cout << "YES" << endl;
-#define printv(v)                      \
-  for (int i = 0; i < (v.size()); i++) \
-  {                                    \
-    cout << v[i] << " ";               \
-  }                                    \
-  line;
-#define onesbits(x) __builtin_popcountll(x)
-#define zerobits(x) __builtin_ctzll(x)
-#define sp(x, y) fixed << setprecision(y) << x
-#define w(x) \
-  int x;     \
-  cin >> x;  \
-  while (x--)
-#define tk(x) \
-  int x;      \
-  cin >> x;
-#define fast ios_base::sync_with_stdio(false), cin.tie(nullptr), cout.tie(nullptr);
-#ifndef ONLINE_JUDGE
-#define debug(x)     \
-  cerr << #x << " "; \
-  _print(x);         \
-  cerr << endl;
-#else
-#define debug(x)
-#endif
-template <class T>
-void _print(T t) {
-  cerr << t;
-}
 
-template <class T, class V>
-void _print(pair<T, V> p)
-{
-  cerr << "{";
-  _print(p.ff);
-  cerr << ",";
-  _print(p.ss);
-  cerr << "}";
-}
+using ll = long long;
+const int mod = 1e9 + 7;
 
-template <class T>
-void _print(vector<T> v)
+bool binary_search(ll mian, vector<ll> &fjng, ll g)
 {
-  cerr << "[ ";
-  for (T i : v)
+  ll ans = 0;
+  for (int i = 0; i < fjng.size(); i++)
   {
-    _print(i);
-    cerr << " ";
+    if (fjng[i] < mian)
+      ans += mian - fjng[i];
+    else
+      break;
   }
-  cerr << "]";
+  return ans <= g;
 }
 
-template <class T>
-void _print(vector<vector<T>> v)
-{
-  cerr << "[\n";
-  for (int l = 0; l < v.size(); l++)
-  {
-    {
-      for (int k = 0; k < v[l].size(); k++)
-        cerr << v[l][k] << " ";
+ int maximumNumberOfStringPairs(vector<string>& v) {
+        int len=v.size();
+        
+        map<string ,int>  mp;
+        
+        for(int i=0;i<len;i++) {
+            string s=v[i];
+            sort(s.begin(),s.end());
+            
+            mp[s]++;
+        }
+        
+        int cnt=0;
+        
+        for(auto it:mp) {
+            if(it.second>1) cnt++;
+        }
+        
+        
+        return cnt;
     }
-    cerr << "\n";
-  }
-  cerr << "]";
-}
 
-template <class T, class V>
-void _print(map<T, V> v)
+int main()
 {
-  cerr << "[ ";
-  for (auto i : v)
-  {
-    _print(i);
-    cerr << " ";
-  }
-  cerr << "]";
-}
-
-template <class T>
-void _print(set<T> v)
-{
-  cerr << "[ ";
-  for (T i : v)
-  {
-    _print(i);
-    cerr << " ";
-  }
-  cerr << "]";
-}
-
-const long long inf = 1e18;
-const int MOD = 1e9 + 7;
-const int MAX = 1e6;
-
-bool isValid(string s)
-{
-  int len = s.size();
-  for (int i = 0; i < len / 2; i++)
-  {
-    if (s[i] != s[len - 1 - i])
-      return false;
-  }
-  return true;
-}
-
-void rotateMatrix(vector<vector<int>> &v, int n)
-{
-  for (int i = 0; i < n / 2; i++)
-  {
-    for (int j = i; j < n - i - 1; j++)
-    {
-      int ptr = v[i][j];
-      v[i][j] = v[n - 1 - j][i];
-      v[n - 1 - j][i] = v[n - 1 - i][n - 1 - j];
-      v[n - 1 - i][n - 1 - j] = v[j][n - 1 - i];
-      v[j][n - 1 - i] = ptr;
+  int t = 1;
+  cin >> t;
+  while (t--) {
+    ll n,c1=0,c2=0,sum=0,ans=0;
+		cin>>n;
+		vector<ll>  v(n);
+    int cnt[4]={0};
+    for (ll i = 0; i < n; i++) {
+      cin>>v[i];
+      cnt[v[i]%4]++;
+      sum+=v[i];
     }
-  }
-}
 
-
-int gcd(int a,int b){
-    if(b==0)return a;
-    return gcd(b,a%b);
-}
-
-vector<bool> is_prime(10001, 1);
-vector<int> primes;
-
-ll fact[1000001];
-
-ll power(ll a, ll b)
-{
-  ll ans = 1;
-  a %= mod;
-  while (b > 0)
-  {
-    if (b % 2)
-      ans = ans * a % mod;
-    a = a * a % mod;
-    b /= 2;
-  }
-  return ans;
-}
-
-ll nck(int n, int k)
-{
-  ll u = fact[n];
-  ll d = fact[n - k] * fact[k] % mod;
-  return u * power(d, mod - 2) % mod;
-}
-
-void seive()
-{
-  is_prime[0] = 0;
-  is_prime[1] = 0;
-  for (int i = 2; i < 10001; i++)
-  {
-
-    if (is_prime[i])
-    {
-      primes.push_back(i);
-      for (int j = i + i; j < 10001; j += i)
-      {
-        is_prime[j] = 0;
-      }
+    if(sum%4!=0){
+      cout<<-1<<endl;
+      continue;
     }
-  }
-}
 
-int cnt = 0;
-vector<int> vis(100001);
+    if(cnt[1]>cnt[3]){
+      ans=cnt[3];
+      cnt[1]-=cnt[3];
 
-void dfs(vector<vector<int>> &adj, int i)
-{
-  vis[i] = 1;
-  cnt++;
-  for (auto nbr : adj[i])
-  {
-    if (vis[nbr] == 0)
-    {
-      dfs(adj, nbr);
+      ans+=cnt[1]/2;
+      cnt[2]+=cnt[1]/2;
+
+      ans+=cnt[2]/2;
+    }else if(cnt[1]<cnt[3]){
+      ans=cnt[1];
+      cnt[3]-=cnt[1];
+      ans+=cnt[3]/2;
+      cnt[2]+=cnt[3]/2;
+      ans+=cnt[2]/2;
+    }else{
+      ans=cnt[1];
+      ans+=cnt[2]/2;
     }
+
+
+    cout<<ans<<endl;
   }
-}
-
-int32_t main()
-{
-  ios_base::sync_with_stdio(false);
-  cin.tie(NULL);
-
- int t; cin >> t;
-	while (t--) {
-		 int n;
-     cin>>n;
-     vector<int> a(n);
-     for(int i=0;i<n;i++)cin>>a[i];
-     vector<vector<int>> dp(n+1,vector<int>(100,1e9));
-     for(int i=0;i<=40;i++)
-     {
-         int val=abs((i-20));
-          // cout<<val<< " val  ";
-         if(a[0]+(i-20)<=0)continue;
-          val=(1<<val);
-          // cout<<val<< " ( )"<<endl;
-         dp[0][i]=val;
-     }
-
-    
-     for(int i=1;i<n;i++){
-         for(int j=-20;j<=20;j++) {
-             if(a[i]+j<=0)continue;
-             for(int k=-20;k<=20;k++) {
-                 if(a[i-1]+k<=0)continue;
-                 
-                 if(gcd(a[i-1]+k,a[i]+j)==1) {
-                     int val=abs(j);
-                     val=(1<<val);
-                     dp[i][j+20]=min(dp[i][j+20],val+dp[i-1][k+20]);
-                 }
-             }
-         }
-     }
-
-    //  cout<<endl<<endl;
-    cout<<*min_element(dp[n-1].begin(),dp[n-1].end())<<endl;
-		
-	}
   return 0;
 }
