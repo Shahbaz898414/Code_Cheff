@@ -3,6 +3,7 @@ using namespace std;
 using ll = long long;
 const int mod = 1e9 + 7;
 
+
 bool binary_search(ll mian, vector<ll> &fjng, ll g)
 {
   ll ans = 0;
@@ -43,7 +44,7 @@ int main() {
   while (t--)
   {
     ll a, b, c, d, k;
-    
+
     cin >> a >> b >> c >> d >> k;
 
     ll x = __gcd(a, b);
@@ -61,6 +62,7 @@ int main() {
     ans = 2ll * ans + 1;
 
     cout << ans << endl;
+    
 
   }
   return 0;
