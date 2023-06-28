@@ -42,29 +42,14 @@ int maximumNumberOfStringPairs(vector<string> &v)
   return cnt;
 }
 
-int main() {
-  int t = 1; cin >> t;
-  while (t--) {
-    ll n, c1 = 0, c2 = 0, sum = 0, ans = 0, k;
-    cin >> n;
-
-    if(n == 1ll) {
-      cout<<1<<endl;
-    } else {
-       sum += n + 1ll;
-      for(int i=2; i<=sqrt(n); i++) {
-        if(n%i==0){
-          if(i!=(n/i)){
-            sum+=i;
-            sum+=(n/i);
-          }else{
-            sum+=i;
-          }
-        }
-      }
-
-      cout<<sum<<endl;
-    }
+int main()
+{
+  int t = 1;
+  cin >> t;
+  while (t--)
+  {
+    ll n, c1 = 0, c2 = 0, sum = 0, ans = 0, k, a, b, c, d;
+    cin >> a >> b >> c >> d >> k;
 
     // vector<ll> arr(n);
 
