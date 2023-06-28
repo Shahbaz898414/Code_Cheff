@@ -1,5 +1,4 @@
 #include <bits/stdc++.h>
-
 using namespace std;
 
 using ll = long long;
@@ -18,69 +17,45 @@ bool binary_search(ll mian, vector<ll> &fjng, ll g)
   return ans <= g;
 }
 
- int maximumNumberOfStringPairs(vector<string>& v) {
-        int len=v.size();
-        
-        map<string ,int>  mp;
-        
-        for(int i=0;i<len;i++) {
-            string s=v[i];
-            sort(s.begin(),s.end());
-            
-            mp[s]++;
-        }
-        
-        int cnt=0;
-        
-        for(auto it:mp) {
-            if(it.second>1) cnt++;
-        }
-        
-        
-        return cnt;
-    }
+int maximumNumberOfStringPairs(vector<string> &v)
+{
+  int len = v.size();
+
+  map<string, int> mp;
+
+  for (int i = 0; i < len; i++)
+  {
+    string s = v[i];
+    sort(s.begin(), s.end());
+
+    mp[s]++;
+  }
+
+  int cnt = 0;
+
+  for (auto it : mp)
+  {
+    if (it.second > 1)
+      cnt++;
+  }
+
+  return cnt;
+}
 
 int main()
 {
   int t = 1;
   cin >> t;
-  while (t--) {
-    ll n,c1=0,c2=0,sum=0,ans=0;
-		cin>>n;
-		vector<ll>  v(n);
-    int cnt[4]={0};
-    for (ll i = 0; i < n; i++) {
-      cin>>v[i];
-      cnt[v[i]%4]++;
-      sum+=v[i];
-    }
+  while (t--)
+  {
+    ll n, c1 = 0, c2 = 0, sum = 0, ans = 0, k;
+    cin >> n >> k;
 
-    if(sum%4!=0){
-      cout<<-1<<endl;
-      continue;
-    }
+    ll gc = __gcd(n, k);
 
-    if(cnt[1]>cnt[3]){
-      ans=cnt[3];
-      cnt[1]-=cnt[3];
+    ll lcm = (n / gc(n, k)) * k;
 
-      ans+=cnt[1]/2;
-      cnt[2]+=cnt[1]/2;
-
-      ans+=cnt[2]/2;
-    }else if(cnt[1]<cnt[3]){
-      ans=cnt[1];
-      cnt[3]-=cnt[1];
-      ans+=cnt[3]/2;
-      cnt[2]+=cnt[3]/2;
-      ans+=cnt[2]/2;
-    }else{
-      ans=cnt[1];
-      ans+=cnt[2]/2;
-    }
-
-
-    cout<<ans<<endl;
+    cout << gc << " " << lcm << endl;
   }
   return 0;
 }
