@@ -46,16 +46,11 @@ int main()
 {
   int t = 1;
   cin >> t;
-  while (t--)
-  {
+  while (t--) {
     ll n, c1 = 0, c2 = 0, sum = 0, ans = 0, k, a, b, c, d;
     cin >> a >> b >> c >> d >> k;
-
-    // vector<ll> arr(n);
-
-    // for (ll i = 0; i < n; i++) {
-    //   cin>>arr[i];
-    // }
+    
+    
   }
   return 0;
 }
