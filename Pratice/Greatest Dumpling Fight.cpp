@@ -43,6 +43,7 @@ int main() {
   while (t--)
   {
     ll a, b, c, d, k;
+    
     cin >> a >> b >> c >> d >> k;
 
     ll x = __gcd(a, b);
@@ -56,7 +57,7 @@ int main() {
     ll ans = (k / x);
 
     ans = ans / y;
-    
+
     ans = 2ll * ans + 1;
 
     cout << ans << endl;
