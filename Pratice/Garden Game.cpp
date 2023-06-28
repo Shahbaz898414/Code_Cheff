@@ -224,7 +224,7 @@ int32_t main() {
         idx[arr[i]]=i;
       }
       ll x=0,fl=0;
-      // ll one=1;
+      ll one=1;
 
       
     }  
