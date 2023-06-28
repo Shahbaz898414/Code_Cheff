@@ -38,22 +38,29 @@ int maximumNumberOfStringPairs(vector<string> &v)
   return cnt;
 }
 
-int main()
-{
-  int t = 1;
-  cin >> t;
+int main() {
+  int t = 1;cin >> t;
   while (t--)
   {
     ll a, b, c, d, k;
     cin >> a >> b >> c >> d >> k;
+
     ll x = __gcd(a, b);
+
     ll y = __gcd(c, d);
+
     ll gcd = __gcd(x, y);
+
     x /= gcd;
+
     ll ans = (k / x);
+
     ans = ans / y;
+    
     ans = 2ll * ans + 1;
+
     cout << ans << endl;
+
   }
   return 0;
 }
