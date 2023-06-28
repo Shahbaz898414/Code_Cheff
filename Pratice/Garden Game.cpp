@@ -205,43 +205,30 @@ void prime_sieve(){
 }
 
 
-
-
-
-int32_t main()
-{
-
+int32_t main() {
   ios::sync_with_stdio(false);
   cin.tie(nullptr);
 
-  
+  // prime_sieve();
 
-  ll t;
-    cin>>t;
-    
-    
+  ll t; cin>>t;    
+
     while(t--){
       ll n,k; cin>>n;
 
-      ll arr[n];
+      vector<ll> arr(n+1);
+      vector<ll> idx(n+1,0);
 
-      for (ll i = 0; i <n; i++)
-      {
-        /* code */
+      for(ll i=1; i<=n; i++) {
         cin>>arr[i];
+        idx[arr[i]]=i;
       }
-
       ll x=0,fl=0;
       ll one=1;
 
-     
+      
     }  
 }
-
-/*
-
-
-*/
 
 
 
