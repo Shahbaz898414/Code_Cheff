@@ -1,11 +1,10 @@
 #include <bits/stdc++.h>
 using namespace std;
-
 using ll = long long;
 const int mod = 1e9 + 7;
 
-bool binary_search(ll mian, vector<ll> &fjng, ll g)
-{
+
+bool binary_search(ll mian, vector<ll> &fjng, ll g) {
   ll ans = 0;
   for (int i = 0; i < fjng.size(); i++)
   {
@@ -17,6 +16,7 @@ bool binary_search(ll mian, vector<ll> &fjng, ll g)
   return ans <= g;
 }
 
+
 int maximumNumberOfStringPairs(vector<string> &v)
 {
   int len = v.size();
@@ -27,29 +27,34 @@ int maximumNumberOfStringPairs(vector<string> &v)
   {
     string s = v[i];
     sort(s.begin(), s.end());
-
     mp[s]++;
   }
 
   int cnt = 0;
 
   for (auto it : mp)
-  {
     if (it.second > 1)
       cnt++;
-  }
-
+  
   return cnt;
 }
 
-int main()
-{
-  int t = 1;
-  cin >> t;
+
+
+int main() {
+  int t = 1; cin >> t;
   while (t--) {
-    ll n, c1 = 0, c2 = 0, sum = 0, ans = 0, k, a, b, c, d;
-    cin >> a >> b >> c >> d >> k;
-    
+     ll a,b,c,d,k;
+        cin >> a >> b >> c >> d >> k;
+        ll x = __gcd(a,b);
+        ll y = __gcd(c,d);
+        ll gcd = __gcd(x,y);
+        x/=gcd;
+        ll ans = (k/x);
+        ans = ans/y;
+        ans = 2ll*ans+1;
+        cout << ans << endl;
+
     
   }
   return 0;
