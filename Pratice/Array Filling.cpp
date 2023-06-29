@@ -42,7 +42,16 @@ int maximumNumberOfStringPairs(vector<string> &v)
 int main() {
   int t = 1;cin >> t;
   while (t--) {
-    ll n,m;cin>>n>>m;
+    ll n,m;
+        cin>>n>>m;
+        ll ans=0;
+        ll lcm=1;
+        vector<pair<ll,ll>> v(m);
+        for(int i=0;i<m;i++){
+            int x,y;
+            cin>>x>>y;
+            v[i]=make_pair(x,y);
+        }
 
   }
 
