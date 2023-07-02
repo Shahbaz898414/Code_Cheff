@@ -214,17 +214,58 @@ int32_t main() {
   ll t; cin>>t;    
 
     while(t--){
-      ll n,k; cin>>n;
+      int n; cin >> n;
+        vector<int> arr(n + 1);
+        vector<int> idx( n + 1,0);
+        for (int i=1;i<=n;i++){
+            cin >> arr[i];
+            idx[arr[i]] = i;
+        }
 
-      vector<ll> arr(n+1);
-      vector<ll> idx(n+1,0);
+        for(auto it:idx){
+          cout<<it<<" ";
+        }
 
-      for(ll i=1; i<=n; i++) {
-        cin>>arr[i];
-        idx[arr[i]]=i;
-      }
-      ll x=0,fl=0;
-      ll one=1;
+        cout<<endl;
+
+        vector<int> vis(n + 1,0);
+        vector<int> finalCnt(100001,0);
+        for (int i=1;i<=n;i++){
+            if (!vis[i]){
+                int len = 0;
+                int cur = i;
+                while (!vis[cur]){
+                    vis[cur] = 1;
+                    cur = arr[cur]; len++;
+                }
+                map<int,int> cnt;
+                int v = len;
+                for (int j=2;j*j<=v;j++){
+                    while (len%j==0){
+                        cnt[j]++;
+                        len/=j;
+
+                    }
+                    finalCnt[j ] = max(finalCnt[j] ,cnt[j]);
+
+                }
+                if (len >= 2){
+                    cnt[len]++;
+                    finalCnt[len] = max(finalCnt[len] , cnt[len]);
+
+                }
+               
+            }
+        }
+        
+        int lcm = 1;
+        for (int i=1;i<=100000;i++){
+            while (finalCnt[i]--){
+                lcm = (lcm * i )%mod;
+            }
+
+        }
+        cout << lcm << endl;
 
       
     }  
