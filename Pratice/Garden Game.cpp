@@ -222,11 +222,11 @@ int32_t main() {
             idx[arr[i]] = i;
         }
 
-        for(auto it:idx){
-          cout<<it<<" ";
-        }
+        // for(auto it:idx){
+        //   cout<<it<<" ";
+        // }
 
-        cout<<endl;
+        // cout<<endl;
 
         vector<int> vis(n + 1,0);
         vector<int> finalCnt(100001,0);
