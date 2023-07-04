@@ -209,8 +209,7 @@ int32_t main() {
   ios::sync_with_stdio(false);
   cin.tie(nullptr);
 
-  // prime_sieve();
-
+ 
   ll t; cin>>t;    
 
     while(t--){
