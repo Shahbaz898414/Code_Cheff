@@ -213,7 +213,36 @@ int32_t main() {
   ll t; cin>>t;    
 
     while(t--){
-      ll n;cin>>n;
+      int N; cin >> N;
+    vector<int> A(N);
+    for (int i = 0; i < N; i++) {
+      cin >> A[i];
+    }
+    vector<ll> p(N + 1), s(N + 1);
+    for (int i = 1; i < N + 1; i++) {
+      p[i] = p[i - 1] + A[i - 1];
+      s[i] = s[i - 1] + A[N - i];
+    }
+    vector<int> d(N + 2);
+    for (int i = 1; i < N + 1; i++) {
+      {
+        int k = upper_bound(p.begin(), p.end(), p[i] + A[i - 1]) - p.begin();
+        d[min(N + 1, i + 1)]++;
+        d[min(N + 1, k + 1)]--;
+      }
+      {
+        int k = upper_bound(s.begin(), s.end(), s[i] + A[N - i]) - s.begin();
+        d[max(1, N + 1 - k)]++;
+        d[max(1, N + 1 - i)]--;
+      }
+    }
+    
+    int c = 0;
+    for (int i = 1; i < N + 1; i++) {
+      c += d[i];
+      cout << c << " \n"[i == N];
+    }
+      
       
     }  
 }
