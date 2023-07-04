@@ -236,7 +236,13 @@ int32_t main() {
         d[max(1, N + 1 - i)]--;
       }
     }
-    
+
+    // for(auto it:d){
+    //   cout<<it<<" ";
+    // }
+
+    // cout<<endl;
+
     int c = 0;
     for (int i = 1; i < N + 1; i++) {
       c += d[i];
