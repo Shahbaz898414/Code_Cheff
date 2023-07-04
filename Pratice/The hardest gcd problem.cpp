@@ -221,7 +221,10 @@ int32_t main() {
       {
         cin>>arr[i];
       }
-      
+
+      if(m%2) cout<<"YES"<<endl;
+      else cout<<"NO"<<endl;
+
       
       
       
