@@ -49,8 +49,20 @@ int main()
   while (t--)
   {
     ll v1,t1,v2,t2,v3,t3;
-    cin>>v1>>t1>>v2>>t2>>v3>>t3;
-    
+        cin >> v1 >> t1 >> v2 >> t2 >> v3 >> t3;
+        if (t1<t3 and t2<t3) cout << "NO" << endl;
+        else if (t1>t3 and t2>t3) cout << "NO" << endl;
+        else if (t1==t3) {
+            if (v1>=v3) cout << "YES" << endl;
+            else cout << "NO" << endl;
+        }
+        else if (t2==t3) {
+            if (v2>=v3) cout << "YES" << endl;
+            else cout << "NO" << endl;
+        }
+        else if (v1*(t2-t1)>=v3*(t2-t3) and v2*(t2-t1)>=v3*(t3-t1)) cout << "YES" << endl;
+        else cout << "NO" << endl;
+
     
     
   }
