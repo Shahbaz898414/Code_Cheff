@@ -204,6 +204,22 @@ void prime_sieve(){
     
 }
 
+bool check(int GCD, int K){
+    int max_prime = 1;
+    for(int i = 2; i <= sqrt(GCD); i++){    
+        while(GCD % i == 0){
+            GCD /= i;
+            max_prime = max(max_prime, i);
+        }
+    }
+    max_prime = max(max_prime, GCD);       
+                                        
+    if(max_prime <= K)
+        return true;
+    else
+        return false;
+}
+
 
 int32_t main() {
   ios::sync_with_stdio(false);
@@ -212,17 +228,17 @@ int32_t main() {
  
   ll t; cin>>t;    
 
-    while(t--){
+    while(t--) {
       ll n,m;cin>>n>>m;
 
       vector<ll>  arr(n);
-
-      for (ll i = 0; i < n; i++)
-      {
+      ll g=0;
+      for (ll i = 0; i < n; i++) {
         cin>>arr[i];
+        g=__gcd(g,arr[i]);
       }
 
-      if(m%2) cout<<"YES"<<endl;
+      if(check(g,m)) cout<<"YES"<<endl;
       else cout<<"NO"<<endl;
 
       

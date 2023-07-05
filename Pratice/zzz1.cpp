@@ -48,14 +48,9 @@ int main()
   cin >> t;
   while (t--)
   {
-    ll n, c1 = 0, c2 = 0, sum = 0, ans = 0, k;
-    cin >> n >> k;
-    vector<ll> arr(n);
-
-
-    for (ll i = 0; i < n; i++) {
-      cin>>arr[i];
-    }
+    ll v1,t1,v2,t2,v3,t3;
+    cin>>v1>>t1>>v2>>t2>>v3>>t3;
+    
     
     
   }
