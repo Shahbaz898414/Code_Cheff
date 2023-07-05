@@ -49,6 +49,10 @@ int main()
   while (t--)
   {
     ll n;cin>>n;
+
+    set<ll> s;
+
+    ll e=0,o=0;
        
   }
   return 0;
