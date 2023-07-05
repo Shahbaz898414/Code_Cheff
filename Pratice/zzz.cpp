@@ -1,66 +1,97 @@
-#include<bits/stdc++.h> 
+//{ Driver Code Starts
+//Initial Template for C++
+#include <bits/stdc++.h>
 using namespace std;
-typedef long long int ll ; 
-const ll n = 1e5 + 2;
 
-ll prime[n]; 
+// } Driver Code Ends
+//User function Template for C++
 
-void prime_sieve(){
-
-    prime[0] = 0;
-    prime[1] = 0; 
+class Solution{   
+   public:
+    int maxGoodLength(vector<vector<int>>& matrix) {
+        int r = matrix.size();
+        int c = matrix[0].size();
         
-    for(int i=2;i<n;i++){
-        prime[i] = 1; 
-    }
-    
-    for(ll i=2;i*i<n;i++){
-        if(prime[i]==1){
-            for(int j=i*i;j<n;j+=i){
-                prime[j] = 0; 
+        int sidel = 0;
+        int sider = min(r, c);
+        int mi = 0;
+
+        while (sidel <= sider) {
+            int mid = sidel + (sider - sidel) / 2;
+            
+            if (isGoodLength(matrix, mid)) {
+                mi = mid;
+                sidel = mid + 1;
+            } else {
+                sider = mid - 1;
             }
         }
+        
+        return mi;
     }
-    
-    
-}
+
+private:
+    bool isGoodLength(const vector<vector<int>>& matrix, int length) {
+        int r = matrix.size();
+        int c = matrix[0].size();
+
+        for (int i = 0; i <= r - length; i++) {
+            for (int j = 0; j <= c - length; j++) {
+                bool fl = true;
+                
+                for (int k = i; k < i + length; k++) {
+                    for (int l = j; l < j + length; l++) {
+                        if (matrix[k][l] < length) {
+                            fl = false;
+                            break;
+                        }
+                    }
+                    if (!fl) {
+                        break;
+                    }
+                }
+                
+                if (fl) {
+                    return true;
+                }
+            }
+        }
+        
+        return false;
+    }
+};
 
 
-void solve(){
-    ll t;
+//{ Driver Code Starts.
+int main()
+{
+    int t;
     cin>>t;
-    
-    
-    while(t--){
-        ll n,k;
-        cin>>n;
-        
-        ll c1 = 0;
-        ll c2 = 1; 
-        
-         vector<ll>  v1(n),v2(n);
-
-         for (ll i = 0; i < n; i++)
-         {
-            /* code */
-            cin>>v1[i];
-         }
-
-         for (ll i = 0; i < n; i++)
-         {
-            /* code */
-            cin>>v2[i];
-         }
-         
-         
-        
-        
+    while(t--)
+    {
+        int m,n,i,j;
+        cin>>n>>m;
+        vector<vector<int>>a(n,vector<int>(m));
+        for(i=0;i<n;i++)
+        {
+            for(j=0;j<m;j++)
+            {
+                cin>>a[i][j];
+            }
+        }
+        Solution ob;
+        int ans=ob.maxGoodLength(a);
+        cout<<ans<<endl;
     }
 }
 
-int main() {
-    
-    prime_sieve();
-	solve();
-	cout<<endl; 
-}
+// } Driver Code Ends
+
+
+/*
+
+
+
+
+
+*/

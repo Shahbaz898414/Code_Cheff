@@ -1,55 +1,95 @@
-#include <bits/stdc++.h>
+//{ Driver Code Starts
+#include "bits/stdc++.h"
 using namespace std;
 
-using ll = long long;
-const int mod = 1e9 + 7;
+// } Driver Code Ends
+//User function Template for C++
+class Solution{   
+public:
+    int minimumMagic(int n, int m, vector<int> &v1, vector<int> &v2)
+    {
 
-bool binary_search(ll mian, vector<ll> &fjng, ll g)
-{
-  ll ans = 0;
-  for (int i = 0; i < fjng.size(); i++)
-  {
-    if (fjng[i] < mian)
-      ans += mian - fjng[i];
-    else
-      break;
-  }
-  return ans <= g;
-}
+      int l1= v1.size();
+      int l2=v2.size();
 
-int maximumNumberOfStringPairs(vector<string> &v)
-{
-  int len = v.size();
+      int sum1=0,sum2=0,sum3=0;
 
-  map<string, int> mp;
+      for (int i = 0; i < l2; i++)
+      {
+        /* code */
+        sum1+=v2[i];
+      }
 
-  for (int i = 0; i < len; i++)
-  {
-    string s = v[i];
-    sort(s.begin(), s.end());
+      for (int i = 0; i < l1; i++)
+      {
+        /* code */
+        sum2+=v1[i];
+      }
 
-    mp[s]++;
-  }
 
-  int cnt = 0;
 
-  for (auto it : mp)
-  {
-    if (it.second > 1)
-      cnt++;
-  }
+      if(sum1>m) return -1;
 
-  return cnt;
-}
+      if(sum2<=m) return 0;
+
+      int  main=sum2-m;
+
+
+      
+
+        
+    }
+};
+
+//{ Driver Code Starts.
 
 int main()
 {
-  int t = 1;
-  cin >> t;
-  while (t--)
-  {
-    ll n;cin>>n;
-       
-  }
-  return 0;
+    int t;
+    cin>>t;
+    while(t--)
+    {
+        int n,m;
+        cin>>n>>m;
+        vector<int>price(n),magical_price(n);
+        for(int i=0;i<n;i++)
+            cin>>price[i];
+        for(int i=0;i<n;i++)
+            cin>>magical_price[i];
+        Solution ob;
+        int ans=ob.minimumMagic(n,m,price,magical_price);
+        cout<<ans<<endl;
+    }
 }
+// } Driver Code Ends
+
+
+/*
+ong long noOfPairs(vector<string> &box)
+    {
+        vector<int> v;
+        for (auto &s : box) {
+            int x = 0;
+            for (int i = 0; i < s.size(); i++) {
+                x ^= 1 << (s[i] - 'a');
+            }
+            v.push_back(x);
+        }
+        
+        const size_t n = box.size();
+        unordered_map<int, int> cnt;
+        int64_t tot = 0;
+        
+        for (auto x : v) {
+            tot += cnt[x];
+            for (int i = 0; i < 26; i++) {
+                int targ = 1 << i;
+                tot += cnt[x ^ targ];
+            }
+            cnt[x]++;
+        }
+        
+        return tot;
+    }
+
+*/
