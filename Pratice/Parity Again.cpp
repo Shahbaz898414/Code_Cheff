@@ -53,6 +53,10 @@ int main()
     set<ll> s;
 
     ll e=0,o=0;
+
+    while(n--) {
+      ll x;cin>>x;
+    }
        
   }
   return 0;
