@@ -60,7 +60,7 @@ int main()
             if (v2>=v3) cout << "YES" << endl;
             else cout << "NO" << endl;
         }
-        // else if (v1*(t2-t1)>=v3*(t2-t3) and v2*(t2-t1)>=v3*(t3-t1)) cout << "YES" << endl;
+        else if (v1*(t2-t1)>=v3*(t2-t3) and v2*(t2-t1)>=v3*(t3-t1)) cout << "YES" << endl;
         else cout << "NO" << endl;
 
     
