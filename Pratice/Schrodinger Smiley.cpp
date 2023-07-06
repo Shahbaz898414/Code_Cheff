@@ -24,7 +24,7 @@ int main()
       if (s[i] == ':' and s[i + 1] == ')')
       {
         int j = i + 2;
-        while (j < n and s[j + 1] == ')')
+        while (j < n and s[j ] == ')')
         {
           j++;
         }
