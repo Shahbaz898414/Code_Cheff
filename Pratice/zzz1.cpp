@@ -9,30 +9,38 @@ public:
     int minimumMagic(int n, int m, vector<int> &v1, vector<int> &v2)
     {
 
-      int l1= v1.size();
-      int l2=v2.size();
+      priority_queue<int>  main;
 
-      int sum1=0,sum2=0,sum3=0;
-
-      for (int i = 0; i < l2; i++)
+      int ans=0;
+        int sum1=0;
+      for (int i = 0; i <n; i++)
       {
         /* code */
         sum1+=v2[i];
       }
 
-      for (int i = 0; i < l1; i++)
+      if(sum1>m)  return -1;
+      
+
+      
+
+      for (int i = 0; i < n; i++)
       {
-        /* code */
-        sum2+=v1[i];
+        main.push({v1[i]-v2[i]});
+        ans+=v1[i];
       }
 
+      int cnt=0;
+      while(ans>m and main.size()>0){
+        ans-=main.top();
+        main.pop();
+        cnt++;
+      }
 
-
-      if(sum1>m) return -1;
-
-      if(sum2<=m) return 0;
-
-      int  main=sum2-m;
+      if(cnt<=m){
+        return cnt;
+      }else return -1;
+      
 
 
       
