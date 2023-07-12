@@ -57,47 +57,6 @@ int main()
     cin>>t;
     while(t--)
     {
-        int n,m;
-        cin>>n>>m;
-        vector<int>price(n),magical_price(n);
-        for(int i=0;i<n;i++)
-            cin>>price[i];
-        for(int i=0;i<n;i++)
-            cin>>magical_price[i];
-        Solution ob;
-        int ans=ob.minimumMagic(n,m,price,magical_price);
-        cout<<ans<<endl;
+        
     }
 }
-// } Driver Code Ends
-
-
-/*
-ong long noOfPairs(vector<string> &box)
-    {
-        vector<int> v;
-        for (auto &s : box) {
-            int x = 0;
-            for (int i = 0; i < s.size(); i++) {
-                x ^= 1 << (s[i] - 'a');
-            }
-            v.push_back(x);
-        }
-        
-        const size_t n = box.size();
-        unordered_map<int, int> cnt;
-        int64_t tot = 0;
-        
-        for (auto x : v) {
-            tot += cnt[x];
-            for (int i = 0; i < 26; i++) {
-                int targ = 1 << i;
-                tot += cnt[x ^ targ];
-            }
-            cnt[x]++;
-        }
-        
-        return tot;
-    }
-
-*/
