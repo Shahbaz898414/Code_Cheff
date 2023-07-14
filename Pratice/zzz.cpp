@@ -1,109 +1,89 @@
-//{ Driver Code Starts
-// Initial Template for C++
+// C++ program that print maximum
+// number of overlap
+// among given ranges
 #include <bits/stdc++.h>
 using namespace std;
 
-// } Driver Code Ends
-// User function Template for C++
-
-class Solution
+// Function that print maximum
+// overlap among ranges
+void overlap(vector<pair<int, int> > v)
 {
-public:
-    int maxGoodLength(vector<vector<int>> &matrix)
-    {
-        int r = matrix.size();
-        int c = matrix[0].size();
+	// variable to store the maximum
+	// count
+	int ans = 0;
+	int count = 0;
+	vector<pair<int, char> > data;
 
-        int sidel = 0;
-        int sider = min(r, c);
-        int mi = 0;
+	// storing the x and y
+	// coordinates in data vector
+	for (int i = 0; i < v.size(); i++) {
 
-        while (sidel <= sider)
-        {
-            int mid = sidel + (sider - sidel) / 2;
+		// pushing the x coordinate
+		data.push_back({ v[i].first, 'x' });
 
-            if (isGoodLength(matrix, mid))
-            {
-                mi = mid;
-                sidel = mid + 1;
-            }
-            else
-            {
-                sider = mid - 1;
-            }
-        }
+		// pushing the y coordinate
+		data.push_back({ v[i].second, 'y' });
+	}
 
-        return mi;
-    }
+	// sorting of ranges
+	sort(data.begin(), data.end());
 
-private:
-    bool isGoodLength(const vector<vector<int>> &matrix, int length)
-    {
-        int r = matrix.size();
-        int c = matrix[0].size();
+	// Traverse the data vector to
+	// count number of overlaps
+	for (int i = 0; i < data.size(); i++) {
 
-        for (int i = 0; i <= r - length; i++)
-        {
-            for (int j = 0; j <= c - length; j++)
-            {
-                bool fl = true;
-                for (int k = i; k < i + length; k++)
-                {
-                    for (int l = j; l < j + length; l++)
-                    {
-                        if (matrix[k][l] < length)
-                        {
-                            fl = false;
-                            // return false;
-                            break;
-                        }
-                    }
-                    if (!fl)
-                    {
-                        break;
-                    }
-                }
+		// if x occur it means a new range
+		// is added so we increase count
+		if (data[i].second == 'x')
+			count++;
 
-                if (fl)
-                {
-                    return true;
-                }
-            }
-        }
+		// if y occur it means a range
+		// is ended so we decrease count
+		if (data[i].second == 'y')
+			count--;
 
-        return false;
-    }
-};
+		// updating the value of ans
+		// after every traversal
+		ans = max(ans, count);
+	}
 
-//{ Driver Code Starts.
-int main()
-{
-    int t;
-    cin >> t;
-    while (t--)
-    {
-        int m, n, i, j;
-        cin >> n >> m;
-        vector<vector<int>> a(n, vector<int>(m));
-        for (i = 0; i < n; i++)
-        {
-            for (j = 0; j < m; j++)
-            {
-                cin >> a[i][j];
-            }
-        }
-        Solution ob;
-        int ans = ob.maxGoodLength(a);
-        cout << ans << endl;
-    }
+	// printing the maximum value
+	cout << ans << endl;
 }
 
-// } Driver Code Ends
+// Driver code
+int main()
+{
 
-/*
+    int t;cin>>t;
 
+    while(t--) {
+        int n;cin>>n;
 
+        vector<int>  arr(n),b(n);
 
+        vector<pair<int, int> > v(n);
+	
 
+        for (int i = 0; i < n; i++)
+        {
+            /* code */
+            cin>>arr[i];
+        }
 
-*/
+        for (int i = 0; i < n; i++)
+        {
+            /* code */
+
+            cin>>b[i];
+
+            v.push_back({arr[i],b[i]});
+
+        }
+
+        overlap(v);
+        
+    }
+	
+	return 0;
+}
