@@ -4,10 +4,6 @@ using namespace std;
 
 #define ll long long
 
-// } Driver Code Ends
-//User function Template for C++
-
-
 
 int subarraysDivByK(vector<int>& nums, int k) {
         int n=nums.size();
@@ -31,11 +27,22 @@ int subarraysDivByK(vector<int>& nums, int k) {
 
             }
             if(mp.find(rem)!=mp.end()){
+
+              v2.push_back(rem);
                 cnt=cnt+mp[rem];
 
             }
             mp[rem]++;
         }
+
+        for(auto it:mp)  {
+          cout<<it.first<<" "<<it.second<<endl;
+        }
+
+        cout<<endl;
+
+        for(auto it:v2)  cout<<it<<" ";
+        cout<<endl;
 
         // for(auto it:pq){
         //   cout<<it.first<<" "<<it.second<<endl;
