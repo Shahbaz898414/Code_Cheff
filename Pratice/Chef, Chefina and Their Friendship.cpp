@@ -48,7 +48,7 @@ int main()
     // for (int i = 0; i <= n + 1; i++) {
     //   cout << hs[i] << " ";
     // }
-
+//
     // cout << endl;
 
     //  for (int i = 0; i <= n + 1; i++) {
@@ -57,8 +57,7 @@ int main()
 
     // cout << endl;
 
-    for (i = 1; i < n / 2; i++)
-    {
+    for (i = 1; i < n / 2; i++) {
       j = n / 2 - i;
       x = gtHsh(0, i - 1);
       y = gtHsh(i, 2 * i - 1);
@@ -66,9 +65,11 @@ int main()
       q = gtHsh(2 * i + j, n - 1);
       if (x == y && k == q)
         ct++;
-    }
 
+    }
     cout << ct << '\n';
+
+
   }
   return 0;
 }
