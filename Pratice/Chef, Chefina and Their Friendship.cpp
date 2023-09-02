@@ -3,8 +3,11 @@ using namespace std;
 typedef long long ll;
 #define lld long long int
 
+
+
 ll mx = 1e6 + 7, md = 1e9 + 7, bs = 28;
 vector<ll> pw(mx), hs(mx);
+
 
 void build(string s)
 {
@@ -15,6 +18,8 @@ void build(string s)
   }
 }
 
+
+
 ll gtHsh(ll i, ll j)
 {
   ll ans = hs[j];
@@ -24,6 +29,9 @@ ll gtHsh(ll i, ll j)
   }
   return ans;
 }
+
+
+
 
 int main()
 {
@@ -48,7 +56,7 @@ int main()
     // for (int i = 0; i <= n + 1; i++) {
     //   cout << hs[i] << " ";
     // }
-//
+
     // cout << endl;
 
     //  for (int i = 0; i <= n + 1; i++) {
@@ -67,9 +75,12 @@ int main()
         ct++;
 
     }
+
+
     cout << ct << '\n';
-
-
   }
   return 0;
 }
+
+
+
