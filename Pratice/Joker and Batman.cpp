@@ -250,4 +250,30 @@ int32_t main() {
 
 /*
 
+
+class Solution
+{
+private:
+    Node* res = NULL;
+public:
+    void helper(Node* root, int target, Node* root2) {
+        if(!root || !root2) { return; }
+        
+        if(root->data == target) { res = root2; }
+        
+        helper(root->left, target, root2->right);
+        helper(root->right, target, root2->left);
+        
+    }
+    
+    int findMirror(Node *root, int target)
+    {
+        Node* root2 = root;
+        helper(root, target, root2);
+        if(!res) { return -1; }
+        else return res->data;
+    }
+};
+
+
 */
