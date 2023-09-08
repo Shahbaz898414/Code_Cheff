@@ -284,10 +284,6 @@ public:
 
 
 
-
-
-
-
 class Solution {
 public:
     int findIndex(int val,vector<int>p){
@@ -314,6 +310,8 @@ public:
         
     }
 };
+
+
 
 
 
