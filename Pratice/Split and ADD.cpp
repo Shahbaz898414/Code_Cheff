@@ -214,55 +214,28 @@ bool check(int GCD, int K)
     return false;
 }
 
-int32_t main()
-{
+int32_t main() {
+
   ios::sync_with_stdio(false);
   cin.tie(nullptr);
+
+
+  ll int inv2 = 500000004;
+  ll int inv4 = 250000002;
 
   ll t;
   cin >> t;
 
   while (t--) {
-     int a, b; cin>>a>>b;
- 
-        if(a == b) {
-          cout<<0<<"\n"; continue;
-        }
- 
-        if(a<b) swap(a, b);
- 
-        int bit = -1;
- 
-        for(int i=29; i>=0; i--) {
-            int x = (1<<i);
-            if((a&x) != (b&x)) {
-                bit = i; break;
-            }
-        }
-
-        int ans = 0;
-
-        vector<ll>  v;
- 
-
-        for (int i=bit-1; i>=0; i--) {
-            int x = (1<<i);
-            if((a&x)>0 && (b&x)==0) {
-              v.push_back(x);
-               ans += x;
-            }
+     int n,l,r;cin>>n>>l>>r;
 
 
-        }
+     ll int total=n%mod;
 
-        for(auto it:v) {
-          cout<<it<<" ";
-        }
+     total%=mod;
+     total*=(n+1)%mod;
+     total
 
-        cout<<endl;
- 
-
-        cout<<ans<<"\n";
   }
 }
 
