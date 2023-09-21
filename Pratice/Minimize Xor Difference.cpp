@@ -233,69 +233,38 @@ int32_t main()
   ll t;
   cin >> t;
 
-  while (t--)
-  {
-    int a, b;
+  while (t--) {
+     int a, b; cin>>a>>b;
+ 
+        if(a == b) {
+            cout<<0<<"\n";
+            continue;
+        }
+ 
+        if(a<b)     swap(a, b);
+ 
+        int bit = -1;
+ 
+        for(int i=29; i>=0; i--)
+        {
+            int x = (1<<i);
+ 
+            if((a&x) != (b&x)) {
+                bit = i;
+                break;
+            }
+        }
 
-    cin >> a >> b;
+        int ans = 0;
+ 
 
-    int x = 30;
-
-    vector<int> bgf(31, 0), ar(31, 0);
-
-    int i = 0;
-    while (x--)
-    {
-      bgf[i] = a & 1;
-
-      ar[i] = b & 1;
-
-      a /= 2;
-
-      b /= 2;
-
-      i++;
-    }
-
-    int p = 0;
-    for (int i = 30; i >= 0; i--)
-    {
-      if (bgf[i] != ar[i])
-      {
-        if (bgf[i] == 1)
-          p = 1;
-
-        bgf[i] = 0;
-
-        ar[i] = 0;
-
-        break;
-      }
-    }
-    int ans = 0;
-    if (p == 1)
-    {
-      int i = 1;
-      for (auto it : bgf)
-      {
-
-        ans += (it) * (i);
-
-        i *= 2;
-      }
-    }
-    else
-    {
-      int i = 1;
-      for (auto it : ar)
-      {
-
-        ans += (it) * (i);
-
-        i *= 2;
-      }
-    }
-
-    cout << ans << endl;
+        for (int i=bit-1; i>=0; i--) {
+            int x = (1<<i);
+            if((a&x)>0 && (b&x)==0) ans += x;
+        }
+ 
+        cout<<ans<<"\n";
   }
 }
+
+
