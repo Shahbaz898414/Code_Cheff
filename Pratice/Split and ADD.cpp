@@ -235,5 +235,32 @@ int32_t main()
     total %= mod;
     total *= (n + 1) % mod;
     total %= mod;
+    total *= inv2;
+        total %= MOD;
+
+
+
+
+
+    ll int z=0;
+
+    function <ll int(ll int, ll int, ll int)> sum = [&](ll int x, ll int cnt, ll int tot) {
+            if(x == 0)          return z;
+            if(x == cnt)        return tot%MOD;
+ 
+            cnt /= 2;
+ 
+            ll int lsum = ((tot*inv2)%MOD - ((n%MOD)*inv4)%MOD + MOD) % MOD;
+            ll int rsum = ((tot*inv2)%MOD + ((n%MOD)*inv4)%MOD + MOD) % MOD;
+ 
+            if(x >= cnt)        return (lsum + sum(x-cnt, cnt, rsum)) % MOD;
+            else                return sum(x, cnt, lsum) % MOD;
+      };
+ 
+        auto getSum = [&](ll int x) {
+            return sum(x, n, total)%MOD;
+        };
+ 
+      cout<<(getSum(r) - getSum(l-1) + MOD) % MOD<<"\n";
   }
 }
