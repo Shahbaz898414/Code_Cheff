@@ -152,7 +152,6 @@ bool isValid(string s)
   return true;
 }
 
-
 void rotateMatrix(vector<vector<int>> &v, int n)
 {
   for (int i = 0; i < n / 2; i++)
@@ -214,11 +213,11 @@ bool check(int GCD, int K)
     return false;
 }
 
-int32_t main() {
+int32_t main()
+{
 
   ios::sync_with_stdio(false);
   cin.tie(nullptr);
-
 
   ll int inv2 = 500000004;
   ll int inv4 = 250000002;
@@ -226,17 +225,15 @@ int32_t main() {
   ll t;
   cin >> t;
 
-  while (t--) {
-     int n,l,r;cin>>n>>l>>r;
+  while (t--)
+  {
+    int n, l, r;
+    cin >> n >> l >> r;
 
+    ll int total = n % mod;
 
-     ll int total=n%mod;
-
-     total%=mod;
-     total*=(n+1)%mod;
-     total
-
+    total %= mod;
+    total *= (n + 1) % mod;
+    total %= mod;
   }
 }
-
-
