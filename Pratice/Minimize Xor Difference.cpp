@@ -179,84 +179,83 @@ void rotateMatrix(vector<vector<int>> &v, int n)
   }
 }
 
-
 const ll n = 1e5 + 2;
 
-ll prime[n]; 
+ll prime[n];
 
-void prime_sieve(){
+void prime_sieve()
+{
 
-    prime[0] = 0;
-    prime[1] = 0; 
-        
-    for(int i=2;i<n;i++){
-        prime[i] = 1; 
+  prime[0] = 0;
+  prime[1] = 0;
+
+  for (int i = 2; i < n; i++)
+  {
+    prime[i] = 1;
+  }
+
+  for (ll i = 2; i * i < n; i++)
+  {
+    if (prime[i] == 1)
+    {
+      for (int j = i * i; j < n; j += i)
+      {
+        prime[j] = 0;
+      }
     }
-    
-    for(ll i=2;i*i<n;i++){
-        if(prime[i]==1){
-            for(int j=i*i;j<n;j+=i){
-                prime[j] = 0; 
-            }
-        }
-    }
-    
-    
+  }
 }
 
-bool check(int GCD, int K){
-    int max_prime = 1;
-    for(int i = 2; i <= sqrt(GCD); i++){    
-        while(GCD % i == 0){
-            GCD /= i;
-            max_prime = max(max_prime, i);
-        }
+bool check(int GCD, int K)
+{
+  int max_prime = 1;
+  for (int i = 2; i <= sqrt(GCD); i++)
+  {
+    while (GCD % i == 0)
+    {
+      GCD /= i;
+      max_prime = max(max_prime, i);
     }
-    max_prime = max(max_prime, GCD);       
-                                        
-    if(max_prime <= K)
-        return true;
-    else
-        return false;
+  }
+  max_prime = max(max_prime, GCD);
+
+  if (max_prime <= K)
+    return true;
+  else
+    return false;
 }
 
-
-
-
-
-int32_t main() {
+int32_t main()
+{
   ios::sync_with_stdio(false);
   cin.tie(nullptr);
 
- 
-  ll t; cin>>t;    
+  ll t;
+  cin >> t;
 
-    while(t--) {
-      int a, b;
+  while (t--)
+  {
+    int a, b;
 
-      
     cin >> a >> b;
 
     int x = 30;
 
     vector<int> bgf(31, 0), ar(31, 0);
-  
 
     int i = 0;
     while (x--)
     {
       bgf[i] = a & 1;
-      
+
       ar[i] = b & 1;
-    
+
       a /= 2;
-     
+
       b /= 2;
 
       i++;
     }
-
-    
 
     int p = 0;
     for (int i = 30; i >= 0; i--)
@@ -265,11 +264,11 @@ int32_t main() {
       {
         if (bgf[i] == 1)
           p = 1;
-       
+
         bgf[i] = 0;
-       
+
         ar[i] = 0;
-       
+
         break;
       }
     }
@@ -279,9 +278,9 @@ int32_t main() {
       int i = 1;
       for (auto it : bgf)
       {
-        
+
         ans += (it) * (i);
-       
+
         i *= 2;
       }
     }
@@ -290,18 +289,13 @@ int32_t main() {
       int i = 1;
       for (auto it : ar)
       {
-       
+
         ans += (it) * (i);
-       
+
         i *= 2;
-       
       }
     }
 
     cout << ans << endl;
-
-     
-      
-    }  
+  }
 }
-
