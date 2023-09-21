@@ -232,58 +232,75 @@ int32_t main() {
   ll t; cin>>t;    
 
     while(t--) {
-      ll n,m;cin>>n>>m;
+      int a, b;
 
-      vector<ll>  ar(n);
+      
+    cin >> a >> b;
 
-      ll sum=0;
+    int x = 30;
 
-      for (ll i = 0; i <n; i++)
+    vector<int> bgf(31, 0), ar(31, 0);
+  
+
+    int i = 0;
+    while (x--)
+    {
+      bgf[i] = a & 1;
+      
+      ar[i] = b & 1;
+    
+      a /= 2;
+     
+      b /= 2;
+
+      i++;
+    }
+
+    
+
+    int p = 0;
+    for (int i = 30; i >= 0; i--)
+    {
+      if (bgf[i] != ar[i])
       {
-        /* code */
-        cin>>ar[i];
-        sum+=ar[i];
-      }
-
-      ll low=0;
-
-      ll high=sum;
-
-      ll ans=0;
-
-       bool fl=true;
-
-      while(low<=high){
-        ll mid = low + (high - low) / 2;
+        if (bgf[i] == 1)
+          p = 1;
        
-
-        for(auto it:ar){
-          if(it<=mid){
-            continue;
-          }else {
-            if(m>it){
-              m-=it;
-            }else {
-              fl=false;
-              break;
-            }
-          }   
-        }
-
-
-        if(fl) {
-          ans=mid;
-          high=mid-1;
-          
-        }else {
-
-          low=mid+1;
-        }
+        bgf[i] = 0;
+       
+        ar[i] = 0;
+       
+        break;
       }
+    }
+    int ans = 0;
+    if (p == 1)
+    {
+      int i = 1;
+      for (auto it : bgf)
+      {
+        
+        ans += (it) * (i);
+       
+        i *= 2;
+      }
+    }
+    else
+    {
+      int i = 1;
+      for (auto it : ar)
+      {
+       
+        ans += (it) * (i);
+       
+        i *= 2;
+       
+      }
+    }
 
+    cout << ans << endl;
 
-      cout<<ans<<endl;
-
+     
       
     }  
 }

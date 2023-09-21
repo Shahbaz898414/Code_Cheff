@@ -1,89 +1,61 @@
-// C++ program that print maximum
-// number of overlap
-// among given ranges
-#include <bits/stdc++.h>
+#include <iostream>
+#define ll long long
 using namespace std;
 
-// Function that print maximum
-// overlap among ranges
-void overlap(vector<pair<int, int> > v)
-{
-	// variable to store the maximum
-	// count
-	int ans = 0;
-	int count = 0;
-	vector<pair<int, char> > data;
-
-	// storing the x and y
-	// coordinates in data vector
-	for (int i = 0; i < v.size(); i++) {
-
-		// pushing the x coordinate
-		data.push_back({ v[i].first, 'x' });
-
-		// pushing the y coordinate
-		data.push_back({ v[i].second, 'y' });
-	}
-
-	// sorting of ranges
-	sort(data.begin(), data.end());
-
-	// Traverse the data vector to
-	// count number of overlaps
-	for (int i = 0; i < data.size(); i++) {
-
-		// if x occur it means a new range
-		// is added so we increase count
-		if (data[i].second == 'x')
-			count++;
-
-		// if y occur it means a range
-		// is ended so we decrease count
-		if (data[i].second == 'y')
-			count--;
-
-		// updating the value of ans
-		// after every traversal
-		ans = max(ans, count);
-	}
-
-	// printing the maximum value
-	cout << ans << endl;
-}
-
-// Driver code
-int main()
-{
-
-    int t;cin>>t;
+int main() {
+	// your code goes here
+	ll t; cin>>t;    
 
     while(t--) {
-        int n;cin>>n;
+      ll n,m;cin>>n>>m;
 
-        vector<int>  arr(n),b(n);
+      vector<ll>  arr(n);
 
-        vector<pair<int, int> > v(n);
-	
+      ll sum=0;
 
-        for (int i = 0; i < n; i++)
-        {
-            /* code */
-            cin>>arr[i];
+      for (ll i = 0; i <n; i++)
+      {
+        /* code */
+        cin>>arr[i];
+        sum+=arr[i];
+      }
+
+      ll low=0;
+
+      ll high=sum;
+
+      ll ans=0;
+
+      while(low<=high){
+        ll mid = low + (high - low) / 2;
+        bool fl=true;
+
+        for(auto it:arr){
+          if(it<=mid){
+            continue;
+          }else {
+            if(m>it){
+              m-=it;
+            }else {
+              fl=false;
+              break;
+            }
+          }
         }
 
-        for (int i = 0; i < n; i++)
-        {
-            /* code */
 
-            cin>>b[i];
-
-            v.push_back({arr[i],b[i]});
-
+        if(fl){
+          ans=mid;
+          high=mid-1;
+          
+        }else{
+          low=mid+1;
         }
+      }
 
-        overlap(v);
+
+      cout<<ans<<endl;
         
     }
-	
 	return 0;
 }
