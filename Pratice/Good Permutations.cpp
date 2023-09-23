@@ -227,27 +227,27 @@ void solve()
     p[i] = i + 1;
 
   ll ans = 0;
-  
+
   do
   {
     ll cnt = 0;
     for (ll i = 1; i < n; i++)
-    {
-      if (p[i] > p[i - 1])
-        cnt++;
-    }
+      if (p[i] > p[i - 1]) cnt++;
+    
     ll flag = 0;
+
     for (ll i = 0; i < n; i++)
     {
-      if (v[i] != 0 and p[i] != v[i])
-      {
+      if (v[i] != 0 and p[i] != v[i]) {
         flag = 1;
         break;
       }
     }
-    if (cnt == k and flag == 0)
-      ans++;
+
+    if (cnt == k and flag == 0) ans++;
   } while (next_permutation(p.begin(), p.end()));
+
+
   cout << ans << endl;
 }
 
