@@ -215,27 +215,29 @@ bool check(int GCD, int K)
 
 void solve()
 {
-  int n, k;
+  ll n, k;
   cin >> n >> k;
-  vector<int> v(n);
-  for (int i = 0; i < n; i++)
+  vector<ll> v(n);
+  for (ll i = 0; i < n; i++)
   {
     cin >> v[i];
   }
-  vector<int> p(n);
-  for (int i = 0; i < n; i++)
+  vector<ll> p(n);
+  for (ll i = 0; i < n; i++)
     p[i] = i + 1;
-  int ans = 0;
+
+  ll ans = 0;
+  
   do
   {
-    int cnt = 0;
-    for (int i = 1; i < n; i++)
+    ll cnt = 0;
+    for (ll i = 1; i < n; i++)
     {
       if (p[i] > p[i - 1])
         cnt++;
     }
-    int flag = 0;
-    for (int i = 0; i < n; i++)
+    ll flag = 0;
+    for (ll i = 0; i < n; i++)
     {
       if (v[i] != 0 and p[i] != v[i])
       {
