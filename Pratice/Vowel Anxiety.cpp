@@ -213,6 +213,62 @@ bool check(int GCD, int K)
     return false;
 }
 
+void solve()
+{
+  ll n;
+  cin >> n;
+
+  string s;
+  cin >> s;
+  string t = s;
+
+  // abcdefghij 
+  int p = n - 1, i = 0, j = n - 1, dir = 1;
+
+  vector<char>  v1,v2;
+
+  while (p >= 0)
+  {
+    if (dir == 1)
+    {
+      if (s[p] == 'a' || s[p] == 'e' || s[p] == 'i' || s[p] == 'o' || s[p] == 'u')
+      {
+        dir = 0;
+      }
+      t[j] = s[p];
+      // v1.push_back(t[j]);
+      p--;
+      j--;
+    }
+    else
+    {
+      if (s[p] == 'a' || s[p] == 'e' || s[p] == 'i' || s[p] == 'o' || s[p] == 'u')
+      {
+        dir = 1;
+      }
+
+      t[i] = s[p];
+      // v2.push_back(t[i]);
+      p--;
+      i++;
+    }
+
+
+  }
+
+
+
+  // for(auto it:v1)  cout<<it<<" ";
+  // cout<<endl;
+  // for(auto it:v2) cout<<it<<" ";
+  // cout<<endl;
+
+
+
+
+  cout<<t<<endl;
+}
+
 int32_t main()
 {
 
@@ -227,80 +283,7 @@ int32_t main()
 
   while (t--)
   {
-    int n, l, r;
-    cin >> n >> l >> r;
 
-    ll int total = n % mod;
-
-    total %= mod;
-    total *= (n + 1) % mod;
-    total %= mod;
-    total *= inv2;
-    total %= mod;
-
-    ll int z = 0;
-
-    function<ll int(ll int, ll int, ll int)> sum = [&](ll int x, ll int cnt, ll int tot) {
-
-      if (x == 0) return z;
-      if (x == cnt) return tot % mod;
-
-      cnt /= 2;
-
-      ll int lsum=((tot * inv2) % mod-((n % mod) * inv4) % mod + mod) % mod;
-      ll int rsum=((tot * inv2) % mod+((n % mod) * inv4) % mod + mod) % mod;
-
-      if (x >= cnt) return ((lsum + sum(x - cnt, cnt, rsum)) % mod);
-      else return (sum(x, cnt, lsum) % mod);
-
-    };
-
-
-
-    auto getSum = [&] (ll int x ) {
-      return sum(x, n, total) % mod;
-    };
-
-    cout << (getSum(r) - getSum(l - 1) + mod) % mod << "\n";
-
-
+    solve();
   }
 }
-
-
-/*
-
-
-
-int CountStrings(string s) {
-        int n = s.length();
-        int count = 0;
-
-        for (int i = 0; i < n; ++i) {
-            int max_digit = s[i] - '0';
-            vector<int> freq(10, 0);
-            int j = i;
-
-            while (j < n && freq[max_digit] < max_digit) {
-                int digit = s[j] - '0';
-                freq[digit] += 1;
-
-                if (freq[digit] <= max_digit) {
-                    count += 1;
-                }
-
-                j += 1;
-            }
-        }
-
-        if(count%2) return count-1;
-        
-
-
-        return count+1;
-}
-
-
-
-
-*/

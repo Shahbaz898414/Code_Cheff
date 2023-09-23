@@ -213,6 +213,120 @@ bool check(int GCD, int K)
     return false;
 }
 
+void solve() {
+  ll k; cin >> k;
+    string s; cin >> s;
+    ll n = s.size();
+    if(n == 1)
+    {
+        char ans = (s[0] == '?' ? '0': s[0]);
+        cout << ans << endl;
+        return;
+    }
+
+
+    for (ll i = 0; i < n; i++)
+    {
+        if(s[(i+1)%n] == s[i] && s[i] != '?')
+        {
+            cout << "NO\n";
+            return;
+        }
+    }
+
+
+    if(k == 1)
+    {
+        for (ll i = 0; i < n; i++)
+        {
+            if(s[i] == '?')
+                s[i] = '0';
+        }
+        for (ll i = 0; i < n; i++)
+        {
+            if(s[(i+1)%n] == s[i])
+            {
+                cout << "NO\n";
+                return;
+            }
+        }
+        cout << s << endl;
+    }
+    if(k == 2)
+    {
+        if(n%2)
+        {
+            cout << "NO\n";
+        }
+        else
+        {
+            string s1 = "";
+            string s2 = "";
+            for (ll i = 0; i < n/2; i++)
+            {
+                s1 += "01";
+                s2 += "10";
+            }
+            // cout << s1 << " " << s2 << endl;
+            bool not1 = false;
+            for (ll i = 0; i < n; i++)
+            {
+                if(s[i] != '?' && s[i] != s1[i])
+                {
+                    not1 = true;
+                    break;
+                }
+            }
+            if(not1 == false)
+            {
+                cout << s1 << endl;
+            }
+            else
+            {
+                bool not2 = false;
+                for (ll i = 0; i < n; i++)
+                {
+                    if(s[i] != '?' && s[i] != s2[i])
+                    {
+                        not2 = true;
+                        break;
+                    }
+                }
+                if(not2 == false)
+                {
+                    cout << s2 << endl;
+                }
+                else
+                {
+                    cout << "NO\n";
+                }
+            }
+        }
+    }
+    if(k >= 3)
+    {
+        for (ll i = 0; i < n; i++)
+        {
+            if(s[i] == '?')
+            {
+                if(s[(i-1+n)%n] != '0' && s[(i+1)%n] != '0')
+                {
+                    s[i] = '0';
+                }
+                else if(s[(i-1+n)%n] != '1' && s[(i+1)%n] != '1')
+                {
+                    s[i] = '1';
+                }
+                else if(s[(i-1+n)%n] != '2' && s[(i+1)%n] != '2')
+                {
+                    s[i] = '2';
+                }
+            }
+        }
+        cout << s << endl;
+    }
+}
+
 int32_t main()
 {
 
@@ -227,80 +341,10 @@ int32_t main()
 
   while (t--)
   {
-    int n, l, r;
-    cin >> n >> l >> r;
-
-    ll int total = n % mod;
-
-    total %= mod;
-    total *= (n + 1) % mod;
-    total %= mod;
-    total *= inv2;
-    total %= mod;
-
-    ll int z = 0;
-
-    function<ll int(ll int, ll int, ll int)> sum = [&](ll int x, ll int cnt, ll int tot) {
-
-      if (x == 0) return z;
-      if (x == cnt) return tot % mod;
-
-      cnt /= 2;
-
-      ll int lsum=((tot * inv2) % mod-((n % mod) * inv4) % mod + mod) % mod;
-      ll int rsum=((tot * inv2) % mod+((n % mod) * inv4) % mod + mod) % mod;
-
-      if (x >= cnt) return ((lsum + sum(x - cnt, cnt, rsum)) % mod);
-      else return (sum(x, cnt, lsum) % mod);
-
-    };
-
-
-
-    auto getSum = [&] (ll int x ) {
-      return sum(x, n, total) % mod;
-    };
-
-    cout << (getSum(r) - getSum(l - 1) + mod) % mod << "\n";
-
+    
+    solve();
 
   }
 }
 
 
-/*
-
-
-
-int CountStrings(string s) {
-        int n = s.length();
-        int count = 0;
-
-        for (int i = 0; i < n; ++i) {
-            int max_digit = s[i] - '0';
-            vector<int> freq(10, 0);
-            int j = i;
-
-            while (j < n && freq[max_digit] < max_digit) {
-                int digit = s[j] - '0';
-                freq[digit] += 1;
-
-                if (freq[digit] <= max_digit) {
-                    count += 1;
-                }
-
-                j += 1;
-            }
-        }
-
-        if(count%2) return count-1;
-        
-
-
-        return count+1;
-}
-
-
-
-
-*/
