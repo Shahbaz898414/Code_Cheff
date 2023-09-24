@@ -341,22 +341,10 @@ int32_t main()
       k--;
     }
 
+    cout<<x<<endl;
 
 
 
-
-    for (int i = 0; i < 30; i++) {
-      if (k == 0)
-        break;
-      if (!(x & (1 << i))) {
-        k--;
-        x |= (1 << i);
-      }
-
-    }
-
-
-    cout << x << endl;
 
   }
 }
