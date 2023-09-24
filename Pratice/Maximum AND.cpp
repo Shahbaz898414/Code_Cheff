@@ -277,10 +277,9 @@ int32_t main()
     vector<ll> v(n);
 
     for (int i = 0; i < n; i++) cin >> v[i];
-    
-
 
     vector<pair<ll, ll>> a(30);
+
     for (int i = 0; i < 30; i++)
       a[i].second = i;
 
@@ -291,16 +290,46 @@ int32_t main()
 
       // cout<<endl;
 
+      vector<ll>  vec;
+
 
 
     for (int i = 0; i < 30; i++)
       for (int j = 0; j < n; j++) {
-        if (v[j] & (1 << i)) a[i].first += (1 << i);
-      }
-    
+        if (v[j] & (1 << i)){
+          a[i].first += (1 << i);
 
+          vec.push_back((1 << i));
+        } 
+      }
+
+      ll c=0;
+
+    // for(auto it:a) {
+    //   c++;
+    //     cout<<it.first<<" "<<it.second<<endl;
+    //      if(c==4) break;
+    // }
+
+    // cout<<endl;  
+
+    // for(auto it:vec) {
+    //   cout<<it<<" ";
+    // }
+    
+    // cout<<endl;
+    // cout<<endl;
 
     sort(a.begin(), a.end(), comp);
+
+    //  c=0;
+    // for(auto it:a) {
+    //     c++;
+    //     cout<<it.first<<" "<<it.second<<endl;
+    //     if(c==4) break;
+    // }
+
+    // cout<<endl; 
 
 
     ll x = 0;
@@ -316,15 +345,14 @@ int32_t main()
 
 
 
-    for (int i = 0; i < 30; i++)
-    {
+    for (int i = 0; i < 30; i++) {
       if (k == 0)
         break;
-      if (!(x & (1 << i)))
-      {
+      if (!(x & (1 << i))) {
         k--;
         x |= (1 << i);
       }
+
     }
 
 
