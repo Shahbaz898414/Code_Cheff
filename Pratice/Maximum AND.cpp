@@ -299,7 +299,7 @@ int32_t main()
         if (v[j] & (1 << i)){
           a[i].first += (1 << i);
 
-          vec.push_back((1 << i));
+          // vec.push_back((1 << i));
         } 
       }
 
@@ -337,7 +337,7 @@ int32_t main()
 
     for (int i = 0; i < 30 && k; i++)
     {
-      x  |=  (1 << a[i].second);
+      x |= (1 << a[i].second);
       k--;
     }
 
