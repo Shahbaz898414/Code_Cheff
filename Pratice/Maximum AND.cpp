@@ -253,58 +253,82 @@ int power(int a, int n)
   return res;
 }
 
-
-
-
-ll req(ll n)
+bool comp(pair<ll, ll> p1, pair<ll, ll> p2)
 {
-  int ans=0;
-  int cnt=0;
-
-  while(n>0) {
-    if(n%2==0) {
-      ans+=pow(2,cnt);
-    }
-
-    n=n/2;
-    cnt++;
-  }
-
-  return ans;
-
+  if (p1.first != p2.first)
+    return p1.first > p2.first;
+  return p1.second < p2.second;
 }
 
-
-
-int32_t main() {
+int32_t main()
+{
 
   ios::sync_with_stdio(false);
   cin.tie(nullptr);
- 
-  ll t; cin >> t;
+
+  ll t;
+  cin >> t;
 
   while (t--)
   {
 
-    // solve();
-    ll n; cin >> n;
-    ll ans = 0;
-   
-    while(n>0) {
+    ll n, k;
+    cin >> n >> k;
+    vector<ll> v(n);
 
-      ll low=req(n);
+    for (int i = 0; i < n; i++) cin >> v[i];
+    
 
-      if(low!=0) {
-        ans = ans + (low^n)*(n-low+1);
-        n=low-1;
-      }else {
-        ans=ans+n*(n-1);
-        n=0;
+
+    vector<pair<ll, ll>> a(30);
+    for (int i = 0; i < 30; i++)
+      a[i].second = i;
+
+
+      // for(auto it:a){
+      //   cout<<it.first<<" "<<it.second<<endl;
+      // }
+
+      // cout<<endl;
+
+
+
+    for (int i = 0; i < 30; i++)
+      for (int j = 0; j < n; j++) {
+        if (v[j] & (1 << i)) a[i].first += (1 << i);
       }
+    
 
 
+    sort(a.begin(), a.end(), comp);
+
+
+    ll x = 0;
+
+
+    for (int i = 0; i < 30 && k; i++)
+    {
+      x  |=  (1 << a[i].second);
+      k--;
     }
 
-    cout << ans << "\n";
+
+
+
+
+    for (int i = 0; i < 30; i++)
+    {
+      if (k == 0)
+        break;
+      if (!(x & (1 << i)))
+      {
+        k--;
+        x |= (1 << i);
+      }
+    }
+
+
+    cout << x << endl;
+
   }
 }
