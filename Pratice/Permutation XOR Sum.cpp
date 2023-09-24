@@ -6,6 +6,7 @@ using namespace std;
 #define mod 1000000007
 #define Time cerr << "time taken : " << (float)clock() / CLOCKS_PER_SEC << " secs" << endl;
 #define pb push_back
+#define eps 1e-9
 #define mp make_pair
 #define line cout << endl;
 #define ff first
@@ -213,27 +214,95 @@ bool check(int GCD, int K)
     return false;
 }
 
-void solve()
+int conjugate(int x)
 {
-  ll n; cin >> n;
+  int res = 0;
+  bool ok = 0;
+  for (int i = 30; i >= 0; i--)
+  {
+    if (x & (1 << i))
+      ok = 1;
+    else if (ok)
+      res += (1 << i);
+  }
 
- 
+  return res;
 }
 
-int32_t main()
+int msb(int x)
 {
+  for (int i = 30; i >= 0; i--)
+  {
+    if (x & (1 << i))
+      return i;
+  }
+  return 0;
+}
+
+int power(int a, int n)
+{
+  int res = 1;
+  while (n)
+  {
+    if (n & 1)
+      res *= a;
+    a *= a;
+    n /= 2;
+  }
+
+  return res;
+}
+
+
+
+
+ll req(ll n)
+{
+  int ans=0;
+  int cnt=0;
+
+  while(n>0) {
+    if(n%2==0){
+      ans+=pow(2,cnt);
+    }
+
+    n=n/2;
+    cnt++;
+  }
+
+
+  return ans;
+}
+
+
+
+int32_t main() {
 
   ios::sync_with_stdio(false);
   cin.tie(nullptr);
 
-
-
-  ll t;
-  cin >> t;
+  ll t; cin >> t;
 
   while (t--)
   {
 
-    solve();
+    // solve();
+    long long n;
+    cin >> n;
+    long long ans = 0;
+   
+    while(n>0){
+      ll low=req(n);
+
+      if(low!=0) {
+        ans=ans+(low^n)*(n-low+1);
+        n=low-1;
+      }else {
+        ans=ans+n*(n-1);
+        n=0;
+      }
+    }
+
+    cout << ans << "\n";
   }
 }
