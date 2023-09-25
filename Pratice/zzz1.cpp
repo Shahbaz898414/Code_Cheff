@@ -1,72 +1,48 @@
-//{ Driver Code Starts
-#include "bits/stdc++.h"
+#include <iostream>
+#include <vector>
+
 using namespace std;
 
-#define ll long long
+void dfs(int u, vector<vector<int>>& adj, vector<int>& a, vector<int>& result) {
+    for (int v : adj[u]) {
+        dfs(v, adj, a, result);
+        a[u] ^= a[v]; // Calculate XOR of all values in the subtree rooted at u
+        result[u] += result[v]; // Accumulate the cost from child nodes
+    }
+    result[u] += a[u]; // Add the cost of changing the value at vertex u
+}
 
+int main() {
+    int t;
+    cin >> t;
 
-int subarraysDivByK(vector<int>& nums, int k) {
-        int n=nums.size();
-        if(n==0) return 0;
-        int sum=0 , rem,i,cnt=0;
-        unordered_map<int,int>mp;
+    while (t--) {
+        int n;
+        cin >> n;
 
-        vector<int> v2;
+        vector<vector<int>> adj(n + 1);
+        vector<int> a(n + 1);
+        vector<int> result(n + 1, 0);
 
-        vector<pair<int,int>>  pq;
-        mp[0]=1;
-        for(i=0;i<n;i++){
-            sum=sum+nums[i];
-            rem=sum%k;
-            if(rem<0){
-
-              int x=rem;
-              // pq.first=rem;
-                rem=(rem+k);
-                pq.push_back({x,rem});
-
-            }
-            if(mp.find(rem)!=mp.end()){
-
-              v2.push_back(rem);
-                cnt=cnt+mp[rem];
-
-            }
-            mp[rem]++;
+        for (int i = 1; i <= n; i++) {
+            cin >> a[i];
         }
 
-        for(auto it:mp)  {
-          cout<<it.first<<" "<<it.second<<endl;
+        if (n > 1) {
+            for (int i = 2; i <= n; i++) {
+                int u, v;
+                cin >> u >> v;
+                adj[u].push_back(v);
+            }
+
+            dfs(1, adj, a, result);
         }
 
-        cout<<endl;
-
-        for(auto it:v2)  cout<<it<<" ";
-        cout<<endl;
-
-        // for(auto it:pq){
-        //   cout<<it.first<<" "<<it.second<<endl;
-        // }
-
-
-
-        return cnt;
-        
- }
-
-
-int main()
-{
-    int n,k;cin>>n>>k;
-
-    vector<int>  arr(n);
-
-    for (int i = 0; i < n; i++)
-    {
-      /* code */
-      cin>>arr[i];
+        for (int i = 1; i <= n; i++) {
+            cout << result[i] << " ";
+        }
+        cout << endl;
     }
 
-  cout<<  subarraysDivByK(arr,k);
-    
+    return 0;
 }

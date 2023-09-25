@@ -168,9 +168,9 @@ void rotateMatrix(vector<vector<int>> &v, int n)
   }
 }
 
-const ll n = 1e5 + 2;
+const ll Nr = 1e5 + 2;
 
-ll prime[n];
+ll prime[Nr];
 
 void prime_sieve()
 {
@@ -178,22 +178,24 @@ void prime_sieve()
   prime[0] = 0;
   prime[1] = 0;
 
-  for (int i = 2; i < n; i++)
+  for (int i = 2; i < Nr; i++)
   {
     prime[i] = 1;
   }
 
-  for (ll i = 2; i * i < n; i++)
+  for (ll i = 2; i * i < Nr; i++)
   {
     if (prime[i] == 1)
     {
-      for (int j = i * i; j < n; j += i)
+      for (int j = i * i; j < Nr; j += i)
       {
         prime[j] = 0;
       }
     }
   }
 }
+
+
 
 bool check(int GCD, int K)
 {
@@ -213,6 +215,7 @@ bool check(int GCD, int K)
   else
     return false;
 }
+
 
 int conjugate(int x)
 {
@@ -239,6 +242,8 @@ int msb(int x)
   return 0;
 }
 
+
+
 int power(int a, int n)
 {
   int res = 1;
@@ -253,6 +258,8 @@ int power(int a, int n)
   return res;
 }
 
+
+
 bool comp(pair<ll, ll> p1, pair<ll, ll> p2)
 {
   if (p1.first != p2.first)
@@ -260,18 +267,32 @@ bool comp(pair<ll, ll> p1, pair<ll, ll> p2)
   return p1.second < p2.second;
 }
 
-int32_t main() {
+
+
+
+int32_t main()
+{
 
   ios::sync_with_stdio(false);
   cin.tie(nullptr);
 
-  ll t; cin >> t;
+  ll t;
+  cin >> t;
 
-  while (t--) {
+  while (t--)
+  {
 
-   string s;cin>>s;
+    ll n, k;
+    cin >> n ;
+    vector<ll> v(n);
 
-   
+    for (int i = 0; i < n; i++) cin >> v[i];
+
+    
+
+    
+
+
 
 
   }
