@@ -195,8 +195,6 @@ void prime_sieve()
   }
 }
 
-
-
 bool check(int GCD, int K)
 {
   int max_prime = 1;
@@ -215,7 +213,6 @@ bool check(int GCD, int K)
   else
     return false;
 }
-
 
 int conjugate(int x)
 {
@@ -242,8 +239,6 @@ int msb(int x)
   return 0;
 }
 
-
-
 int power(int a, int n)
 {
   int res = 1;
@@ -258,17 +253,12 @@ int power(int a, int n)
   return res;
 }
 
-
-
 bool comp(pair<ll, ll> p1, pair<ll, ll> p2)
 {
   if (p1.first != p2.first)
     return p1.first > p2.first;
   return p1.second < p2.second;
 }
-
-
-
 
 int32_t main()
 {
@@ -282,18 +272,39 @@ int32_t main()
   while (t--)
   {
 
-    ll n, k;
-    cin >> n ;
-    vector<ll> v(n);
-
-    for (int i = 0; i < n; i++) cin >> v[i];
-
-    
-
-    
-
-
-
-
+    int n;
+    cin >> n;
+    vector<int> v(n + 1);
+    int xr = 0;
+    for (int i = 0; i < n + 1; i++)
+    {
+      cin >> v[i];
+      xr ^= v[i];
+    }
+    if (n % 2 == 0)
+    {
+      for (int i = 0; i < n; i++)
+      {
+        cout << (v[n] ^ v[i]) << " ";
+      }
+      cout << endl;
+      continue;
+    }
+    int ind = 0;
+    for (int i = 0; i < n + 1; i++)
+    {
+      if (xr == v[i])
+      {
+        ind = i;
+        break;
+      }
+    }
+    for (int i = 0; i < n + 1; i++)
+    {
+      if (ind == i)
+        continue;
+      cout << (xr ^ v[i]) << " ";
+    }
+    cout << endl;
   }
 }
