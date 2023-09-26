@@ -266,11 +266,9 @@ int32_t main()
   ios::sync_with_stdio(false);
   cin.tie(nullptr);
 
-  ll t;
-  cin >> t;
+  ll t; cin >> t;
 
-  while (t--)
-  {
+  while (t--) {
 
     int n, m;
     cin >> n >> m;
@@ -290,8 +288,6 @@ int32_t main()
       ans += y - m / 2;
 
 
-
     cout << ans << endl;
-
   }
 }
