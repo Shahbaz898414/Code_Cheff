@@ -283,17 +283,40 @@ int32_t main() {
     cin>>ar[i];
   }
 
+  ll ans=0;
+
 
   for (ll bit = 0; bit < 30; bit++)
   {
-    /* code */
     
+    ll cntOdd=0;
+    ll cntEven=0;
+    ll totOdd=0;
+    ll totEven=0;
+
+    for (ll i = 0; i < n; i++)
+    {
+     
+      if(((1ll<<bit)&ar[i])>0){
+        swap(cntEven,cntOdd);
+
+        swap(totEven,totOdd);
+
+        cntOdd++;
+        totOdd+=i;
+      }else {
+          cntEven++;
+          totEven++;
+      }
+
+
+      (ans += (1ll<<bit)*1ll*((((i+1)*1ll*cntOdd - totOdd)%MOD))) %= MOD;
+    }
+
   }
   
   
-
-   
-
+   cout<<ans<<endl;
 
   }
 }
