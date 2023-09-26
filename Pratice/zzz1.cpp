@@ -1,47 +1,50 @@
-#include <iostream>
-#include <vector>
-
+#include <bits/stdc++.h>
 using namespace std;
+#define ll long long
 
-void dfs(int u, vector<vector<int>>& adj, vector<int>& a, vector<int>& result) {
-    for (int v : adj[u]) {
-        dfs(v, adj, a, result);
-        a[u] ^= a[v]; // Calculate XOR of all values in the subtree rooted at u
-        result[u] += result[v]; // Accumulate the cost from child nodes
-    }
-    result[u] += a[u]; // Add the cost of changing the value at vertex u
-}
 
 int main() {
     int t;
     cin >> t;
 
     while (t--) {
-        int n;
-        cin >> n;
+        long long n, k, x;
+        cin >> n >> k >> x;
 
-        vector<vector<int>> adj(n + 1);
-        vector<int> a(n + 1);
-        vector<int> result(n + 1, 0);
+        ll main;
 
-        for (int i = 1; i <= n; i++) {
-            cin >> a[i];
-        }
+        main=(n*(n+1))/2;
 
-        if (n > 1) {
-            for (int i = 2; i <= n; i++) {
-                int u, v;
-                cin >> u >> v;
-                adj[u].push_back(v);
-            }
 
-            dfs(1, adj, a, result);
-        }
+        // if(x>main)  {
+        //     cout<<"NO"<<endl;
 
-        for (int i = 1; i <= n; i++) {
-            cout << result[i] << " ";
-        }
-        cout << endl;
+        //     continue;
+        // }
+
+        //  ll sum1=0;
+        //  ll sum2=0;
+
+        //  for(int i=1;i<=k;i++){
+        //     sum1+=i;
+        //  }
+
+
+        //  for(int i = n; i >=1; i--) {
+        //     sum2+=i;
+        //     k--;
+        //     if(k<=0) break;
+        //  }
+
+
+
+        //  if(sum1>x or sum2<x) cout<<"NO"<<endl;
+        //  else cout<<"YES"<<endl;
+
+        if(k*(k+1)/2>x ||(n-k+1+n)*k/2<x){
+            cout<<"NO"<<endl;
+        }else  cout<<"YES"<<endl;
+         
     }
 
     return 0;
