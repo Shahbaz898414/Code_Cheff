@@ -266,30 +266,33 @@ int32_t main()
   ios::sync_with_stdio(false);
   cin.tie(nullptr);
 
-  ll t;
-  cin >> t;
+  ll t; cin >> t;
 
-  while (t--)
-  {
+  while (t--) {
 
-    int n;
-    cin >> n;
+    int n; cin >> n;
+
+
     vector<int> v(n + 1);
     int xr = 0;
+
+
     for (int i = 0; i < n + 1; i++)
     {
       cin >> v[i];
       xr ^= v[i];
     }
-    if (n % 2 == 0)
-    {
+
+
+    if (n % 2 == 0) {
+
       for (int i = 0; i < n; i++)
-      {
         cout << (v[n] ^ v[i]) << " ";
-      }
       cout << endl;
       continue;
     }
+
+
     int ind = 0;
     for (int i = 0; i < n + 1; i++)
     {
@@ -299,6 +302,8 @@ int32_t main()
         break;
       }
     }
+
+
     for (int i = 0; i < n + 1; i++)
     {
       if (ind == i)
@@ -306,5 +311,7 @@ int32_t main()
       cout << (xr ^ v[i]) << " ";
     }
     cout << endl;
+
+
   }
 }
