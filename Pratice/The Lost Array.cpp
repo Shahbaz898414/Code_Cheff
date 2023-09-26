@@ -272,7 +272,6 @@ int32_t main()
 
     int n; cin >> n;
 
-
     vector<int> v(n + 1);
     int xr = 0;
 
@@ -285,9 +284,7 @@ int32_t main()
 
 
     if (n % 2 == 0) {
-
-      for (int i = 0; i < n; i++)
-        cout << (v[n] ^ v[i]) << " ";
+      for (int i = 0; i < n; i++) cout << (v[n] ^ v[i]) << " ";
       cout << endl;
       continue;
     }
