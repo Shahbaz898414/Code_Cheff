@@ -273,33 +273,14 @@ int32_t main()
     int n, m;
     cin >> n >> m;
 
-    ll x = n / m;
-    ll y = n % m;
-    ll ans = 0;
+   vector<ll>  ar(n);
 
-    // cout<<x<<" "<<y<<endl;
-
-    ans += x * x * (m - 1);
-
-    // cout<<ans<<" "<<1<<endl;
-
-    ans += x * (x - 1);
-
-    // cout<<ans<<" "<<2<<endl;
-
-
-    if (m % 2 == 0) ans -= x;
-
-    ans /= 2;
-
-    //  cout<<ans<<" "<<3<<endl;
-    ans += x * y;
-
-    //  cout<<ans<<" "<<4<<endl;
-    if (y > m / 2) ans += y - m / 2;
-
-
-    cout << ans << endl;
+   for (ll i = 0; i < n; i++)
+   {
+    /* code */
+    cin>>ar[i];
+   }
+   
 
     
   }

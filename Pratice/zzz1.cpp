@@ -3,47 +3,35 @@ using namespace std;
 #define ll long long
 
 
+
+
 int main() {
     int t;
     cin >> t;
 
     while (t--) {
-        long long n, k, x;
-        cin >> n >> k >> x;
-
-        ll main;
-
-        main=(n*(n+1))/2;
 
 
-        // if(x>main)  {
-        //     cout<<"NO"<<endl;
+        int n=10;
 
-        //     continue;
-        // }
-
-        //  ll sum1=0;
-        //  ll sum2=0;
-
-        //  for(int i=1;i<=k;i++){
-        //     sum1+=i;
-        //  }
-
-
-        //  for(int i = n; i >=1; i--) {
-        //     sum2+=i;
-        //     k--;
-        //     if(k<=0) break;
-        //  }
+        char  arr[n][n];
 
 
 
-        //  if(sum1>x or sum2<x) cout<<"NO"<<endl;
-        //  else cout<<"YES"<<endl;
+        for (ll i = 0; i < n; i++) {
+            for (ll j = 0; j < n; j++) { cin>>arr[i][j];
+            } 
+        }
 
-        if(k*(k+1)/2>x ||(n-k+1+n)*k/2<x){
-            cout<<"NO"<<endl;
-        }else  cout<<"YES"<<endl;
+        for (ll i = 0; i < n; i++) {
+            for (ll j = 0; j < n; j++) {
+               cout<<arr[i][j];
+            } 
+            cout<<endl;
+        }
+
+
+        
          
     }
 
