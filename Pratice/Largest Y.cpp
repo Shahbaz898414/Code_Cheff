@@ -272,60 +272,59 @@ int32_t main()
   while (t--)
   {
 
-    int n;long long x;
-        cin>>n>>x;
-        
-         
-        long long A[n];
-        vector<int>count(32);
-        for(int i=0;i<n;++i){
-            cin>>A[i];
-            
-            string s = bitset<32>(A[i]).to_string();
-            reverse(s.begin(),s.end());
-            for(int j=0;j<32;++j)count[j] += (s[j]-'0');
+    int n;
+    ll x;
+    cin >> n >> x;
+
+    ll A[n];
+
+    vector<int> count(32);
+    for (int i = 0; i < n; ++i)
+    {
+      cin >> A[i];
+      string s = bitset<32>(A[i]).to_string();
+      reverse(s.begin(), s.end());
+      for (int j = 0; j < 32; ++j)
+        count[j] += (s[j] - '0');
+    }
+
+    ll val = 0;
+
+    ll lid = 0, lbit = 0;
+    for (ll i = 32; i >= 0; --i)
+    {
+
+      if (count[i] > 0 && count[i] != n)
+      {
+        lbit = i;
+      }
+    }
+
+    for (ll i = 0; i < 32ll; ++i)
+    {
+      ll cur = 1ll << i;
+      if (cur > x)
+        break;
+      lid = i;
+    }
+
+    int f = 0;
+    for (ll i = 32; i >= 0; --i)
+    {
+      if (f == 0 && i == lbit)
+        continue;
+      ll cur = (1ll << i);
+      val += cur;
+      if (val > x)
+      {
+        if (count[i] > 0 && count[i] != n)
+        {
+          f = 1;
         }
+        val -= cur;
+      }
+    }
 
-
-        
-        long long val = 0;
-         
-        long long lid = 0,lbit= 0;
-        for(long long i = 32;i>=0;--i){
-            
-            if(count[i]>0 && count[i] != n){
-                lbit = i;
-            }
-            
-        }
-
-
-        
-        for(long long i=0;i<32ll;++i){
-            long long cur = 1ll<<i;
-            if(cur>x)break;
-            lid = i;
-        }
-        
-
-      
-        int f = 0;
-        for(long long i=32;i>=0;--i) {
-            if(f == 0 && i == lbit)
-               continue;
-            long long cur = (1ll<<i);
-            val += cur;
-            if(val>x){
-                if(count[i]>0 && count[i]!=n) {
-                    f=1;
-                }
-
-                val -= cur;
-            }
-        }
-        
-        
-        cout<<val<<"\n";
+    cout << val << "\n";
   }
 }
-
