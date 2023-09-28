@@ -279,7 +279,14 @@ int32_t main()
    {
     /* code */
     cin>>ar[i];
+
+    string s=bitset<32>(ar[i]).to_string();
+
+    reverse(s.begin(),s.end());
+    // cout<<s<<endl;
    }
+
+  //  cout<<endl;
    
 
     

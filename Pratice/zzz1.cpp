@@ -6,34 +6,32 @@ using namespace std;
 
 
 int main() {
+
+
+   
+   
+
+
     int t;
     cin >> t;
 
     while (t--) {
 
 
-        int n=10;
+      string s;cin>>s;
 
-        char  arr[n][n];
-
-
-
-        for (ll i = 0; i < n; i++) {
-            for (ll j = 0; j < n; j++) { cin>>arr[i][j];
-            } 
-        }
-
-        for (ll i = 0; i < n; i++) {
-            for (ll j = 0; j < n; j++) {
-               cout<<arr[i][j];
-            } 
-            cout<<endl;
-        }
-
-
+      if(s[0]=='a' || s[1]=='b' || s[2]=='c'){
+        cout<<"YES"<<endl;
+      }else {
+        cout<<"NO"<<endl;
+      }
         
+       
+       
          
     }
+
+
 
     return 0;
 }
