@@ -287,11 +287,11 @@ int32_t main()
 
     sort(v.begin(), v.end());
 
-    for(auto it:v){
-      cout<<it<<" ";
-    }
+    // for(auto it:v){
+    //   cout<<it<<" ";
+    // }
 
-    cout<<endl;
+    // cout<<endl;
     for (int i = 2; i < v.size(); i++)
     {
       if (i == 3)
@@ -303,11 +303,13 @@ int32_t main()
         }
         continue;
       }
+
       if (v[i] != v[i - 1] + v[i - 2])
       {
         flag = 1;
         break;
       }
+
     }
 
 
