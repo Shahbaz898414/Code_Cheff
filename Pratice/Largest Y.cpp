@@ -288,16 +288,16 @@ int32_t main()
         count[j] += (s[j] - '0');
     }
 
+
     ll val = 0;
 
     ll lid = 0, lbit = 0;
-    for (ll i = 32; i >= 0; --i)
-    {
 
+
+    for (ll i = 32; i >= 0; --i) {
       if (count[i] > 0 && count[i] != n)
-      {
         lbit = i;
-      }
+      
     }
 
     for (ll i = 0; i < 32ll; ++i)
@@ -308,26 +308,32 @@ int32_t main()
       lid = i;
     }
 
-    int f = 0;
-    for (ll i = 32; i >= 0; --i)
-    {
-      if (f == 0 && i == lbit)
-        continue;
+
+    int f = 0;  
+
+    for (ll i = 32; i >= 0; --i) {
+      if (f == 0 && i == lbit) continue;
       ll cur = (1ll << i);
+
+      // cout<<cur<<" ";
       val += cur;
-      if (val > x)
-      {
-        if (count[i] > 0 && count[i] != n)
-        {
+      if (val > x) {
+        if (count[i] > 0 && count[i] != n) {
           f = 1;
+
         }
         val -= cur;
       }
+
+      cout<<val<<" ";
     }
 
+    // cout<<endl;
+
+
     cout << val << "\n";
+
   }
 }
 
 
-// sdfgd
