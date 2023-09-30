@@ -281,10 +281,17 @@ int32_t main()
     vector<int> v;
     int flag = 0;
     for (auto it : m)
-    {
       v.push_back(it.second);
-    }
+    
+
+
     sort(v.begin(), v.end());
+
+    for(auto it:v){
+      cout<<it<<" ";
+    }
+
+    cout<<endl;
     for (int i = 2; i < v.size(); i++)
     {
       if (i == 3)
@@ -302,11 +309,14 @@ int32_t main()
         break;
       }
     }
-    if (flag == 1)
-    {
-      cout << "Not" << endl;
-    }
-    else
-      cout << "Dynamic" << endl;
+
+
+    if (flag == 1) cout << "Not" << endl;
+    
+    else cout << "Dynamic" << endl;
+
+
+
+
   }
 }
