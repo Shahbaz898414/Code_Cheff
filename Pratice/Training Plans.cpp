@@ -272,51 +272,25 @@ int32_t main()
   while (t--)
   {
 
-    string s;
-    cin >> s;
-    int n = s.length();
-    map<char, int> m;
-    for (int i = 0; i < n; i++)
-      m[s[i]]++;
-    vector<int> v;
-    int flag = 0;
-    for (auto it : m)
-      v.push_back(it.second);
-    
+    ll n;cin>>n;
+
+    vector<ll> ar(n);
+
+    vector<ll>  br(n);
 
 
-    sort(v.begin(), v.end());
-
-    // for(auto it:v){
-    //   cout<<it<<" ";
-    // }
-
-    // cout<<endl;
-    for (int i = 2; i < v.size(); i++)
+    for (ll i = 0; i < n; i++)
     {
-      if (i == 3)
-      {
-        if (v[i] != v[i - 1] + v[i - 2] and v[i] != v[i - 1] + v[i - 3])
-        {
-          flag = 1;
-          break;
-        }
-        continue;
-      }
-
-      if (v[i] != v[i - 1] + v[i - 2])
-      {
-        flag = 1;
-        break;
-      }
-
+      
+      cin>>ar[i];
     }
 
-
-    if (flag == 1) cout << "Not" << endl;
+    for (ll i = 0; i < n; i++)
+    {
+      
+      cin>>br[i];
+    }
     
-    else cout << "Dynamic" << endl;
-
-
+    
   }
 }
