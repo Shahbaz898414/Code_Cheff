@@ -325,7 +325,7 @@ int32_t main()
         val -= cur;
       }
 
-      cout<<val<<" ";
+      // cout<<val<<" ";
     }
 
     // cout<<endl;
