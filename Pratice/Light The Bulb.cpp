@@ -29,17 +29,23 @@ int main()
         i++;
     }
 
+    
+
     if (seg == 1)
     {
       ll val = (n - 1) * 1ll * 2;
       cout << val << "\n";
-    }
-    else if (seg == 0)
+    }else if (seg == 0)
       cout << (n * 1ll * (n + 1) / 2) << "\n";
+
     else if (seg > 2)
       cout << 0 << "\n";
+
     else
       cout << 6 << "\n";
+
+
+
   }
   return 0;
 }
