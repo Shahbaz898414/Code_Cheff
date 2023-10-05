@@ -17,7 +17,7 @@ int main()
 
    for (ll i = 0; i < n; i++)
    {
-    /* code */
+    
     cin>>arr[i];
    }
    
