@@ -42,6 +42,9 @@ int main()
 
 
       // cout<<ans<<endl;
+
+
+      
       if (ans % 4 == 0) s.back() = '8';
 
 
