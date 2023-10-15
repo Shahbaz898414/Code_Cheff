@@ -30,29 +30,33 @@ int main()
     {
 
       int ans;
-      if (n == 1)
-        ans = 0;
-      else if (n == 2)
-        ans = stoi(s.substr(n - 2, 1)),cout<<ans<<endl;
 
-      else
-        ans = stoi(s.substr(n - 3, 2)),cout<<ans<<endl;
 
-      if (ans % 4 == 0)
-        s.back() = '8';
+      if (n == 1) ans = 0;
 
-      else if (ans % 4 == 1)
-        s.back() = '6';
 
-      else if (ans % 4 == 2)
-        s.back() = '4';
+      else if (n == 2) ans = stoi(s.substr(n - 2, 1));
 
-      else
-        s.back() = '2';
+
+      else ans = stoi(s.substr(n - 3, 2));
+
+
+      // cout<<ans<<endl;
+      if (ans % 4 == 0) s.back() = '8';
+
+
+      else if (ans % 4 == 1) s.back() = '6';
+
+
+      else if (ans % 4 == 2) s.back() = '4';
+
+
+      else s.back() = '2';
+
 
       cout << s << endl;
 
-      
+
     }
   }
   return 0;
