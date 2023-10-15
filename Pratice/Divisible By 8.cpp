@@ -34,16 +34,22 @@ int main()
         ans = 0;
       else if (n == 2)
         ans = stoi(s.substr(n - 2, 1));
+
       else
         ans = stoi(s.substr(n - 3, 2));
+
       if (ans % 4 == 0)
         s.back() = '8';
+
       else if (ans % 4 == 1)
         s.back() = '6';
+
       else if (ans % 4 == 2)
         s.back() = '4';
+
       else
         s.back() = '2';
+
       cout << s << endl;
     }
   }
