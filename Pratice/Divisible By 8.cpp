@@ -10,32 +10,42 @@ int main()
 
   while (t--)
   {
-    ll  n,k;
-      cin>>n;
+    ll n, k;
+    cin >> n;
 
-      string s;cin>>s;
+    string s;
+    cin >> s;
 
-    int ans=1;
+    int ans = 1;
 
-    if(n<=3)  k=stoi(s);
-    else k=stoi(s.substr(n-3));
+    if (n <= 3)
+      k = stoi(s);
+    else
+      k = stoi(s.substr(n - 3));
 
-    if(k%3==0)  cout<<s<<endl;
+    if (k % 8 == 0)
+      cout << s << endl;
 
-    else {
+    else
+    {
+
       int ans;
-	        if(n==1) ans=0;
-	        else if(n==2) ans=stoi(s.substr(n-2,1));
-	        else ans=stoi(s.substr(n-3,2));
-	        if(ans%4==0) s.back()='8';
-	        else if(ans%4==1) s.back()='6';
-	        else if(ans%4==2) s.back()='4';
-	        else s.back()='2';
-	        cout<<s<<endl;
+      if (n == 1)
+        ans = 0;
+      else if (n == 2)
+        ans = stoi(s.substr(n - 2, 1));
+      else
+        ans = stoi(s.substr(n - 3, 2));
+      if (ans % 4 == 0)
+        s.back() = '8';
+      else if (ans % 4 == 1)
+        s.back() = '6';
+      else if (ans % 4 == 2)
+        s.back() = '4';
+      else
+        s.back() = '2';
+      cout << s << endl;
     }
-
-   
-
   }
   return 0;
 }
