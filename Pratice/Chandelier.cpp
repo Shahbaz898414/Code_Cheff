@@ -44,27 +44,3 @@ int main()
 
 
 
-/*
-
-
-
-Today was my 26th day out of the 100 days  hard challenge.
-
-So today, I solved 5 problems .
-
-1. Unstable Subarray (https://www.codechef.com/problems/COUNTSUB)
-
-
-2. Maximize Difference (https://www.codechef.com/problems/DIF_GCD)
-
-
-3. Bit Play (https://www.codechef.com/problems/BITPLAY)
-
-
-4. Crying Colours (https://www.codechef.com/problems/CRYCOLR)
-
-
-5. Prefix Permutation  (https://www.codechef.com/problems/PREFPERM)
-
-
-*/
