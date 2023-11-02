@@ -13,49 +13,45 @@ int main()
     ll n, m;
     cin >> n >> m;
 
-    ll arr[n];
+   
+   vector<ll>  arr(n);
 
-    for (int i = 0; i < n; i++)
-    {
-      cin >> arr[i];
-    }
+   for(ll i = 0; i < n; i++) {
+       cin>>arr[i];
+   }
 
-    ll brr[n];
+   vector<ll> ans(n);
 
-    ll prev = arr[0];
+   set<int>  st;
 
-    brr[0] = arr[0];
-
-    for (ll i = 1; i < n; i++)
-    {
-      /* code */
-      if (arr[i] == arr[i - 1])
-      {
-        brr[i] = arr[i] * (m / arr[i]);
-      }
-      else
-      {
-
-        ll val = arr[i - 1] * ((m / arr[i - 1]) + 1) - arr[i];
-
-        cout << i+1 << " " << val << " " << arr[i - 1] << " " << ((m / arr[i - 1]) + 1) << endl;
-
-        while (val > m || __gcd(val, arr[i - 1]) != arr[i])
-          val -= arr[i];
-
-
-        brr[i] = val;
-
-
-      }
+   for (ll i = 0; i <n; i++) {
+   
+    if(st.empty()){
+      for(ll j=1;j<=m;j++)  st.insert(j);
     }
 
 
+    int num=st.count(arr[i])?arr[i]:*st.begin();
+    ans[i]=num;
 
-    for (int i = 0; i < n; i++) {
-      cout << brr[i] << " ";
-    }
-    cout << endl;
+    st.erase(num);
+
+
+   }
+
+
+
+   for (ll i = 0; i < n; i++)
+   {
+    /* code */
+    cout<<ans[i]<<" ";
+   }
+
+   cout<<endl;
+   
+   
+   
+   
 
 
   }
