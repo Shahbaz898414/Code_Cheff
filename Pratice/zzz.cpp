@@ -1,32 +1,40 @@
 #include <bits/stdc++.h>
 
 using namespace std;
-#define ll long long
 
 int main()
 {
-    int t;
-    cin >> t;
+    string s;
+    cin >> s;
 
-    while (t--)
+    int l = 0, n = s.size() - 1;
+    bool fl = true;
+
+    string str="";
+    while (l <= n)
     {
-        ll a, b, n;
-        cin >> a >> b >> n;
-
-        vector<ll> v(n);
-
-        for (ll i = 0; i < n; i++)
-            cin >> v[i];
-
-        ll ans = b;
-
-        for(ll i=0;i<n;i++){
-            ans += min(a - 1, i);
+        if (s[l] != s[n])
+        {
+            fl = false;
+            break;
+        }else {
+            str+=s[l];
         }
-            
-
-        cout << ans << endl;
+        l++;
+        n--;
     }
+
+    if(str.size()==0){
+        cout<<"The given string is: "<<str<<endl;
+    }else
+
+    cout<<"The longest mirror image string in the string is:   "<<str<<endl;
+
+    // if (fl)
+    //     cout << str << endl;
+    // else
+    //     cout << "Not a palindrome" << endl;
+        // cout << " 1" << endl;
 
     return 0;
 }
