@@ -135,22 +135,29 @@ int main()  {
 
 
 
-Today was my 28th day out of the 100 days  hard challenge.
+Today was my 29th day out of the 100 days  hard challenge.
 
 So today, I solved 5 problems .
 
-1. One or All (https://lnkd.in/dMBJa_7f)
+1. Guess the winner! (https://www.codechef.com/problems/FIZZBUZZ2305)
+Bob wins for any even number. Alice wins for any odd number. 1 is edge case for that also Bob wins as no move exists for one.
 
 
-2. Smallest Difference (https://lnkd.in/d_iHEcfu)
+2. Count Possibilities (https://www.codechef.com/problems/FIZZBUZZ2307?tab=statement)
+For a node, all ancestors come before and all nodes in subtree (child nodes), come later. So we know the possible range for all nodes, we can add 1 to this range using segment tree, fenwick tree etc.
 
 
-3. Two Counters (https://lnkd.in/dm7XB6HF)
+3. Save People (https://www.codechef.com/problems/FIZZBUZZ2306)
+ll infect=min({n*y,m*x,n*(m-y+1),m*(n-x+1)});
+o maximize our cells we should mark cells adjacent to infected ones. Calculate possibilities for all 4 possibilities and take maximum one.
 
 
-4. K Flip (https://lnkd.in/dg-XrdMq)
+4. Playing with OR (https://www.codechef.com/problems/FIZZBUZZ2304)
+Only the last bit matters for odd and even. So keep tracking of last bit count for current subarray of size K. Add to answer if count of set last bit is more than zero.
+
+5. Reach Anywhere  (https://www.codechef.com/problems/FIZZBUZZ2309)
+We can traverse one each forward and backward and make any distance for any node with same parity. So we just need to find the minimum odd length distance and even length distance for each node. This can be done by having two nodes for each node, Node-odd and Node-even, then add all edges from odd to even and even to odd. Now we can start bfs from 1-even and get all the required minimum distances.
 
 
-5. Mean equals Median  (https://lnkd.in/d4jM22Sj)
 
 */
