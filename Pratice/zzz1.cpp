@@ -18,14 +18,9 @@ int main() {
     while (t--) {
 
 
-      string s;cin>>s;
+      ll n;cin>>n;
 
-      if(s[0]=='a' || s[1]=='b' || s[2]=='c'){
-        cout<<"YES"<<endl;
-      }else {
-        cout<<"NO"<<endl;
-      }
-        
+      map<int,int>  mp;
        
        
          
@@ -35,6 +30,8 @@ int main() {
 
     return 0;
 }
+
+
 
 
 
