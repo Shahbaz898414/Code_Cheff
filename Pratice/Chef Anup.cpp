@@ -9,44 +9,29 @@ int main()
   int t;
   cin >> t;
 
-  while (t--)
-  {
-    ll n;
-    cin >> n;
+  while (t--) {
 
-    vector<ll> ar(n + 1);
+      ll n,k,l; cin >> n>>k>>l;
+      l--;
 
-    for (ll i = 1; i <= n; i++)
-    {
-      cin >> ar[i];
-    }
+      vector<ll>  a(n);
 
-    ll mx = *max_element(ar.begin() + 1, ar.end());
+      for (ll i=n-1;i>=0;--i,l/=k)
+      {
+        /* code */
+        cout<<l<<" ";
+        a[i]=(l)%k+1;
+      }
+      
 
-    vector<ll> pos;
+      cout<<endl;
 
-    for (ll i = 1; i <= n; i++)
-    {
-      if (ar[i] == mx)
-        pos.push_back(i);
-    }
+      for(auto it:a)  cout<<it<<" ";
 
-    pos.push_back(pos[0] + n);
 
-    for (auto it : pos)
-    {
-      cout << it << " ";
-    }
+cout<<endl;
 
-    cout << endl;
-
-    ll ans = 0;
-    ll sz = n / 2;
-
-    for (ll i = 1; i < pos.size(); i++)
-      ans += max(0LL, pos[i] - pos[i - 1] - sz);
-
-    cout << ans << endl;
+    
   }
   return 0;
 }
