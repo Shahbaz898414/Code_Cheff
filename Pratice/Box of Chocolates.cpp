@@ -96,7 +96,12 @@ we take maximum of dp[n][1]  and dp[n][2].
 
 
 
-3.
+3. B. DIV + MOD (https://codeforces.com/contest/1650/problem/B)
+
+4. B. Odd Subarrays (https://codeforces.com/contest/1686/problem/B)
+
+
+5. A. Beat The Odds (https://codeforces.com/contest/1691/problem/A)
 
 
 
