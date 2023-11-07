@@ -59,7 +59,11 @@ int main()
         operation = min(op[u.first], operation);
       }
     }
+
+
     cout << equal << ' ' << operation << '\n';
+
+    
   }
   return 0;
 }

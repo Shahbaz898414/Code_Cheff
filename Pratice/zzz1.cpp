@@ -1,72 +1,44 @@
-#include <bits/stdc++.h>
+#include <iostream>
+#include <vector>
+#include <algorithm>
+
 using namespace std;
-#define ll long long
 
+void customFunction() {
+    int numA, numB;
+    cin >> numA >> numB;
+    vector<int> arrA(numA);
+    vector<int> arrB(numB);
 
+    for (int i = 0; i < numA; i++) {
+        cin >> arrA[i];
+    }
+    for (int i = 0; i < numB; i++) {
+        cin >> arrB[i];
+    }
 
+    sort(arrB.rbegin(), arrB.rend());
+    int indexB = 0;
+
+    for (int i = 0; i < numA; i++) {
+        while (indexB < numB && arrB[indexB] >= arrA[i]) {
+            cout << arrB[indexB] << " ";
+            indexB++;
+        }
+        cout << arrA[i] << " ";
+    }
+
+    for (int j = indexB; j < numB; j++) {
+        cout << arrB[j] << " ";
+    }
+    cout << endl;
+}
 
 int main() {
-
-
-   
-   
-
-
-    int t;
-    cin >> t;
-
-    while (t--) {
-
-
-      ll n;cin>>n;
-
-      map<int,int>  mp;
-       
-       
-         
+    int numTestCases;
+    cin >> numTestCases;
+    for (int i = 0; i < numTestCases; i++) {
+        customFunction();
     }
-
-
-
     return 0;
 }
-
-
-
-
-
-/*
-
-
-
-#include <bits/stdc++.h>
-using namespace std;
-const int maxn = 100005;
-int a[maxn];
- 
-int main(){
-    int t;
-    scanf("%d", &t);
- 
-    for(int cs=1; cs<=t; cs++){
-        int n;
-        scanf("%d", &n);
-        for(int i=1; i<=n; i++) scanf("%d", &a[i]);
- 
-        int Max = 0;
-        for(int i=1; i<=n; i++) Max = max(Max, a[i]);
- 
-        vector<int> pos;
-        for(int i=1; i<=n; i++) if(a[i] == Max) pos.push_back(i);
-        pos.push_back(pos[0] + n);
- 
-        int ans = 0;
-        int sz = n / 2;
-        for(int i=1; i<pos.size(); i++) ans += max(0, pos[i] - pos[i-1] - sz);
- 
-        printf("%d\n", ans);
-    }
-}
-
-
-*/
