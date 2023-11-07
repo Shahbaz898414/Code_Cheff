@@ -19,17 +19,17 @@ int main()
       for (ll i=n-1;i>=0;--i,l/=k)
       {
         /* code */
-        cout<<l<<" ";
+        // cout<<l<<" ";
         a[i]=(l)%k+1;
       }
       
 
-      cout<<endl;
+      // cout<<endl;
 
       for(auto it:a)  cout<<it<<" ";
 
 
-cout<<endl;
+      cout<<endl;
 
     
   }
