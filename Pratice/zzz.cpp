@@ -155,27 +155,3 @@ int main()
 
 
 
-/*
-
-
-Today was my 34th day out of the 100 days  hard challenge.
-
-So today, I solved 5 problems .
-
-1. Vaccine Drive (https://www.codechef.com/problems/VACCINE3)
-
-
-2. XOR Equal (https://www.codechef.com/problems/PALINT)
-
-
-3. B. Borze (https://codeforces.com/problemset/problem/32/B)
-
-
-4. C. Anonymous Informant (https://codeforces.com/contest/1894/problem/C)
-
-
-5. B. Two Out of Three  (https://codeforces.com/contest/1894/problem/B)
-
-
-
-*/
