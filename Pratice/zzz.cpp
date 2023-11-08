@@ -1,157 +1,165 @@
 
-
 #include <bits/stdc++.h>
-
 using namespace std;
 
+int calculateScore(int totalPlayers, int currentPlayer, int rounds)
+{
 
+    int sum = 0;
+    sum += ((currentPlayer % rounds) + (totalPlayers - currentPlayer));
+
+    return (currentPlayer % rounds) * ((totalPlayers - currentPlayer) % rounds);
+}
 
 int main()
 {
-    int t;
-    cin >> t;
 
-    while (t--)
+    int T, N;
+    cin >> T;
+
+    while (T--)
     {
-        int arraySize, targetSum;
-        cin >> arraySize >> targetSum;
-         //  bool result = true;
-        // int count = 0,sum=0,sum2=100000,h=-1;
 
-        // for (int i = 0; i < arraySize; ++i)
+        long long int numerator;
+        long long int denominator;
+
+        cin >> numerator >> denominator;
+
+        // int remainder0 = (remainder + denominator);
+        // int remainder1 = ((remainder / 2) % denominator);
+        // remainder1 = remainder1 * ((numerator - (remainder) / 2) % denominator);
+        // int remainder2 = ((remainder0) / 2) % denominator;
+        // remainder2 = remainder2 * ((numerator - (remainder0) / 2) % denominator);
+        // if (remainder2 > remainder1)
         // {
-        //     cin >> inputArray[i];
+        //     cout << remainder0 / 2 << endl;
+        // }
+        // else
+        // {
+        //     cout << remainder / 2 << endl;
         // }
 
-        vector<int> inputArray(arraySize);
+        long long int remainder = numerator % denominator;
 
-         //  bool result = true;
-        // int count = 0,sum=0,sum2=100000,h=-1;
-
-        // for (int i = 0; i < arraySize; ++i)
+        // int remainder0 = (remainder + denominator);
+        // int remainder1 = ((remainder / 2) % denominator);
+        // remainder1 = remainder1 * ((numerator - (remainder) / 2) % denominator);
+        // int remainder2 = ((remainder0) / 2) % denominator;
+        // remainder2 = remainder2 * ((numerator - (remainder0) / 2) % denominator);
+        // if (remainder2 > remainder1)
         // {
-        //     cin >> inputArray[i];
+        //     cout << remainder0 / 2 << endl;
         // }
-
-        vector<int> arr;
-
-         bool result = true;
-        int count = 0,sum=0,sum2=100000,h=-1;
-
-        for (int i = 0; i < arraySize; ++i)
+        // else
+        // {
+        //     cout << remainder / 2 << endl;
+        // }
+        if (remainder == 0 && numerator)
         {
-            cin >> inputArray[i];
+            cout << denominator / 2 << endl;
+
+            // int remainder0 = (remainder + denominator);
+            // int remainder1 = ((remainder / 2) % denominator);
+            // remainder1 = remainder1 * ((numerator - (remainder) / 2) % denominator);
+            // int remainder2 = ((remainder0) / 2) % denominator;
+            // remainder2 = remainder2 * ((numerator - (remainder0) / 2) % denominator);
+            // if (remainder2 > remainder1)
+            // {
+            //     cout << remainder0 / 2 << endl;
+            // }
+            // else
+            // {
+            //     cout << remainder / 2 << endl;
+            // }
         }
-
-
-        vector<int> modifiedArray(arraySize + 1, 0);
-
-
-
-        for (int i = 1; i <= arraySize; ++i)
+        else if (numerator < denominator)
         {
-            modifiedArray[i] = inputArray[i - 1];
-             //  bool result = true;
-        // int count = 0,sum=0,sum2=100000,h=-1;
+            cout << remainder / 2 << endl;
 
-        // for (int i = 0; i < arraySize; ++i)
-        // {
-        //     cin >> inputArray[i];
-        // }
-
-
-            arr.push_back(modifiedArray[i]);
+            // int remainder0 = (remainder + denominator);
+            // int remainder1 = ((remainder / 2) % denominator);
+            // remainder1 = remainder1 * ((numerator - (remainder) / 2) % denominator);
+            // int remainder2 = ((remainder0) / 2) % denominator;
+            // remainder2 = remainder2 * ((numerator - (remainder0) / 2) % denominator);
+            // if (remainder2 > remainder1)
+            // {
+            //     cout << remainder0 / 2 << endl;
+            // }
+            // else
+            // {
+            //     cout << remainder / 2 << endl;
+            // }
         }
-
-        int n = arraySize;
-
-        sort(arr.begin(),arr.end());
-
-
-        vector<bool> visited(arraySize + 1, false);
-       
-
-        while (!visited[n] && count < targetSum  and arr.size()>0)
+        else
         {
-            if (modifiedArray[n] > arraySize)
+            int remainder0 = (remainder + denominator);
+            int remainder1 = ((remainder / 2) % denominator);
+            remainder1 = remainder1 * ((numerator - (remainder) / 2) % denominator);
+            int remainder2 = ((remainder0) / 2) % denominator;
+            remainder2 = remainder2 * ((numerator - (remainder0) / 2) % denominator);
+
+            // int remainder0 = (remainder + denominator);
+            // int remainder1 = ((remainder / 2) % denominator);
+            // remainder1 = remainder1 * ((numerator - (remainder) / 2) % denominator);
+            // int remainder2 = ((remainder0) / 2) % denominator;
+            // remainder2 = remainder2 * ((numerator - (remainder0) / 2) % denominator);
+            // if (remainder2 > remainder1)
+            // {
+            //     cout << remainder0 / 2 << endl;
+            // }
+            // else
+            // {
+            //     cout << remainder / 2 << endl;
+            // }
+            if (remainder2 > remainder1)
             {
-                result = false;
+                cout << remainder0 / 2 << endl;
 
-                 //  bool result = true;
-        // int count = 0,sum=0,sum2=100000,h=-1;
-
-        // for (int i = 0; i < arraySize; ++i)
-        // {
-        //     cin >> inputArray[i];
-        // }
-
+                // int remainder0 = (remainder + denominator);
+                // int remainder1 = ((remainder / 2) % denominator);
+                // remainder1 = remainder1 * ((numerator - (remainder) / 2) % denominator);
+                // int remainder2 = ((remainder0) / 2) % denominator;
+                // remainder2 = remainder2 * ((numerator - (remainder0) / 2) % denominator);
+                // if (remainder2 > remainder1)
+                // {
+                //     cout << remainder0 / 2 << endl;
+                // }
+                // else
+                // {
+                //     cout << remainder / 2 << endl;
+                // }
             }
-            count++;
-            arr.pop_back();
-            visited[n] = true;
-             //  bool result = true;
-        // int count = 0,sum=0,sum2=100000,h=-1;
+            else
+            {
+                cout << (remainder / 2) << endl;
 
-        // for (int i = 0; i < arraySize; ++i)
-        // {
-        //     cin >> inputArray[i];
-        // }
-
-            n -= modifiedArray[n];
-             //  bool result = true;
-        // int count = 0,sum=0,sum2=100000,h=-1;
-
-        // for (int i = 0; i < arraySize; ++i)
-        // {
-        //     cin >> inputArray[i];
-        // }
-
-            sum+=modifiedArray[n];
-             //  bool result = true;
-        // int count = 0,sum=0,sum2=100000,h=-1;
-
-        // for (int i = 0; i < arraySize; ++i)
-        // {
-        //     cin >> inputArray[i];
-        // }
-
-            sum2-=modifiedArray[n];
-             //  bool result = true;
-        // int count = 0,sum=0,sum2=100000,h=-1;
-
-        // for (int i = 0; i < arraySize; ++i)
-        // {
-        //     cin >> inputArray[i];
-        // }
-
-            n--;
-
-
-            n = ((n % arraySize) + arraySize) % arraySize + (2+h);
-
-            arr.push_back(count);
-
-
-            continue;
+                // int remainder0 = (remainder + denominator);
+                // int remainder1 = ((remainder / 2) % denominator);
+                // remainder1 = remainder1 * ((numerator - (remainder) / 2) % denominator);
+                // int remainder2 = ((remainder0) / 2) % denominator;
+                // remainder2 = remainder2 * ((numerator - (remainder0) / 2) % denominator);
+                // if (remainder2 > remainder1)
+                // {
+                //     cout << remainder0 / 2 << endl;
+                // }
+                // else
+                // {
+                //     cout << remainder / 2 << endl;
+                // }
+            }
         }
-
-        if(sum<0){
-            sum*=h;
-        }
-
-
-        if(result and arr.size()>0  and sum>=0 ){
-            cout<<"YES"<<endl;
-        }else{
-            cout<<"NO"<<endl;
-        }
-       
     }
 
     return 0;
 }
 
+/*
 
 
 
+
+
+
+
+*/
 

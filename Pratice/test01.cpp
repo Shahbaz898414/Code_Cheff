@@ -201,6 +201,10 @@ int gcd(int a, int b)
 // const ll NRR = 2e5 + 1;
 // ll arr[NRR][19];
 
+int calculateScore(int totalStones, int currentPosition, int gapSize) {
+    return (currentPosition % gapSize) * ((totalStones - currentPosition) % gapSize);
+}
+
 int qwd(vector<int> &ui, int n)
 {
     vector<int> df(n, 0);
@@ -286,6 +290,10 @@ int qwd(vector<int> &ui, int n)
     return d;
 }
 
+
+
+
+
 signed main()
 {
 
@@ -293,12 +301,241 @@ signed main()
     cin >> t;
     while (t--)
     {
-        int h;
-        cin >> h;
-        vector<int> v(h);
-        for (int i = 0; i < h; i++)
-            cin >> v[i];
-        cout << qwd(v, h) << "\n";
+        int totalStones;
+    cin >> totalStones;
+
+    
+    // if (maxScore < calculateScore(totalStones, currentPosition, gapSize)) {
+    //     maxScore = calculateScore(totalStones, currentPosition, gapSize);
+    //     currentPosition = currentGap;
+    // }
+    
+    // currentGap = min({totalStones - 1, gapSize - 1, totalStones % gapSize + (gapSize - totalStones % gapSize) / 2});
+    // if (maxScore < calculateScore(totalStones, currentPosition, gapSize)) {
+    //     maxScore = calculateScore(totalStones, currentPosition, gapSize);
+    //     currentPosition = currentGap;
+    // }
+    
+    // currentGap = min({totalStones - 1, gapSize - 1, totalStones % gapSize + (gapSize - totalStones % gapSize) / 2 + 1});
+    // if (maxScore < calculateScore(totalStones, currentPosition, gapSize)) {
+    //     maxScore = calculateScore(totalStones, currentPosition, gapSize);
+    //     currentPosition = currentGap;
+    // }
+    int gapSize;
+    cin >> gapSize;
+    
+    int currentPosition = 0;
+
+    
+    // if (maxScore < calculateScore(totalStones, currentPosition, gapSize)) {
+    //     maxScore = calculateScore(totalStones, currentPosition, gapSize);
+    //     currentPosition = currentGap;
+    // }
+    
+    // currentGap = min({totalStones - 1, gapSize - 1, totalStones % gapSize + (gapSize - totalStones % gapSize) / 2});
+    // if (maxScore < calculateScore(totalStones, currentPosition, gapSize)) {
+    //     maxScore = calculateScore(totalStones, currentPosition, gapSize);
+    //     currentPosition = currentGap;
+    // }
+    
+    // currentGap = min({totalStones - 1, gapSize - 1, totalStones % gapSize + (gapSize - totalStones % gapSize) / 2 + 1});
+    // if (maxScore < calculateScore(totalStones, currentPosition, gapSize)) {
+    //     maxScore = calculateScore(totalStones, currentPosition, gapSize);
+    //     currentPosition = currentGap;
+    // }
+    int maxScore = -1;
+
+    
+    // if (maxScore < calculateScore(totalStones, currentPosition, gapSize)) {
+    //     maxScore = calculateScore(totalStones, currentPosition, gapSize);
+    //     currentPosition = currentGap;
+    // }
+    
+    // currentGap = min({totalStones - 1, gapSize - 1, totalStones % gapSize + (gapSize - totalStones % gapSize) / 2});
+    // if (maxScore < calculateScore(totalStones, currentPosition, gapSize)) {
+    //     maxScore = calculateScore(totalStones, currentPosition, gapSize);
+    //     currentPosition = currentGap;
+    // }
+    
+    // currentGap = min({totalStones - 1, gapSize - 1, totalStones % gapSize + (gapSize - totalStones % gapSize) / 2 + 1});
+    // if (maxScore < calculateScore(totalStones, currentPosition, gapSize)) {
+    //     maxScore = calculateScore(totalStones, currentPosition, gapSize);
+    //     currentPosition = currentGap;
+    // }
+    
+    int currentGap = totalStones % gapSize;
+    currentGap /= 2;
+
+    
+    // if (maxScore < calculateScore(totalStones, currentPosition, gapSize)) {
+    //     maxScore = calculateScore(totalStones, currentPosition, gapSize);
+    //     currentPosition = currentGap;
+    // }
+    
+    // currentGap = min({totalStones - 1, gapSize - 1, totalStones % gapSize + (gapSize - totalStones % gapSize) / 2});
+    // if (maxScore < calculateScore(totalStones, currentPosition, gapSize)) {
+    //     maxScore = calculateScore(totalStones, currentPosition, gapSize);
+    //     currentPosition = currentGap;
+    // }
+    
+    // currentGap = min({totalStones - 1, gapSize - 1, totalStones % gapSize + (gapSize - totalStones % gapSize) / 2 + 1});
+    // if (maxScore < calculateScore(totalStones, currentPosition, gapSize)) {
+    //     maxScore = calculateScore(totalStones, currentPosition, gapSize);
+    //     currentPosition = currentGap;
+    // }
+    if (maxScore < calculateScore(totalStones, currentPosition, gapSize)) {
+        maxScore = calculateScore(totalStones, currentPosition, gapSize);
+        currentPosition = currentGap;
+    }
+
+    
+    // if (maxScore < calculateScore(totalStones, currentPosition, gapSize)) {
+    //     maxScore = calculateScore(totalStones, currentPosition, gapSize);
+    //     currentPosition = currentGap;
+    // }
+    
+    // currentGap = min({totalStones - 1, gapSize - 1, totalStones % gapSize + (gapSize - totalStones % gapSize) / 2});
+    // if (maxScore < calculateScore(totalStones, currentPosition, gapSize)) {
+    //     maxScore = calculateScore(totalStones, currentPosition, gapSize);
+    //     currentPosition = currentGap;
+    // }
+    
+    // currentGap = min({totalStones - 1, gapSize - 1, totalStones % gapSize + (gapSize - totalStones % gapSize) / 2 + 1});
+    // if (maxScore < calculateScore(totalStones, currentPosition, gapSize)) {
+    //     maxScore = calculateScore(totalStones, currentPosition, gapSize);
+    //     currentPosition = currentGap;
+    // }
+    
+    currentGap = min({totalStones - 1, gapSize - 1, (totalStones % gapSize) / 2 + 1});
+
+
+
+    // if (maxScore < calculateScore(totalStones, currentPosition, gapSize)) {
+    //     maxScore = calculateScore(totalStones, currentPosition, gapSize);
+    //     currentPosition = currentGap;
+    // }
+    
+    // currentGap = min({totalStones - 1, gapSize - 1, totalStones % gapSize + (gapSize - totalStones % gapSize) / 2});
+    // if (maxScore < calculateScore(totalStones, currentPosition, gapSize)) {
+    //     maxScore = calculateScore(totalStones, currentPosition, gapSize);
+    //     currentPosition = currentGap;
+    // }
+    
+    // currentGap = min({totalStones - 1, gapSize - 1, totalStones % gapSize + (gapSize - totalStones % gapSize) / 2 + 1});
+    // if (maxScore < calculateScore(totalStones, currentPosition, gapSize)) {
+    //     maxScore = calculateScore(totalStones, currentPosition, gapSize);
+    //     currentPosition = currentGap;
+    // }
+
+
+    
+    if (maxScore < calculateScore(totalStones, currentPosition, gapSize)) {
+        maxScore = calculateScore(totalStones, currentPosition, gapSize);
+        currentPosition = currentGap;
+    }
+
+    
+    // if (maxScore < calculateScore(totalStones, currentPosition, gapSize)) {
+    //     maxScore = calculateScore(totalStones, currentPosition, gapSize);
+    //     currentPosition = currentGap;
+    // }
+    
+    // currentGap = min({totalStones - 1, gapSize - 1, totalStones % gapSize + (gapSize - totalStones % gapSize) / 2});
+    // if (maxScore < calculateScore(totalStones, currentPosition, gapSize)) {
+    //     maxScore = calculateScore(totalStones, currentPosition, gapSize);
+    //     currentPosition = currentGap;
+    // }
+    
+    // currentGap = min({totalStones - 1, gapSize - 1, totalStones % gapSize + (gapSize - totalStones % gapSize) / 2 + 1});
+    // if (maxScore < calculateScore(totalStones, currentPosition, gapSize)) {
+    //     maxScore = calculateScore(totalStones, currentPosition, gapSize);
+    //     currentPosition = currentGap;
+    // }
+    
+    currentGap = min({totalStones - 1, gapSize - 1, totalStones % gapSize + (gapSize - totalStones % gapSize) / 2});
+    
+    // if (maxScore < calculateScore(totalStones, currentPosition, gapSize)) {
+    //     maxScore = calculateScore(totalStones, currentPosition, gapSize);
+    //     currentPosition = currentGap;
+    // }
+    
+    // currentGap = min({totalStones - 1, gapSize - 1, totalStones % gapSize + (gapSize - totalStones % gapSize) / 2});
+    // if (maxScore < calculateScore(totalStones, currentPosition, gapSize)) {
+    //     maxScore = calculateScore(totalStones, currentPosition, gapSize);
+    //     currentPosition = currentGap;
+    // }
+    
+    // currentGap = min({totalStones - 1, gapSize - 1, totalStones % gapSize + (gapSize - totalStones % gapSize) / 2 + 1});
+    // if (maxScore < calculateScore(totalStones, currentPosition, gapSize)) {
+    //     maxScore = calculateScore(totalStones, currentPosition, gapSize);
+    //     currentPosition = currentGap;
+    // }
+    if (maxScore < calculateScore(totalStones, currentPosition, gapSize)) {
+        maxScore = calculateScore(totalStones, currentPosition, gapSize);
+        currentPosition = currentGap;
+    }
+
+    
+    // if (maxScore < calculateScore(totalStones, currentPosition, gapSize)) {
+    //     maxScore = calculateScore(totalStones, currentPosition, gapSize);
+    //     currentPosition = currentGap;
+    // }
+    
+    // currentGap = min({totalStones - 1, gapSize - 1, totalStones % gapSize + (gapSize - totalStones % gapSize) / 2});
+    // if (maxScore < calculateScore(totalStones, currentPosition, gapSize)) {
+    //     maxScore = calculateScore(totalStones, currentPosition, gapSize);
+    //     currentPosition = currentGap;
+    // }
+    
+    // currentGap = min({totalStones - 1, gapSize - 1, totalStones % gapSize + (gapSize - totalStones % gapSize) / 2 + 1});
+    // if (maxScore < calculateScore(totalStones, currentPosition, gapSize)) {
+    //     maxScore = calculateScore(totalStones, currentPosition, gapSize);
+    //     currentPosition = currentGap;
+    // }
+    
+    currentGap = min({totalStones - 1, gapSize - 1, totalStones % gapSize + (gapSize - totalStones % gapSize) / 2 + 1});
+
+    
+    // if (maxScore < calculateScore(totalStones, currentPosition, gapSize)) {
+    //     maxScore = calculateScore(totalStones, currentPosition, gapSize);
+    //     currentPosition = currentGap;
+    // }
+    
+    // currentGap = min({totalStones - 1, gapSize - 1, totalStones % gapSize + (gapSize - totalStones % gapSize) / 2});
+    // if (maxScore < calculateScore(totalStones, currentPosition, gapSize)) {
+    //     maxScore = calculateScore(totalStones, currentPosition, gapSize);
+    //     currentPosition = currentGap;
+    // }
+    
+    // currentGap = min({totalStones - 1, gapSize - 1, totalStones % gapSize + (gapSize - totalStones % gapSize) / 2 + 1});
+    // if (maxScore < calculateScore(totalStones, currentPosition, gapSize)) {
+    //     maxScore = calculateScore(totalStones, currentPosition, gapSize);
+    //     currentPosition = currentGap;
+    // }
+    if (maxScore < calculateScore(totalStones, currentPosition, gapSize)) {
+        maxScore = calculateScore(totalStones, currentPosition, gapSize);
+        currentPosition = currentGap;
+    }
+
+    
+    // if (maxScore < calculateScore(totalStones, currentPosition, gapSize)) {
+    //     maxScore = calculateScore(totalStones, currentPosition, gapSize);
+    //     currentPosition = currentGap;
+    // }
+    
+    // currentGap = min({totalStones - 1, gapSize - 1, totalStones % gapSize + (gapSize - totalStones % gapSize) / 2});
+    // if (maxScore < calculateScore(totalStones, currentPosition, gapSize)) {
+    //     maxScore = calculateScore(totalStones, currentPosition, gapSize);
+    //     currentPosition = currentGap;
+    // }
+    
+    // currentGap = min({totalStones - 1, gapSize - 1, totalStones % gapSize + (gapSize - totalStones % gapSize) / 2 + 1});
+    // if (maxScore < calculateScore(totalStones, currentPosition, gapSize)) {
+    //     maxScore = calculateScore(totalStones, currentPosition, gapSize);
+    //     currentPosition = currentGap;
+    // }
+    
+    cout << currentPosition << endl;
     }
     return 0;
 }
