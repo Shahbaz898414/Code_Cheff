@@ -46,27 +46,3 @@ int main()
 
 
 
-/*
-
-
-Today was my 35th day out of the 100 days  hard challenge.
-
-So today, I solved 5 problems .
-
-1. Rock Paper Scissor (https://www.codechef.com/problems/PASCRO)
-
-
-2. OR Permutation (https://www.codechef.com/problems/PERMOR)
-
-
-3. Friend or Girlfriend (https://www.codechef.com/problems/STRCH)
-
-
-4. A Weird Device (https://www.codechef.com/problems/ICL1901)
-
-
-5. Spell Bob  (https://www.codechef.com/problems/SPELLBOB)
-
-
-
-*/
