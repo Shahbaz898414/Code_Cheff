@@ -1,165 +1,159 @@
-
 #include <bits/stdc++.h>
 using namespace std;
 
-int calculateScore(int totalPlayers, int currentPlayer, int rounds)
+
+
+ int bsearch(vector<int>& nums, int l, int r, int mask) {
+        // Return min index i (l <= i < r), such that (nums[i] & mask) != 0
+        while (l < r) {
+            int mid = (l+r) / 2;
+            if (mask & nums[mid]) r = mid;
+            else l = mid+1;
+        }
+        return l;
+    }
+    
+    int maximumStrongPairXor(vector<int>& nums) {
+        sort(nums.begin(), nums.end());
+        int ans = 0;
+        
+        for (int i = 0; i < nums.size(); ++i) {
+            int l = i, r = upper_bound(nums.begin(), nums.end(), nums[i]*2) - nums.begin();
+            
+            for (int mask = 1 << 20; mask; mask >>= 1) {
+                int nl = l, nr = r;
+                ((mask & nums[i]) ? nr : nl) = bsearch(nums, l, r, mask);
+                if (nl != nr) l = nl, r = nr;
+            }
+            
+            ans = max(ans, nums[i] ^ nums[l]);
+        }
+        
+        return ans;
+    }
+
+int minOperations(vector<int> &nums1, vector<int> &nums2)
 {
+    int n = nums1.size();
+    int x = 0;
+    int y = 1;
 
-    int sum = 0;
-    sum += ((currentPlayer % rounds) + (totalPlayers - currentPlayer));
+    for (int i = 0; i < n - 1; i++)
+    {
+        if (nums1[i] <= nums1[n - 1] && nums2[i] <= nums2[n - 1])
+            continue;
+        if (nums2[i] <= nums1[n - 1] && nums1[i] <= nums2[n - 1])
+        {
+            x++;
+            continue;
+        }
 
-    return (currentPlayer % rounds) * ((totalPlayers - currentPlayer) % rounds);
+        return -1;
+    }
+
+
+
+    for (int i = 0; i < n - 1; i++)
+    {
+        if (nums1[i] <= nums2[n - 1] && nums2[i] <= nums1[n - 1])
+            continue;
+        if (nums2[i] <= nums2[n - 1] && nums1[i] <= nums1[n - 1])
+        {
+            y++;
+            continue;
+        }
+        return -1;
+    }
+
+
+    // cout<<x<<" "<<y<<endl;
+
+
+    return min(x, y);
+
+
 }
 
 int main()
 {
-
-    int T, N;
-    cin >> T;
-
+    int T = 1;
     while (T--)
     {
+        int n;
+        cin >> n;
 
-        long long int numerator;
-        long long int denominator;
+        vector<int> arr(n), brr(n);
 
-        cin >> numerator >> denominator;
-
-        // int remainder0 = (remainder + denominator);
-        // int remainder1 = ((remainder / 2) % denominator);
-        // remainder1 = remainder1 * ((numerator - (remainder) / 2) % denominator);
-        // int remainder2 = ((remainder0) / 2) % denominator;
-        // remainder2 = remainder2 * ((numerator - (remainder0) / 2) % denominator);
-        // if (remainder2 > remainder1)
-        // {
-        //     cout << remainder0 / 2 << endl;
-        // }
-        // else
-        // {
-        //     cout << remainder / 2 << endl;
-        // }
-
-        long long int remainder = numerator % denominator;
-
-        // int remainder0 = (remainder + denominator);
-        // int remainder1 = ((remainder / 2) % denominator);
-        // remainder1 = remainder1 * ((numerator - (remainder) / 2) % denominator);
-        // int remainder2 = ((remainder0) / 2) % denominator;
-        // remainder2 = remainder2 * ((numerator - (remainder0) / 2) % denominator);
-        // if (remainder2 > remainder1)
-        // {
-        //     cout << remainder0 / 2 << endl;
-        // }
-        // else
-        // {
-        //     cout << remainder / 2 << endl;
-        // }
-        if (remainder == 0 && numerator)
+        for (int i = 0; i < n; i++)
         {
-            cout << denominator / 2 << endl;
+            cin >> arr[i];
 
-            // int remainder0 = (remainder + denominator);
-            // int remainder1 = ((remainder / 2) % denominator);
-            // remainder1 = remainder1 * ((numerator - (remainder) / 2) % denominator);
-            // int remainder2 = ((remainder0) / 2) % denominator;
-            // remainder2 = remainder2 * ((numerator - (remainder0) / 2) % denominator);
-            // if (remainder2 > remainder1)
-            // {
-            //     cout << remainder0 / 2 << endl;
-            // }
-            // else
-            // {
-            //     cout << remainder / 2 << endl;
-            // }
+            /* code */
         }
-        else if (numerator < denominator)
-        {
-            cout << remainder / 2 << endl;
 
-            // int remainder0 = (remainder + denominator);
-            // int remainder1 = ((remainder / 2) % denominator);
-            // remainder1 = remainder1 * ((numerator - (remainder) / 2) % denominator);
-            // int remainder2 = ((remainder0) / 2) % denominator;
-            // remainder2 = remainder2 * ((numerator - (remainder0) / 2) % denominator);
-            // if (remainder2 > remainder1)
-            // {
-            //     cout << remainder0 / 2 << endl;
-            // }
-            // else
-            // {
-            //     cout << remainder / 2 << endl;
-            // }
-        }
-        else
-        {
-            int remainder0 = (remainder + denominator);
-            int remainder1 = ((remainder / 2) % denominator);
-            remainder1 = remainder1 * ((numerator - (remainder) / 2) % denominator);
-            int remainder2 = ((remainder0) / 2) % denominator;
-            remainder2 = remainder2 * ((numerator - (remainder0) / 2) % denominator);
 
-            // int remainder0 = (remainder + denominator);
-            // int remainder1 = ((remainder / 2) % denominator);
-            // remainder1 = remainder1 * ((numerator - (remainder) / 2) % denominator);
-            // int remainder2 = ((remainder0) / 2) % denominator;
-            // remainder2 = remainder2 * ((numerator - (remainder0) / 2) % denominator);
-            // if (remainder2 > remainder1)
-            // {
-            //     cout << remainder0 / 2 << endl;
-            // }
-            // else
-            // {
-            //     cout << remainder / 2 << endl;
-            // }
-            if (remainder2 > remainder1)
-            {
-                cout << remainder0 / 2 << endl;
-
-                // int remainder0 = (remainder + denominator);
-                // int remainder1 = ((remainder / 2) % denominator);
-                // remainder1 = remainder1 * ((numerator - (remainder) / 2) % denominator);
-                // int remainder2 = ((remainder0) / 2) % denominator;
-                // remainder2 = remainder2 * ((numerator - (remainder0) / 2) % denominator);
-                // if (remainder2 > remainder1)
-                // {
-                //     cout << remainder0 / 2 << endl;
-                // }
-                // else
-                // {
-                //     cout << remainder / 2 << endl;
-                // }
-            }
-            else
-            {
-                cout << (remainder / 2) << endl;
-
-                // int remainder0 = (remainder + denominator);
-                // int remainder1 = ((remainder / 2) % denominator);
-                // remainder1 = remainder1 * ((numerator - (remainder) / 2) % denominator);
-                // int remainder2 = ((remainder0) / 2) % denominator;
-                // remainder2 = remainder2 * ((numerator - (remainder0) / 2) % denominator);
-                // if (remainder2 > remainder1)
-                // {
-                //     cout << remainder0 / 2 << endl;
-                // }
-                // else
-                // {
-                //     cout << remainder / 2 << endl;
-                // }
-            }
-        }
+       cout<< maximumStrongPairXor(arr);
+        
     }
 
     return 0;
 }
 
+
+
+
 /*
 
+Hi,
 
+I hope this message finds you well! I came across the Software Development Engineer I - Frontend Technologies (https://bookmyshow.hire.trakstar.com/jobs/fk03w8x/) at BookMyShow. As an aspiring Software Engineer, I admire the company's innovative work. If possible, could you kindly refer me? I'd greatly appreciate it!
 
+Best regards,
+Shahbaz Khan
 
 
 
 
 */
 
+
+
+
+/*
+
+
+class Solution {
+public:
+    int bsearch(vector<int>& nums, int l, int r, int mask) {
+        // Return min index i (l <= i < r), such that (nums[i] & mask) != 0
+        while (l < r) {
+            int mid = (l+r) / 2;
+            if (mask & nums[mid]) r = mid;
+            else l = mid+1;
+        }
+        return l;
+    }
+    
+    int maximumStrongPairXor(vector<int>& nums) {
+        sort(nums.begin(), nums.end());
+        int ans = 0;
+        
+        for (int i = 0; i < nums.size(); ++i) {
+            int l = i, r = upper_bound(nums.begin(), nums.end(), nums[i]*2) - nums.begin();
+            
+            for (int mask = 1 << 20; mask; mask >>= 1) {
+                int nl = l, nr = r;
+                ((mask & nums[i]) ? nr : nl) = bsearch(nums, l, r, mask);
+                if (nl != nr) l = nl, r = nr;
+            }
+            
+            ans = max(ans, nums[i] ^ nums[l]);
+        }
+        
+        return ans;
+    }
+};
+
+
+
+*/
