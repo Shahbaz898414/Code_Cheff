@@ -1,36 +1,42 @@
 #include <bits/stdc++.h>
 using namespace std;
 
-
-
- int bsearch(vector<int>& nums, int l, int r, int mask) {
-        // Return min index i (l <= i < r), such that (nums[i] & mask) != 0
-        while (l < r) {
-            int mid = (l+r) / 2;
-            if (mask & nums[mid]) r = mid;
-            else l = mid+1;
-        }
-        return l;
+int bsearch(vector<int> &nums, int l, int r, int mask)
+{
+    // Return min index i (l <= i < r), such that (nums[i] & mask) != 0
+    while (l < r)
+    {
+        int mid = (l + r) / 2;
+        if (mask & nums[mid])
+            r = mid;
+        else
+            l = mid + 1;
     }
-    
-    int maximumStrongPairXor(vector<int>& nums) {
-        sort(nums.begin(), nums.end());
-        int ans = 0;
-        
-        for (int i = 0; i < nums.size(); ++i) {
-            int l = i, r = upper_bound(nums.begin(), nums.end(), nums[i]*2) - nums.begin();
-            
-            for (int mask = 1 << 20; mask; mask >>= 1) {
-                int nl = l, nr = r;
-                ((mask & nums[i]) ? nr : nl) = bsearch(nums, l, r, mask);
-                if (nl != nr) l = nl, r = nr;
-            }
-            
-            ans = max(ans, nums[i] ^ nums[l]);
+    return l;
+}
+
+int maximumStrongPairXor(vector<int> &nums)
+{
+    sort(nums.begin(), nums.end());
+    int ans = 0;
+
+    for (int i = 0; i < nums.size(); ++i)
+    {
+        int l = i, r = upper_bound(nums.begin(), nums.end(), nums[i] * 2) - nums.begin();
+
+        for (int mask = 1 << 20; mask; mask >>= 1)
+        {
+            int nl = l, nr = r;
+            ((mask & nums[i]) ? nr : nl) = bsearch(nums, l, r, mask);
+            if (nl != nr)
+                l = nl, r = nr;
         }
-        
-        return ans;
+
+        ans = max(ans, nums[i] ^ nums[l]);
     }
+
+    return ans;
+}
 
 int minOperations(vector<int> &nums1, vector<int> &nums2)
 {
@@ -51,8 +57,6 @@ int minOperations(vector<int> &nums1, vector<int> &nums2)
         return -1;
     }
 
-
-
     for (int i = 0; i < n - 1; i++)
     {
         if (nums1[i] <= nums2[n - 1] && nums2[i] <= nums1[n - 1])
@@ -65,13 +69,9 @@ int minOperations(vector<int> &nums1, vector<int> &nums2)
         return -1;
     }
 
-
     // cout<<x<<" "<<y<<endl;
 
-
     return min(x, y);
-
-
 }
 
 int main()
@@ -91,16 +91,11 @@ int main()
             /* code */
         }
 
-
-       cout<< maximumStrongPairXor(arr);
-        
+        cout << maximumStrongPairXor(arr);
     }
 
     return 0;
 }
-
-
-
 
 /*
 
@@ -116,9 +111,6 @@ Shahbaz Khan
 
 */
 
-
-
-
 /*
 
 
@@ -133,23 +125,23 @@ public:
         }
         return l;
     }
-    
+
     int maximumStrongPairXor(vector<int>& nums) {
         sort(nums.begin(), nums.end());
         int ans = 0;
-        
+
         for (int i = 0; i < nums.size(); ++i) {
             int l = i, r = upper_bound(nums.begin(), nums.end(), nums[i]*2) - nums.begin();
-            
+
             for (int mask = 1 << 20; mask; mask >>= 1) {
                 int nl = l, nr = r;
                 ((mask & nums[i]) ? nr : nl) = bsearch(nums, l, r, mask);
                 if (nl != nr) l = nl, r = nr;
             }
-            
+
             ans = max(ans, nums[i] ^ nums[l]);
         }
-        
+
         return ans;
     }
 };
