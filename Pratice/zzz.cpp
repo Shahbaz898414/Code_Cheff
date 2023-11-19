@@ -149,3 +149,36 @@ public:
 
 
 */
+
+
+
+/*
+
+
+Today was my 43th day out of the 100 days  hard challenge.
+So today, I solved 5 problems .
+
+
+1. 2935. Maximum Strong Pair XOR Il (https://leetcode.com/problems/maximum-strong-pair-xor-ii/description/).
+
+
+2. 2932. Maximum Strong Pair XOR | (https://leetcode.com/contest/weekly-contest-371/problems/maximum-strong-pair-xor-i/).
+
+
+3. 2933. High-Access Employees (https://leetcode.com/contest/weekly-contest-371/problems/high-access-employees/)
+
+
+4. 2934. Minimum Operations to Maximize Last Elements in Arrays (https://leetcode.com/contest/weekly-contest-371/problems/minimum-operations-to-maximize-last-elements-in-arrays/).
+
+
+5. Slow Start (https://www.codechef.com/problems/SLOWSTART).
+
+
+
+
+#100dayschallenge #challenge #consistency #SegmentTree #lessons
+#learning
+
+
+
+*/
