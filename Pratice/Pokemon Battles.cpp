@@ -36,13 +36,13 @@ int main()
 
        sort((v).begin(),(v).end());
 
-      //  for(auto it:v){
-      //   cout<<it.first<<" "<<it.second<<endl;
-      //  }
+       for(auto it:v){
+        cout<<it.first<<" "<<it.second<<endl;
+       }
 
 
 
-      //  cout<<endl;
+       cout<<endl;
 
       //  for (int i = n-1; i >=0 ; i--)
       //  {
@@ -51,7 +51,7 @@ int main()
       //  }
 
 
-      //  cout<<endl;
+       cout<<endl;
       //  cout<<endl;
 
        
@@ -72,7 +72,7 @@ int main()
 
         }
 
-
+  
 
         // cout<<endl;
 
