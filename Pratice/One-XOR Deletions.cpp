@@ -5,35 +5,61 @@ using namespace std;
 
 #define md 1000000007
 
-ll gcd(ll a, ll b)
-{
-  if (a < b)
-    swap(a, b);
-  if (b == 0)
-    return a;
-  return gcd(b, a % b);
-}
 
-ll powmod(ll a, ll m, ll mod)
-{
-  if (m == 0)
-    return 1;
-  ll res = powmod(a, m / 2, mod) % mod;
-  if (m & 1)
-    return (((__int128_t)res * res) % mod * a) % mod;
-  else
-    return ((__int128_t)res * res) % mod;
-}
 
 
 
 int main() {
+
+  // cout<<(2^3)<<" "<<(4^5)<<" "<<(6^7)<<" "<<(8^9)<<endl;
   int T = 1;
   cin >> T;
   while (T--)
   {
-    ll n,m;cin>>n>>m;
-    string s;cin>>s;
+    ll n,m;cin>>n;
+
+    vector<ll> arr(n);
+
+    for (ll i = 0; i < n; i++)
+    {
+      /* code */
+      cin>>arr[i];
+    }
+
+    map<ll,ll>  mp;
+
+    for (ll i = 0; i < n; i++)
+    {
+      /* code */
+      mp[arr[i]]++;
+    }
+    
+
+    ll ans=0;
+
+    for(auto it:mp){
+      ll cur=it.first;
+      ll next=it.first-1;
+
+      ll x=(cur^next);
+
+      // cout<<x<<" ";
+
+      if(x<=1){
+        if(mp.find(next)!=mp.end()){
+          ans=max(ans,mp[cur]+mp[next]);
+        }
+      }
+
+      ans=max(ans,it.second);
+    }
+
+    // cout<<endl;
+
+
+    cout<<n-ans<<endl;
+    
+    
   }
 
   return 0;

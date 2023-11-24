@@ -58,7 +58,7 @@ Output For each test case output the minimal cost of any satisfactory subset of 
 
 
 
-Today was my 49th day out of the 100 days  hard challenge.
+Today was my 50th day out of the 100 days  hard challenge.
 So today, I solved 5 problems .
 
 
@@ -71,10 +71,10 @@ So today, I solved 5 problems .
 3. Pokemon Battles (https://www.codechef.com/problems/PBATTLE)
 
 
-4. B. Applying MAX to Segment (https://lnkd.in/duwvAtS7).
+4. One-XOR Deletions (https://www.codechef.com/problems/DELXORONE?tab=statement).
 
 
-5. C. Assignment to Segment (https://lnkd.in/dCezMgnv).
+5. Chef of the Year (https://www.codechef.com/problems/CVOTE).
 
 
 #100dayschallenge #challenge #consistency #Cp #lessons  #learning
