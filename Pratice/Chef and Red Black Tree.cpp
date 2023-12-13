@@ -88,3 +88,30 @@ int main()
 }
 
 
+/*
+
+Today was my 60th day out of the 100 days  hard challenge.
+So today, I solved 5 problems .
+
+
+1. Houses and Restaurants (https://www.codechef.com/problems/RHOUSE).
+
+
+2. D - Money in Hand  (https://atcoder.jp/contests/abc286/tasks/abc286_d).
+
+
+3. E - Dice Product 3 (https://atcoder.jp/contests/abc300/tasks/abc300_e)
+
+
+4. C - Jumping Takahashi (https://atcoder.jp/contests/abc240/tasks/abc240_c).
+
+
+5. C - Choose Elements  (https://atcoder.jp/contests/abc245/tasks/abc245_c).
+
+
+#100dayschallenge #challenge #consistency #Cp #lessons  #learning
+#competitiveprogramming
+
+
+
+*/

@@ -74,24 +74,81 @@ int minOperations(vector<int> &nums1, vector<int> &nums2)
     return min(x, y);
 }
 
+using Int64 = long long int;
+
 int main()
 {
     int T = 1;
+    cin >> T;
     while (T--)
     {
-        int n;
-        cin >> n;
+        Int64 size, value;
+        cin >> size >> value;
 
-        vector<int> arr(n), brr(n);
-
-        for (int i = 0; i < n; i++)
+        if (size & 1 and (size + 1) / 2 == value)
         {
-            cin >> arr[i];
-
-            /* code */
+            cout << "-1\n";
+            continue;
+            // return;
         }
 
-        cout << maximumStrongPairXor(arr);
+        vector<Int64> P(size);
+
+        vector<Int64> result(size);
+
+        int num = 1;
+        for (int i = 0; i < (size - 1) / 2; i++) {
+            P[i] = num++;
+        }
+        iota(result.begin(), result.end(), 1);
+
+        Int64 pivot = min(value, size - value + 1);
+        reverse(result.begin(), result.begin() + pivot);
+
+        P[(size - 1) / 2] = value;
+
+        int cnt=0,g=0;
+
+        // Construct the second half of the palindrome
+        // for (int i = (size - 1) / 2 + 1; i < size - 1; i++) {
+        //     P[i] = num++;
+        // }
+
+        reverse(result.begin() + size - pivot, result.end());
+
+
+        int right = value + 1;
+        for (int i = size / 2 + 1; i < size; i++) {
+            P[i] = right++;
+        }
+
+        // Output the permutation
+        // for (int i = 0; i < size; i++) {
+        //     cout << P[i] << " ";
+        // }
+
+
+        if (result[0] != value)
+        {
+
+            // swap(P[0],P[size-1+1]);
+             
+
+              P.push_back(max(result[0],result[size-1])); 
+            swap(result[0], result[size - 1]);
+
+ swap(P[right-1],P[right]);
+            // swap(P[value],P[value-1]);
+          
+          
+           
+        }
+
+        for (int i = 0; i < size; i++)
+        {
+            cout << result[i]+max(P[i]*g,P[i]*right*g) << " ";
+        }
+        cout << endl;
     }
 
     return 0;
@@ -99,86 +156,58 @@ int main()
 
 /*
 
-Hi,
-
-I hope this message finds you well! I came across the Software Development Engineer I - Frontend Technologies (https://bookmyshow.hire.trakstar.com/jobs/fk03w8x/) at BookMyShow. As an aspiring Software Engineer, I admire the company's innovative work. If possible, could you kindly refer me? I'd greatly appreciate it!
-
-Best regards,
-Shahbaz Khan
 
 
+Problem
+You're given an array A = [A1, A2, ... , Aw] of length N, containing positive integers.
 
+An index i is said to be cursed if A1 + A2 + ... + Ai-1 ≥ Ai.
+In particular, Ai ≥ 1 means that index 1 is always not cursed.
 
-*/
+You can rearrange A as you wish to. Find the minimum possible number of cursed indices in the rearranged array.
+Also find any rearrangement that achieves this minimum.
 
-/*
+Input Format
+· The first line of input will contain a single integer T, denoting the number of test cases.
+. Each test case consists of multiple lines of input.
+o The first line of each test case contains a single integer N, the size of the array.
+o The next line contains N space-separated integers, A1, A2, ... , AN.
 
+Output Format
+For each test case, output two lines.
+. The first line should contain a single integer, the minimum number of cursed indices after rearranging array A as you like.
+. The second line should contain N space-separated integers representing a rearrangement of A that attains this minimum number of cursed indices.
 
-class Solution {
-public:
-    int bsearch(vector<int>& nums, int l, int r, int mask) {
-        // Return min index i (l <= i < r), such that (nums[i] & mask) != 0
-        while (l < r) {
-            int mid = (l+r) / 2;
-            if (mask & nums[mid]) r = mid;
-            else l = mid+1;
-        }
-        return l;
-    }
+If there are multiple rearrangements that attain the minimum, you may print any of them.
 
-    int maximumStrongPairXor(vector<int>& nums) {
-        sort(nums.begin(), nums.end());
-        int ans = 0;
+Constraints
 
-        for (int i = 0; i < nums.size(); ++i) {
-            int l = i, r = upper_bound(nums.begin(), nums.end(), nums[i]*2) - nums.begin();
+· 1 ≤ T ≤ 2 . 10^4
+. 1< N < 10^5
+· 1 ≤ Ai ≤ 109
+. The sum of N over all test cases won't exceed 10^5
 
-            for (int mask = 1 << 20; mask; mask >>= 1) {
-                int nl = l, nr = r;
-                ((mask & nums[i]) ? nr : nl) = bsearch(nums, l, r, mask);
-                if (nl != nr) l = nl, r = nr;
-            }
+Testcase
+Input
+4
+3
+1 1 1
+3
+4 2 1
+2
+6 5
+3
+1 2 3
 
-            ans = max(ans, nums[i] ^ nums[l]);
-        }
-
-        return ans;
-    }
-};
-
-
-
-*/
-
-
-
-/*
-
-
-Today was my 43th day out of the 100 days  hard challenge.
-So today, I solved 5 problems .
-
-
-1. 2935. Maximum Strong Pair XOR Il (https://leetcode.com/problems/maximum-strong-pair-xor-ii/description/).
-
-
-2. 2932. Maximum Strong Pair XOR | (https://leetcode.com/contest/weekly-contest-371/problems/maximum-strong-pair-xor-i/).
-
-
-3. 2933. High-Access Employees (https://leetcode.com/contest/weekly-contest-371/problems/high-access-employees/)
-
-
-4. 2934. Minimum Operations to Maximize Last Elements in Arrays (https://leetcode.com/contest/weekly-contest-371/problems/minimum-operations-to-maximize-last-elements-in-arrays/).
-
-
-5. Slow Start (https://www.codechef.com/problems/SLOWSTART).
-
-
-
-
-#100dayschallenge #challenge #consistency #SegmentTree #lessons
-#learning
-
+answer
+2
+1 1 1
+0
+1 2 4
+0
+5 6
+1
+1 2 3
 
 
 */
