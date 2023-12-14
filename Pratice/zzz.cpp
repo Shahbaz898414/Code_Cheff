@@ -78,136 +78,133 @@ using Int64 = long long int;
 
 int main()
 {
-    int T = 1;
-    cin >> T;
-    while (T--)
+    int num_tests, s;
+    cin >> num_tests >> s;
+
+    while (num_tests > 0)
     {
-        Int64 size, value;
-        cin >> size >> value;
+        int n,g=0;
+        cin >> n;
 
-        if (size & 1 and (size + 1) / 2 == value)
+        vector<int> elements(n);
+        for (int i = 0; i < n; ++i)
         {
-            cout << "-1\n";
-            continue;
-            // return;
+            cin >> elements[i];
         }
+        sort(elements.begin(), elements.end());
 
-        vector<Int64> P(size);
+        vector<vector<int>> dp(n + 1, vector<int>(2, 0));
 
-        vector<Int64> result(size);
-
-        int num = 1;
-        for (int i = 0; i < (size - 1) / 2; i++) {
-            P[i] = num++;
-        }
-        iota(result.begin(), result.end(), 1);
-
-        Int64 pivot = min(value, size - value + 1);
-        reverse(result.begin(), result.begin() + pivot);
-
-        P[(size - 1) / 2] = value;
-
-        int cnt=0,g=0;
-
-        // Construct the second half of the palindrome
-        // for (int i = (size - 1) / 2 + 1; i < size - 1; i++) {
-        //     P[i] = num++;
-        // }
-
-        reverse(result.begin() + size - pivot, result.end());
-
-
-        int right = value + 1;
-        for (int i = size / 2 + 1; i < size; i++) {
-            P[i] = right++;
-        }
-
-        // Output the permutation
-        // for (int i = 0; i < size; i++) {
-        //     cout << P[i] << " ";
-        // }
-
-
-        if (result[0] != value)
+        for (int i = n - 1; i >= 0; --i)
         {
+            // Option 0: Alice chooses the element
+            dp[i][0] = elements[i] + max(dp[i + 1][0], dp[i + 1][1]);
 
-            // swap(P[0],P[size-1+1]);
-             
+            // Option 1: Alice skips her turn
+            if (s == 1)
+            {
+                dp[i][1] = max(dp[i + 1][0], dp[i + 1][1]);
+            }
 
-              P.push_back(max(result[0],result[size-1])); 
-            swap(result[0], result[size - 1]);
+            // Bob's turn
+            dp[i][0] = min(dp[i][0], dp[i + 1][0]);
 
- swap(P[right-1],P[right]);
-            // swap(P[value],P[value-1]);
-          
-          
-           
+            // If S = 1, Alice can choose to skip her turn
+            if (s == 1)
+            {
+                dp[i][1] = min(dp[i][1], dp[i + 1][1]);
+            }
         }
 
-        for (int i = 0; i < size; i++)
+        if (s == 0)
         {
-            cout << result[i]+max(P[i]*g,P[i]*right*g) << " ";
+            int total_sum;
+            if (n % 2 == 1)
+            {
+                total_sum = accumulate(elements.begin(), elements.begin() + (n + 1) / 2, 0);
+            }
+            else
+            {
+                total_sum = accumulate(elements.begin() + 1, elements.begin() + n / 2 + 1, 0);
+            }
+            cout << total_sum << endl;
         }
-        cout << endl;
+        else
+        {
+            vector<int> prefix_sum(n + 1, 0);
+            for (int i = 0; i < n; ++i)
+            {
+                prefix_sum[i + 1] = prefix_sum[i] + elements[i];
+
+                dp[i][0] = elements[i] + max(dp[i + 1][0], dp[i + 1][1]);
+
+                // Option 1: Alice skips her turn
+                if (s == 1)
+                {
+                    dp[i][1] = max(dp[i + 1][0], dp[i + 1][1]);
+                }
+
+                // Bob's turn
+                dp[i][0] = min(dp[i][0], dp[i + 1][0]);
+
+                // If S = 1, Alice can choose to skip her turn
+                if (s == 1)
+                {
+                    dp[i][1] = min(dp[i][1], dp[i + 1][1]);
+                }
+            }
+
+            int answer = (n % 2 == 1) ? prefix_sum[n / 2 + 1] : prefix_sum[n / 2 + 1] - prefix_sum[1];
+
+            for (int i = 1; i < n; ++i)
+            {
+                int middle = (i + n - 1) / 2;
+                int current_sum;
+                if ((n - i) % 2 == 1)
+                {
+                    current_sum = prefix_sum[middle + 1] - prefix_sum[i];
+                }
+                else
+                {
+                    current_sum = prefix_sum[middle + 1] - prefix_sum[i + 1];
+                }
+                answer = max(answer, current_sum);
+            }
+
+            cout << answer+dp[0][0]*g << endl;
+        }
+
+        num_tests -= 1;
     }
 
     return 0;
 }
 
+
 /*
 
+Today was my 70th day out of the 100 days  hard challenge.
+So today.I solved 5 question.
 
 
-Problem
-You're given an array A = [A1, A2, ... , Aw] of length N, containing positive integers.
+1. Max Nutrition (https://www.codechef.com/problems/NUTRITION).
 
-An index i is said to be cursed if A1 + A2 + ... + Ai-1 ≥ Ai.
-In particular, Ai ≥ 1 means that index 1 is always not cursed.
 
-You can rearrange A as you wish to. Find the minimum possible number of cursed indices in the rearranged array.
-Also find any rearrangement that achieves this minimum.
+2. 3 Logicians Walk into a Bar  (https://www.codechef.com/problems/LOGICIAN).
 
-Input Format
-· The first line of input will contain a single integer T, denoting the number of test cases.
-. Each test case consists of multiple lines of input.
-o The first line of each test case contains a single integer N, the size of the array.
-o The next line contains N space-separated integers, A1, A2, ... , AN.
 
-Output Format
-For each test case, output two lines.
-. The first line should contain a single integer, the minimum number of cursed indices after rearranging array A as you like.
-. The second line should contain N space-separated integers representing a rearrangement of A that attains this minimum number of cursed indices.
+3. Cursed Indices (https://www.codechef.com/problems/CURSED)
 
-If there are multiple rearrangements that attain the minimum, you may print any of them.
 
-Constraints
+4. Permutation Construction (https://www.codechef.com/problems/PERMUTATION_).
 
-· 1 ≤ T ≤ 2 . 10^4
-. 1< N < 10^5
-· 1 ≤ Ai ≤ 109
-. The sum of N over all test cases won't exceed 10^5
 
-Testcase
-Input
-4
-3
-1 1 1
-3
-4 2 1
-2
-6 5
-3
-1 2 3
+5. Food Costs (https://www.codechef.com/problems/FOODCOST?tab=statement).
 
-answer
-2
-1 1 1
-0
-1 2 4
-0
-5 6
-1
-1 2 3
+
+
+#100dayschallenge #challenge #consistency #Cp #lessons #learning
+#competitiveprogramming
 
 
 */
