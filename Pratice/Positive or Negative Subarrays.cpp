@@ -5,7 +5,7 @@ using namespace std;
 const  int N=1e5+5;
 
 
-ll n,x,a[N],dp[N][2];
+
 
 
 
@@ -14,31 +14,11 @@ int main()
 
   int t;
   cin >> t;
-
+  
   while (t--)
   {
 
-    cin>>n>>x;
-
-    for (ll i = 1; i <=n; i++) {
-      cin>>a[i];
-    }
-
-   for(int i = 2; i <= n; i++) {
-
-      dp[i][0] = max((a[i]^a[i - 1]) + dp[i - 1][0], (a[i]^ (a[i - 1] + x)) + dp[i - 1][1]);
-
-
-      dp[i][1] = max(((a[i] + x) ^ a[i - 1]) + dp[i - 1][0], ((a[i] + x)^ (a[i - 1] + x)) + dp[i - 1][1]);
-
-   }
-       
-       
-       
-    cout << max(dp[n][0], dp[n][1]) << endl;
-    
-    
-
+    ll n,x;cin>>n;
        
         
   }
@@ -47,3 +27,31 @@ int main()
 
 
 
+/*
+
+Today was my 71th day out of the 100 days  hard challenge.
+So today.I solved 5 question.
+
+
+1. Shortest Cycle in a Graph (https://lnkd.in/dH9-E9P9).
+
+
+2. Make K-Subarray Sums Equal  (https://lnkd.in/duwhTUk8).
+
+
+3.  Find the Substring With Maximum Cost (https://lnkd.in/d5JJ9nDA)
+
+
+4. Form Smallest Number From Two Digit Arrays (https://lnkd.in/dPZmqW5s).
+
+
+5. Determine the Winner of a Bowling Game (https://lnkd.in/dJkaaDX6).
+
+
+
+#100dayschallenge #challenge #consistency #Cp #lessons #learning
+#competitiveprogramming
+
+
+
+*/
