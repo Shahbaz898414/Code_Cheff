@@ -183,23 +183,23 @@ int main()
 
 /*
 
-Today was my 70th day out of the 100 days  hard challenge.
-So today.I solved 5 question.
+Today was my 73th day out of the 100 days  hard challenge.
+So today. I solved 5 question.
 
 
-1. Max Nutrition (https://www.codechef.com/problems/NUTRITION).
+1. A - Three Threes (https://atcoder.jp/contests/abc333/tasks/abc333_a).
 
 
-2. 3 Logicians Walk into a Bar  (https://www.codechef.com/problems/LOGICIAN).
+2. B - Pentagon (https://atcoder.jp/contests/abc333/tasks/abc333_b).
 
 
-3. Cursed Indices (https://www.codechef.com/problems/CURSED)
+3. C - Repunit Trio (https://atcoder.jp/contests/abc333/tasks/abc333_c)
 
 
-4. Permutation Construction (https://www.codechef.com/problems/PERMUTATION_).
+4. D - Erase Leaves (https://atcoder.jp/contests/abc333/tasks/abc333_d).
 
 
-5. Food Costs (https://www.codechef.com/problems/FOODCOST?tab=statement).
+5. A - Please Sign (https://atcoder.jp/contests/arc169/tasks/arc169_a).
 
 
 

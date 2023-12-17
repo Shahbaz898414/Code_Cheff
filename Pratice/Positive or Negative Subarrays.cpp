@@ -29,23 +29,23 @@ int main()
 
 /*
 
-Today was my 71th day out of the 100 days  hard challenge.
+Today was my 72th day out of the 100 days  hard challenge.
 So today.I solved 5 question.
 
 
-1. Shortest Cycle in a Graph (https://lnkd.in/dH9-E9P9).
+1. Make Length 1 (https://www.codechef.com/problems/MAKELENGTH1?tab=statement).
 
 
-2. Make K-Subarray Sums Equal  (https://lnkd.in/duwhTUk8).
+2. Remember the recipe (https://www.codechef.com/problems/TWSTR?tab=statement).
 
 
-3.  Find the Substring With Maximum Cost (https://lnkd.in/d5JJ9nDA)
+3.  Positive or Negative Subarrays (https://www.codechef.com/problems/POSITNEG)
 
 
-4. Form Smallest Number From Two Digit Arrays (https://lnkd.in/dPZmqW5s).
+4. Fast Food (https://www.codechef.com/problems/FASTFOOD?tab=statement).
 
 
-5. Determine the Winner of a Bowling Game (https://lnkd.in/dJkaaDX6).
+5. Monsters (https://www.codechef.com/problems/SPCP5?tab=statement).
 
 
 
