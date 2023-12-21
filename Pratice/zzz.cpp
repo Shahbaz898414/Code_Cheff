@@ -38,6 +38,162 @@ int maximumStrongPairXor(vector<int> &nums)
     return ans;
 }
 
+
+    long long minimumCost(vector<int>& nums) {
+       int n = nums.size();
+    // std::sort(nums.begin(), nums.end());
+
+    long long minTotalCost = LLONG_MAX;
+
+        long long l=0,r=1000000000;
+
+        while(l<=r){
+            long long mid=(l+r)/2;
+
+
+        }
+    }
+//////////////////////////////////////////////////////
+
+
+ std::vector<int64_t> sum;
+
+    void Presumcal(const std::vector<int>& v) {
+        int n = v.size();
+        sum.clear();
+        sum.resize(n);
+        sum[0] = v[0];
+        for (int i = 1; i < n; i++) {
+            sum[i] = sum[i - 1] + v[i];
+        }
+    }
+
+    int64_t SumRange(int i, int j) {
+        return (i == 0) ? sum[j] : sum[j] - sum[i - 1];
+    }
+
+    int64_t getCost(const std::vector<int>& v, int64_t st, int64_t en, int64_t mid) {
+        int64_t left = (v[mid] * static_cast<int64_t>(mid - st + 1)) - SumRange(st, mid);
+        int64_t right = SumRange(mid, en) - (v[mid] * static_cast<int64_t>(en - mid + 1));
+        return left + right;
+    }
+
+    int64_t Eqcost(const std::vector<int>& v, int64_t k) {
+        int64_t n = v.size();
+        int64_t cnt1 = 0, cnt2 = k - 1, cost = 1e18;
+        for (; cnt2 < n; cnt2++, cnt1++) {
+            if ((cnt2 - cnt1 + 1) % 2 == 1) {
+                cost = std::min(cost, getCost(v, cnt1, cnt2, (cnt1 + cnt2) / 2));
+            } else {
+                cost = std::min({cost, getCost(v, cnt1, cnt2, (cnt1 + cnt2) / 2), getCost(v, cnt1, cnt2, (cnt1 + cnt2) / 2 + 1)});
+            }
+        }
+        return cost;
+    }
+
+    int maxFrequencyScore(std::vector<int> v, int64_t k) {
+        std::sort(v.begin(), v.end());
+       
+        int n = v.size();
+        unordered_map<int, int> frequencyMap;
+        int cnt1 = 1, cnt2 = n;
+        Presumcal(v);
+
+         for (int num : v) {
+            frequencyMap[num]++;
+        }
+
+        int maxFrequency = 0;
+        int maxFrequencyNum = 0;
+
+         for (const auto& entry : frequencyMap) {
+            if (entry.second > maxFrequency) {
+                maxFrequency = entry.second;
+                maxFrequencyNum = entry.first;
+            }
+        }
+
+
+
+        while (cnt1 < cnt2) {
+            int mid = cnt1 + (cnt2 - cnt1 + 1) / 2;
+            if (Eqcost(v, mid) <= k) {
+                cnt1 = mid;
+            } else {
+                cnt2 = mid - 1;
+            }
+        }
+
+         long long remainingOperations = k;
+        for (const auto& entry : frequencyMap) {
+            if (entry.first != maxFrequencyNum) {
+                long long operationsNeeded=maxFrequencyNum;
+                //  = max(0LL, entry.second - maxFrequency);
+                remainingOperations -= operationsNeeded;
+            }
+        }
+
+        int maxScore = maxFrequency + min(remainingOperations / n, 0LL);
+        return cnt1;
+    }
+
+
+
+
+
+
+
+
+
+
+
+    ///////////////////////////////////////////
+
+
+
+
+int maxFrequencyScore(vector<int>& nums, long long k) {
+      unordered_map<int, int> frequencyMap;
+        int n = nums.size();
+
+        // Count the frequency of each element
+        for (int num : nums) {
+            frequencyMap[num]++;
+        }
+
+        int maxFrequency = 0;
+        int maxFrequencyNum = 0;
+
+        // Find the element with the maximum frequency
+        for (const auto& entry : frequencyMap) {
+            if (entry.second > maxFrequency) {
+                maxFrequency = entry.second;
+                maxFrequencyNum = entry.first;
+            }
+        }
+
+        // Calculate the maximum possible score
+        long long remainingOperations = k;
+        for (const auto& entry : frequencyMap) {
+            if (entry.first != maxFrequencyNum) {
+                long long operationsNeeded = max(0LL, entry.second - maxFrequency);
+                remainingOperations -= operationsNeeded;
+            }
+        }
+
+        int maxScore = maxFrequency + min(remainingOperations / n, 0LL);
+        return maxScore;
+    }
+
+
+
+
+
+
+
+
+    ///////////////////////////////////////////
+
 int minOperations(vector<int> &nums1, vector<int> &nums2)
 {
     int n = nums1.size();
@@ -181,30 +337,5 @@ int main()
 }
 
 
-/*
-
-Today was my 73th day out of the 100 days  hard challenge.
-So today. I solved 5 question.
 
 
-1. A - Three Threes (https://atcoder.jp/contests/abc333/tasks/abc333_a).
-
-
-2. B - Pentagon (https://atcoder.jp/contests/abc333/tasks/abc333_b).
-
-
-3. C - Repunit Trio (https://atcoder.jp/contests/abc333/tasks/abc333_c)
-
-
-4. D - Erase Leaves (https://atcoder.jp/contests/abc333/tasks/abc333_d).
-
-
-5. A - Please Sign (https://atcoder.jp/contests/arc169/tasks/arc169_a).
-
-
-
-#100dayschallenge #challenge #consistency #Cp #lessons #learning
-#competitiveprogramming
-
-
-*/
