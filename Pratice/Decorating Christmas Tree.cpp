@@ -10,42 +10,52 @@ int main()
   int t;
   cin >> t;
 
-  while (t--) {
+  while (t--)
+  {
 
-    ll n,x,y;cin>>n>>x>>y;
+    ll n, x, y;
+    cin >> n >> x >> y;
 
-    if(x>=(2*n)){
-      cout<<"YES"<<endl;
-    }else {
+    // if(x>=(2*n)){
+    //   cout<<"YES"<<endl;
+    // }else {
 
-      if(x<n){
-        cout<<"NO"<<endl;
-      }else if(x==n){
-        int m=y/3;
-        if(m==n){
-          cout<<"YES"<<endl;
+    //   if(x<n){
+    //     cout<<"NO"<<endl;
+    //   }else if(x==n){
+    //     int m=y/3;
+    //     if(m==n){
+    //       cout<<"YES"<<endl;
 
-        }else cout<<"NO"<<endl;
-      }
-      else{
-         int m=y/3;
-     
+    //     }else cout<<"NO"<<endl;
+    //   }
+    //   else{
+    //      int m=y/3;
 
-        x=x-m;
-        n=n-m;
+    //     x=x-m;
+    //     n=n-m;
 
-        // cout<<m<<" "<<n<<" "<<x<<" ";
+    //     // cout<<m<<" "<<n<<" "<<x<<" ";
 
-        if(x>=(2*n)){
-          cout<<"YES"<<endl;
-        }else cout<<"NO"<<endl;
-      }
-     
+    //     if(x>=(2*n)){
+    //       cout<<"YES"<<endl;
+    //     }else cout<<"NO"<<endl;
+    //   }
 
+    // }
+
+    if (n > x)
+    {
+      cout << "NO\n";
     }
-
-
-    
+    else
+    {
+      x += (y / 3);
+      if (n * 2 <= x)
+        cout << "yes\n";
+      else
+        cout << "no\n";
+    }
   }
   return 0;
 }
