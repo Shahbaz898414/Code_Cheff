@@ -33,6 +33,7 @@ int main()
     }
 
     cout << max(maxi - mini, (sum + (m - 1)) / m) << endl;
+    
   }
   return 0;
 }
