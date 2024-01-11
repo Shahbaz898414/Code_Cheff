@@ -78,7 +78,14 @@ int main()
       if (cnt1 == 0)
         curr.clear();
 
-      // for(int )
+      for (int j = 0; j < v1[i].size(); j++)
+      {
+        if (v1[i][j] == '1')
+        {
+          cnt2++;
+          curr.insert(j);
+        }
+      }
     }
   }
   return 0;
