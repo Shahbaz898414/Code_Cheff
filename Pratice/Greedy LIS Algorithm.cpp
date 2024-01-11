@@ -28,7 +28,7 @@ void solve()
 
   vector<int> cont;
 
-  for (int i = n; i > m + 1; i++) {
+  for (int i = n; i > m + 1; i--) {
 
     cont.push_back(i);
   }
