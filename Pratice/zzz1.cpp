@@ -65,23 +65,3 @@ int main()
 
 
 
-/*
-
-Today was my 9th day out of the 75 days hard challenge.
-So today. I solved 5 question.
-
-1. Join States (https://www.codechef.com/problems/JOINSTATE).
-
-2. Subset GCD (https://www.codechef.com/problems/GCDPERM).
-
-3. Xorry 1 (https://www.codechef.com/problems/XORRY1)
-
-4. Xorry 2 (https://www.codechef.com/problems/XORRY2).
-
-5. Literacy Rate (https://www.codechef.com/problems/LITRATE).
-
-6. International Education Day! (https://www.codechef.com/problems/IED)
-
-
-
-*/
