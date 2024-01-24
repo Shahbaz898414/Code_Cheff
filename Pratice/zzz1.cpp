@@ -1,76 +1,63 @@
 #include <iostream>
 #include <vector>
-#include <algorithm>
-#include <numeric>
-
+#include <cmath>
 using namespace std;
 
-using Int64 = long long int;
+const int MOD = 1e9 + 7;
 
-void custom_function() {
-    Int64 size, value;
-    cin >> size >> value;
-    
-    if (size & 1 and (size + 1) / 2 == value) {
-        cout << "-1\n";
-        return;
-    }
-    
-    vector<Int64> result(size);
+int main()
+{
+    int n;
+    cin >> n;
 
-    vector<int> P(size, 0);
+    for (int iteration = 0; iteration < n; ++iteration)
+    {
+        string inputString;
+        cin >> inputString;
+        int stringLength = inputString.length();
 
-        // Fill the middle of the permutation
-        P[size/ 2] = value;
+        inputString = "#" + string(inputString.rbegin(), inputString.rend());
 
-    iota(result.begin(), result.end(), 1);
-    
-    Int64 pivot = min(value, size - value + 1);
+        vector<int> prefixSum(stringLength + 1, 0);
+        vector<int> powerOfTwo(stringLength + 1, 0);
+        prefixSum[0] = 1;
+        int nonACount = 0;
+        int accumulatedNonACount = 1;
+        powerOfTwo[0] = 1;
 
-     int left = value - 1;
-        for (int i = size / 2 - 1; i >= 0; i--) {
-            P[i] = left--;
+        for (int i = 1; i <= stringLength; ++i)
+        {
+            powerOfTwo[i] = (powerOfTwo[i - 1] * 2) % MOD;
+            if (inputString[i] != 'a')
+            {
+                nonACount += accumulatedNonACount;
+                nonACount %= MOD;
+            }
+            else
+            {
+                prefixSum[i] = nonACount;
+            }
+            accumulatedNonACount += prefixSum[i];
+            accumulatedNonACount %= MOD;
         }
 
-    reverse(result.begin(), result.begin() + pivot);
+        int aCount = 0;
+        int result = 0;
+        inputString += "#";
 
-    int right = value + 1;
-        for (int i = size/ 2 + 1; i < size; i++) {
-            P[i] = right++;
+        for (int i = stringLength + 1; i > 0; --i)
+        {
+            if (inputString[i] == 'a')
+            {
+                aCount += 1;
+            }
+            result += (powerOfTwo[aCount] * prefixSum[i - 1]) % MOD;
+            result = result % MOD;
         }
 
-         reverse(P.begin() + size - left, P.end());
-    reverse(result.begin() + size - pivot, result.end());
-   
-
-
-    
-    if (result[0] != value) {
-        // swap(P[0],P[size-1+1]);
-        swap(result[0], result[size - 1]);
-
-        // swap(P[0],P[size-1+1]);
+        result = (result - 1 + MOD) % MOD;
+        cout << result << endl;
     }
-    
-    for(int i = 0; i < size; i++) {
-        cout << result[i] << " ";
-    }
-    cout << endl;
-}
 
-int main() {
-    ios_base::sync_with_stdio(false);
-    cin.tie(0);
-    cout.tie(0);
-    
-    int num_tests = 1; 
-    cin >> num_tests;
-    
-    for (int current_test = 1; current_test <= num_tests; current_test += 1) {
-        
-    }
-    
     return 0;
 }
-
-
