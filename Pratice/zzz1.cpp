@@ -67,30 +67,10 @@ int main() {
     cin >> num_tests;
     
     for (int current_test = 1; current_test <= num_tests; current_test += 1) {
-        custom_function();
+        
     }
     
     return 0;
 }
 
 
-/*
-
-vector<int> P(size, 0);
-
-        // Fill the middle of the permutation
-        P[size/ 2] = value;
-
-        // Fill the left side of the permutation
-        int left = value - 1;
-        for (int i = size / 2 - 1; i >= 0; i--) {
-            P[i] = left--;
-        }
-
-        // Fill the right side of the permutation
-        int right = value + 1;
-        for (int i = size/ 2 + 1; i < size; i++) {
-            P[i] = right++;
-        }
-
-*/

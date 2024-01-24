@@ -4,7 +4,7 @@ using namespace std;
 #define ll long long
 
 const int mod = 1e9 + 7;
-const int N = 1e5 + 5;
+// const int N = 1e5 + 5;
 
 const int N = 1e6 + 2;
 int pow1(int x, int y)
@@ -86,7 +86,23 @@ int main()
           curr.insert(j);
         }
       }
+
+      if (cnt2 <= 1)
+      {
+        curr.clear();
+      }
     }
+
+    int dj1 = 0;
+    for (auto it : curr)
+    {
+      if (v1[0][it] == '1')
+        dj1++;
+    }
+    int dj2 = (curr.size() - dj1);
+    int ans = (ncr(dj1 + dj2, dj1));
+    // int ans=(f1(dj1+dj2) /((f1(dj1)*f1(dj2))));
+    cout << ans << endl;
   }
   return 0;
 }
