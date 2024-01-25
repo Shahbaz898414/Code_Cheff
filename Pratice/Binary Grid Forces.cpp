@@ -106,3 +106,24 @@ int main()
   }
   return 0;
 }
+
+
+
+/*
+
+Today was my 10th day out of the 75 days hard challenge.
+So today. I solved 6 question.
+
+1. B. Make Almost Equal With Mod (https://codeforces.com/contest/1909/problem/B).
+
+2. A. Distinct Buttons (https://codeforces.com/contest/1909/problem/A).
+
+3. F. Greetings (https://codeforces.com/contest/1915/problem/F)
+
+4. 1143. Longest Common Subsequence (https://leetcode.com/problems/longest-common-subsequence/description/).
+
+5. 2843. Count Symmetric Integers (https://leetcode.com/problems/count-symmetric-integers/description/).
+
+6. 2844. Minimum Operations to Make a Special Number (https://leetcode.com/problems/minimum-operations-to-make-a-special-number/description/)
+
+*/
