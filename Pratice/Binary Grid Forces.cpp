@@ -29,7 +29,7 @@ void solve(){
     int n,m;
     cin>>n>>m;
 
-    
+
     string s[n];
 
     for (int i = 0; i < n; i++) {
@@ -45,6 +45,8 @@ void solve(){
     for (int i = 0; i < m; i++) {
         if (s[n-1][i]=='1') dp[n-1][i]=true;
     }
+
+    
     for (int i = n - 2; i >= 0; i--) {
         int ones = 0;
         for (int j = 0; j < m; j++) {
