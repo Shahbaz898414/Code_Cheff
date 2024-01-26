@@ -30,14 +30,22 @@ int modInverse(int A, int M = MOD)
 void solve()
 {
 
-  int n, x;
+  int n;
 
   cin >> n;
+
+  int x=sqrtl(n);
 
   if(n==2){
     cout<<0<<endl;
     return;
   }
+
+
+  if (n%2){
+    cout<<(x+1)/2<<endl; return;
+  }
+    cout<<x/2<<endl;
 
   
   
@@ -61,32 +69,3 @@ signed main()
 
 
 
-/*
-
-Hello Shivam Chhirolya , 
-I am shahbaz khan  pursuing my B. Tech in Computer Science and Engineering batch 2024.
-My Technical Skill set includes : 
-Languages: C++, C, Javascript, SQL,Java,Python
-Technologies/Frameworks: HTML5, CSS3, Django, MongoDB, Express, React, NodeJS, Bootstrap, Angular,PCF,
-postgresql, Spring Boot
-Developer Tools: VS Code, Linux, Firebase, Git, Windows, Postman
-Kindly refer me for Associate Engineer (job id : 3057829) and Embedded Software Engineer (Fresher)
-Job Id: 3057829
-Thank you. 
-
-
-
-/////////////////////////////////
-Hi,
-
-I hope this message finds you well! I came across the Software Engineer Intern - 2024 Job (https://nvidia.wd5.myworkdayjobs.com/NVIDIAExternalCareerSite/job/US-CA-Santa-Clara/Software-Engineering-Intern--Generative-AI-Research---Summer-2024_JR1978405?source=jobboardlinkedin) at nvidia. As an aspiring Software Engineer, I admire the company's innovative work. If possible, could you kindly refer me? I'd greatly appreciate it!
-
-Best regards,
-Shahbaz Khan
-
-
-My Resume:-
-https://drive.google.com/file/d/1GWEPhW0xSo_SEXyfPfixQkT76R6srowC/view?usp=sharing
-
-
-*/
