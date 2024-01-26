@@ -31,24 +31,23 @@ void solve()
 {
 
   int n;
-
   cin >> n;
 
-  int x=sqrtl(n);
+  int x = sqrtl(n);
 
-  if(n==2){
-    cout<<0<<endl;
+  if (n == 2)
+  {
+    cout << 0 << endl;
     return;
   }
 
-
-  if (n%2){
-    cout<<(x+1)/2<<endl; return;
+  if (n % 2)
+  {
+    cout << (x + 1) / 2 << endl;
+    return;
   }
-    cout<<x/2<<endl;
 
-  
-  
+  cout << x / 2 << endl;
 }
 
 signed main()
@@ -66,6 +65,3 @@ signed main()
 
   return 0;
 }
-
-
-
