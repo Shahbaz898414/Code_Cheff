@@ -33,7 +33,7 @@ void solve()
   int n, x;
   cin >> n >> x;
 
-  vector<int> arr(n), brr(x);
+  int arr[n],brr[n];
 
   for (int i = 0; i < n; i++)
   {
@@ -52,6 +52,17 @@ void solve()
 
     c = max(c, brr[i]);
   }
+
+  sort(arr+n-c,arr+n);
+
+  for (int i = 0; i < n; i++)
+  {
+    /* code */
+    cout<<arr[i]<<" ";
+  }
+
+  cout<<endl;
+  
 }
 
 signed main()
