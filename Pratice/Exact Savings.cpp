@@ -1,13 +1,13 @@
 #include "bits/stdc++.h"
 using namespace std;
 
-#define int long long int
+#define ll long long int
 #define double long double
 #define endl '\n'
 
 const int MOD = 1000000007;
 
-const int inf = 1ll<<60;
+const int inf = 1ll << 60;
 
 int modInverse(int A, int M = MOD)
 {
@@ -32,47 +32,62 @@ int modInverse(int A, int M = MOD)
 void solve()
 {
 
-  int n, x, z;
+  ll n, x, z;
   cin >> n >> x >> z;
-
-  // int a[n], brr[n];
-  vector<int> a(n);
-
-  
-
+  vector<ll> arr(n);
   for (int i = 0; i < n; i++)
   {
-    cin >> a[i];
+    cin >> arr[i];
   }
-
-  if(z%x==0){
-    cout<<z/x<<endl;
-    return;
+  sort(arr.begin(), arr.end());
+  ll k = z % x;
+  k = x - k;
+  if (k == x)
+  {
+    cout << z / k << endl;
   }
+  else
+  {
 
-   vector<vector<int>> dp(n+1,vector<int> (x,inf));
+    vector<ll> curr(x, 1e16), prev(x, 1e16);
 
-
-    dp[0][0] = 0;
-    for (int i = 1; i <=n; i++) {
-        for (int j = 0; j < x; j++) {
-            dp[i][j] = min(dp[i-1][j],dp[i-1][((j-a[i-1])%x + x)%x] + a[i-1]);
+    for (int i = n - 1; i >= 0; i--)
+    {
+      for (int j = 0; j < x; j++)
+      {
+        if (arr[i] % x == j)
+        {
+          curr[j] = arr[i];
         }
+        else
+        {
+          ll a = arr[i] % x;
+          if (a < j)
+          {
+            a = j - a;
+          }
+          else
+          {
+            a = x - a + j;
+          }
+          a %= x;
+          curr[j] = min(prev[j], prev[a] + arr[i]);
+        }
+      }
+      prev = curr;
     }
 
-
-    int req = z%x;
-
-
-    if(dp[n][x-req]==inf) {
-
-        cout<<-1<<endl;
-    
-    } else {
-        cout<< (z + dp[n][x-req])/x <<endl;
+    ll ans = curr[k];
+    if (ans > 1e15)
+    {
+      cout << -1 << endl;
     }
-
-
+    else
+    {
+      cout << (z + ans) / x << endl;
+      ;
+    }
+  }
 }
 
 signed main()
@@ -91,9 +106,6 @@ signed main()
   return 0;
 }
 
-
-
-
 /*
 
 #include <bits/stdc++.h>
@@ -102,41 +114,37 @@ using namespace std;
 using ll=long long;
 
 int main() {
-	ll t;
-	cin>>t;
-	while(t--)
-	{
-	 ll n,x,z;
-	 cin>>n>>x>>z;
-	 vector<ll> arr(n);
-	 for(int i=0;i<n;i++)
-	 {
-	     cin>>arr[i];
-	 }
-	 sort(arr.begin(),arr.end());
-	 ll k=z%x;
-	 k=x-k;
-	 if(k==x){cout<<z/k<<endl;}
-	 else
-	 {
-	   //  vector<vector<ll>> dp(n+1,vector<ll>(x,1e16));
-	     vector<ll> curr(x,1e16),prev(x,1e16);
-	 
-// 	  cout<<k<<endl;
-// 	 long long ans=solve(k,0,dp,arr,n,x);
-// 	 if(ans>1e15){cout<<-1<<endl;}
-// 	 else
-// 	 {
-// 	     cout<<(z+ans)/x<<endl;;
-// 	 }
-       
+  ll t;
+  cin>>t;
+  while(t--)
+  {
+   ll n,x,z;
+   cin>>n>>x>>z;
+   vector<ll> arr(n);
+   for(int i=0;i<n;i++)
+   {
+       cin>>arr[i];
+   }
+   sort(arr.begin(),arr.end());
+   ll k=z%x;
+   k=x-k;
+
+   if(k==x){
+      cout<<z/k<<endl;
+   }
+   else
+   {
+
+       vector<ll> curr(x,1e16),prev(x,1e16);
+
+
        for(int i=n-1;i>=0;i--)
        {
            for(int j=0;j<x;j++)
            {
                if(arr[i]%x==j){curr[j]=arr[i];}
                else
-               {   
+               {
                    ll a=arr[i]%x;
                    if(a<j){a=j-a;}
                    else{a=x-a+j;}
@@ -146,17 +154,19 @@ int main() {
            }
            prev=curr;
        }
-       
+
+
        ll ans=curr[k];
+
        if(ans>1e15){cout<<-1<<endl;}
-	 else
-	 {
-	     cout<<(z+ans)/x<<endl;;
-	 }
-       
-	 }
-	}
-	return 0;
+        else
+        {
+            cout<<(z+ans)/x<<endl;;
+        }
+
+     }
+  }
+  return 0;
 }
 
 
