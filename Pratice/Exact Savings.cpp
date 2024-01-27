@@ -51,10 +51,8 @@ void solve()
 
     vector<ll> curr(x, 1e16), prev(x, 1e16);
 
-    for (int i = n - 1; i >= 0; i--)
-    {
-      for (int j = 0; j < x; j++)
-      {
+    for (int i = n - 1; i >= 0; i--) {
+      for (int j = 0; j < x; j++) {
         if (arr[i] % x == j)
         {
           curr[j] = arr[i];
@@ -78,16 +76,14 @@ void solve()
     }
 
     ll ans = curr[k];
-    if (ans > 1e15)
-    {
-      cout << -1 << endl;
-    }
-    else
-    {
-      cout << (z + ans) / x << endl;
-      ;
-    }
+    if (ans > 1e15) cout << -1 << endl;
+    
+    else cout << (z + ans) / x << endl;
+      
+    
   }
+
+
 }
 
 signed main()
