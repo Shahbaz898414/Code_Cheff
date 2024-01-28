@@ -216,15 +216,15 @@ int numSubmatrixSumTarget(vector<vector<int>>& matrix, int target) {
         }
 
 
-        // 
-        // for (int row = 0; row < m; row++) {
-        //     for (int col = 0; col < n; col++) {
-        //          cout<<matrix[row][col]<<" ";
-        //     }
-        //     cout<<endl;
-        // }
-        // cout<<endl;
-        // 
+        
+        for (int row = 0; row < m; row++) {
+            for (int col = 0; col < n; col++) {
+                 cout<<matrix[row][col]<<" ";
+            }
+            cout<<endl;
+        }
+        cout<<endl;
+        
 
 
         int count = 0;
@@ -238,9 +238,9 @@ int numSubmatrixSumTarget(vector<vector<int>>& matrix, int target) {
 
                 for (int row = 0; row < m; row++) {
 
-                 sum += matrix[row][c2] - (c1 > 0 ? matrix[row][c1 - 1] : 0);
-                    count += map[sum - target];
-                    map[sum]++;
+                   sum += matrix[row][c2] - (c1 > 0 ? matrix[row][c1 - 1] : 0);
+                   count += map[sum - target];
+                   map[sum]++;
 
                 }
             }
@@ -279,6 +279,8 @@ int32_t main()
    
         
     // }
+
+
 
 
 }

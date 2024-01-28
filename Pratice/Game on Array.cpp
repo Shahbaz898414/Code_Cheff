@@ -106,6 +106,6 @@ So today. I solved 5 question.
 4. 1074. Number of Submatrices That Sum to Target (https://leetcode.com/problems/number-of-submatrices-that-sum-to-target/description/?envType=daily-question&envId=2024-01-28).
 
 
-5. C. Quests (https://lnkd.in/dCQ7YFV6).
+5. Am I Lucky! (https://www.codechef.com/problems/SPCP4?tab=statement).
 
 */
