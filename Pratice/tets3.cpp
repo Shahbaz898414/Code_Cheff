@@ -215,18 +215,33 @@ int numSubmatrixSumTarget(vector<vector<int>>& matrix, int target) {
             }
         }
 
+
+        // 
+        // for (int row = 0; row < m; row++) {
+        //     for (int col = 0; col < n; col++) {
+        //          cout<<matrix[row][col]<<" ";
+        //     }
+        //     cout<<endl;
+        // }
+        // cout<<endl;
+        // 
+
+
         int count = 0;
 
-        for (int c1 = 0; c1 < n; c1++) {
-            for (int c2 = c1; c2 < n; c2++) {
-                std::unordered_map<int, int> map;
+
+        for(int c1 = 0; c1 < n; c1++) {
+            for(int c2 = c1; c2 < n; c2++) {
+                unordered_map<int, int> map;
                 map[0] = 1;
                 int sum = 0;
 
                 for (int row = 0; row < m; row++) {
-                    sum += matrix[row][c2] - (c1 > 0 ? matrix[row][c1 - 1] : 0);
+
+                 sum += matrix[row][c2] - (c1 > 0 ? matrix[row][c1 - 1] : 0);
                     count += map[sum - target];
                     map[sum]++;
+
                 }
             }
         }
