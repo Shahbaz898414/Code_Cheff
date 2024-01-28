@@ -33,11 +33,41 @@ void solve()
 {
 
   int n;
-	    cin >> n;
-	    
-
-
-
+  cin >> n;
+  string s;
+  cin >> s;
+  int to_win = n / 2;
+  to_win++;
+  int p = n - to_win;
+  string ans = "";
+  for (auto &b : s)
+  {
+    if (b == 'S')
+    {
+      ans += 'R';
+    }
+    else if (b == 'R')
+    {
+      ans += 'P';
+    }
+    else
+    {
+      ans += 'S';
+    }
+  }
+  for (int i = 0; i < ans.size(); i++)
+  {
+    if (p == 0)
+    {
+      break;
+    }
+    if (ans[i] == 'R' or ans[i] == 'S')
+    {
+      ans[i] = 'P';
+      p--;
+    }
+  }
+  cout << ans << "\n";
 }
 
 signed main()
@@ -55,4 +85,3 @@ signed main()
 
   return 0;
 }
-
