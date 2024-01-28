@@ -1,0 +1,1 @@
+{"name":"Local: Rock-Paper-Scissors","url":"c:\\Users\\91771\\Desktop\\cpp\\code_cheff\\Pratice\\Rock-Paper-Scissors.cpp","tests":[{"id":1706463820122,"input":"3\n1\nR\n2\nPS\n3\nRSP","output":""}],"interactive":false,"memoryLimit":1024,"timeLimit":3000,"srcPath":"c:\\Users\\91771\\Desktop\\cpp\\code_cheff\\Pratice\\Rock-Paper-Scissors.cpp","group":"local","local":true}

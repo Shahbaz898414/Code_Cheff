@@ -33,43 +33,32 @@ void solve()
 {
 
   int n;
-  cin >> n;
-  string s;
-  cin >> s;
-  int to_win = n / 2;
-  to_win++;
-  int p = n - to_win;
-  string ans = "";
-  for (auto &b : s)
-  {
-    if (b == 'S')
-    {
-      ans += 'R';
-    }
-    else if (b == 'R')
-    {
-      ans += 'P';
-    }
-    else
-    {
-      ans += 'S';
-    }
-  }
+	    cin >> n;
+	    int a[n];
+	    
+	    for(int i = 0;i<n;i++){
+	        cin >> a[i];
+	    }
+	    
+	    int currmax = a[0];
+	    int candycount = 0;
+	    
+	    for(int i = 1;i<n;i++){
+        // cout<<currmax<<" ";
+	        if(a[i] > currmax){
+	            currmax = a[i];
+	        }
+	        else{
+	            candycount++;
+	        }
+	    }
+	    
 
-  
-  for (int i = 0; i < ans.size(); i++)
-  {
-    if (p == 0)
-    {
-      break;
-    }
-    if (ans[i] == 'R' or ans[i] == 'S')
-    {
-      ans[i] = 'P';
-      p--;
-    }
-  }
-  cout << ans << "\n";
+      // cout<<endl;
+	    cout << candycount << endl;
+
+
+
 }
 
 signed main()
@@ -87,3 +76,4 @@ signed main()
 
   return 0;
 }
+
