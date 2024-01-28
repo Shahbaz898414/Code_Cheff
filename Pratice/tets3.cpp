@@ -204,44 +204,66 @@ void dfs(vector<vector<int>> &adj, int i)
     }
 }
 
+
+int numSubmatrixSumTarget(vector<vector<int>>& matrix, int target) {
+        int m = matrix.size();
+        int n = matrix[0].size();
+
+        for (int row = 0; row < m; row++) {
+            for (int col = 1; col < n; col++) {
+                matrix[row][col] += matrix[row][col - 1];
+            }
+        }
+
+        int count = 0;
+
+        for (int c1 = 0; c1 < n; c1++) {
+            for (int c2 = c1; c2 < n; c2++) {
+                std::unordered_map<int, int> map;
+                map[0] = 1;
+                int sum = 0;
+
+                for (int row = 0; row < m; row++) {
+                    sum += matrix[row][c2] - (c1 > 0 ? matrix[row][c1 - 1] : 0);
+                    count += map[sum - target];
+                    map[sum]++;
+                }
+            }
+        }
+
+    return count;
+}
+
+
 int32_t main()
 {
     ios_base::sync_with_stdio(false);
     cin.tie(NULL);
 
-    int t;cin >> t;
-    while(t--) {
-        int N;
-    cin >> N;
+    // int t;cin >> t;
+    // while(t--) {
+    int n;
+    cin >> n;
 
-    // initialize dp table
-    dp[0][0] = 1;
+    vector<vector<int>> vec(n,vector<int>(n));
 
-    // fill dp table
-    for (int i = 1; i < N; i++) {
-        for (int j = 0; j < N; j++) {
-            for (int k = 0; k < N; k++) {
-                if (i - k >= 0) {
-                    dp[i][j] += dp[i-k-1][j^k];
-                    dp[i][j] %= MOD;
-                }
-            }
+    for (int i = 0; i <n; i++)
+    {
+        /* code */
+        for (int j = 0; j < n; j++)
+        {
+            /* code */
+            cin>>vec[i][j];
         }
     }
+    int k;cin>>k;
 
-    // compute answer
-    int ans = 0;
-    for (int i = 1; i < N; i++) {
-        ans += dp[N-i-1][i];
-        ans %= MOD;
-    }
 
-    // print answer
-    cout << ans << endl;
+    cout<<numSubmatrixSumTarget(vec,k);
 
- 
+   
         
-    }
+    // }
 
 
 }

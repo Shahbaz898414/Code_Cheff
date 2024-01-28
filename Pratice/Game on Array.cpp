@@ -87,3 +87,25 @@ signed main()
 
   return 0;
 }
+
+
+
+
+/*
+
+
+Today was my 13th day out of the 75 days hard challenge.
+So today. I solved 5 question.
+
+1. Rock-Paper-Scissors (https://www.codechef.com/problems/MINRPC).
+
+2. Christmas Candy (https://www.codechef.com/problems/CHRISCANDY).
+
+3. Exact Savings (https://www.codechef.com/problems/EXACTSAVINGS)
+
+4. 1074. Number of Submatrices That Sum to Target (https://leetcode.com/problems/number-of-submatrices-that-sum-to-target/description/?envType=daily-question&envId=2024-01-28).
+
+
+5. C. Quests (https://lnkd.in/dCQ7YFV6).
+
+*/
