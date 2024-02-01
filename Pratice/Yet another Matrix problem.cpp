@@ -29,15 +29,72 @@ int modInverse(int A, int M = MOD)
   return x;
 }
 
+void solve()
+{
 
-void solve() { 
+  int n;
+  cin >> n;
+
+  if (n == 2)
+  {
+    cout << -1 << endl;
+    return;
+  }
+
+  vector<vector<int>> ans(n, vector<int>(n));
+
+  if (n % 2)
+  {
+    for (int i = 0, k = 1; i < n; i++)
+    {
+      for (int j = 0; j < n; j++)
+        ans[i][j] = k++;
+    }
+
+    for (int j = 1; j < n; j += 2)
+      swap(ans[1][j], ans[1][j + 1]);
 
 
-  int n;cin>>n;
- 
+    // for (int i = 0; i < n; i++)
+    // {
+    //   for (int j = 0; j < n; j++)
+    //     cout<<ans[i][j]<<" ";
+
+    //     cout<<endl;
+    // }
+
+
+  }
+  else
+  {
+    int k = 1;
+    for (int i = 0; i < n ; i++)
+    {
+      for (int j = 0; j < n; j++)
+        ans[i][j] = k++;
+    }
+
+    for (int j = 1; j < n - 1; j += 2)
+      swap(ans[1][j], ans[1][j + 1]);
+
+    // for (int i = 0; i < n; i++)
+    //   ans[i][n - 1] = k++;
+
+    // for (int j = n - 2; j >= 0; j--)
+    //   ans[n - 1][j] = k++;
+     swap(ans[n-2][0], ans[n-2][1]);
+
+  }
+
+  for (auto e : ans)
+  {
+    for (auto x : e)
+      cout << x << " ";
+    cout << "\n";
+  }
+
+
 }
-
-
 
 signed main()
 {
