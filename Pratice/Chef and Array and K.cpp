@@ -30,20 +30,25 @@ int32_t main()
       c++;
     }
 
+
     j = (j + i) % n;
 
-    while (j != 0 && c < m)
-    {
+
+    while (j != 0 && c < m) {
       cnt++;
-      if (Copy[j] == 1)
-      {
+      if (Copy[j] == 1) {
         Copy[j] = 0;
         c++;
       }
+
       j = (j + i) % n;
+
     }
-    if (c == m)
-      ans = min(ans, cnt);
+
+
+    if (c == m) ans = min(ans, cnt);
+
+
   }
 
 
