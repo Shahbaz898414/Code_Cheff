@@ -57,18 +57,26 @@ void solve()
 
   function<void(int, int)> DFS = [&](int u, int p)
   {
+
     int f = 1;
+
 
     for (auto v : tree[u])
     {
       if (v == p)
         continue;
 
+
       f = 0;
+
       ht[v] = ht[u] + 1;
+
       DFS(v, u);
+
       dis[u] = min(dis[u], dis[v] + 1);
+
       cnt[u] += cnt[v];
+
     }
 
     if (f)
@@ -78,17 +86,43 @@ void solve()
     }
   };
 
+
+
   DFS(0, -1);
+
+
+
+  for(auto it:dis){
+    cout<<it<<" ";
+  }
+  cout<<endl;
+
+
+
+  for(auto it:cnt){
+    cout<<it<<" ";
+  }
+
+  cout<<endl;
+
+  for(auto it:ht){
+    cout<<it<<" ";
+  }
+
+  cout<<endl;
+
+
 
   int ans = 0;
 
-  for (int i = 0; i < n; i++)
-  {
-    if (dis[i] != 0 && dis[i] <= ht[i])
-      ans = max(ans, cnt[i]);
+
+  for (int i = 0; i < n; i++) {
+    if (dis[i] != 0 && dis[i] <= ht[i]) ans = max(ans, cnt[i]);
   }
 
   cout << ans << "\n";
+
+
 }
 
 signed main()
