@@ -24,16 +24,13 @@ int32_t main()
     }
     if (z % (n / k) || o % (n / k))
       cout << "IMPOSSIBLE" << endl;
-    
+
     else
     {
 
-
       int az = z / (n / k);
 
-
       int ao = o / (n / k);
-
 
       // cout<<az<<" "<<ao<<endl;
       string ans;
@@ -47,25 +44,23 @@ int32_t main()
         tmp.push_back('1');
       }
 
-
       // cout<<tmp<<endl;
 
-
       string tmp1 = tmp;
-
 
       reverse(begin(tmp1), end(tmp1));
 
       // cout<<tmp1<<" "<<tmp<<endl;
 
-      for (int i=0 ; i < (n / k); i++) {
-        if (i % 2 == 0) ans += tmp;
-        else ans += tmp1;
-        
+      for (int i = 0; i < (n / k); i++)
+      {
+        if (i % 2 == 0)
+          ans += tmp;
+        else
+          ans += tmp1;
       }
 
       cout << ans << endl;
-
     }
   }
 
