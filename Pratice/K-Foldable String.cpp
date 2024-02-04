@@ -44,9 +44,12 @@ int32_t main()
         tmp.push_back('1');
       }
 
-      // cout<<tmp<<endl;
+
+      cout<<tmp<<endl;
+
 
       string tmp1 = tmp;
+
 
       reverse(begin(tmp1), end(tmp1));
 
