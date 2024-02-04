@@ -23,11 +23,12 @@ int32_t main()
         z++;
     }
     if (z % (n / k) || o % (n / k))
-    {
       cout << "IMPOSSIBLE" << endl;
-    }
+    
     else
     {
+
+
       int az = z / (n / k);
       int ao = o / (n / k);
 
