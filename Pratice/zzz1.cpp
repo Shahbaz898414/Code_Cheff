@@ -35,9 +35,11 @@ int longestCommonSubsequence(string text1, string text2) {
 
 int main()
 {
-   string s1,s2;cin>>s1>>s2;
+   int t;cin>>t;
 
-   cout<<longestCommonSubsequence(s1,s2)<<endl;
+   while(t--){
+    
+   }
 
     return 0;
 }
