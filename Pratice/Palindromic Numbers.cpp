@@ -54,7 +54,7 @@ int main()
       long long right = tt - base * left;
 
 
-      cout<<"lr "<<left<<" "<<right<<endl;
+      cout << "lr " << left << " " << right <<endl;
 
 
       long long q;
@@ -72,22 +72,31 @@ int main()
         right = base * (right - q) + left;
         left = q;
       }
+
+
       if (left == right || q == right)
       {
         flag = 1;
         printf("%d\n", base);
         break;
       }
+
+
       ++base;
+
+      
     }
-    if (!flag)
-    {
+
+
+    if (!flag) {
       base--;
       long long p;
       while ((p = n / base) == base + 1 || base * p != n)
         base--;
       printf("%lld\n", p - 1);
     }
+
+
   }
 
   return 0;
