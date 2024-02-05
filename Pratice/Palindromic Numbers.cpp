@@ -47,14 +47,26 @@ int main()
         continue;
       }
 
+
       long long left = tt / base;
+
+
       long long right = tt - base * left;
+
+
+      cout<<"lr "<<left<<" "<<right<<endl;
+
+
       long long q;
+
+
       if (right == 0)
       {
         ++base;
         continue;
       }
+
+
       for (q = left / base; q > right; q = left / base)
       {
         right = base * (right - q) + left;
