@@ -19,8 +19,6 @@ ll expo(ll a, ll b, ll mod)
   return res;
 }
 
-
-
 int main()
 {
   int t;
@@ -33,9 +31,13 @@ int main()
     cin >> n;
 
     ll ans = ((n * (n + 1) % MOD) * (n + 1)) % MOD;
+
     ans = (ans * expo(4, MOD - 2, MOD)) % MOD;
+
     cout << ans << endl;
   }
 
   return 0;
 }
+
+
