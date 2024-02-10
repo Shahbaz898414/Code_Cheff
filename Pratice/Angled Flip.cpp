@@ -89,7 +89,7 @@ int main()
 
 Hi,
 
-I hope this message finds you well! I came across the SDE Intern - 2024 (Link) at Expedia. As an aspiring Software Engineer, I admire the company's innovative work. If possible, could you kindly refer me? I'd greatly appreciate it!
+I hope this message finds you well! I came across the SDE Role - 2024 (Link) at Amazon. As an aspiring Software Engineer, I admire the company's innovative work. If possible, could you kindly refer me? I'd greatly appreciate it!
 
 Best regards,
 Shahbaz Khan
