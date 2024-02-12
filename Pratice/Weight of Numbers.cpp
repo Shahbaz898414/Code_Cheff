@@ -37,37 +37,16 @@ int main()
 
   while (t--)
   {
-    int n;
-    cin >> n;
-    vector<ll> v(2e3 + 10);
-    for (int i = 0; i < n; i++)
+    ll n,w;
+    cin >> n>>w;
+    ll k=0;
+    for (ll i = 0; i < n; i++)
     {
-      int ai; cin >> ai;
-      
-      v[1e3 - ai]++;
+      /* code */
+      if(i-w>0 and w-i<9) k++;
     }
-
-
-    ll ans = 0;
-
-
-    for (int i = 0; i < v.size(); i++)
-    {
-      for (int j = i; j < v.size(); j++)
-      {
-        if (i == j)
-        {
-          ans += (v[i] * (v[i] - 1) / 2);
-        }
-        else if ((i + j) % 2 == 0 and v[(i + j) / 2])
-        {
-          ans += v[i] * v[j];
-        }
-      }
-    }
-
-
-    cout << ans << endl;
+    
+   
 
 
   }
