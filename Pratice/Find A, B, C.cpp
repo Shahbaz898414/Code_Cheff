@@ -48,8 +48,8 @@ int main()
 
       if ((1 << i) > n) continue;
 
-      
-      for(auto it:a){
+
+      for(auto it:a) {
         cout<<it<< " ";
       }
 
@@ -73,9 +73,12 @@ int main()
 
       if (diff == -3) {
 
+
         a[0] ^= (1 << i);
 
+
         a[1] ^= (1 << i);
+
 
         a[2] ^= (1 << i);
 
