@@ -21,11 +21,7 @@ ll binexp(ll a, ll b, ll m)
   return result;
 }
 
-#define MAX 100010
 
-ll a[MAX], b[MAX];
-
-int length[MAX];
 
 int main()
 {
@@ -36,17 +32,29 @@ int main()
   {
 
     ll n = 0, v = 0;
+
+
     cin >> n >> v;
 
+
     ll p = n - 1, r = p - v, c = 1;
+
+
     ll maxi = p * (p + 1) / 2;
+
+
     ll mini = 0;
+
 
     if (v >= n - 1) mini = n - 1;
     else {
+
       mini = v - 1;
+
       mini += (p - v + 1) * (p - v + 2) / 2;
+
     }
+
 
     cout << maxi << " " << mini << endl;
 
