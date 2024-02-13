@@ -47,31 +47,38 @@ int main()
     for (ll i = 18; i >= 0; i--)
     {
 
-      if ((1 << i) > n)
-        continue;
+
+      if ((1 << i) > n) continue;
+
 
       sort(a.begin(), a.end());
 
+
       int diff = (arr[1 << i] - arr[0]) / (1 << i);
 
-      if (diff == -3)
-      {
+
+      if (diff == -3) {
         a[0] ^= (1 << i);
         a[1] ^= (1 << i);
         a[2] ^= (1 << i);
       }
 
+
       else if (diff == 1)
         a[0] ^= (1 << i);
 
-      else if (diff == -1)
-      {
+
+      else if (diff == -1) {
         a[0] ^= (1 << i);
         a[1] ^= (1 << i);
       }
+
+
     }
 
     cout << a[0] << ' ' << a[1] << ' ' << a[2] << '\n';
+
+
   }
   return 0;
 }
