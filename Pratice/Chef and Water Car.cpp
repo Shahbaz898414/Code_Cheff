@@ -6,18 +6,25 @@ using namespace std;
 // #define MOD 998244353
 const int m = 1e9 + 7;
 
+
+
 ll binexp(ll a, ll b, ll m)
 {
   ll result = 1;
+
+
   while (b > 0)
   {
     if (b & 1)
-    {
       result = (result * 1LL * a) % m;
-    }
+    
+
     a = (a * 1LL * a) % m;
+
     b >>= 1;
+
   }
+
   return result;
 }
 
