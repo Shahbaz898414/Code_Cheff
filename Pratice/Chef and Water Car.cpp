@@ -56,9 +56,12 @@ int main()
     if (v >= n - 1) mini = n - 1;
     else {
 
+
       mini = v - 1;
 
-      mini += (p - v + 1) * (p - v + 2) / 2;
+
+      mini += (((p - v + 1) * (p - v + 2)) / 2);
+
 
     }
 
@@ -67,6 +70,5 @@ int main()
 
 
   }
-
   return 0;
 }
