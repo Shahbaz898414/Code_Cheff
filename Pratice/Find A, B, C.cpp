@@ -51,6 +51,8 @@ int main()
 
       sort(a.begin(), a.end());
 
+      cout<<(1<<i)<<" "<<i<<endl;
+
 
       int diff = (arr[1 << i] - arr[0]) / (1 << i);
 
@@ -73,9 +75,15 @@ int main()
 
     }
 
+
+    cout<<endl;
+
+
     cout << a[0] << ' ' << a[1] << ' ' << a[2] << '\n';
 
 
   }
+
+  
   return 0;
 }
