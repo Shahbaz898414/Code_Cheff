@@ -28,21 +28,20 @@ int main()
   int t;
   cin >> t;
 
-  while (t--)
-  {
+  while (t--) {
 
-    ll n = 0, v = 0;
-    cin >> n;
+
+    ll n = 0, v = 0; cin >> n;
+
 
     vector<int> a(3, 0);
 
+
     vector<ll> arr(n + 1);
 
-    for (ll i = 0; i < n + 1; i++)
-    {
 
-      cin >> arr[i];
-    }
+    for (ll i = 0; i < n + 1; i++) cin >> arr[i];
+    
 
     for (ll i = 18; i >= 0; i--) {
 
