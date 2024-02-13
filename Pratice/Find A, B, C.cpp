@@ -44,8 +44,7 @@ int main()
       cin >> arr[i];
     }
 
-    for (ll i = 18; i >= 0; i--)
-    {
+    for (ll i = 18; i >= 0; i--) {
 
 
       if ((1 << i) > n) continue;
@@ -64,8 +63,7 @@ int main()
       }
 
 
-      else if (diff == 1)
-        a[0] ^= (1 << i);
+      else if (diff == 1) a[0] ^= (1 << i);
 
 
       else if (diff == -1) {
