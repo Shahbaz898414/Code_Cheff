@@ -48,19 +48,38 @@ int main()
 
       if ((1 << i) > n) continue;
 
+      
+      for(auto it:a){
+        cout<<it<< " ";
+      }
+
+
+      cout<<endl;
+
 
       sort(a.begin(), a.end());
 
-      cout<<(1<<i)<<" "<<i<<endl;
+     
 
 
       int diff = (arr[1 << i] - arr[0]) / (1 << i);
 
 
+      cout<<(1<<i)<<" "<<i<<" diff "<<diff<<" "<<arr[1<<i] <<endl;
+
+
+      cout<<endl;
+
+
       if (diff == -3) {
+
         a[0] ^= (1 << i);
+
         a[1] ^= (1 << i);
+
         a[2] ^= (1 << i);
+
+
       }
 
 
@@ -84,6 +103,11 @@ int main()
 
   }
 
-  
+
+
   return 0;
+
+
 }
+
+
