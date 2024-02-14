@@ -187,65 +187,72 @@ ll solve(vector<vector<ll>> &v, ll i, ll last, vector<vector<ll>> &dp)
   return dp[i][last] = max(take, noTake);
 }
 
-int32_t main() {
+int32_t main()
+{
 
-  ll t; cin >> t;
+  ll t;
+  cin >> t;
 
+  while (t--)
+  {
+    long long int n, k;
+    cin >> n >> k;
+    int opr = ceil(log2(n)) + 1;
 
-  while (t--) {
-    ll n,m;cin>>n>>m;
-   
-
-
-
-
+    cout<<opr<<endl;
+    if (opr <= k)
+    {
+      cout << k - opr + 1 << endl;
+    }
+    else
+    {
+      cout << 0 << endl;
+    }
   }
-
 
   return 0;
 }
 
+/*
+
+Building Towers
+
+Chef is given a contract to build towers in Chefland which are made by stacking blocks one above the other. Initially, there is only 1 block in the
+inventory and no tower has been built. Chef follows the following 2 steps in each operation:
+. Either build a new tower or update an existing tower that has been built in previous operations using any number of blocks currently present in the
+inventory. After this step, the size of the inventory reduces by the number of blocks used.
+. Suppose the tower Chef updated or built has B blocks after the step, Chef gets to add B new blocks to the inventory as a reward.
+
+Find the maximum number of towers of height X that Chef can build in M operations.
+
+Note: Tower of height X means that the tower consists of X blocks placed one above the other.
+
+Input Format
+
+. First line will contain T, number of test cases. Then the test cases follow.
+. Each test case contains a single line of input, two space separated integers X, M.
+
+Output Format
+For each test case, output a single integer, the maximum number of towers that Chef can build.
+
+*/
+
+/*
 
 
+Chef needs to build towers of height X using blocks. He has M operations to do so. In each operation, he can either build a new tower or update an existing tower with any number of blocks currently in the inventory. After using the blocks, he gets to add the same number of blocks to the inventory as a reward.
+
+Chef wants to maximize the number of towers of height X he can build within M operations.
+
+To solve this problem, Chef should follow these steps:
+
+Initialize a variable max_towers to store the maximum number of towers Chef can build. Set it to 0 initially.
+Iterate through each operation.
+If Chef has enough blocks to build a new tower of height X, increment max_towers by 1 and reduce the number of blocks in the inventory by X. Then add X blocks to the inventory as a reward.
+If Chef doesn't have enough blocks to build a new tower, but there are existing towers that can be updated, update one of them by adding the available blocks. Then add the same number of blocks to the inventory as a reward.
+Continue these steps until Chef has completed all M operations.
+Output the value of max_towers as the result for the current test case.
+This way, Chef maximizes the number of towers of height X he can build within the given number of operations.
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+*/
