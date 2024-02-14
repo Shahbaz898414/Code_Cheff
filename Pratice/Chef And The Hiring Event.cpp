@@ -183,8 +183,18 @@ ll solve(vector<vector<ll>>&v,ll i,ll last,vector<vector<ll>>&dp) {
 int32_t main() {
    ll t;cin>>t;
    while(t--) {
-      ll n;
-      cin>>n;
+       int k;
+	    cin>>k;
+	    k--;
+	    int res=0,base=1;
+	    while(k)
+	    {
+	        res+=2*(k%5)*base;
+	        
+	        base*=10;
+	        k/=5;
+	    }
+	    cout<<res<<endl;
        
 
 
