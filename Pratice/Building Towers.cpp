@@ -194,23 +194,7 @@ int32_t main()
   while (t--)
   {
 
-    int size;
-    scanf("%lld", &size);
-    size++;
-    vector<int> v(size);
-    for (auto &el : v)
-      scanf("%lld", &el);
-
-    int res = 0, first = 2 * v[0], mul = 2;
-
-    for (int i = 1; i < size; ++i)
-    {
-      res = (res * 2 + first * v[i]) % mod;
-      first = (first + v[i] * mul) % mod;
-      mul = mul * 2 % mod;
-    }
-
-    printf("%lld\n", res);
+   
   }
   return 0;
 }
