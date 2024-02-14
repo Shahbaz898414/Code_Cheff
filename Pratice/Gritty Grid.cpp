@@ -200,10 +200,11 @@ int32_t main()
     int d = n - 1 + m - 1;
 
     if (x % 2 == 0 && y % 2 != 0)
+
       cout << "yes" << endl;
 
     else if (x % 2 != 0 && y % 2 == 0)
-    
+
       cout << "yes" << endl;
 
     else if (d % 2 == x % 2)
@@ -211,6 +212,7 @@ int32_t main()
       cout << "yes" << endl;
 
     else
+    
       cout << "no" << endl;
 
 
