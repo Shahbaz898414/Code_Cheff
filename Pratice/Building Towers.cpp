@@ -187,14 +187,65 @@ ll solve(vector<vector<ll>> &v, ll i, ll last, vector<vector<ll>> &dp)
   return dp[i][last] = max(take, noTake);
 }
 
-int32_t main()
-{
-  ll t;
-  cin >> t;
-  while (t--)
-  {
+int32_t main() {
 
+  ll t; cin >> t;
+
+
+  while (t--) {
+    ll n,m;cin>>n>>m;
    
+
+
+
+
   }
+
+
   return 0;
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
