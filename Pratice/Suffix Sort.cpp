@@ -197,10 +197,11 @@ int32_t main()
     cin >> N;
     int a[N];
     for (int i = 0; i < N; i++)
-    {
       cin >> a[i];
-    }
+    
     int c = -1;
+
+
     for (int i = 0; i < N - 1; i++)
     {
       if (a[i] > a[i + 1])
@@ -209,13 +210,13 @@ int32_t main()
         break;
       }
     }
+
+
     if (c == -1)
     {
       cout << "YES" << endl;
       cout << 0 << endl;
-    }
-    else
-    {
+    } else {
 
       int d = 0;
 
