@@ -205,12 +205,14 @@ int32_t main()
     int opr = ceil(log2(n)) + 1;
 
 
-    cout<<opr<<endl;
+    // cout<<opr<<endl;
 
 
     if (opr <= k) cout << k - opr + 1 << endl;
     
     else cout << 0 << endl;
+
+
     
   }
 
