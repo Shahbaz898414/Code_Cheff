@@ -208,6 +208,8 @@ void solution()
         break;
       }
     }
+
+    
     for (int i = n; i >= 0; i--)
     {
       if (str[i] == ch && (n - 1 - i) % 3 == 0)
@@ -216,6 +218,8 @@ void solution()
         break;
       }
     }
+
+
     if (l <= r)
     {
       cout << "YES" << endl;
