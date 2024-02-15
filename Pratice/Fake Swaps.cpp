@@ -198,60 +198,26 @@ int32_t main()
 
     int n;
     cin >> n;
-    vector<int> v(n);
-    for (int i = 0; i < n; i++)
-      cin >> v[i];
+    string s, p;
+    cin >> s >> p;
 
-    long long sum = 0;
-    map<int, int> mp;
-    for (int i = 1; i < n; i++)
+    int cnt = count(begin(p), end(p), '1');
+    if (cnt == n or cnt == 0)
     {
-      int d = v[i] - v[i - 1];
-      mp[d]++;
-      sum += d;
-    }
-    long long diff = sum / (n - 1);
-    int e = 0;
-    int c = 0;
-    for (auto x : mp)
-    {
-      if (x.second > c)
+
+      if (s == p)
       {
-        e = x.first;
-        c = x.second;
-      }
-    }
-    if (mp.size() == 2)
-    {
-      int d = v[1] - v[0];
-      if (d != e)
-      {
-        v[0] = v[1] - e;
+        cout << "YES\n";
       }
       else
       {
-        int dl = v[n - 1] - v[n - 2];
-        if (dl != e)
-          v[n - 1] = v[n - 2] + e;
+        cout << "NO\n";
       }
     }
-    else if (mp.size() == 3)
+    else
     {
-      for (int i = 1; i < n - 1; i++)
-      {
-        long long d1 = v[i] - v[i - 1];
-        long long d2 = v[i + 1] - v[i];
-        if (d1 != diff && d2 != diff)
-        {
-          v[i] = (v[i - 1] + v[i + 1]) / 2;
-        }
-      }
+      cout << "YES\n";
     }
-    for (int i = 0; i < n; i++)
-    {
-      cout << v[i] << " ";
-    }
-    cout << endl;
   }
 
   return 0;
