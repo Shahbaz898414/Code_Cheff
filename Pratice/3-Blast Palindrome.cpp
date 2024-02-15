@@ -189,15 +189,14 @@ ll solve(vector<vector<ll>> &v, ll i, ll last, vector<vector<ll>> &dp)
 
 void solution()
 {
-  int n;
-  cin >> n;
-  string str;
-  cin >> str;
-  if (n % 3 == 1)
-  {
+  int n;cin >> n;
+  string str; cin >> str;
+
+  if (n % 3 == 1) {
     cout << "YES" << endl;
     return;
   }
+
   for (char ch = 'a'; ch <= 'z'; ch++)
   {
     int l = n, r = -1;
@@ -223,7 +222,10 @@ void solution()
       return;
     }
   }
+
+
   cout << "NO" << endl;
+
 }
 
 int32_t main()
