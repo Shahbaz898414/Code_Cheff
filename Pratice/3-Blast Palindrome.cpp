@@ -187,36 +187,43 @@ ll solve(vector<vector<ll>> &v, ll i, ll last, vector<vector<ll>> &dp)
   return dp[i][last] = max(take, noTake);
 }
 
-
 void solution()
 {
-    int n;cin>>n;string str;cin>>str;if(n%3==1){cout<<"YES"<<endl;return;}
-    for(char ch='a';ch<='z';ch++)
+  int n;
+  cin >> n;
+  string str;
+  cin >> str;
+  if (n % 3 == 1)
+  {
+    cout << "YES" << endl;
+    return;
+  }
+  for (char ch = 'a'; ch <= 'z'; ch++)
+  {
+    int l = n, r = -1;
+    for (int i = 0; i < n; i++)
     {
-        int l=n,r=-1;
-        for(int i=0;i<n;i++)
-        {
-            if(str[i]==ch && i%3==0)
-            {
-                l=i;
-                break;
-            }
-        }
-        for(int i=n;i>=0;i--)
-        {
-            if(str[i]==ch && (n-1-i)%3==0)
-            {
-                r=i;
-                break;
-            }
-        }
-        if(l<=r)
-        {
-            cout<<"YES"<<endl;
-            return;
-        }
+      if (str[i] == ch && i % 3 == 0)
+      {
+        l = i;
+        break;
+      }
     }
-    cout<<"NO"<<endl;
+    for (int i = n; i >= 0; i--)
+    {
+      if (str[i] == ch && (n - 1 - i) % 3 == 0)
+      {
+        r = i;
+        break;
+      }
+    }
+    if (l <= r)
+    {
+      cout << "YES" << endl;
+      return;
+    }
+  }
+  cout << "NO" << endl;
 }
 
 int32_t main()
@@ -228,7 +235,6 @@ int32_t main()
   while (t--)
   {
     solution();
-  
   }
 
   return 0;
