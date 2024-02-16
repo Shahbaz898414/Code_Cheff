@@ -187,19 +187,34 @@ ll solve(vector<vector<ll>> &v, ll i, ll last, vector<vector<ll>> &dp)
   return dp[i][last] = max(take, noTake);
 }
 
-void solution() {
+void solution()
+{
 
-  int n;cin >> n;
-  
-  vector<int> arr(n);
-
-  for (int i = 0; i <n; i++) {
-   
-    cin>>arr[i];
-
+  int n;
+  cin >> n;
+  vector<int> in(n, 0);
+  for (auto &i : in)
+  {
+    cin >> i;
   }
-  
+  unordered_map<int, int> last;
+  for (int i = 0; i < n; ++i)
+  {
+    last[in[i]] = -1;
+  }
+  ll ans = 0;
+  for (int i = 0; i < n; ++i)
+  {
+    ll start = max(i - in[i] + 1, last[in[i]] + 1);
+    ll end = min(i, n - in[i]);
+    last[in[i]] = i;
+    ll a = (end - start + 1);
+    if (a > 0)
+      ans += a;
+  }
+  cout << ans << endl;
 
+  
 }
 
 int32_t main()
@@ -215,4 +230,3 @@ int32_t main()
 
   return 0;
 }
-
