@@ -197,12 +197,18 @@ void solution()
   {
     cin >> i;
   }
+
   unordered_map<int, int> last;
+
   for (int i = 0; i < n; ++i)
   {
     last[in[i]] = -1;
   }
+
+
   ll ans = 0;
+
+
   for (int i = 0; i < n; ++i)
   {
     ll start = max(i - in[i] + 1, last[in[i]] + 1);
@@ -212,9 +218,11 @@ void solution()
     if (a > 0)
       ans += a;
   }
+
+
   cout << ans << endl;
 
-  
+
 }
 
 int32_t main()
@@ -223,8 +231,7 @@ int32_t main()
   ll t;
   cin >> t;
 
-  while (t--)
-  {
+  while (t--) {
     solution();
   }
 
