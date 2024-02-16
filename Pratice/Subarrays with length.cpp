@@ -193,7 +193,7 @@ void solution()
   int n;cin >> n;
 
   vector<int> in(n, 0);
-  
+
   for (auto &i : in)
   {
     cin >> i;
@@ -212,12 +212,18 @@ void solution()
 
   for (int i = 0; i < n; ++i)
   {
+
     ll start = max(i - in[i] + 1, last[in[i]] + 1);
+
     ll end = min(i, n - in[i]);
+
     last[in[i]] = i;
+
     ll a = (end - start + 1);
-    if (a > 0)
-      ans += a;
+
+    if (a > 0) ans += a;
+
+    
   }
 
 
