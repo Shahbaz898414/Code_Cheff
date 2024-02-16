@@ -190,9 +190,10 @@ ll solve(vector<vector<ll>> &v, ll i, ll last, vector<vector<ll>> &dp)
 void solution()
 {
 
-  int n;
-  cin >> n;
+  int n;cin >> n;
+
   vector<int> in(n, 0);
+  
   for (auto &i : in)
   {
     cin >> i;
@@ -224,6 +225,8 @@ void solution()
 
 
 }
+
+
 
 int32_t main()
 {
