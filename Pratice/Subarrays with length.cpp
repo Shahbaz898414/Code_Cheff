@@ -187,15 +187,16 @@ ll solve(vector<vector<ll>> &v, ll i, ll last, vector<vector<ll>> &dp)
   return dp[i][last] = max(take, noTake);
 }
 
-void solution()
-{
+void solution() {
+
   int n;cin >> n;
+  
   vector<int> arr(n);
 
-  for (int i = 0; i <n; i++)
-  {
-    /* code */
+  for (int i = 0; i <n; i++) {
+   
     cin>>arr[i];
+
   }
   
 
@@ -214,3 +215,4 @@ int32_t main()
 
   return 0;
 }
+
