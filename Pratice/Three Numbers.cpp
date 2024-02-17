@@ -192,9 +192,9 @@ void solution()
 
   int a[3];
   for (int i = 0; i < 3; i++)
-  {
     cin >> a[i];
-  }
+  
+  
   if (abs(a[0] - a[1]) % 2 == 1 || abs(a[1] - a[2]) % 2 == 1 || abs(a[2] - a[0]) % 2 == 1)
   {
     cout << -1;
@@ -206,6 +206,8 @@ void solution()
     cout << avg - a[0];
   }
   cout << "\n";
+
+
 }
 
 int32_t main()
