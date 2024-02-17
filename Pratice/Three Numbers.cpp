@@ -187,31 +187,26 @@ ll solve(vector<vector<ll>> &v, ll i, ll last, vector<vector<ll>> &dp)
   return dp[i][last] = max(take, noTake);
 }
 
-void solution() {
-  
-  int a,b,c;cin>>a>>b>>c;
+void solution()
+{
 
-
-
-
+  int a[3];
+  for (int i = 0; i < 3; i++)
+  {
+    cin >> a[i];
+  }
+  if (abs(a[0] - a[1]) % 2 == 1 || abs(a[1] - a[2]) % 2 == 1 || abs(a[2] - a[0]) % 2 == 1)
+  {
+    cout << -1;
+  }
+  else
+  {
+    sort(a, a + 3);
+    int avg = (a[1] + a[2]) / 2;
+    cout << avg - a[0];
+  }
+  cout << "\n";
 }
-
-
-
-/*
-
-
-Hi,
-
-I hope this message finds you well! I came across the SDE Intern - 2024 (Link) at Google. As an aspiring Software Engineer, I admire the company's innovative work. If possible, could you kindly refer me? I'd greatly appreciate it!
-
-Best regards,
-Shahbaz Khan
-
-Resume Link:
-https://drive.google.com/file/d/1GWEPhW0xSo_SEXyfPfixQkT76R6srowC/view?usp=sharing
-
-*/
 
 int32_t main()
 {
@@ -224,6 +219,5 @@ int32_t main()
     solution();
   }
 
-  
   return 0;
 }
