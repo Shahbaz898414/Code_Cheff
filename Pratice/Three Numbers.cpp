@@ -189,47 +189,29 @@ ll solve(vector<vector<ll>> &v, ll i, ll last, vector<vector<ll>> &dp)
 
 void solution() {
   
-    int n;cin>>n;
-
-    vector<int> arr(n);
-
-    ll cnt1=0,cnt2=0;
-
-    for (int i = 0; i < n; i++) {
-      ll x;cin>>x;
-      if(x%3==1) cnt1++;
-      else if(x%3==2) cnt2++;
-    }
+  int a,b,c;cin>>a>>b>>c;
 
 
-    // cout<<cnt1<<" "<<cnt2<<endl;
-
-
-    if((cnt1+cnt2)%3!=0) {
-      cout<<-1<<endl;
-      return;
-    }
-
-    ll mi=min(cnt1,cnt2);
-
-    ll mx=max(cnt1,cnt2);
-
-    cout<<mi+((mx-mi)*2)/3<<endl;
-
-
-
-
-    // cnt2=abs(cnt1-cnt2);
-
-
-
-
-    
 
 
 }
 
 
+
+/*
+
+
+Hi,
+
+I hope this message finds you well! I came across the SDE Intern - 2024 (Link) at Google. As an aspiring Software Engineer, I admire the company's innovative work. If possible, could you kindly refer me? I'd greatly appreciate it!
+
+Best regards,
+Shahbaz Khan
+
+Resume Link:
+https://drive.google.com/file/d/1GWEPhW0xSo_SEXyfPfixQkT76R6srowC/view?usp=sharing
+
+*/
 
 int32_t main()
 {
