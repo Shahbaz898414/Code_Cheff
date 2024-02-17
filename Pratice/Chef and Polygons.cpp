@@ -190,9 +190,42 @@ ll solve(vector<vector<ll>> &v, ll i, ll last, vector<vector<ll>> &dp)
 void solution()
 {
 
- 
+  int n;
+  cin >> n;
+  vector<pair<ll, int>> var(n);
+  for (int i = 0; i < n; i++)
+  {
+    int ni;
+    cin >> ni;
+    vector<pair<ll, ll>> v(ni);
+    for (int j = 0; j < ni; j++)
+    {
+      cin >> v[j].first >> v[j].second;
+    }
+    long double ar = 0;
+    int k = ni - 1;
+    for (int j = 0; j < ni; j++)
+    {
+      ar += v[k].first * v[j].second - v[j].first * v[k].second;
+      k = j;
+    }
 
-
+    ar = abs(ar / 2.0);
+    ar /= 2;
+    var[i].first = ar;
+    var[i].second = i;
+  }
+  sort(var.begin(), var.end());
+  vector<int> ans(n);
+  for (int i = 0; i < n; i++)
+  {
+    ans[var[i].second] = i;
+  }
+  for (int i = 0; i < n; i++)
+  {
+    cout << ans[i] << " ";
+  }
+  cout << "\n";
 }
 
 int32_t main()
@@ -208,8 +241,6 @@ int32_t main()
 
   return 0;
 }
-
-
 
 /*
 
