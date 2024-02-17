@@ -194,13 +194,15 @@ void solution()
   int k, a, b;
   cin >> k >> a >> b;
 
-  if (abs(a - b) - 1 == k - (abs(b - a) + 1))
+  if ((abs(b - a) - 1) == (k - (abs(b - a) + 1)))
   {
     cout << 0 << endl;
     return;
   }
 
   cout << min(abs(b - a) - 1, k - abs(b - a) + 1) << endl;
+
+
 }
 
 int32_t main()
