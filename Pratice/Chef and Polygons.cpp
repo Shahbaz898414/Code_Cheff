@@ -190,50 +190,9 @@ ll solve(vector<vector<ll>> &v, ll i, ll last, vector<vector<ll>> &dp)
 void solution()
 {
 
-  ll n;
-  cin >> n;
-  ll grid[n][n], bot[n][n], right[n][n];
-  for (ll i = 0; i < n; i++)
-  {
-    for (ll j = 0; j < n; j++)
-    {
-      char x;
-      cin >> x;
-      if (x == '#')
-        grid[i][j] = 0;
-      else
-        grid[i][j] = 1;
-    }
-  }
-
-  for (ll i = 0; i < n; i++)
-    bot[n - 1][i] = grid[n - 1][i];
-  for (ll i = n - 2; i >= 0; i--)
-  {
-    for (ll j = 0; j < n; j++)
-    {
-      bot[i][j] = (bot[i + 1][j] & grid[i][j]);
-    }
-  }
-
-  for (ll i = 0; i < n; i++)
-    right[i][n - 1] = grid[i][n - 1];
-  for (ll i = 0; i < n; i++)
-  {
-    for (ll j = n - 2; j >= 0; j--)
-    {
-      right[i][j] = (right[i][j + 1] & grid[i][j]);
-    }
-  }
+ 
 
 
-  ll ans=0;
-    for(ll i=0;i<n;i++){
-        for(ll j=0;j<n;j++){
-            if(bot[i][j]&right[i][j]) ans++;
-         }
-    }
-    cout<<ans<<endl;
 }
 
 int32_t main()
@@ -249,3 +208,28 @@ int32_t main()
 
   return 0;
 }
+
+
+
+/*
+
+
+Chef has N simple polygons (non self intersecting polygons) in which no two of them intersect with each other. For any two polygons P1, P2, either P1 lies inside P2 or vice versa.
+
+Chef wants you to count number of polygons lying strictly inside each of the polygons.
+
+Input
+
+First line of the input contains an integer T denoting the number of test cases. First line of each test case contains a single integer N denoting the
+number of polygons.
+
+The description of N polygons is as follows:
+
+. The first line contains an integer M[i] denoting the number of vertices in the ith polygon
+. The second line contains Mi pairs of integers X[i][j], Y[i][j] representing coordinates of vertices of ith polygon in clockwise or counterclockwise order
+
+Output
+For each test case, output a single line containing N space-separated integers such that ith of them represents number of polygons lying inside the ith polygon.
+
+
+*/
