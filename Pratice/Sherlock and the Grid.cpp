@@ -190,9 +190,41 @@ ll solve(vector<vector<ll>> &v, ll i, ll last, vector<vector<ll>> &dp)
 void solution()
 {
 
-  
+  ll n;
+  cin >> n;
+  ll grid[n][n], bot[n][n], right[n][n];
+  for (ll i = 0; i < n; i++)
+  {
+    for (ll j = 0; j < n; j++)
+    {
+      char x;
+      cin >> x;
+      if (x == '#')
+        grid[i][j] = 0;
+      else
+        grid[i][j] = 1;
+    }
+  }
 
+  for (ll i = 0; i < n; i++)
+    bot[n - 1][i] = grid[n - 1][i];
+  for (ll i = n - 2; i >= 0; i--)
+  {
+    for (ll j = 0; j < n; j++)
+    {
+      bot[i][j] = (bot[i + 1][j] & grid[i][j]);
+    }
+  }
 
+  for (ll i = 0; i < n; i++)
+    right[i][n - 1] = grid[i][n - 1];
+  for (ll i = 0; i < n; i++)
+  {
+    for (ll j = n - 2; j >= 0; j--)
+    {
+      right[i][j] = (right[i][j + 1] & grid[i][j]);
+    }
+  }
 }
 
 int32_t main()
@@ -208,8 +240,3 @@ int32_t main()
 
   return 0;
 }
-
-
-
-
-
