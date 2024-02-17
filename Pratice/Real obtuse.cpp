@@ -189,40 +189,19 @@ ll solve(vector<vector<ll>> &v, ll i, ll last, vector<vector<ll>> &dp)
 
 void solution() {
 
-  int n;cin >> n;
+  // int k>>a>>b;
+  int k,a,b;cin>>k>>a>>b;
 
-  vector<int> in(n, 0);
-
-  for (auto &i : in) cin >> i;  
-
-  unordered_map<int, int> last;
-
-  for (int i = 0; i < n; ++i)
-    last[in[i]] = -1;
-  
-
-
-  ll ans = 0;
-
-
-  for (int i = 0; i < n; ++i)
-  {
-
-    ll start = max(i - in[i] + 1, last[in[i]] + 1);
-
-    ll end = min(i, n - in[i]);
-
-    last[in[i]] = i;
-
-    ll a = (end - start + 1);
-
-    if (a > 0) ans += a;
-
-
+  if(a>b){
+    swap(a,b);
   }
 
 
-  cout << ans << endl;
+
+
+
+
+
 
 
 }
