@@ -187,23 +187,28 @@ ll solve(vector<vector<ll>> &v, ll i, ll last, vector<vector<ll>> &dp)
   return dp[i][last] = max(take, noTake);
 }
 
-void solution()
-{
-
-  // int k>>a>>b;
+void solution() {
+  
   int k, a, b;
   cin >> k >> a >> b;
 
-  if ((abs(b - a) - 1) == (k - (abs(b - a) + 1)))
+
+
+  cout<<(abs(b - a) - 1 )<<" "<<(k - (abs(b - a) + 1))<<endl;
+
+  if (abs(b - a) - 1 == k - (abs(b - a) + 1))
   {
     cout << 0 << endl;
     return;
   }
 
-  cout << min(abs(b - a) - 1, k - abs(b - a) + 1) << endl;
+
+  cout << min(abs(b - a) - 1, k - (abs(b - a) + 1)) << endl;
 
 
 }
+
+
 
 int32_t main()
 {
