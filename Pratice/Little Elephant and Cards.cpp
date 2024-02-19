@@ -187,35 +187,94 @@ ll solve(vector<vector<ll>> &v, ll i, ll last, vector<vector<ll>> &dp)
   return dp[i][last] = max(take, noTake);
 }
 
-void solution()
-{
+// void solution()
+// {
 
- ll n;cin>>n;
+//   ll n;
+//   cin >> n;
 
- vector<ll> arr(n);
+//   vector<ll> arr(n);
 
- for (ll i = 0; i < n; i++)
- {
- 
-  cin>>arr[i];
- }
- 
- 
+//   for (ll i = 0; i < n; i++)
+//   {
 
+//     cin >> arr[i];
+//   }
 
 
-}
+// }
 
 int32_t main()
 {
 
-  ll t;
-  cin >> t;
+ 	// const int mod=1e9+7;
+	vector<vector<int>> dp(1001,vector<int>(1001));
+	for(int i=0;i<=1000;i++)
+	{
+	    dp[i][0]=1;
+	}
 
-  while (t--)
-  {
-    solution();
-  }
+  
+	for(int i=1;i<=1000;i++)
+	{
+	    for(int j=1;j<=i;j++)
+	    {
+	        dp[i][j]=(dp[i-1][j-1]+dp[i-1][j])%mod;
+	    }
+	}
+
+
+	int t;
+	cin>>t;
+	while(t--)
+	{
+	    int n;
+	    cin>>n;
+	    vector<int> v(n);
+	    for(int i=0;i<n;i++)
+	    {
+	        cin>>v[i];
+	    }
+	    int k=(n-1)/2;
+	    int ans=0;
+	    for(int i=0;i<=k;i++)
+	    {
+	        //cout<<dp[n][i]<<" ";
+	        ans=(ans+dp[n][i])%mod;
+	    }
+	    cout<<ans<<endl;
+	}
 
   return 0;
 }
+
+
+
+/*
+
+Little Elephant and Cards
+
+Little Elephant from the Zoo of Lviv likes cards. He has N cards, each of which has one of 1000 colors. The colors are numbered from 1 to 1000.
+
+Little Elephant and Big Hippo are playing the following game. At first Little Elephant takes some subset of cards, and Big Hippo takes the rest of them.
+Here, Little Elephant can choose to take all of the cards, or none of the cards.
+
+Then they play 1000 rounds: in round k (k = 1, 2, ... , 1000), they count the number of cards each has of the color k. Let Little Elephant has a cards of
+the color k, and Big Hippo has b cards of the color k. Then if a > b Little Elephant scores | a-b| points, otherwise Big Hippo scores | a-b| points in this
+round, where |x| denotes the absolute value of x.
+
+You are given the number of cards N and the array C - list of colors of all N cards. Find the number of subsets (among all 2N subsets) for which Little
+Elephant wins the game: that is, he gains more points than Big Hippo in total, if Little Elephant takes the subset at first. Since the answer can be large,
+print it modulo 1000000007 (10^9+7).
+
+Input
+
+First line of the input contains single integer T - the number of test cases. Then T test cases follow.
+
+First line of each test case contains single integer N. Second line contains N integers separated by space - the array C.
+
+Output
+For each test case, print the answer in one line.
+
+
+*/
