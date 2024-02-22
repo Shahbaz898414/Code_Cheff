@@ -205,7 +205,7 @@ int32_t main()
   fact[0] = 1;
   for (int i = 1; i < 1100; i++)
     fact[i] = fact[i - 1] * i % mod;
-  
+
   while (t--)
   {
     int n;
@@ -225,56 +225,3 @@ int32_t main()
 
   return 0;
 }
-
-
-
-
-
-
-
-
-
-/*
-
-
-#include<stdio.h>
-#include<stdlib.h>
-#include<math.h>
-#include<assert.h>
-#define REP(i,a,b) for(i=a;i<b;i++)
-#define rep(i,n) REP(i,0,n)
-
-#define M 1000000007
-
-int main(){
-  int T, N, C[1000];
-
-  int i, j, k;
-  static int comb[1100][1100];
-  int res;
-
-  
-  rep(i,1100) comb[i][0] = 1;
-  REP(j,1,1100) comb[0][j] = 0;
-  REP(i,1,1100) REP(j,1,1100) comb[i][j] = (comb[i-1][j-1] + comb[i-1][j])%M;
-
-  assert( scanf("%d",&T)==1 );
-  assert( 1<=T && T<=100 );
-  while(T--){
-    assert( scanf("%d",&N)==1 );
-    assert( 1<=N && N<=1000 );
-    rep(i,N) assert( scanf("%d",C+i)==1 ), assert( 1<=C[i] && C[i]<=1000 );
-
-    res = 0;
-    rep(i,(N+1)/2) res = (res + comb[N][i])%M;
-    printf("%d\n",res);
-  }
-
-  return 0;
-}
-SquareX Safe File Viewer
-✕
-
-
-
-*/
