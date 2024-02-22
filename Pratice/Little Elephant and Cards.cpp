@@ -174,116 +174,57 @@ bool cmp(pair<int, string> a, pair<int, string> b)
   return a.first > b.first;
 }
 
-ll solve(vector<vector<ll>> &v, ll i, ll last, vector<vector<ll>> &dp)
+ll fact[1100];
+
+ll power(ll a, ll b)
 {
-  if (i >= v.size())
-    return 0;
-  if (dp[i][last] != -1)
-    return dp[i][last];
-  ll take = 0;
-  if (v[i][0] >= last)
-    take = v[i][2] + solve(v, i, v[i][1], dp);
-  ll noTake = solve(v, i + 1, last, dp);
-  return dp[i][last] = max(take, noTake);
+  ll ans = 1;
+  a %= mod;
+  while (b > 0)
+  {
+    if (b % 2)
+      ans = ans * a % mod;
+    a = a * a % mod;
+    b /= 2;
+  }
+  return ans;
 }
 
-// void solution()
-// {
-
-//   ll n;
-//   cin >> n;
-
-//   vector<ll> arr(n);
-
-//   for (ll i = 0; i < n; i++)
-//   {
-
-//     cin >> arr[i];
-//   }
-
-
-// }
+ll nck(int n, int k)
+{
+  ll nans = fact[n];
+  ll kans = fact[n - k] * fact[k] % mod;
+  return nans * power(kans, mod - 2) % mod;
+}
 
 int32_t main()
 {
 
- 	// const int mod=1e9+7;
-	vector<vector<int>> dp(1001,vector<int>(1001));
-	for(int i=0;i<=1000;i++)
-	{
-	    dp[i][0]=1;
-	}
-
+  int t;
+  cin >> t;
+  fact[0] = 1;
+  for (int i = 1; i < 1100; i++)
+    fact[i] = fact[i - 1] * i % mod;
   
-	for(int i=1;i<=1000;i++)
-	{
-	    for(int j=1;j<=i;j++)
-	    {
-	        dp[i][j]=(dp[i-1][j-1]+dp[i-1][j])%mod;
-	    }
-	}
-
-
-	int t;
-	cin>>t;
-	while(t--)
-	{
-	    int n;
-	    cin>>n;
-	    vector<int> v(n);
-	    for(int i=0;i<n;i++)
-	    {
-	        cin>>v[i];
-	    }
-	    int k=(n-1)/2;
-	    int ans=0;
-	    for(int i=0;i<=k;i++)
-	    {
-	        //cout<<dp[n][i]<<" ";
-	        ans=(ans+dp[n][i])%mod;
-	    }
-	    cout<<ans<<endl;
-	}
+  while (t--)
+  {
+    int n;
+    cin >> n;
+    ll ans = 0;
+    for (int i = 0; i < n; i++)
+    {
+      int ai;
+      cin >> ai;
+    }
+    for (int i = (n / 2) + 1; i <= n; i++)
+    {
+      ans = (ans + nck(n, i)) % mod;
+    }
+    cout << ans << endl;
+  }
 
   return 0;
 }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 /*
 
