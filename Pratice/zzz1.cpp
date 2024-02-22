@@ -73,3 +73,23 @@ signed main()
 	}
 	return 0;
 }
+
+
+
+/*
+
+Let's notice that the condition that we can achieve arbitrarily large values means that we need to
+guarantee at least a+1 to our coins. At the very first win. In this case, we can repeat this strategy
+indefinitely.
+
+Also, let's notice that if we have lost a total of z before, then in the next round we need to bet y such
+that y . (k -1) > z, because otherwise the casino can give us a win. In this case, the condition of
+not losing more than x times in a row will disappear, and we will end up in the negative. Therefore, the
+tactic is not optimal.
+
+Therefore, the solution is as follows: we bet 1 at first, then we bet the minimum number such that the
+win covers our loss. And if we have enough to make such a bet for x + 1, then the casino must end
+up in the negative, otherwise we cannot win.
+
+
+*/
