@@ -230,31 +230,51 @@ int32_t main()
 
 
 
+
+
+
+
 /*
 
-Little Elephant and Cards
 
-Little Elephant from the Zoo of Lviv likes cards. He has N cards, each of which has one of 1000 colors. The colors are numbered from 1 to 1000.
+#include<stdio.h>
+#include<stdlib.h>
+#include<math.h>
+#include<assert.h>
+#define REP(i,a,b) for(i=a;i<b;i++)
+#define rep(i,n) REP(i,0,n)
 
-Little Elephant and Big Hippo are playing the following game. At first Little Elephant takes some subset of cards, and Big Hippo takes the rest of them.
-Here, Little Elephant can choose to take all of the cards, or none of the cards.
+#define M 1000000007
 
-Then they play 1000 rounds: in round k (k = 1, 2, ... , 1000), they count the number of cards each has of the color k. Let Little Elephant has a cards of
-the color k, and Big Hippo has b cards of the color k. Then if a > b Little Elephant scores | a-b| points, otherwise Big Hippo scores | a-b| points in this
-round, where |x| denotes the absolute value of x.
+int main(){
+  int T, N, C[1000];
 
-You are given the number of cards N and the array C - list of colors of all N cards. Find the number of subsets (among all 2N subsets) for which Little
-Elephant wins the game: that is, he gains more points than Big Hippo in total, if Little Elephant takes the subset at first. Since the answer can be large,
-print it modulo 1000000007 (10^9+7).
+  int i, j, k;
+  static int comb[1100][1100];
+  int res;
 
-Input
+  
+  rep(i,1100) comb[i][0] = 1;
+  REP(j,1,1100) comb[0][j] = 0;
+  REP(i,1,1100) REP(j,1,1100) comb[i][j] = (comb[i-1][j-1] + comb[i-1][j])%M;
 
-First line of the input contains single integer T - the number of test cases. Then T test cases follow.
+  assert( scanf("%d",&T)==1 );
+  assert( 1<=T && T<=100 );
+  while(T--){
+    assert( scanf("%d",&N)==1 );
+    assert( 1<=N && N<=1000 );
+    rep(i,N) assert( scanf("%d",C+i)==1 ), assert( 1<=C[i] && C[i]<=1000 );
 
-First line of each test case contains single integer N. Second line contains N integers separated by space - the array C.
+    res = 0;
+    rep(i,(N+1)/2) res = (res + comb[N][i])%M;
+    printf("%d\n",res);
+  }
 
-Output
-For each test case, print the answer in one line.
+  return 0;
+}
+SquareX Safe File Viewer
+✕
+
 
 
 */
