@@ -176,6 +176,8 @@ bool cmp(pair<int, string> a, pair<int, string> b)
 
 ll fact[1100];
 
+
+
 ll power(ll a, ll b)
 {
   ll ans = 1;
@@ -190,12 +192,16 @@ ll power(ll a, ll b)
   return ans;
 }
 
+
+
 ll nck(int n, int k)
 {
   ll nans = fact[n];
   ll kans = fact[n - k] * fact[k] % mod;
   return nans * power(kans, mod - 2) % mod;
 }
+
+
 
 int32_t main()
 {
@@ -206,8 +212,7 @@ int32_t main()
   for (int i = 1; i < 1100; i++)
     fact[i] = fact[i - 1] * i % mod;
 
-  while (t--)
-  {
+  while (t--) {
     int n;
     cin >> n;
     ll ans = 0;
@@ -216,10 +221,12 @@ int32_t main()
       int ai;
       cin >> ai;
     }
+
+
     for (int i = (n / 2) + 1; i <= n; i++)
-    {
+    
       ans = (ans + nck(n, i)) % mod;
-    }
+    
     cout << ans << endl;
   }
 
