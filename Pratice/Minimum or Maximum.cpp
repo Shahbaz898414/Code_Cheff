@@ -208,28 +208,46 @@ int32_t main()
 
   int t;
   cin >> t;
-  fact[0] = 1;
-  for (int i = 1; i < 1100; i++)
-    fact[i] = fact[i - 1] * i % mod;
-
+ 
   while (t--) {
 
-    int n;cin >> n;
+    ll n;cin >> n;
 
-    ll ans = 0;
+    ll a[n];
 
-    for (int i = 0; i < n; i++) {
+    for (ll i = 0; i < n; i++)
+    {
+      
+      cin>>a[i];
+    }
 
-      int ai;cin >> ai;
+     ll mi = a[0];
+	    ll mx = a[0];
+
+     int fl = 1;
+	    
+
+    for (int i = 1; i < n; i++)
+    {
+
+        mx=max(a[i],mx);
+        mi=min(a[i],mi);
+
+        if(a[i]!=mi and a[i]!=mx ){
+          fl=0;
+          break;
+        }
       
     }
 
-
-    for (int i = (n / 2) + 1; i <= n; i++) ans = (ans + nck(n, i)) % mod;
+    if(fl==1){
+      cout<<"YES"<<endl;
+    }else{
+      cout<<"NO"<<endl;
+    }
     
-
-
-    cout << ans << endl;
+    
+    
 
   }
 
