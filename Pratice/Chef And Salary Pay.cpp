@@ -206,6 +206,63 @@ int32_t main()
   while (t--)
   {
 
+     int X,Y;
+	      cin>>X>>Y;
+	      
+	      string S;
+	      cin>>S;
+	       
+	   
+	              int count = 0,coun = 0;
+	              
+	      for(int j=0;j<S.length();j++) {
+	          if(S[j] == '1') {
+	              count++;
+	          }
+	      }
+	                int m = 0;
+	           
+	                
+	         for(int j=0;j<S.length();j++) {
+	             if(S[j] == '1') {
+	                 coun++;
+	             }
+	             else if(S[j] == '0') {
+	                  m = max(coun,m);
+	                  coun = 0;
+	             }
+	         }
+	          
+	               int l=0,h=S.length()-1;
+	               
+	               while(l<h) {
+	                   int temp = S[l];
+	                   S[l] = S[h];
+	                   S[h] = temp;
+	               
+	                  l++;
+	                  h--;
+	              }     
+	               
+	                   int rount = 0;
+	                   
+               for(int j=0;j<S.length();j++) {
+                     if(S[j] == '1') {
+                         rount++;
+                     }
+                     else {
+                         break;
+                     }
+               }
+                  
+                  int n = 0;
+               
+                  n = max(n,rount);
+                  
+                  int k = max(m,n);
+                  
+	            cout<<(count*X)+(k*Y)<<endl;
+	            
     
   }
 
