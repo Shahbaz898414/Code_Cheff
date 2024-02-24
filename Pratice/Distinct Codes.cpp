@@ -206,39 +206,11 @@ int32_t main()
   while (t--)
   {
 
-    ll n;
-    cin >> n;
+   string s;cin>>s;
 
-    ll a[n];
+   ll n=s.size();
 
-    for (ll i = 0; i < n; i++)
-    {
-
-      cin >> a[i];
-    }
-
-    ll mi = a[0];
-    ll mx = a[0];
-
-    int fl = 1;
-
-    for (int i = 1; i < n; i++)
-    {
-
-      mx = max(a[i], mx);
-      mi = min(a[i], mi);
-
-      if (a[i] != mi and a[i] != mx)
-      {
-        fl = 0;
-        break;
-      }
-    }
-
-    if (fl == 1)
-      cout << "YES" << endl;
-    else
-      cout << "NO" << endl;
+   
     
   }
 
