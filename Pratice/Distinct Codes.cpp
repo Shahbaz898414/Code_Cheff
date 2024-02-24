@@ -206,12 +206,17 @@ int32_t main()
   while (t--)
   {
 
-   string s;cin>>s;
+    string s, st;
+    cin >> s;
+    set<string> sts;
+    for (int i = 0; i < s.length() - 1; i++)
+    {
+      st = s.substr(i, 2);
+      sts.insert(st);
 
-   ll n=s.size();
-
-   
+    }
     
+    cout << sts.size() << endl;
   }
 
   return 0;
