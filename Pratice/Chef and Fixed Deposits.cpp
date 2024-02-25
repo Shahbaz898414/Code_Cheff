@@ -205,11 +205,25 @@ int32_t main()
 
   while (t--)
   {
-
-   
-
-    
-  }
+    // it n, k;
+    // cin >> n >> k;
+    // it cnt = NULL, val = NULL;
+    // vector<it> V(n);
+    // f { cin >> ele; }
+    // sort(all(V), greater());
+    // loop(n)
+    // {
+    //   if (k > val)
+    //   {
+    //     val += V[i];
+    //     ++cnt;
+    //   }
+    // }
+    // if (val < k)
+    //   cout << "-1\n";
+    // els
+    //   cout << cnt << "\n";
+  }e
 
   return 0;
 }
