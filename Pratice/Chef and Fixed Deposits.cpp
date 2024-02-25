@@ -231,8 +231,7 @@ int32_t main()
 
 
 /*
-this implies that we cannot select all such elements);
-(this implies that we cannot select all such elements);
+
 
 Notice that elements with a value greater than k are not relevant to us. Let's divide the values into three categories:
 
@@ -242,11 +241,13 @@ Notice that elements with a value greater than k are not relevant to us. Let's d
 
 The answer will be NO if any of the following conditions are met:
 
-. the number of values of the first type is greater than
-. the number of values of the second type is greater than
+. the number of values of the first type is greater than k/2 (this implies that we cannot select all such elements);
+. the number of values of the second type is greater than k/2 (this implies that we cannot select all such elements);
 . the total number of values of all three types is less than k (this implies that some values do not occur in either of the arrays).
 
 Otherwise, the answer is YES.
 
+
+We classify elements into three categories based on their occurrence in arrays a and b. If any category exceeds k/2 elements or the total count is less than k, the answer is NO; otherwise, it's YES. This approach efficiently determines if we can select all relevant elements from the arrays. 
 
 */
