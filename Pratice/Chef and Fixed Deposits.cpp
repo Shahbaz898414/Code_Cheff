@@ -227,3 +227,26 @@ int32_t main()
 
   return 0;
 }
+
+
+
+/*
+this implies that we cannot select all such elements);
+(this implies that we cannot select all such elements);
+
+Notice that elements with a value greater than k are not relevant to us. Let's divide the values into three categories:
+
+1. Occurring only in array a;
+2. occurring only in array b;
+3. occurring in both arrays.
+
+The answer will be NO if any of the following conditions are met:
+
+. the number of values of the first type is greater than
+. the number of values of the second type is greater than
+. the total number of values of all three types is less than k (this implies that some values do not occur in either of the arrays).
+
+Otherwise, the answer is YES.
+
+
+*/
