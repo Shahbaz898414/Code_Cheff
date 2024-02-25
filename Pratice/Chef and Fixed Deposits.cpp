@@ -235,8 +235,13 @@ int32_t main()
 
 
 
-By ensuring a1 = 1, we establish a crucial base condition for sorting the array. We target the largest element ai and aim to position it at the array's end. If i = n, implying the largest element is already at the end, or if ai-1 < ai and ai > ai+1, indicating ai as the largest, we can perform
-an operation on index i to progressively move the largest element towards the end. Repeating this process until the largest element reaches the end, we then apply the same algorithm to the prefix of size n - 1, effectively sorting the array iteratively.🔄📈
+Greedy solution. Continue constructing b as small as possible.
+
+If a1 = 1, b1 =2. Else, b1=1.
+
+For i ≥ 2, if ai = bi-1 + 1, bị = bi-1 + 2. Else, bị = bi-1 + 1.
+
+bn calculated by this process is the answer.
 
 
 */
