@@ -233,6 +233,10 @@ int32_t main()
 /*
 
 
-By ensuring  ��� 1 = 1 a  1 ​  =1, we establish a crucial base condition for sorting the array. We target the largest element  ��� ��� a  i ​   and aim to position it at the array's end. If  ��� = ��� i=n, implying the largest element is already at the end, or if  ��� ��� − 1 < ��� ��� a  i−1 ​  <a  i ​   and  ��� ��� > ��� ��� + 1 a  i ​  >a  i+1 ​  , indicating  ��� ��� a  i ​   as the largest, we can perform an operation on index  ��� i to progressively move the largest element towards the end. Repeating this process until the largest element reaches the end, we then apply the same algorithm to the prefix of size  ��� − 1 n−1, effectively sorting the array iteratively. 🔄📈
+
+
+By ensuring a1 = 1, we establish a crucial base condition for sorting the array. We target the largest element ai and aim to position it at the array's end. If i = n, implying the largest element is already at the end, or if ai-1 < ai and ai > ai+1, indicating ai as the largest, we can perform
+an operation on index i to progressively move the largest element towards the end. Repeating this process until the largest element reaches the end, we then apply the same algorithm to the prefix of size n - 1, effectively sorting the array iteratively.🔄📈
+
 
 */
