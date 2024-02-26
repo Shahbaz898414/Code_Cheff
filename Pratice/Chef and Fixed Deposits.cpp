@@ -256,7 +256,18 @@ In the problem, we define the Manhattan distance between two points and observe 
 2) + 1, accounting for the cells A, B, and C. 🔄🚶‍♂️
 
 
+The problem discusses how a segment of equal characters in a string implies a minimum number of distinct values in the result. By applying a greedy algorithm, constructing an array from left to right using integers from O to the length of the longest segment, ensures a solution where adjacent elements follow the character comparison in the string. This approach reduces the problem to finding the longest contiguous subsegment of equal characters,simplifying the solution strategy.
 
+
+Based on the array a, form an array of pairs {temperature, day number} and sort it in ascending order
+of temperature. Also sort the array b in ascending order. Now, the values a[i]. first and b[i] are the
+predicted and real temperature on day a[i]. second.
+
+Indeed, consider the minimum temperatures b[1] and a[1]. first. The difference between them is
+t = |b[1] - a[1]. first|. If we consider the value |b[i] - a[1]. first| or |b[1] - a[i]. first| at
+i > 1, there will be at least t since a[1] ≤ a[i] and b[1] ≤ b[i].
+Since it is guaranteed that it is possible to rearrange the elements in the array b, and the elements
+b[1] and a[1]. first have the smallest difference, it is definitely not greater than k.
 
 
 */
