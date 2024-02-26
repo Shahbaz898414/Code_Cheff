@@ -190,12 +190,12 @@ ll power(ll a, ll b)
   return ans;
 }
 
-ll nck(int n, int k)
-{
-  ll nans = fact[n];
-  ll kans = fact[n - k] * fact[k] % mod;
-  return nans * power(kans, mod - 2) % mod;
-}
+// ll nck(int n, int k)
+// {
+//   ll nans = fact[n];
+//   ll kans = fact[n - k] * fact[k] % mod;
+//   return nans * power(kans, mod - 2) % mod;
+// }
 
 int32_t main()
 {
