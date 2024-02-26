@@ -231,43 +231,5 @@ int32_t main()
 /*
 
 
-Let d(P1, P2) be the Manhattan distance between points P1 = (x1,y1) and P2 =(x2, y2). Then d(P1, P2) = |x1 - x2| + |y1 - y2|.
-
-Note that if you are going from A to B (or to C) along the shortest path, the Manhattan distance will be decreasing with each move. So Bob and Carol can walk together as along as they find the next cell that is closer to both B and C.
-
-Now note that if they are in the bounding box of cells B and C then there are no such "next cell", since d(X,B) + d(X,C) is constant and equal to d(A, B) if X is in the bounding box. In other words, Bob and Carol can walk together until they reach some cell X inside the bounding box, where they split up.
-
-Finally, let's look at the total distance they will walk: from one side it's d(A, B) + d(A, C). But from the other side it's 2 . d(A,X)+d(X,B)+d(X,C).
-
-So,
-
-d(A,X)=d(A,B)+d(A,C)-(d(X,B)+d(X,C))/2
-
-But since d(X,B)+d(X,C)=d(B,C) whichever X is chosen we can calculate answer as
-(d(A,B)+d(A,C)-d(B,C)/2)+1
-
-where +1 is because we are talking about cells A, B and C and not just points.
-
-
-
-
-
-In the problem, we define the Manhattan distance between two points and observe that it decreases as we move from point A to B or C. Bob and Carol can walk together until they reach a cell inside the bounding box of B and C, where they split. The total distance they walk is the sum of distances from A to B and A to C, but also equal to twice the distance from A to X plus the distances from X to B and C. Therefore, we can calculate the answer as ((d(A,B) + d(A,C) - d(B,C)) /
-2) + 1, accounting for the cells A, B, and C. 🔄🚶‍♂️
-
-
-The problem discusses how a segment of equal characters in a string implies a minimum number of distinct values in the result. By applying a greedy algorithm, constructing an array from left to right using integers from O to the length of the longest segment, ensures a solution where adjacent elements follow the character comparison in the string. This approach reduces the problem to finding the longest contiguous subsegment of equal characters,simplifying the solution strategy.
-
-
-Based on the array a, form an array of pairs {temperature, day number} and sort it in ascending order
-of temperature. Also sort the array b in ascending order. Now, the values a[i]. first and b[i] are the
-predicted and real temperature on day a[i]. second.
-
-Indeed, consider the minimum temperatures b[1] and a[1]. first. The difference between them is
-t = |b[1] - a[1]. first|. If we consider the value |b[i] - a[1]. first| or |b[1] - a[i]. first| at
-i > 1, there will be at least t since a[1] ≤ a[i] and b[1] ≤ b[i].
-Since it is guaranteed that it is possible to rearrange the elements in the array b, and the elements
-b[1] and a[1]. first have the smallest difference, it is definitely not greater than k.
-
 
 */
