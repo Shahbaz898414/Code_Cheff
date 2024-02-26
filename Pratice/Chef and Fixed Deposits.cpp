@@ -232,13 +232,7 @@ int32_t main()
 
 
 
-Let d = a - b, the difference in masses of water in the vessels. Our goal is to make d equal to 0. Note that with one pouring, we can
-add any number from the range [-2 * c; 2*c] to d. Therefore, the answer to the problem will be [|d|/2*c].
 
-
-
-
-We define d as the difference between the masses of water in the vessels. The objective is to make d equal to 0. Pouring water can alter d by any value within the range of [−2*c,2*c]. Hence, the solution is  [|d|/2*c], representing the number of pourings required to achieve equilibrium.
 
 
 */
