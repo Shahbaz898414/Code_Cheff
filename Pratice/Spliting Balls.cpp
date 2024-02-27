@@ -69,9 +69,3 @@ int main()
 }
 
 
-
-/*
-
-First i have checked the first value is in its position or not if not then we have to make it correct so we need 1 operation if reset all are also in wrong position then also only 1 operation required.If previous values are in right position and then current value is in wrong position then we need 2 operation one for transposing previous submatrix and another for transposing the current submatrix.
-
-*/
