@@ -30,42 +30,40 @@ bool Check(int &t1, int &t2)
   return a[t1] * b[t2] > b[t1] * a[t2];
 }
 
+vector<ll> f(1000005, 0ll);
+
+void cmp_factorial()
+{
+  f[0] = f[1] = 1;
+  for (ll i = 2; i < 1000005; i++)
+  {
+    f[i] = (f[i - 1] * i) % MOD;
+  }
+}
+
 int main()
 {
-  int t;
+  ll t, n, i, j, k;
+  cmp_factorial();
   cin >> t;
   while (t--)
   {
-    int n, flag = 0, flag2 = 0, count = 0;
     cin >> n;
-    vector<vector<int>> v(n, vector<int>(n));
-    for (int i = 0; i < n; i++)
+    ll sum = 0ll;
+    for (i = 0; i < n; i++)
     {
-      for (int j = 0; j < n; j++)
-        cin >> v[i][j];
+      cin >> k;
+      sum = (sum + f[k]) % MOD;
     }
-    if (v[0][1] != 2)
-    {
-      flag = 1;
-      count++;
-    }
-    for (int i = 2; i < n; i++)
-    {
-      if (flag == 0 && i + 1 != v[0][i])
-      {
-        count += 2;
-        flag = 1;
-      }
-
-      if (i + 1 != v[0][i])
-        flag = 1;
-
-      else
-        flag = 0;
-    }
-    cout << count << endl;
+    cout << sum % MOD << "\n";
   }
   return 0;
 }
 
 
+
+/*
+
+Precomputing and storing the values of factorials till 10^6+5 values, to avoid recomputation for every a[i].This comes under memoization technique of DP.
+
+*/
