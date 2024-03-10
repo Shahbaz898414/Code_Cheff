@@ -21,6 +21,8 @@ int main()
 
 
             int p1 = 0; int p2 = n/2+1;
+
+
             string temp1 = "";
             string temp2 = "";
             
@@ -43,8 +45,9 @@ int main()
             if (temp1==s.substr(n/2+1, n/2) or temp2==s.substr(0,n/2)) {
                 cout << "YES"<< endl;
             }
-            else 
-               cout << "NO" << endl;
+            else  cout << "NO" << endl;
+
+            
         }
 
 
