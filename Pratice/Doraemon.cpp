@@ -1,6 +1,8 @@
 #include <bits/stdc++.h>
 using namespace std;
 
+#define ll long long
+
 const int mod = 1000000007;
 const int MOD = 1000000007;
 
@@ -20,17 +22,7 @@ int main()
   int t;cin >> t;
 
   while (t--) {
-     int n;
-        cin >> n;
-        long  ans = 0;
-        long cur = 0;
-        for(int i = 0;i<n;i++) {
-            int ai;
-            cin >> ai;
-            cur+=ai;
-            ans+=abs(cur);
-        }
-        cout << ans << endl;
+     ll n,m;cin>>n>>m;
     
   }
 
