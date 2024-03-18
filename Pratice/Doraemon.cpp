@@ -27,22 +27,30 @@ int main()
     }
 
     ll ans = 0;
-    for (ll i = 0; i < n; i++)
-    {
-      for (ll j = 0; j < m; j++)
-      {
+
+
+    for (ll i = 0; i < n; i++) {
+      for (ll j = 0; j < m; j++) {
+
+
         int range = min(min(m - j - 1, j), min(n - i - 1, i));
-        for (int k = 0; k <= range; k++)
-        {
-          if (v[i - k][j] == v[i + k][j] and v[i][j - k] == v[i][j + k])
-          {
+
+
+        for (int k = 0; k <= range; k++) {
+
+
+          if (v[i - k][j] == v[i + k][j] and v[i][j - k] == v[i][j + k]) {
+
             ans++;
-          }
-          else
-            break;
+
+          } else break;
+
+
         }
       }
     }
+
+    cout << ans << endl;
 
     
   }
