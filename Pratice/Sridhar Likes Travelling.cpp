@@ -26,9 +26,13 @@ int main()
             string a,b,c;
             cin>>a>>b>>c;
             child[a] = b;
+
             st.insert(b);
+
             cost[a] = c;
+
             // cout<<c<<" ";
+
             int x = 0,j=0;
             while( j<c.size() - 1 )
             {
@@ -39,6 +43,8 @@ int main()
             ans+=x;
         }
         
+
+
         for(auto x: child)
         {
             if(st.find(x.first)==st.end())
@@ -46,6 +52,8 @@ int main()
                 par = x.first;
             }
         }
+
+
         
         while(child.find(par)!=child.end())
         {
@@ -53,7 +61,7 @@ int main()
             par = child[par];
         }
         
-        cout<<ans<<"$"<<"\n";
+        cout<<ans<<"0"<<"\n";
     
     
     
