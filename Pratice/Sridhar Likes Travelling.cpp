@@ -60,6 +60,8 @@ int main()
             cout<<par<<" "<<child[par]<<" "<<cost[par]<<"\n";
             par = child[par];
         }
+
+        cout<<endl;
         
         cout<<ans<<"0"<<"\n";
     
