@@ -120,4 +120,32 @@ mentors.
 
 IMPORTANT: We will be rejecting any candidate that doesn't follow this process and spams other people in the team. The only email
 address that will consider your application is the one displayed above in the second and third bullet point.
+
+
+
+Subject: Application for Google Summer of Code 2024 - Front-end and Adaptive Question Rendering
+
+//////////////////////////////////////////////////////////////////
+
+Dear Sir,
+
+I hope this email finds you well. I am writing to express my interest in participating in the Google Summer of Code 2024 program, specifically for the project focusing on the development of an Front-end and Adaptive Question Rendering for your clinical trial matching application.
+
+As a Bachelor of Electronics and Computer Science student at Shree LR Tiwari College, Mumbai University, I have gained comprehensive knowledge and hands-on experience in software development, particularly in ReactJS and JavaScript. Additionally, my previous internships as a Full Stack Developer at Pyramid Developers and as a MERN Intern at NULL CLASS have equipped me with valuable skills in web development, including ReactJS, Node.js, Express.js, and MongoDB.
+
+I am particularly drawn to this project because of its potential to significantly improve the usability and accessibility of your clinical trial matching application, especially for users with limited medical knowledge. The opportunity to integrate an intelligent algorithm for prioritizing questions and developing an adaptive web form aligns perfectly with my interests and expertise.
+
+Attached to this email, you will find my resume, which provides detailed information about my educational background, technical skills, and professional experiences. I believe that my skills and experiences make me well-suited to contribute effectively to this project.
+
+I am eager to collaborate with your team and contribute to the success of this project. Please let me know if there are any further steps I need to take as part of the application process. Thank you for considering my application, and I look forward to the possibility of working together.
+
+Warm regards,
+
+Shahbaz Khan
+7710968756
+
+Implemented user profile creation functionality, allowing users to personalize their profiles.
+Enabled users to upload their images and personal information, enhancing user engagement and customization options.
+
+
 */
