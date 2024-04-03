@@ -61,7 +61,7 @@ int main()
             par = child[par];
         }
 
-        cout<<endl;
+        // cout<<endl;
         
         cout<<ans<<"0"<<"\n";
     
@@ -73,3 +73,51 @@ int main()
   return 0;
 }
 
+
+
+/*
+
+
+
+Implemented user authentication and authorization functionalities, including sign-in, sign-up, and email confirmation with OTP.
+
+Developed an image processing feature to remove objects from images, enhancing image editing capabilities. 
+
+
+Created functionality for image restoration, allowing users to
+revert edited images to their original state. 
+
+Implemented object recoloring feature, enabling users to change the color of specific objects within images.
+
+Developed generative fill functionality for images, offering users the ability to automatically fill areas of an image with generated content.
+
+Implemented background removal feature, allowing users to easily remove backgrounds from images, enhancing image editing capabilities and versatility.
+
+//////////////////////////////////////////////////////////
+Developed sign-in, sign-up, and email confirmation with OTP capabilities.
+
+Enhanced image editing capabilities by implementing object removal functionality and enabling users to revert edited images to their original state.
+
+Empowered users to modify colors of specific objects within images.
+Developed generative fill functionality for images, providing users with automatic area filling using generated content.
+
+Enhanced image editing capabilities and versatility by enabling users to easily remove backgrounds from images.
+
+/////////////////////////////////////////////////////////////////////
+
+GSoC
+
+Proposal
+
+How to Apply
+
+1. Review the projects here.
+2. Please send a brief resume to lgraglia@uchicago.edu
+3. Please send a paragraph describing your interest, and why you want to participate to lgraglia@uchicago.edu.
+4. Submit the application/proposal including all requirements at the Google Summer of Code Site.
+5. A selection among the applicants will have a Zoom (or a phone call depending on the prefrence of the contributor) with one of the
+mentors.
+
+IMPORTANT: We will be rejecting any candidate that doesn't follow this process and spams other people in the team. The only email
+address that will consider your application is the one displayed above in the second and third bullet point.
+*/
