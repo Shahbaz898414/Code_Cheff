@@ -60,4 +60,7 @@ int main()
 
 shahbaz khan
 
+12
+23
+
 */
