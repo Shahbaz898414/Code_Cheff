@@ -6,6 +6,15 @@ using namespace std;
 const int mod = 1000000007;
 const int MOD = 1000000007;
 
+struct TreeNode {
+      int val;
+      TreeNode *left;
+      TreeNode *right;
+      TreeNode() : val(0), left(nullptr), right(nullptr) {}
+      TreeNode(int x) : val(x), left(nullptr), right(nullptr) {}
+      TreeNode(int x, TreeNode *left, TreeNode *right) : val(x), left(left), right(right) {}
+};
+
 
 
 
@@ -55,6 +64,9 @@ int main()
   return 0;
 }
 
+
+
+
 /*
 
 
@@ -76,6 +88,41 @@ Shahbaz Khan
 
 Resume Link:
 https://drive.google.com/file/d/1KtvsYeT5PYaj_gk8VTDHismkNZzeOu6z/view?usp=sharing
+
+
+
+
+////////////////////////////////////////////////////////////////////////////
+
+class Solution:
+def isValidBST(self,
+
+def valid(node, left, right):
+if not node:
+return True
+if not (node.val < right and node.val > left):
+return False
+
+return (valid(node.left, left, node.val) and
+valid(node.right, node.val, right))
+return valid(root, float("-inf"), float("inf"))
+
+root: TreeNode) -> bool:
+////////////////////////////////////
+
+class Solution:
+    def isValidBST(self, root: TreeNode) -> bool:
+
+        def valid(node, left, right):
+            if not node:
+                return True
+            if not (node.val < right and node.val > left):
+                return False
+
+            return (valid(node.left, left, node.val) and valid(node.right, node.val, right))
+        return valid(root, float("-inf"), float("inf"))
+
+
 
 
 */
