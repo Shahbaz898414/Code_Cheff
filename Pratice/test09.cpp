@@ -35,16 +35,16 @@ int main() {
     root->right->left = new TreeNode(15);
     root->right->right = new TreeNode(7);
 
-    // Create an instance of the Solution class
+    
     Solution solution;
 
-    // Calculate the maximum depth of the binary tree
+    
     int depth = solution.maxDepth(root);
 
-    // Display the maximum depth of the binary tree
+  
     cout << "Maximum Depth of Binary Tree: " << depth << endl;
 
-    // Free the memory allocated for the binary tree
+
     delete root->left;
     delete root->right->left;
     delete root->right->right;
