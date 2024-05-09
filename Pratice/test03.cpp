@@ -1,124 +1,72 @@
-<<<<<<< HEAD
-#include <bits/stdc++.h>
-#define ll long long
+#include <iostream>
+#include <vector>
+
 using namespace std;
 
-void qwe()
-{
-  ll w;
-  cin >> w;
-  ll v[w];
-  map<ll, ll> qw, tr;
-  for (ll i = 0; i < w; i++)
-  {
-    cin >> v[i];
-    qw[v[i]]++;
-  }
-  ll we[w + 1];
-  for (ll i = 0; i <= w; i++)
-    we[i] = 0;
-  for (ll i = w - 1; i >= 0; i--)
-  {
-    we[i] = we[i + 1];
-    we[i] += qw[v[i] + 1];
-    we[i] -= tr[v[i] - 1];
-    qw[v[i]]--;
-    tr[v[i]]++;
-  }
-  ll an = 0;
-  for (ll i = 0; i < w; i++)
-  {
-    an = max(an, we[i]);
-  }
-  cout << an << "\n";
-}
-signed main()
-{
+class Guest {
+private:
+    int age;
+public:
+    Guest(int _age) : age(_age) {}
 
-  ll t = 1;
-  cin >> t;
-  while (t--) {
-    ll n,m;cin>>n>>m;
+    int getAge() const {
+        return age;
+    }
+};
 
-    int cp1=0,cp2=0;
-   for (int i = 0; i < n; i++)
-   {
-    /* code */
-    ll x,y;cin>>x>>y;
-    if(x==m) cp1++;
+class Ticket {
+private:
+    vector<Guest> guests;
+    int totalPrice;
+public:
+    Ticket() : totalPrice(0) {}
 
-    if(y==m) cp2++;
-   }
+    void addGuest(const Guest& guest) {
+        guests.push_back(guest);
+        calculatePrice(guest.getAge());
+    }
 
-   if(cp1>0 and cp2>0)  {
-    cout<<"YES"<<endl;
-    continue;
-   }
+    void calculatePrice(int age) {
+        if (age <= 2)
+            totalPrice += 0;
+        else if (age < 18)
+            totalPrice += 100;
+        else if (age < 60)
+            totalPrice += 500;
+        else
+            totalPrice += 300;
+    }
 
-   cout<<"NO"<<endl;
-   
-  }
-  return 0;
-=======
-#include <bits/stdc++.h>
-#define ll long long
-using namespace std;
+    void displayTicket() const {
+        cout << "Ticket Details:" << endl;
+        for (size_t i = 0; i < guests.size(); ++i) {
+            cout << "Guest " << i+1 << " (age: " << guests[i].getAge() << ")" << endl;
+        }
+        cout << "Total Price: INR " << totalPrice << endl;
+    }
+};
 
-void qwe()
-{
-  ll w;
-  cin >> w;
-  ll v[w];
-  map<ll, ll> qw, tr;
-  for (ll i = 0; i < w; i++)
-  {
-    cin >> v[i];
-    qw[v[i]]++;
-  }
-  ll we[w + 1];
-  for (ll i = 0; i <= w; i++)
-    we[i] = 0;
-  for (ll i = w - 1; i >= 0; i--)
-  {
-    we[i] = we[i + 1];
-    we[i] += qw[v[i] + 1];
-    we[i] -= tr[v[i] - 1];
-    qw[v[i]]--;
-    tr[v[i]]++;
-  }
-  ll an = 0;
-  for (ll i = 0; i < w; i++)
-  {
-    an = max(an, we[i]);
-  }
-  cout << an << "\n";
-}
-signed main()
-{
+int main() {
+    Ticket ticket;
 
-  ll t = 1;
-  cin >> t;
-  while (t--) {
-    ll n,m;cin>>n>>m;
+    
+    int numGuests;
+    
+    cin >> numGuests;
 
-    int cp1=0,cp2=0;
-   for (int i = 0; i < n; i++)
-   {
-    /* code */
-    ll x,y;cin>>x>>y;
-    if(x==m) cp1++;
+    for (int i = 0; i < numGuests; ++i) {
+        int age;
+        
+        cin >> age;
+        ticket.addGuest(Guest(age));
+    }
 
-    if(y==m) cp2++;
-   }
+    ticket.displayTicket();
 
-   if(cp1>0 and cp2>0)  {
-    cout<<"YES"<<endl;
-    continue;
-   }
+    // Simulating security personnel validating the ticket
+    // Displaying guest details for verification
+    cout << "\nSecurity Check:\n";
+    ticket.displayTicket();
 
-   cout<<"NO"<<endl;
-   
-  }
-  return 0;
->>>>>>> origin/main
+    return 0;
 }

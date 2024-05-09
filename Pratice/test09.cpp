@@ -1,55 +1,69 @@
 #include <iostream>
-#include <algorithm>
-
+#include<vector>
 using namespace std;
 
-struct TreeNode {
-    int val;
-    TreeNode *left;
-    TreeNode *right;
-    TreeNode() : val(0), left(nullptr), right(nullptr) {}
-    TreeNode(int x) : val(x), left(nullptr), right(nullptr) {}
-    TreeNode(int x, TreeNode *left, TreeNode *right) : val(x), left(left), right(right) {}
-};
+// the time complexity of the given code is O(n), and the space complexity is also O(n).
 
-class Solution {
-public:
-    int maxDepth(TreeNode* root) {
-         if(root==NULL) return 0;
-
-         int l=maxDepth(root->left);
-         int r=maxDepth(root->right);
+// possible test cases
+// 1) -1 -2 -3 -4 
+// 2) 2 3 4 5 6
+// 3) -2 2 -3 2 -4 -5 
+// 4) -2 5 1 2 3 -3  4 7
+// 5) -2 4 -3 5 
 
 
-         return max(l,r)+1;
+int main()
+{
+
+    int n;
+    cin >> n;
+
+
+
+    vector<int> pos, neg;
+    for (int i = 0; i < n; i++)
+    {
+       
+        int x;cin>>x;
+        if (x >= 0)
+            pos.push_back(x);
+        else
+            neg.push_back(x);
+       
     }
-};
+
+    int i=0;
+    int j=0,cnt=0;
+    while (i <pos.size() and j< neg.size() )
+    {
+        if(cnt%2==0){
+            cout<<pos[i]<<" ";
+            cnt++;
+            i++;
+        }else{
+            cout<<neg[j]<<" ";
+            j++;
+            cnt++;
+        }
+        
+    }
 
 
+    while(i<pos.size()){
+        cout<<pos[i]<<" ";
+        i++;
+    }
 
-int main() {
-    // Construct the binary tree
-    TreeNode* root = new TreeNode(3);
-    root->left = new TreeNode(9);
-    root->right = new TreeNode(20);
-    root->right->left = new TreeNode(15);
-    root->right->right = new TreeNode(7);
 
-    
-    Solution solution;
+    while(j<neg.size()){
+        cout<<neg[j]<<" ";
+        j++;
+    }
 
-    
-    int depth = solution.maxDepth(root);
 
   
-    cout << "Maximum Depth of Binary Tree: " << depth << endl;
 
-
-    delete root->left;
-    delete root->right->left;
-    delete root->right->right;
-    delete root->right;
-    delete root;
 
     return 0;
 }
+
