@@ -63,8 +63,7 @@ int main() {
 
     ticket.displayTicket();
 
-    // Simulating security personnel validating the ticket
-    // Displaying guest details for verification
+
     cout << "\nSecurity Check:\n";
     ticket.displayTicket();
 
