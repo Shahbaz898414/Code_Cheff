@@ -242,10 +242,11 @@ int32_t main()
     for (ll i = 1; i <=n; i++)
     {
       /* code */
-      if(i>=1 and i<=9) r+=i;
+      if(i>=1 and i<=9) r+=0;
       else
-      r+=(i%10+i/10);
+      r+=(i%10+i/10),cout<<(i/10)<<(i%10)<<" ";
     }
+    cout<<endl;
 
     cout<<r<<endl;
     
