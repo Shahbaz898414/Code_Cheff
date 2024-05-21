@@ -260,12 +260,47 @@ int32_t main()
   }
 }
 
-// 21
-// 90
 /*
 
-C++,competitive programming,coding interviews,leetcode,codeforces,cses problemsets,CSES problemset,cses problems,CSES problemset algorithms,CSES algorithms,cses problem set review,cses problem set,CSES Coin Combinations I,Coin Combinations I CSES solution,CSES Coin Combinations I,cses Coin Combinations I,Coin Combinations I cses solution,CSES,cses - Coin Combinations I,cses introductory problems,CSES review,cses problem sets
-//////////////////////
+I want to become an MLH Fellow for several reasons, all of which are rooted in my passion for technology, my desire to learn and grow, and my commitment to making a positive impact in the world.
+
+First and foremost, I want to become an MLH Fellow because I am deeply passionate about technology and its potential to change the world for the better. As a computer science student, I have always been fascinated by the power of technology to solve complex problems, enhance efficiency, and improve people's lives. I am particularly drawn to the field of machine learning and artificial intelligence, as I believe these technologies have the potential to revolutionize various industries, from healthcare to finance to transportation. Becoming an MLH Fellow would provide me with the opportunity to immerse myself in these cutting-edge technologies and gain valuable hands-on experience that will help me develop the skills and knowledge needed to make a meaningful impact in the field.
+
+Additionally, I want to become an MLH Fellow because I am eager to learn and grow as a technologist. The MLH Fellowship offers a unique learning experience that combines real-world project work with mentorship, workshops, and networking opportunities. By participating in the Fellowship, I would have the chance to work on impactful projects, collaborate with a diverse group of talented individuals, and receive guidance and support from experienced mentors. This immersive learning environment would enable me to deepen my understanding of machine learning and AI, expand my technical skill set, and gain valuable insights into the latest trends and best practices in the field.
+
+Furthermore, I want to become an MLH Fellow because I am committed to using my technical skills to create positive change in the world. Throughout my academic and professional journey, I have always strived to leverage technology for social good, whether through volunteering for tech-for-good organizations, participating in hackathons focused on creating solutions for social and environmental challenges, or developing projects that address pressing societal issues. As an MLH Fellow, I would have the opportunity to work on projects that have the potential to make a real difference, whether it's through advancing healthcare technology, improving accessibility and inclusivity, or addressing environmental sustainability. I am passionate about using technology as a force for good, and I believe that the MLH Fellowship would provide me with the platform and resources to turn that passion into tangible impact.
+
+In conclusion, I want to become an MLH Fellow because of my unwavering passion for technology, my eagerness to learn and grow as a technologist, and my commitment to using my skills for social good. The MLH Fellowship offers an unparalleled opportunity to immerse myself in the world of machine learning and AI, gain valuable experience and mentorship, and work on meaningful projects that have the potential to make a positive impact. I am excited about the prospect of joining the MLH Fellowship and am confident that it would be a transformative and enriching experience that will further fuel my passion for technology and empower me to contribute to a better, more innovative future.
+
+
+///////////////////////////////////////////////////
+
+I want to become an MLH Fellow because I love technology, want to keep learning and growing, and am committed to making a positive impact in the world.
+
+First, I am passionate about technology and its ability to make the world better. As a computer science student, I am fascinated by how technology can solve problems and improve lives. I am especially interested in machine learning and AI because they can transform industries like healthcare, finance, and transportation. Being an MLH Fellow would let me dive into these technologies, gain practical experience, and build the skills needed to make a real difference.
+
+Additionally, I'm eager to learn and grow in technology. The MLH Fellowship offers real-world projects, mentorship, workshops, and networking. It would let me work on impactful projects, collaborate with talented people, and get guidance from experienced mentors. This experience would help me deepen my knowledge of machine learning and AI, improve my technical skills, and stay updated on the latest trends and best practices.
+
+Furthermore, I am dedicated to using my tech skills to create positive change. Throughout my journey, I've worked on tech-for-good projects, participated in hackathons for social and environmental solutions, and developed projects addressing societal issues. As an MLH Fellow, I would have the chance to work on impactful projects, like advancing healthcare technology, improving accessibility, or promoting environmental sustainability. I'm passionate about using technology for good, and the MLH Fellowship would give me the platform and resources to make a real difference.
+
+
+In conclusion, I love technology, want to keep learning and growing, and am committed to using my skills for social good. The MLH Fellowship offers a unique chance to dive into machine learning and AI, gain experience and mentorship, and work on impactful projects. I'm excited about the opportunity and believe it will be a transformative experience that will boost my passion for technology and help me contribute to a better future.
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
