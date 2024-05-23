@@ -320,5 +320,35 @@ C++,competitive programming,coding interviews,leetcode,codeforces,cses problemse
 C++,competitive programming,coding interviews,leetcode,codeforces,cses problemsets,CSES problemset,cses problems,CSES problemset algorithms,CSES algorithms,cses problem set review,cses problem set,CSES Removing Digits,Removing Digits CSES solution,cses Removing Digits,Removing Digits cses solution,CSES,cses - Removing Digits,cses introductory problems,CSES review,cses problem sets
 
 
+Explain silicon as a substrate material for mems device?
+
+PMMA ,poly propylene, polyuinyl Chloxide,
+acrylic & other termoplasthis are
+used in Sheet Form as a substrate
+For micromachining.
+Heating above the glass transition
+tempeature enables molding or
+embossing under pressure from
+master for some of these materials
+Layers Of poly carbonale & acrylic
+wit channels alrealy formed in their
+surfaces by n00ot embossing or conventinal
+machining , bave been thermally
+bonded together for micro fluidic
+system.
+
+//////////////
+
+Methods to make polymers electrically conductive.
+
+Doping witb conductive Fillers.
+Chemical functionalization.
+Condutive Coatings
+In-situ poly merization.
+Intrinsically conductive Polymers 
+Carbon Nanotube Integration.
+Graphene incorporation
+Metallic Nanoparticle Addition.
+
 
 */
