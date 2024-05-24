@@ -251,9 +251,9 @@ int32_t main()
     cout<<r<<endl;
     
     sum = (n / 9) * 45;
-    // cout<<sum<<" ";
+   
     int rem = n % 9;
-    // cout<<rem<<" ";
+    
     sum += (rem + 1) * rem / 2;
     cout << sum << endl;
 
