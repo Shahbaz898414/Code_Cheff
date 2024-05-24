@@ -238,24 +238,14 @@ int32_t main()
     ll n;
     cin >> n;
 
-    ll sum = 0,r=0;
-    for (ll i = 1; i <=n; i++)
+    vector<ll>  ar(n);
+
+    for (ll i = 0; i < n; i++)
     {
       /* code */
-      if(i>=1 and i<=9) r+=0;
-      else
-      r+=(i%10+i/10),cout<<(i/10)<<(i%10)<<" ";
+      cin>>ar[i];
     }
-    cout<<endl;
-
-    cout<<r<<endl;
     
-    sum = (n / 9) * 45;
-    // cout<<sum<<" ";
-    int rem = n % 9;
-    // cout<<rem<<" ";
-    sum += (rem + 1) * rem / 2;
-    cout << sum << endl;
 
   }
 }
