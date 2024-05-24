@@ -349,6 +349,41 @@ Intrinsically conductive Polymers
 Carbon Nanotube Integration.
 Graphene incorporation
 Metallic Nanoparticle Addition.
+/////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+
+
+
+
+A voltage applied to a costilever creates a patential
+between the free end and underlying ground lines.
+
+The cantliver is pulled down with The structure stopping
+when a separate gold-alloy contact on the captilever mates
+with contact below, bridging the gap belween the contacds
+Coplanar warequides maintain microware-signal integrit
+IN the MicroAssembly switch a proprietary gold alloy
+is employed. Special attention is paid d the machanics 
+of the swith  closure.
+for example, a relatively high closing force aids in keeping
+the electrical resistance low over the life of she switch
+The use of integrated packeaging gives this device a
+Level of completeness not found in many prototypes
+and produces a Smaller size and lowey bill- of -materials
+Cost than if a separate hermetic package were used.
+The gap between the cantilever and the underlying
+electrodes must he sufficiently large that the isolation
+is high when open.
+
+//////////////////////////
+
+Interviewer: What's your name?
+
+I𝐭𝐚𝐜𝐡𝐢 𝐮𝐜𝐡𝐢𝐡𝐚: Hired.
+
+Interviewer: You're Hired?
+
+I𝐭𝐚𝐜𝐡𝐢 𝐮𝐜𝐡𝐢𝐡𝐚: Thank you, sir.
 
 
 */
