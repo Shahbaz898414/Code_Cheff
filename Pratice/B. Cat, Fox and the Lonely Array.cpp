@@ -233,19 +233,21 @@ int32_t main()
   ll t;
   cin >> t;
 
-  while (t--)
-  {
-    ll n;
-    cin >> n;
+  while (t--) {
 
+    ll n;cin >> n;
     vector<ll>  ar(n);
 
-    for (ll i = 0; i < n; i++)
-    {
-      /* code */
+    for (ll i = 0; i < n; i++) {
       cin>>ar[i];
     }
     
 
   }
 }
+
+
+/*
+
+
+*/
