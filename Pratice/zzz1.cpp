@@ -197,3 +197,31 @@ signed main()
 	}
 	return 0;
 }
+
+
+/*
+
+
+
+
+
+I want to come to be an MLH Fellow because I'm captivated with technology and innovation, and I see this fellowship as an amazing opportunity to examine and grow within a colourful community of like-minded people. My experience in full-stack development, specifically with React Native, Flutter, and the MERN stack, has prepared me to make contributions efficiently to collaborative projects. Additionally, my position as a mentor and content writer on YouTube has honed my ability to simplify complicated principles and share know-how, which I consider aligns properly with the values of the MLH community.
+
+
+Throughout my academic and professional journey, I have consistently sought opportunities to challenge myself and expand my skill set. As a Full Stack Developer Intern at Pyramid Developers, I improved development workflows and optimized code, reducing file sizes and development time. My experience as a MERN Intern at NULL CLASS further solidified my foundation in web development, where I created RESTful web services and reusable React components.
+
+In addition to my internships, I have mentored students at TLE, helping them understand complex algorithms and improve their competitive programming skills. My self-employed venture on YouTube, where I created over 130 educational videos on various programming languages and technologies, demonstrates my commitment to sharing knowledge and fostering a learning community.
+
+I have worked on diverse projects such as an Online Shopping Website, a Projects Fair platform, and the Halo Chat App, which have provided me with a comprehensive understanding of full-stack development. My proficiency in languages like C++, JavaScript, and Python, along with technologies like React, Node.js, and Docker, positions me well to contribute to the MLH Fellowship.
+
+Skill Development: I need to decorate my technical talents and gain palms-on enjoy with actual-world tasks, learning from skilled mentors and friends.
+Community Engagement: I'm excited to enroll in a network of passionate and like-minded folks that are obsessed with era and innovation, and I consider being an MLH Fellow will provide me with treasured networking possibilities.
+Project Impact: I aspire to paintings on impactful initiatives which could make a difference, and I accept as true with the MLH Fellowship will supply me the platform to contribute to significant open-supply tasks and collaborate with others to create solutions which have real-international programs.
+Professional Growth: I see the MLH Fellowship as a stepping stone to my expert increase, providing me with the revel in and self belief had to excel in my profession as a software developer.
+
+
+
+Being an MLH Fellow could permit me to work on impactful projects, gain publicity to new technology, and receive mentorship from enterprise experts. I'm eager to make contributions my abilities to the MLH community whilst additionally mastering from others, in the end helping me to grow as a developer and hassle solver. This fellowship represents a unique hazard to be a part of a supportive and modern environment, and I'm enthusiastic about the possibility of contributing to and growing with MLH.
+
+
+*/
