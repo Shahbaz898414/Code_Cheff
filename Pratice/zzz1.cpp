@@ -1,25 +1,199 @@
 #include <bits/stdc++.h>
 using namespace std;
 
-int main()
+#define ll long long
+#define int long long
+
+class SegmentTree
+{
+public:
+	SegmentTree(int n) : n(n)
+	{
+		tree.assign(4 * n, 0);
+	}
+
+	void build(const vector<int> &healths, int v, int tl, int tr)
+	{
+		if (tl == tr)
+		{
+			tree[v] = healths[tl];
+		}
+		else
+		{
+			int tm = (tl + tr) / 2;
+			build(healths, v * 2, tl, tm);
+			build(healths, v * 2 + 1, tm + 1, tr);
+			tree[v] = tree[v * 2] + tree[v * 2 + 1];
+		}
+	}
+
+	int sum(int v, int tl, int tr, int l, int r)
+	{
+		if (l > r)
+		{
+			return 0;
+		}
+		if (l == tl && r == tr)
+		{
+			return tree[v];
+		}
+		int tm = (tl + tr) / 2;
+		return sum(v * 2, tl, tm, l, min(r, tm)) + sum(v * 2 + 1, tm + 1, tr, max(l, tm + 1), r);
+	}
+
+	void update(int v, int tl, int tr, int pos, int new_val)
+	{
+		if (tl == tr)
+		{
+			tree[v] = new_val;
+		}
+		else
+		{
+			int tm = (tl + tr) / 2;
+			if (pos <= tm)
+			{
+				update(v * 2, tl, tm, pos, new_val);
+			}
+			else
+			{
+				update(v * 2 + 1, tm + 1, tr, pos, new_val);
+			}
+			tree[v] = tree[v * 2] + tree[v * 2 + 1];
+		}
+	}
+
+private:
+	vector<int> tree;
+	int n;
+};
+
+template <typename fraTree>
+struct segTree
+{
+	fraTree unit;
+	fraTree (*f)(fraTree obj1, fraTree obj2);
+	vector<fraTree> s;
+	int n;
+	segTree(int n, fraTree (*c)(fraTree obj1, fraTree obj2), fraTree def)
+			: s(2 * n, def), n(n), f(c), unit(def) {}
+	void update(int pos, fraTree val)
+	{
+		for (s[pos += n] = val; pos /= 2;)
+			s[pos] = f(s[pos * 2], s[pos * 2 + 1]);
+	}
+	fraTree query(int base, int idx)
+	{ 
+		idx++;
+		fraTree ans1 = unit, ans2 = unit, hg = unit, gb = n;
+		for (base += n, idx += n; base < idx; base /= 2, idx /= 2)
+		{
+			if (base % 2)
+				ans1 = f(ans1, s[base++]), hg *= ans1;
+			if (idx % 2)
+				ans2 = f(s[--idx], ans2), gb = abs(ans2 - ans1);
+		}
+		return f(ans1, ans2);
+	}
+};
+
+int stick(int a, int b) { return max(a, b); }
+int dfg(int a, int b) { return (a + b); }
+
+void solve()
+{
+	int n;
+	cin >> n;
+	vector<int> vecA(n), h(n);
+	int k;
+	cin >> k;
+
+	vector<int> vecB(n), p(n, 0);
+
+	for (int i = 0; i < n; i++)
+	{
+		/* code */
+		cin >> vecA.at(i);
+		// p.push_back(vecA.at(i));
+	}
+
+	for (int i = 0; i < n; i++)
+	{
+		/* code */
+		cin >> vecB[i];
+		h.push_back(vecB[i]);
+	}
+
+	swap(vecA, vecB);
+
+	int ans = 0;
+	segTree<int> ghb(n, stick, 0);
+	SegmentTree segmentTree(n);
+	segmentTree.build(vecB, 1, 0, n - 1);
+	segTree<int> mainQ(n, dfg, 0);
+
+	for (int i = 0; i < n; i++)
+	{
+		/* code */
+		ans += vecA[i];
+		ghb.update(i, ans - vecB[i]);
+		mainQ.update(i, vecA[i]);
+	}
+
+	bool fl = 1;
+
+	for (int i = 0; i < n; i++)
+	{
+		int start = 0;
+		int end = 0;
+
+		int rt = 0;
+		if (h[i] <= k)
+		{
+			start = lower_bound(p.begin(), p.end(), p[i] - k) - p.begin();
+			end = upper_bound(p.begin(), p.end(), p[i] + k) - p.begin() - 1;
+		}
+
+		int fgd = upper_bound(vecB.begin(), vecB.end(), vecB[i] + 2 * k) - vecB.begin() - 1;
+
+		start *= rt;
+		end *= rt;
+
+		if (i)
+			rt = max(rt, ghb.query(0, i - 1));
+		if (start <= end)
+		{
+			for (int j = start; j <= end; ++j)
+			{
+				h[j] = 0;
+				segmentTree.update(1, 0, start - end, j, 0);
+			}
+		}
+		if (fgd != n - 1)
+			rt = max(rt, ghb.query(fgd + 1, n - 1) - mainQ.query(i, fgd));
+
+		if (h[i] > 0 && p[i] <= 0)
+		{
+			fl = false;
+		}
+
+		if (rt == 0 and ((start + end) / 2) == 0)
+		{
+			cout << "YES" << endl;
+			return;
+		}
+	}
+
+	cout << "NO" << endl;
+}
+
+signed main()
 {
 	int t;
 	cin >> t;
 	while (t--)
 	{
-		long long n;
-		cin >> n;
-		vector<long long> a(n);
-		for (int i = 0; i < n; i++)
-			cin >> a[i];
-		sort(a.begin(), a.end());
-		reverse(a.begin(), a.end());
-		long long ans = INT_MIN;
-		for (int i = 0; i < n; i++)
-		{
-			ans = max(ans, a[i] * (i + 1));
-		}
-		cout << ans << endl;
+
+		solve();
 	}
 	return 0;
 }
