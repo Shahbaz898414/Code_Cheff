@@ -223,5 +223,23 @@ Professional Growth: I see the MLH Fellowship as a stepping stone to my expert i
 
 Being an MLH Fellow could permit me to work on impactful projects, gain publicity to new technology, and receive mentorship from enterprise experts. I'm eager to make contributions my abilities to the MLH community whilst additionally mastering from others, in the end helping me to grow as a developer and hassle solver. This fellowship represents a unique hazard to be a part of a supportive and modern environment, and I'm enthusiastic about the possibility of contributing to and growing with MLH.
 
+////////////////////////////////////////////////////////////////////////
 
+I am excited about the opportunity to join the MLH Fellowship and contribute to its diverse community. My experiences and background in full stack development, mentoring, and content creation would bring a unique perspective to the fellowship.
+
+As a Full Stack Developer Intern at Pyramid Developers, I honed my skills in React Native and Flutter, optimizing code, and implementing containerization strategies using Docker. My experience with developing a robust CI/CD pipeline and proposing design improvements would add value to collaborative projects within the fellowship.
+
+During my internship at NULL CLASS, I gained hands-on experience in creating RESTful Web Services, developing React JS controllers, and generating verification codes with Node JS. This practical knowledge of backend and frontend technologies would be beneficial in collaborative coding sessions and hackathons.
+
+As a mentor at TLE, I guided 180 students in understanding complex algorithms and competitive programming strategies. This role helped me develop strong communication skills and the ability to break down intricate concepts, which would be valuable in peer learning and support within the fellowship.
+
+Additionally, I have created over 130 educational videos on YouTube, covering programming languages like C++, JavaScript, React, CSS, and HTML. This content has helped many learners improve their problem-solving skills and understanding of DSA, showcasing my commitment to knowledge sharing and community building.
+
+My technical skills include proficiency in C++, JavaScript, Python, HTML5, CSS3, MongoDB, Express.js, React.JS, Node.JS, Tailwind CSS, and Spring Boot. I am also experienced with developer tools like VS Code, Firebase, Git, GitHub, Postman, Docker, and Kubernetes.
+
+I have consistently performed well in competitive programming, achieving high rankings on platforms like CodeChef and Codeforces. This experience has sharpened my problem-solving abilities and my determination to excel in challenging environments.
+
+At Shree LR Tiwari College, I actively participated in and organized coding events, spreading knowledge and fostering a collaborative spirit among students. I am eager to bring this same enthusiasm to the MLH Fellowship, contributing to a vibrant and supportive community.
+
+Thank you for considering my application. I am looking forward to the opportunity to learn, grow, and contribute to the MLH Fellowship community.
 */
