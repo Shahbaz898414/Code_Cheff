@@ -99,15 +99,32 @@ struct segTree
 int stick(int a, int b) { return max(a, b); }
 int dfg(int a, int b) { return (a + b); }
 
-void solve()
-{
-	int n;cin>>n;
+void solve() {
 
+	int n;
+	    cin >> n;
+	    int arr[n];
+	    
+	    map<int, int> mp;
+	    
+	    for(int i = 0;i<n;i++){
+	        cin >> arr[i];
+	        mp[arr[i]]++;
+	    }
+	    
+	    long long int minval = INT_MAX;
+	    
+	    for(auto it : mp){
+	        minval = min(minval, (long long int)(n-it.second)*it.first);
+	    }
+	    
+	    cout << min(minval, (long long int)n) << endl;
+  
 
-	string s1,s2;cin>>s1>>s2;
 
 
 }
+
 
 signed main()
 {
@@ -122,12 +139,3 @@ signed main()
 }
 
 
-
-/*
-
-
-#networking #Hiring #TechJobs #SoftwareEngineer #linkedin #college
-#JobOpportunities #CareerGrowth #jobs #contentcreator #community #college
-#connection #JobAlert #HiringNow #SoftwareEngineer #CareerOpportunities #TechJobs #JobSearch #Connection
-
-*/
