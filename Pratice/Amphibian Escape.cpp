@@ -101,32 +101,30 @@ int dfg(int a, int b) { return (a + b); }
 
 void solve() {
 
-	int n;
-	    cin >> n;
-	    int arr[n];
+	int n,k,h; cin>>n>>k>>h;
 	    
-	    map<int, int> mp;
-	    
-	    for(int i = 0;i<n;i++){
-	        cin >> arr[i];
-	        mp[arr[i]]++;
-	    }
-	    
-	     int minval = INT_MAX;
+  int ans=0;
 
-       for(auto it:mp){
-        cout<<it.first<<" "<<it.second<<endl;
-       }
+  for (int i = 1; i <=n; i++)
+  {
+    
+    if(i>=h){
+      // cout<<n<<" ";
+      ans+=n;
+    }
+    else {
+      int b=((i*k)-h)/(k-1);
 
-       cout<<endl;
-	    
-	    for(auto it : mp){
-	        minval = min(minval, ( int)(n-it.second)*it.first);
-	    }
-	    
-	    cout << min(minval, ( int)n) << endl;
+      if(b>0) { ans+=b;
+        // cout<<i<<" "<<b<<endl;
+      }
+    }
+  }
+
+  cout<<endl;
   
 
+  cout<<ans<<endl;
 
 
 }
