@@ -54,50 +54,7 @@ ll f(ll ind, ll flg, vector<ll> &v, vector<ll> &initialPrefixPermutation, ll n, 
 void solve()
 {
 
-  ll n;
-  cin >> n;
-
-  vector<ll> v(n + 1, 0);
-  vector<ll> prefixSum(n + 1, 0);
-
-  for (ll i = 1; i <= n; i++)
-  {
-    cin >> v[i];
-    prefixSum[i] = v[i];
-    prefixSum[i] += prefixSum[i - 1];
-  }
-  // cout<<"prefix"<<endl;
-  // for(auto it:prefixSum){
-  //   cout<<it<<" ";
-  // }
-  // cout<<endl;
-
-  vector<ll> initialPrefixPermutation(n + 1, 0);
-  initialPrefixPermutation[0] = 1;
-  ll sm = 0;
-
-  for (ll i = 1; i <= n; i++)
-  {
-    sm += v[i];
-    if (sm == (i * (i + 1ll)) / 2ll)
-    {
-      initialPrefixPermutation[i] = 1;
-    }
-  }
-
-  // cout<<"initialPrefixPermutation"<<endl;
-
-  // for(auto it:initialPrefixPermutation){
-  //   cout<<it<<" ";
-  // }
-
-  // cout<<endl;
-
-  vector<vector<ll>> dp(n + 1, vector<ll>(3, -1));
-
-  ll ans = f(1, 0, v, initialPrefixPermutation, n, dp, prefixSum);
-
-  cout << ans << endl;
+ 
 }
 
 signed main()
@@ -111,10 +68,3 @@ signed main()
   }
   return 0;
 }
-
-
-/*
-
-
-
-*/
