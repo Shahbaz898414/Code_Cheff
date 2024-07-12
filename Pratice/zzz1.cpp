@@ -1,133 +1,82 @@
+#include <iostream>
+#include <vector>
+#include <cmath>
 #include <bits/stdc++.h>
-using namespace std;
-
 #define ll long long
 #define int long long
+using namespace std;
 
-class SegmentTree
+  int maxPrime = sqrt(1e9) + 1;
+    vector<bool> isPrimeArr(maxPrime, true);
+    vector<int> primes1;
+
+bool isPrime(int number)
 {
-public:
-	SegmentTree(int n) : n(n)
+	for (int divisor = 2; divisor * divisor <= number; divisor++)
 	{
-		tree.assign(4 * n, 0);
+		if (number % divisor == 0)
+			return false;
 	}
+	return true;
+}
 
-	void build(const vector<int> &healths, int v, int tl, int tr)
-	{
-		if (tl == tr)
-		{
-			tree[v] = healths[tl];
-		}
-		else
-		{
-			int tm = (tl + tr) / 2;
-			build(healths, v * 2, tl, tm);
-			build(healths, v * 2 + 1, tm + 1, tr);
-			tree[v] = tree[v * 2] + tree[v * 2 + 1];
-		}
-	}
+bool isPerfectSquare(int n) {
+    int sqrt_n = sqrt(n);
+    return sqrt_n * sqrt_n == n;
+}
 
-	int sum(int v, int tl, int tr, int l, int r)
-	{
-		if (l > r)
-		{
-			return 0;
-		}
-		if (l == tl && r == tr)
-		{
-			return tree[v];
-		}
-		int tm = (tl + tr) / 2;
-		return sum(v * 2, tl, tm, l, min(r, tm)) + sum(v * 2 + 1, tm + 1, tr, max(l, tm + 1), r);
-	}
-
-	void update(int v, int tl, int tr, int pos, int new_val)
-	{
-		if (tl == tr)
-		{
-			tree[v] = new_val;
-		}
-		else
-		{
-			int tm = (tl + tr) / 2;
-			if (pos <= tm)
-			{
-				update(v * 2, tl, tm, pos, new_val);
-			}
-			else
-			{
-				update(v * 2 + 1, tm + 1, tr, pos, new_val);
-			}
-			tree[v] = tree[v * 2] + tree[v * 2 + 1];
-		}
-	}
-
-private:
-	vector<int> tree;
-	int n;
-};
-
-template <typename fraTree>
-struct segTree
+int findPrimeProduct(int start)
 {
-	fraTree unit;
-	fraTree (*f)(fraTree obj1, fraTree obj2);
-	vector<fraTree> s;
-	int n;
-	segTree(int n, fraTree (*c)(fraTree obj1, fraTree obj2), fraTree def)
-			: s(2 * n, def), n(n), f(c), unit(def) {}
-	void update(int pos, fraTree val)
+
+
+    
+	vector<int> primes;
+	 long long y = start + 1;
+	 int cnt,k=0;
+	while (primes.size() < 2)
 	{
-		for (s[pos += n] = val; pos /= 2;)
-			s[pos] = f(s[pos * 2], s[pos * 2 + 1]);
+
+		if (isPrime(start)) primes.push_back(start);
+		if (!isPrime(y) && !isPerfectSquare(y)) {
+            bool hasSmallerFactor = false;
+            for (int p : primes) {
+                if (y % p == 0 && p < start) {
+                    hasSmallerFactor = true;
+                    break;
+                }
+            }
+            if (!hasSmallerFactor) {
+               cnt=y;
+            }
+    }
+		start++;
 	}
-	fraTree query(int base, int idx)
-	{ 
-		idx++;
-		fraTree ans1 = unit, ans2 = unit, hg = unit, gb = n;
-		for (base += n, idx += n; base < idx; base /= 2, idx /= 2)
-		{
-			if (base % 2)
-				ans1 = f(ans1, s[base++]), hg *= ans1;
-			if (idx % 2)
-				ans2 = f(s[--idx], ans2), gb = abs(ans2 - ans1);
-		}
-		return f(ans1, ans2);
-	}
-};
-
-int stick(int a, int b) { return max(a, b); }
-int dfg(int a, int b) { return (a + b); }
-
-void solve()
-{
-	int n;cin>>n;
-
-
-	string s1,s2;cin>>s1>>s2;
-
-
+	return max(primes[0] * primes[1],y*k*cnt);
 }
 
 signed main()
 {
-	int t;
-	cin >> t;
-	while (t--)
-	{
 
-		solve();
+	 for (int i = 2; i < maxPrime; i++) {
+        if (isPrimeArr[i]) {
+            primes1.push_back(i);
+            for (int j = i * i; j < maxPrime; j += i) {
+                isPrimeArr[j] = false;
+            }
+        }
+    }
+	int T; // Number of test cases
+	cin >> T;
+
+	while (T--)
+	{
+		int inputNumber;
+		cin >> inputNumber;
+		if (inputNumber == 1)
+			inputNumber++;
+		cout << findPrimeProduct(inputNumber) << endl;
 	}
+
 	return 0;
 }
 
-
-
-/*
-
-
-#networking #Hiring #TechJobs #SoftwareEngineer #linkedin #college
-#JobOpportunities #CareerGrowth #jobs #contentcreator #community #college
-#connection #JobAlert #HiringNow #SoftwareEngineer #CareerOpportunities #TechJobs #JobSearch #Connection
-
-*/

@@ -5,54 +5,76 @@ using namespace std;
 #define int long long
 
 
-ll f(ll ind, ll flg, vector<ll> &v, vector<ll> &initialPrefixPermutation, ll n, vector<vector<ll>> &dp, vector<ll> &prefixSum) {
-
-  if (ind > n)
-    return 0;
-  
-
-  if (ind == n)
-    return initialPrefixPermutation[ind];
-  
-
-  if (dp[ind][flg] != -1)  
-    return dp[ind][flg];
-
-
-  // flg==2 to swap operation chl kar ruk gya
-  if (flg == 2)
-  
-    return dp[ind][flg] = initialPrefixPermutation[ind] + f(ind + 1, flg, v, initialPrefixPermutation, n, dp, prefixSum);
-
-
-  // flg==1 To swap operation chl rha h
-  if (flg == 1)
-  {
-    // ans1 mtlb yaha se hm swap operation rook rhe h
-    ll ans1 = initialPrefixPermutation[ind] + f(ind + 1, 2, v, initialPrefixPermutation, n, dp, prefixSum);
-
-    // ans2 mtlb purana swap operation continue h
-    ll ans2 = initialPrefixPermutation[ind + 1];
-    ll currentSum = prefixSum[ind] - v[ind] + v[ind + 1];
-    if (currentSum == ((ind * (ind + 1)) / 2ll))
-    {
-      ans2++;
-    }
-    ans2 += f(ind + 2, flg, v, initialPrefixPermutation, n, dp, prefixSum);
-    return dp[ind][flg] = max(ans1, ans2);
-  }
-
-  // flg==0 start kar rhe h ind se
-  if (flg == 0)
-  {
-    ll ans1 = initialPrefixPermutation[ind] + f(ind + 1, flg, v, initialPrefixPermutation, n, dp, prefixSum);
-    ll ans2 = f(ind, 1, v, initialPrefixPermutation, n, dp, prefixSum);
-    return dp[ind][flg] = max(ans1, ans2);
-  }
-}
-
 void solve()
 {
+  int n;cin>>n;
+  vector<int> ar(n);
+  for (int i = 0; i < n; i++)
+  {
+    /* code */
+   cin>>ar[i];
+  }
+  
+
+  set<int>  posMed;
+
+  vector<int> b;
+  // iota((b.begin(),b.end()),0);
+  for (int i = 0; i <n; i++)
+  {
+    /* code */
+    b.push_back(i);
+  }
+
+  // for(auto it:b){
+  //   cout<<it<<" ";
+  // }
+
+  // cout<<endl;
+
+  sort(b.begin(),b.end(),[&](const int &x, const int &y)->bool{
+    if(ar[x]!=ar[y]){
+      return ar[x]<ar[y];
+    }
+
+    return x<y;
+  });
+
+  vector<int>  rest(n,1);
+
+  int cntLargeOrEqual=n,cntSegSmall=0;
+  for(auto &idx:b){
+    if(cntLargeOrEqual>cntSegSmall){
+      posMed.insert(ar[idx]);
+    }
+
+    cntLargeOrEqual--;
+    rest[idx]=0;
+    cntSegSmall++;
+
+    if(idx>0 and rest[idx-1]==0){
+      cntSegSmall--;
+    }
+
+    if(idx<n-1 and rest[idx+1]==0){
+      cntSegSmall--;
+    }
+  }
+
+  string s;
+
+  for(auto &it:ar){
+    if(posMed.count(it)){
+      s+="1";
+    }else {
+      s+="0";
+    }
+  }
+
+  cout<<s<<endl;
+
+
+  
 
  
 }

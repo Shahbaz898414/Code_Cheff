@@ -1,0 +1,1 @@
+{"name":"Local: Color Difference","url":"c:\\Users\\91771\\Desktop\\cpp\\code_cheff\\Pratice\\Color Difference.cpp","tests":[{"id":1720792491403,"input":"1\n6 3\n3 1 6 3 2 2\n1 3\n1 6\n3 5","output":""}],"interactive":false,"memoryLimit":1024,"timeLimit":3000,"srcPath":"c:\\Users\\91771\\Desktop\\cpp\\code_cheff\\Pratice\\Color Difference.cpp","group":"local","local":true}
