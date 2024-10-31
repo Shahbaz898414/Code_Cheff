@@ -21,17 +21,15 @@ signed main()
 
     for (int i = 1; i <= n; i++)
     {
-      /* code */
       if (n % i == 0)
       {
         if (i % 2 == 0)
-        {
+
           even.push_back(i);
-        }
+
         else
-        {
+
           odd.push_back(i);
-        }
       }
     }
 
