@@ -20,18 +20,12 @@ signed main()
     vector<ll> even, odd;
 
     for (int i = 1; i <= n; i++)
-    {
-      if (n % i == 0)
-      {
+      if (n % i == 0){
         if (i % 2 == 0)
-
           even.push_back(i);
-
         else
-
           odd.push_back(i);
       }
-    }
 
     if (even.size() == odd.size())
     {
@@ -46,8 +40,6 @@ signed main()
       cout << -1 << endl;
     }
 
-    // cout << n << endl;
   }
-
   return 0;
 }
